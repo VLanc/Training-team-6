@@ -1,0 +1,54 @@
+#f {
+    border: 1px solid black;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    font-family: Arial;
+    width: 360px;
+}
+
+#f fieldset {
+    margin: 0 0 5px 0;
+    border: none;
+}
+
+#f fieldset:last-child {
+    margin: 0;
+}
+
+#f fieldset label {
+    display: block;
+    font-weight: bold;
+    line-height: 1.4;
+    color: #777;
+    color: rgba(0, 0, 0, 0.7);
+    text-shadow: 0 1px 1px #fff;
+}
+
+#f input[type="text"], input[type="email"], input[type="password"] {
+    width: 307px;
+    padding: 5px 8px;
+    font-size: 1.2em;
+    color: #000;
+    border: 1px solid gray;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 12%, from(#999), to(#fff));
+    background-image: -moz-linear-gradient(0% 12% 90deg, #fff, #999);
+    background-color: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#f input[type="submit"], #f input[type="reset"] {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    line-height: 1;
+    font-size: 1.2em;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#bbb));
+    background-image: -moz-linear-gradient(0% 100% 90deg, #bbb, #fff);
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
