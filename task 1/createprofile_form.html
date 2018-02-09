@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Create profile</title>
     <link rel="stylesheet" href="createprof_style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -11,23 +12,51 @@
     <p class="p">CREATE PROFILE</p>
     <form action="">
         <div class="fullreg">
+
             <div class="circle">
-
+                <img src="img/Blank_Avatar.png" id="upload-img" alt="image"/>
             </div>
 
+
             <div class="reg_form">
-                <input type="text" name="first_name" placeholder="Enter First Name" required pattern="[A-Za-z]{1,15}" title="Имя должно содержать только буквы латинского алфавита">
+                <input type="text" name="first_name" placeholder="Enter First Name" required pattern="[A-Za-z]{1,15}"
+                       title="Имя должно содержать только буквы латинского алфавита">
             </div>
             <div class="reg_form">
-                <input type="text" name="last_name" placeholder="Enter Last Name" required pattern="[A-Za-z]{1,15}" title="Фамилия должна содержать только буквы латинского алфавита">
+                <input type="text" name="last_name" placeholder="Enter Last Name" required pattern="[A-Za-z]{1,15}"
+                       title="Фамилия должна содержать только буквы латинского алфавита">
             </div>
             <div class="reg_form">
-                <input type="text" name="phone" placeholder="Enter phone" required pattern="\d{1,15}" title="Номер может содержать только цифры">
+                <input type="text" name="phone" placeholder="Enter phone" required pattern="\d{1,15}"
+                       title="Номер может содержать только цифры">
             </div>
+
+            <div class="uploadfile">
+                <label for="upload" class="custom-file-upload">
+                    <i class="fa fa-cloud-upload"></i> Upload image
+                </label>
+                <input type="file" id="upload" accept="image/*"/>
+
+                <script language="javascript">
+                    function readURL(e) {
+                        if (this.files && this.files[0]) {
+                            var reader = new FileReader();
+                            $(reader).load(function (e) {
+                                $('#upload-img').attr('src', e.target.result);
+                            });
+                            reader.readAsDataURL(this.files[0]);
+                        }
+                    }
+
+                    $("#upload").change(readURL);
+                </script>
+            </div>
+
 
         </div>
 
         <button type="submit">Create</button>
+
     </form>
 </div>
 
