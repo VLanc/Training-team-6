@@ -14,8 +14,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 button {
-    background-color: #cfe2e4;
-    color: black;
+    background-color: #15e448;
+    color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
