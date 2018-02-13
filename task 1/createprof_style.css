@@ -1,21 +1,19 @@
-
 .main {
     text-align: center;
 
 }
 
-.p {
+p {
     margin-right: 25%;
     margin-top: 20px;
 }
 
-input[type=text], input[type=password], input[type=email] {
+input[type=text], input[type=password], input[type=email], input[type=tel] {
     width: 25%;
     margin: 8px 0;
     padding: 12px 20px;
     display: inline-block;
     border: none;
-    outline: none;
     border-bottom: 1px solid #ccc;
     box-sizing: border-box;
 }
@@ -38,30 +36,28 @@ button:hover {
 
 .circle {
     position: absolute;
-    margin-left: 25%;
+    margin-left: 310px;
     margin-top: 25px;
-    width: 110px; /* задаете свои размеры */
+    width: 110px;
     height: 110px;
     overflow: hidden;
     background: #fff;
-    padding: 0px; /* создание отступов */
+    padding: 0;
     border-radius: 50%;
-    /* не забываем о кроссбраузерности */
+
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border: #aaa 1px solid;
-    box-shadow: 0px 1px 1px 1px #bbb; /* тень */
-    -moz-box-shadow: 0px 1px 1px 1px #bbb;
-    -webkit-box-shadow: 0px 1px 1px 1px #bbb;
-    
+    box-shadow: 0px 1px 1px 1px #bbb;
+
 }
 
 .circle img {
     display: block;
     width: 100%;
     height: 100%;
-    margin:0 auto;
-    text-align: -webkit-center;
+    margin: 0 auto;
+    text-align: center;
 }
 
 input[type="file"] {
