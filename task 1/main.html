@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main-style.css">
+    <title>HR APP</title>
+</head>
+<body>
+
+<div class="tab">
+    <button class="disabletab">HR APP</button>
+    <button class="tablinks" onclick="openTab(event, 'Interview')">Interview</button>
+    <button class="tablinks" onclick="openTab(event, 'Vacancies')" id="defaultOpen">Vacancies</button>
+    <button class="tablinks" onclick="openTab(event, 'Candidates')">Candidates</button>
+    <button class="tablinks" onclick="openTab(event, 'Management')">Management</button>
+</div>
+
+<div id="Interview" class="tabcontent">
+    <h3>Interview</h3>
+    <p>Interview Interview</p>
+</div>
+
+<div id="Vacancies" class="tabcontent">
+    <h3>Vacancies</h3>
+    <p>Vacancies Vacancies</p>
+</div>
+
+<div id="Candidates" class="tabcontent">
+    <h3>Candidates</h3>
+    <p>Candidates Candidates</p>
+</div>
+
+<div id="Management" class="tabcontent">
+    <h3>Management</h3>
+    <p>Management Management</p>
+</div>
+
+<script>
+    function openTab(evt, Name) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(Name).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+</body>
+</html>
