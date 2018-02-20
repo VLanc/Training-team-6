@@ -13,7 +13,7 @@ body {
     border: 1px solid #ccc;
     background-color: #f1f1f1;
     width: 15%;
-    height: 89.8vh;
+    height: 565px;
 }
 
 /* Style the buttons inside the tab */
@@ -48,7 +48,7 @@ body {
     border: 1px solid #ccc;
     width: 85%;
     border-left: none;
-    height: 89.8vh;
+    height: 565px;
     position: relative;
     padding-bottom: 50px;
 }
