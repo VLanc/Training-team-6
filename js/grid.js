@@ -1,5 +1,5 @@
 var orders;
-jQuery.getJSON('data.json', {} ,function(json){
+jQuery.getJSON('data.json', {}, function (json) {
     orders = json;
 });
 $(function () {
@@ -10,13 +10,15 @@ $(function () {
             paging: true
         },
         paging: {
-            pageSize: 10
+            pageSize: 13
+
         },
         pager: {
-            showPageSizeSelector: true,
+            showPageSizeSelector: false,
             allowedPageSizes: [10, 20, 50],
-            showInfo: true
+            showNavigationButtons: true
         },
+
         columnsAutoWidth: true,
         filterRow: {
             visible: true,
@@ -27,11 +29,15 @@ $(function () {
             width: 340,
             placeholder: "Search..."
         },
+
+        columnMinWidth: 100,
+
+
         headerFilter: {
             visible: false
         },
-        columns: ["Position", "Name", "address", "city", "mobileNumber", "homeNumber", "email"
-        ]
+
+
     }).dxDataGrid('instance');
 
     var applyFilterTypes = [{
