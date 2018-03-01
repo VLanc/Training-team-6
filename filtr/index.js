@@ -1,6 +1,18 @@
 $(function(){
 	var dataGrid = $("#gridContainer").dxDataGrid({
 		dataSource: orders,
+		remoteOperations: {
+			sorting: true,
+			paging: true
+		},
+		paging: {
+			pageSize: 10
+		},
+		pager: {
+			showPageSizeSelector: true,
+			allowedPageSizes: [5, 10, 20],
+			showInfo: true
+		},
 		columnsAutoWidth: true,
 		filterRow: {
 			visible: true,
