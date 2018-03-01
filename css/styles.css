@@ -4,7 +4,9 @@ body {
     cursor: default;
     text-transform: uppercase;
     font-size: 2vh;
+
     overflow: hidden;
+
 }
 
 .reset {
@@ -126,8 +128,10 @@ h5 {
     font-size: 7.5vh;
 }
 
+
 #gridContainer {
     margin-top: 5px;
 
 }
+
 /*****************/
