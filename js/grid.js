@@ -10,11 +10,11 @@ $(function () {
             paging: true
         },
         paging: {
-            pageSize: 13
+            pageSize: 10
 
         },
         pager: {
-            showPageSizeSelector: false,
+            showPageSizeSelector: true,
             allowedPageSizes: [10, 20, 50],
             showNavigationButtons: true
         },
