@@ -1,0 +1,16 @@
+{
+  "name": "training-team-6-master",
+  "version": "1.0.0",
+  "description": "За эту неделю было сделано: 1. Адаптивный дизайн с помощью bootstrap 2. Создали json файл. 3. Была сделана таблица  4. Данные в таблицу грузятся из json файла. 5. Была добавлена пагинация.",
+  "main": "server.js",
+  "dependencies": {
+    "restify": "^6.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Team 6 mifort",
+  "license": "ISC"
+}
