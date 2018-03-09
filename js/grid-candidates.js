@@ -30,14 +30,14 @@ $(function () {
             ;
 
             var dateOfAddUser = (now - val['date']) / 86400;
-            if (dateOfAddUser < 1) val['date'] = 'added today';
+            if (dateOfAddUser < 1) val['date'] = 'today';
             else if (1 < dateOfAddUser && 2 > dateOfAddUser) val['date'] = '1 day later';
             else if (2 < dateOfAddUser && 3 > dateOfAddUser) val['date'] = '2 day later';
             else if (3 < dateOfAddUser && 4 > dateOfAddUser) val['date'] = '3 day later';
             else if (7 < dateOfAddUser && 14 > dateOfAddUser) val['date'] = 'about 1 week';
             else if (14 < dateOfAddUser && 20 > dateOfAddUser) val['date'] = 'about 2 weeks';
             else if (21 < dateOfAddUser && 27 > dateOfAddUser) val['date'] = 'about 3 weeks';
-            else if (21 < dateOfAddUser && 27 > dateOfAddUser) val['date'] = 'this happened a long time ago :(';
+            else if (21 < dateOfAddUser && 27 > dateOfAddUser) val['date'] = 'a long time ago';
 
             $('#grid').append(
                 '<div class="col-lg-3 col-md-4 col-xs-6 grid__candidate all ' + val['status'] + '">' +
