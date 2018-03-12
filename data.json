@@ -1,713 +1,912 @@
 ﻿[
   {
+    "date": "1520595564",
+    "status": "Accepted for  interview",
     "Position": "Java Developer",
-    "Name": "Иван Иванов",
+    "Name": "Уася Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": ""
   },
   {
+    "date": "1520509164",
+    "status": "CV-Rejected",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2000",
+    "photo": "02"
   },
   {
+    "date": "1520509164",
+    "status": "Accepted for  interview",
     "Position": "Team Leader",
     "Name": "Вася Пупкин",
     "address": "Минская, 10, кв.54",
     "city": "Минск",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Vasya_pupkin@mail.ru"
+    "email": "Vasya_pupkin@mail.ru",
+    "salary": "2520",
+    "photo": "03"
   },
   {
+    "date": "1520336364",
+    "status": "NEW",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2400",
+    "photo": "04"
   },
   {
+    "date": "1519990764",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2570",
+    "photo": "01"
   },
   {
+    "date": "1520509164",
+    "status": "Accepted for  interview",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "5500",
+    "photo": "02"
   },
   {
+    "date": "1519990764",
+    "status": "CV-Rejected",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "25000",
+    "photo": "03"
   },
   {
+    "date": "1520336364",
+    "status": "Accepted for  interview",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "4400",
+    "photo": "04"
   },
   {
+    "date": "1520595564",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1519990764",
+    "status": "Accepted for  interview",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1519990764",
+    "status": "CV-Rejected",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1519990764",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520595564",
+    "status": "Accepted for  interview",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1520509164",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1520336364",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1519990764",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520595564",
+    "status": "Accepted for  interview",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1520509164",
+    "status": "CV-Rejected",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1519990764",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1519990764",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520595564",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1520509164",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1519990764",
+    "status": "Accepted for  interview",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1520595564",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520509164",
+    "status": "CV-Rejected",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1519990764",
+    "status": "Accepted for  interview",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1520336364",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1520595564",
+    "status": "CV-Rejected",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1519990764",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1519385959",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1519385959",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1520595564",
+    "status": "CV-Rejected",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520509164",
+    "status": "Accepted for  interview",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1520336364",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1519990764",
+    "status": "CV-Rejected",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1520595564",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520509164",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1519385959",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1519990764",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1520595564",
+    "status": "Accepted for  interview",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520509164",
+    "status": "CV-Accepted",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1519385959",
+    "status": "CV-Rejected",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1519990764",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1519990764",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520595564",
+    "status": "CV-Accepted",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1520509164",
+    "status": "Accepted for  interview",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1519990764",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1520336364",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520595564",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1520509164",
+    "status": "Accepted for  interview",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1519385959",
+    "status": "CV-Accepted",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1519385959",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520595564",
+    "status": "CV-Accepted",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1520509164",
+    "status": "CV-Accepted",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1520336364",
+    "status": "Accepted for  interview",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1519385959",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520595564",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1520509164",
+    "status": "CV-Accepted",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1519385959",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1519385959",
+    "status": "Accepted for  interview",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520595564",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1520509164",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1519385959",
+    "status": "New",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1520336364",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520595564",
+    "status": "CV-Accepted",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "01"
   },
   {
+    "date": "1520509164",
+    "status": "CV-Accepted",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1519385959",
+    "status": "Accepted for  interview",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   },
   {
+    "date": "1520336364",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "04"
   },
   {
+    "date": "1520595564",
+    "status": "CV-Accepted",
     "Position": "QA",
     "Name": "Петр Петров",
     "address": "Ленинградкое ш., 10, кв.54",
     "city": "Ленинград",
     "mobileNumber": "+375298763581",
     "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Piotr_petrov@mail.ru",
+    "salary": "2500",
+    "photo": "02"
   },
   {
+    "date": "1520509164",
+    "status": "New",
     "Position": "Java Developer",
     "Name": "Иван Иванов",
     "address": "Московское ш., 101, кв.101",
     "city": "Санкт-Петербург",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
-  },
-  {
-    "Position": "QA",
-    "Name": "Петр Петров",
-    "address": "Ленинградкое ш., 10, кв.54",
-    "city": "Ленинград",
-    "mobileNumber": "+375298763581",
-    "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
-  },
-  {
-    "Position": "Java Developer",
-    "Name": "Иван Иванов",
-    "address": "Московское ш., 101, кв.101",
-    "city": "Санкт-Петербург",
-    "mobileNumber": "+375447549706",
-    "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
-  },
-  {
-    "Position": "QA",
-    "Name": "Петр Петров",
-    "address": "Ленинградкое ш., 10, кв.54",
-    "city": "Ленинград",
-    "mobileNumber": "+375298763581",
-    "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
-  },
-  {
-    "Position": "Java Developer",
-    "Name": "Иван Иванов",
-    "address": "Московское ш., 101, кв.101",
-    "city": "Санкт-Петербург",
-    "mobileNumber": "+375447549706",
-    "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
-  },
-  {
-    "Position": "QA",
-    "Name": "Петр Петров",
-    "address": "Ленинградкое ш., 10, кв.54",
-    "city": "Ленинград",
-    "mobileNumber": "+375298763581",
-    "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
-  },
-  {
-    "Position": "Java Developer",
-    "Name": "Иван Иванов",
-    "address": "Московское ш., 101, кв.101",
-    "city": "Санкт-Петербург",
-    "mobileNumber": "+375447549706",
-    "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
-  },
-  {
-    "Position": "QA",
-    "Name": "Петр Петров",
-    "address": "Ленинградкое ш., 10, кв.54",
-    "city": "Ленинград",
-    "mobileNumber": "+375298763581",
-    "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
-  },
-  {
-    "Position": "Java Developer",
-    "Name": "Иван Иванов",
-    "address": "Московское ш., 101, кв.101",
-    "city": "Санкт-Петербург",
-    "mobileNumber": "+375447549706",
-    "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru"
-  },
-  {
-    "Position": "QA",
-    "Name": "Петр Петров",
-    "address": "Ленинградкое ш., 10, кв.54",
-    "city": "Ленинград",
-    "mobileNumber": "+375298763581",
-    "homeNumber": "+375174455879",
-    "email": "Piotr_petrov@mail.ru"
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "2500",
+    "photo": "03"
   }
 ]
