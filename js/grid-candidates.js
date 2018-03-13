@@ -34,14 +34,17 @@ $(function () {
             else if (1 < dateOfAddUser && 2 > dateOfAddUser) val['date'] = '1 day later';
             else if (2 < dateOfAddUser && 3 > dateOfAddUser) val['date'] = '2 day later';
             else if (3 < dateOfAddUser && 4 > dateOfAddUser) val['date'] = '3 day later';
+            else if (4 < dateOfAddUser && 5 > dateOfAddUser) val['date'] = '4 day later';
+            else if (5 < dateOfAddUser && 6 > dateOfAddUser) val['date'] = '5 day later';
+            else if (6 < dateOfAddUser && 7 > dateOfAddUser) val['date'] = '6 day later';
             else if (7 < dateOfAddUser && 14 > dateOfAddUser) val['date'] = 'about 1 week';
             else if (14 < dateOfAddUser && 20 > dateOfAddUser) val['date'] = 'about 2 weeks';
-            else if (21 < dateOfAddUser && 27 > dateOfAddUser) val['date'] = 'about 3 weeks';
-            else if (21 < dateOfAddUser && 27 > dateOfAddUser) val['date'] = 'a long time ago';
+            else if (20 < dateOfAddUser && 27 > dateOfAddUser) val['date'] = 'about 3 weeks';
+            else if (dateOfAddUser > 27) val['date'] = 'a long time ago';
 
             $('#grid').append(
-                '<div class="col-lg-3 col-md-4 col-xs-6 grid__candidate all ' + val['status'] + '">' +
-                '<a href="#">' +
+                '<div  class="col-lg-3 col-md-4 col-xs-6 grid__candidate all ' + val['status'] + '">' +
+                '<a  href="#">' +
                 '<div class="grid__candidate__box">' +
                 '<div class="grid__candidate__box__icon">' +
                 '<div class="grid__candidate__box__icon__status">' + val['status'] + '</div>' +
@@ -51,9 +54,24 @@ $(function () {
                 '<div class="grid__candidate__box__name">' + val['Name'] + '</div>' +
                 '<div class="grid__candidate__box__salary">' + val['salary'] + '</div>' +
                 '<div class="grid__candidate__box__date">' + val['date'] + '</div>' +
+                 '<div id = "cand-id" class="grid__candidate__box__id" >' + val['id'] + '</div>' +
                 '</a>' +
                 '</div>'
             );
+
         });
     });
 });
+//
+// function openTab(event) {
+//
+//
+// alert(elem);
+// }
+//
+// $(document).ready(function () {
+//     $('#grid').bind("click", openTab);
+//     //$(document).on("click", "div", openTab)
+//
+// });
+
