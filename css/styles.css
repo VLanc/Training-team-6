@@ -79,6 +79,7 @@ body {
     margin: 0;
     background: #e9e9e9;
     box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 .menu :hover {
@@ -241,7 +242,7 @@ body {
 .top{
   padding: 10px 30px;
   font-size:1.5vh;
-  border-bottom: 2px solid #e9e9e9;
+  /*border-bottom: 2px solid #e9e9e9;*/
   text-decoration: none;
   outline: none;
   color: #6e6e6e;
@@ -255,20 +256,20 @@ body {
 /*worh woth profile page*/
 
 .info{
-  padding: 15px 0px 0 0px;
-  height: 100%;
-  margin:0px
+  padding: 0px 0px 0 0px;
 }
+
 #status{
   text-decoration: none;
   outline: none;
   border:none;
   width: 85%;
-  margin-left:30px;
+  margin:20px 30px 0 30px;
 }
 .info img{
   margin-top:15px;
   margin-left:30px;
+  padding-right:10px;
   width:85%;
 }
 .profile-job{
@@ -296,11 +297,13 @@ body {
 }
 .info-header{
   border-bottom: 2px solid #e9e9e9;
-  padding:0;
+
+  border-top: 2px solid #e9e9e9;
 
 }
 .info-footer{
   margin-left:30px;
+  word-wrap: break-word;
 }
 .info-footer h5{
   padding-top:15px;
@@ -313,6 +316,7 @@ body {
   margin:10px 0 0 0;
   font-size: 1.4vh;
   color: #6e6e6e;
+
 }
 /*.time-line{*/
   /*padding: 0px 0px;*/
@@ -329,17 +333,20 @@ body {
 }
 .time-line{
   padding:0;
-  max-width: 69em;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0 ;
   font-size: 100%;
   border-left: 2px solid #e9e9e9;
+  border-top: 2px solid #e9e9e9;
+  word-wrap: break-word;
 }
 /* The line */
 .timeline {
-  margin: 30px 0 30px 0;
+  margin: 30px 0 30px 30px;
   padding: 0;
   list-style: none;
   position: relative;
+
 }
 .timeline:before {
   content: '';
@@ -389,7 +396,7 @@ body {
 
 /* Right content */
 .timeline > li .label {
-  margin: -20px 0 20px 25%;
+  margin: -20px 20px 20px 27%;
   background: #fff;
   border: 1px solid #e9e9e9;
   color: black;
@@ -416,36 +423,41 @@ body {
 
 /* The icons */
 .timeline > li .icon {
-  width: 20px;
-  height: 20px;
+  width: 2.6%;
+  height: 1.5vw;
   speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  font-size: 1.4em;
+  font-size: 10px;
   line-height: 20px;
   color: #fff;
   background: #fff;
   border: 2px solid #e9e9e9;
   border-radius: 50%;
-  margin: 0 0 0 21.1%;
+  margin-left:20.8%;
   z-index:0;
 }
 .footer{
+  border-top: 2px solid #e9e9e9;
+  padding-left:30px;
 }
 .footer h5{
-  border-top: 2px solid #e9e9e9;
-  padding:15px 30px 10px 30px;
+  padding:15px 30px 10px 0px;
   font-size:2vh;
   color: #6e6e6e;
   font-weight: bold;
+
 }
 .footer label{
   font-size: 12px;
   border: 2px solid #e2e3e5;
   border-radius: 5px;
-  padding: 5px;
-  margin:0 1% 2% 2%;
+  padding:5px 10px;
+  margin-right:5px;
+
+}
+.skills{
 
 }
