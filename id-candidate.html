@@ -9,7 +9,7 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
 	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/grid-candidates.js"></script>
+	<script src="js/id-candidate.js"></script>
 
 </head>
 <body>
@@ -65,19 +65,34 @@
 							<option value="">CV-Rejected</option>
 					  </select>
 					  <img src="images/anounymus.png" alt="profile">
-					  <p class="profile-job">Java Developer</p>
-					  <p class="profile-name">Jimmy Carr</p>
-					  <p class="profile-salary">800$</p>
+					  <p id = "prof" class="profile-job">Java Developer</p>
+                       <input id="profedit" class="profile-job" type="text" value="">
+
+					  <p id="name" class="profile-name">Jimmy Carr</p>
+                        <input id="nameedit" class="profile-name" type="text" value="">
+
+					  <p id="salary" class="profile-salary">800$</p>
+                        <input id="salaryedit" class="profile-name" type="text" value="">
+
 					  <p class="profile-time">1 day later</p>
+
 			  	</div>
 					<div class="info-footer">
 						<h5>Contact information</h5>
 						<p class="profile-text">telephone:</p>
-						<p>4242424</p>
+						<p id="tel">4242424</p>
+                        <input id="teledit" type="text" value="">
+
 						<p class="profile-text">email:</p>
-						<p>sdgdsg@mail.ru</p>
+						<p id="email">sdgdsg@mail.ru</p>
+                        <input id="emailedit" type="text" value="">
+
+
 						<p class="profile-text">address:</p>
-						<p>malinovka</p>
+						<p id="adress">malinovka</p>
+                        <input id="adressedit" type="text" value="">
+
+
 					</div>
 				</div>
 				<div class="time-line col-lg-9 col-md-12 col-sm-12 col-xs-12 ">
@@ -127,7 +142,9 @@
 					</div>
 				</div>
 		</div>
-		<a href="#" class="new"><i class="fa fa-pencil"></i></a>
+			<a id="editData" onclick="return editData()" href="#" class="new"><i class="fa fa-pencil"></i></a>
+			<a id="saveData" onclick="return saveData()" href="#" class="new"><i class="fa  fa-save"></i></a>
+
 	</div>
 </div>
 </div>
