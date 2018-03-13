@@ -1,73 +1,31 @@
 var restify = require('restify');
-var server = restify.createServer();
 
+function respond(req, res, next) {
+    res.header('X-Frame-Options', 'ALLOWALL');
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'POST, GET');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    var entity = {
+        name : "egor"
+    };
+    res.send(entity);
+    next();
+}
+
+var server = restify.createServer();
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
 
-
-
-server.get(/\/(.*)?.*/, restify.plugins.serveStatic({
-	directory: __dirname,
-}));
-
-
-// server.get('/', restify.plugins.serveStatic({
-//     directory: __dirname,
-//     file: 'workplace.html'
-// }));
-//
-// server.get(/\/(.*)?.*/, restify.plugins.serveStatic({
-//     directory: __dirname
-// }));
-
-// server.get('/', function (req, res, next) {
-//     fs.readFile(__dirname + '/workplace.html', function (err, data) {
-//         if (err) {
-//             next(err);
-//             return;
-//         }
-//
-//         res.setHeader('Content-Type', 'text/html');
-//         res.write(data);
-//         res.end();
-//         next();
-//     });
-// });
-//
-// server.get('/test', function (req, res, next) {
-//     fs.readFile(__dirname + '/test.html', function (err, data) {
-//         if (err) {
-//             next(err);
-//             return;
-//         }
-//
-//         res.setHeader('Content-Type', 'text/html');
-//         res.write(data);
-//         res.end();
-//         next();
-//     });
-//
-// });
-
-server.get('/test', function (req, res, next) {
-
-    res.header('Access-Control-Allow-Origin', '*');
-    var entity = {
-        name : "egor"
-    };
-    res.json(entity);
-
-
-});
+server.get('/test', respond);
+//server.head('/test', respond);
 
 server.post('/test', function (req, res, next) {
 
-        console.log(req.body);
+    console.log(req.body);
 
 });
 
-server.listen(8000, '127.0.0.1',  function () {
+server.listen(8080,'127.0.0.1', function() {
     console.log('%s listening at %s', server.name, server.url);
-
 });
