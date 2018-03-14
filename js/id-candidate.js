@@ -72,3 +72,18 @@ function saveData() {
 
 
 }
+$(function () {
+
+
+  var now = new Date();
+  now = now.getTime() / 1000;
+  $.getJSON('profile.json', function (data) {
+    $.each(data, function (key, val) {
+      $('#prof').html(val['position']);
+      $('#name').html(val['name']);
+      $('#tel').html(val['mobileNumber']);
+      $('#email').html(val['email']);
+      $('#address').html(val['address']);
+    });
+  });
+});
