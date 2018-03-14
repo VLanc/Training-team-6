@@ -1,0 +1,20 @@
+[
+  {
+    "date": "1 day later",
+    "position": "Java Developer",
+    "name": "Bomzh Vitalik",
+    "address": "Bezdomnii ",
+    "city": "from Moscow",
+    "mobileNumber": "+375447549706",
+    "email": "Ivan_ivanov@mail.ru",
+    "salary": "250000$",
+    "photo": "",
+    "skills": "JavaScript Java C++ C# Node.JS Maven JSF JPA SEE 5+ Lel",
+    "first-h": "Itransition Group Ltd.",
+    "first-info": "WEB Development, work with server side logic, take part in search engine development and optimization, develop integration solution with JIRA(https://www.atlassian.com/software/jira)<br>Technologies: Linux, JavaSE/JavaEE, Tomcat, REST API, JavaScript, JQuery, CSS Html, Git, Linux(CentOS), Spring, Hibermate, Atlassian Development(jura plugins), Enchache, JSF, JMX, PostgreSQL, MySQL, Aspect-oriented programming(AOP)",
+    "second-h": "Belrard",
+    "second-info": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review.",
+    "third-h": "Belarusian National Technical Unviresity",
+    "third-info": "Bachelor’s Degree, informatics and Radio Electronics, Programmer"
+  }
+]
