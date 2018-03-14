@@ -123,7 +123,7 @@
 					</ul>
 					<div class="footer">
 						<h5>Skills</h5>
-						<div class="skills">
+						<div id="skills" class="skills">
 						<label>JavaScript</label>
 						<label>Node.js</label>
 						<label>Java</label>
@@ -141,11 +141,46 @@
 			<a id="editData" onclick="return editData()" href="#" class="new"><i class="fa fa-pencil"></i></a>
 			<a id="saveData" onclick="return saveData()" href="#" class="new"><i class="fa  fa-save"></i></a>
 
-			<button class="add-skills">Add skills</button>
-			<button class="add-experience">Add experience</button>
+			<button id ="bkills" onclick="return addSkill()" class="add-skills">Add skills</button>
+			<button id ="bexperience" class="add-experience">Add experience</button>
 
 	</div>
 </div>
 </div>
+
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">Modal Heading</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+				Modal body..
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+//модально окно
+<div id="modal_form">
+	<span id="modal_close">Close</span>
+	<input id="modalskill" type="text" value="">
+	<button onclick="return saveSkill()" type="button" id="modal-button" class="btn btn-primary">ADD SKILL</button>
+</div>
+<div id="overlay"></div>
 </body>
 </html>
