@@ -1,5 +1,30 @@
 
 $(document).ready(function () {
+
+    var data = "";
+    var url="http://127.0.0.1:8080/id-candidate?" + window.location.href.split('?')[1];
+
+    $.getJSON( url, function( candidate ) {
+
+
+        data=candidate;
+        //вот тут вносим данные, полученные с сервера
+        $('#prof').html(data.position);
+        $('#name').html(data.name);
+        $('#tel').html(data.mobileNumber);
+        $('#email').html(data.email);
+        $('#address').html(data.address);
+
+
+    });
+
+
+
+
+
+
+
+
     $('#saveData').hide();
     $('#profedit').hide();
     $('#salaryedit').hide();
@@ -20,6 +45,8 @@ $(document).ready(function () {
                 }
             );
     });
+
+
 
 
 });
@@ -123,18 +150,4 @@ function saveSkill() {
 }
 
 
-$(function () {
 
-
-    var now = new Date();
-    now = now.getTime() / 1000;
-    $.getJSON('profile.json', function (data) {
-        $.each(data, function (key, val) {
-            $('#prof').html(val['position']);
-            $('#name').html(val['name']);
-            $('#tel').html(val['mobileNumber']);
-            $('#email').html(val['email']);
-            $('#address').html(val['address']);
-        });
-    });
-});
