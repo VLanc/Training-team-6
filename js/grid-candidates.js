@@ -29,7 +29,7 @@ $(function () {
 
     var now = new Date();
     now = now.getTime() / 1000;
-    $.getJSON('data.json', function (data) {
+    $.getJSON('grid.json', function (data) {
         $.each(data, function (key, val) {
             if (!val['photo']) {
                 val['photo'] = 'anounymus';
@@ -46,18 +46,18 @@ $(function () {
             else if (7 < dateOfAddUser && 14 > dateOfAddUser) val['date'] = 'about 1 week';
             else if (14 < dateOfAddUser && 20 > dateOfAddUser) val['date'] = 'about 2 weeks';
             else if (20 < dateOfAddUser && 27 > dateOfAddUser) val['date'] = 'about 3 weeks';
-            else if (27< dateOfAddUser) val['date'] = 'оч старый';
+            else if (27 < dateOfAddUser) val['date'] = 'оч старый';
             var id = val['id'];
             $('#grid').append(
                 "<div class=\"col-lg-3 col-md-4 col-xs-6 grid__candidate all " + val['status'] + '">' +
-                '<a   href="../Training-team-6/id-candidate.html?' + id +' ">' +
+                '<a   href="../Training-team-6/id-candidate.html?id=' + id + ' ">' +
                 '<div class="grid__candidate__box">' +
                 '<div class="grid__candidate__box__icon">' +
                 '<div class="grid__candidate__box__icon__status">' + val['status'] + '</div>' +
-                '<img src="images/' + val['photo'] + '.png" alt="user">'+
+                '<img src="images/' + val['photo'] + '.png" alt="user">' +
                 '</div>' +
                 '<div class="grid__candidate__box__position">' + val['Position'] + '</div>' +
-                '<div class="grid__candidate__box__name">' + val['Name'] + '</div>' +
+                '<div class="grid__candidate__box__name">' + val['name'] + '</div>' +
                 '<div class="grid__candidate__box__salary">' + val['salary'] + '</div>' +
                 '<div class="grid__candidate__box__date">' + val['date'] + '</div>' +
                 '</a>' +
@@ -65,11 +65,9 @@ $(function () {
             );
 
 
-
         });
     });
 });
-
 //
 
 //

@@ -65,7 +65,7 @@
 							<option value="">CV-Rejected</option>
 					  </select>
 					  <img src="images/anounymus.png" alt="profile">
-					  <p id = "prof" class="profile-job">Java Developer</p>
+					  <p id ="prof" class="profile-job">Java Developer</p>
                        <input id="profedit" class="profile-job" type="text" value="">
 
 					  <p id="name" class="profile-name">Jimmy Carr</p>
@@ -74,7 +74,9 @@
 					  <p id="salary" class="profile-salary">800$</p>
                         <input id="salaryedit" class="profile-name" type="text" value="">
 
-					  <p class="profile-time">1 day later</p>
+					  <div id="date"></div>
+
+
 			  	</div>
 					<div class="info-footer">
 						<h5>Contact information</h5>
@@ -84,64 +86,66 @@
 						<p class="profile-text">email:</p>
 						<p id="email">sdgdsg@mail.ru</p>
 						<input id="emailedit" type="text" value="">
-						<p class="profile-text">address:</p>
+						<p class="profile-text">adress:</p>
 						<p id="adress">malinovka</p>
 						<input id="adressedit" type="text" value="">
+
 					</div>
 				</div>
 				<div class="time-line col-lg-9 col-md-12 col-sm-12 col-xs-12 ">
 					<div class="time-header">
 						<h5>Experience</h5>
 					</div>
-					<ul class="timeline">
-						<li>
-							<time class="tmtime" datetime="2013-04-10 18:30"><span>Apr 2015 – Now</span> <span>Learn Java Developer<br>London, UK</span></time>
-							<div class="icon icon-phone"></div>
-							<div class="label">
-								<h2>Itransition Group Ltd.</h2>
-								<p>WEB Development, work with server side logic, take part in search engine development and optimization, develop integration solution with JIRA(https://www.atlassian.com/software/jira)<br>Technologies: Linux, JavaSE/JavaEE, Tomcat, REST API, JavaScript, JQuery, CSS Html, Git, Linux(CentOS), Spring, Hibermate, Atlassian Development(jura plugins), Enchache, JSF, JMX, PostgreSQL, MySQL, Aspect-oriented programming(AOP)</p>
-							</div>
-						</li>
-						<li>
-							<time class="tmtime" datetime="2013-04-10 18:30"><span>Oct 2012 – Mar 2015<br>(2 year 7 month)</span> <span>Senior Java Developer<br>London UK</span></time>
-							<div class="icon icon-phone"></div>
-							<div class="label">
-								<h2>Belrard</h2>
-								<p>Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review.</p>
-							</div>
-						</li>
-						<li>
-							<time class="tmtime" datetime="2013-04-10 18:30"><span>Education<br>2007 - 2012</span> <span></span></time>
-							<div class="icon icon-phone"></div>
-							<div class="label">
-								<h2>Belarusian National Technical Unviresity</h2>
-								<p>Bachelor’s Degree, informatics and Radio Electronics, Programmer</p>
-							</div>
-						</li>
-					</ul>
+					<div class="placeholder"></div>
 					<div class="footer">
 						<h5>Skills</h5>
-						<div class="skills">
-						<label>JavaScript</label>
-						<label>Node.js</label>
-						<label>Java</label>
-						<label>Maven</label>
-						<label>JSF</label>
-						<label>JPA</label>
-						<label>Design Patterns</label>
-						<label>See 5+</label>
-						<label>C++</label>
-						<label>C#</label>
-						</div>
+						<div id="skills" class="skills"></div>
 					</div>
 				</div>
 		</div>
 			<a id="editData" onclick="return editData()" href="#" class="new"><i class="fa fa-pencil"></i></a>
 			<a id="saveData" onclick="return saveData()" href="#" class="new"><i class="fa  fa-save"></i></a>
-			<button class="add-skills">Add skills</button>
-			<button class="add-experience">Add experience</button>
+
+			<a id ="bkills" onclick="return addSkill()" class="add-skills">Add skills</a>
+			<a id ="bexperience" class="add-experience">Add experience</a>
+
 	</div>
 </div>
 </div>
+
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">Modal Heading</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+				Modal body..
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<!--//модально окно-->
+<div id="modal_form">
+	<span id="modal_close">Close</span>
+	<input id="modalskill" type="text" value="">
+	<button onclick="return saveSkill()" type="button" id="modal-button" class="btn btn-primary">ADD SKILL</button>
+</div>
+<div id="overlay"></div>
 </body>
 </html>
