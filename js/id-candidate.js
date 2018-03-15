@@ -1,3 +1,4 @@
+
 var data = "";
 $(document).ready(function () {
   $('#saveData').hide();
@@ -76,6 +77,7 @@ $(document).ready(function () {
 
 
 
+
   //закрытие модального окна
   $('#modal_close, #overlay').click(function () {
     $('#modal_form')
@@ -88,7 +90,9 @@ $(document).ready(function () {
   });
 
 
+
 });
+
 
 
 function editData() {
@@ -117,7 +121,6 @@ function editData() {
   $('#teledit').val($('#tel').html());
   $('#emailedit').val($('#email').html());
   $('#adressedit').val($("#adress").html());
-
 
 }
 
@@ -154,6 +157,7 @@ function saveData() {
 
 }
 
+
 function addSkill() {
   //открываем модальное окно
   event.preventDefault();
@@ -165,6 +169,7 @@ function addSkill() {
     });
 }
 
+=
 
 function saveSkill() {
   var skill = $('#modalskill').val();
@@ -175,7 +180,9 @@ function saveSkill() {
     );
   }
 
+
   //закрытие модального окна
+
 
   $('#modal_form')
     .animate({opacity: 0, top: '45%'}, 200,  // уменьшаем прозрачность

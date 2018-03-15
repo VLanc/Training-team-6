@@ -3,6 +3,7 @@ var restify = require('restify');
 
 
 function respon_cand(req, res, next) {
+
   res.header('X-Frame-Options', 'ALLOWALL');
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'POST, GET');
@@ -124,6 +125,7 @@ function respond_newcand(req, res, next) {
 
   res.send(obj);
   next();
+
 }
 
 
@@ -144,5 +146,7 @@ server.post('/test', function (req, res, next) {
 });
 
 server.listen(8080, '127.0.0.1', function () {
+
   console.log('%s listening at %s', server.name, server.url);
+
 });
