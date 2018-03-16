@@ -30,17 +30,6 @@ $(document).ready(function () {
         '<label>' + skills[i] + '</label>'
       );
     }
-    var education = data.education;
-    for(var q=0;q<education.length;q++) {
-      $('.placeholder').append(
-        "<ul class='timeline'><li><time class='tmtime'>" +
-        "<span>" + education[q].time + "</span>" +
-        "<span>" + education[q].pos + "</span></time>" +
-        "<div class='icon icon-phone'></div><div class='label'>"+
-        "<h2>" + education[q].header + "</h2>" +
-        "<p>" + education[q].body + "</p></div></li></ul>"
-      );
-    }
     var experience = data.info;
     for(var j=0;j<experience.length-1;j++) {
     $('.placeholder').append(
@@ -51,7 +40,17 @@ $(document).ready(function () {
       "<p>" + experience[j].body + "</p></div></li></ul>"
     );
     }
-
+    var education = data.education;
+    for(var q=0;q<education.length;q++) {
+      $('.placeholder').append(
+        "<ul class='timeline'><li><time class='tmtime'>" +
+        "<span>" + education[q].time + "</span>" +
+        "<span>" + education[q].pos + "</span></time>" +
+        "<div class='icon icon-phone'></div><div class='label'>"+
+        "<h2>" + education[q].header + "</h2>" +
+        "<p>" + education[q].body + "</p></div></li></ul>"
+      );
+      }
 
       // vvv  тут делал время, но пока в процессе доработке (Alex)  vvv
 
