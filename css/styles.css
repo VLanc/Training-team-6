@@ -116,47 +116,49 @@ body {
     text-decoration: none; /*do not work :(*/
 }
 
+
 .add-skills {
+    padding:0 5px;
     position: fixed;
     bottom: 6vh;
     right: 15vh;
-    font-size: 2vh;
+    font-size: 1.5vh;
     color: #6e6e6e;
     text-shadow: 7px 10px 17px rgba(203, 203, 203, 1);
-    border: none;
+    background-color:#6e6e6e;
     border-radius: 20px;
-    outline: none;
-
 }
 
 .add-experience {
-    outline: none;
+    padding:0 5px;
     position: fixed;
     bottom: 6vh;
     right: 27vh;
-    font-size: 2vh;
-    color: #6e6e6e;
+    font-size: 1.5vh;
+    background-color:#6e6e6e;
     text-shadow: 7px 10px 17px rgba(203, 203, 203, 1);
-
     border-radius: 20px;
-    border: none;
 
 
 }
 
 .add-skills:hover {
     transition: 0.1s;
-    font-size: 2.5vh;
+    font-size: 1.8vh;
     color: #6e6e9e;
+    right: 14vh;
 }
 
 .add-experience:hover {
     transition: 0.1s;
-    font-size: 2.5vh;
+    font-size: 1.7vh;
+    right: 26vh;
     color: #6e6e9e;
-    outline: none;
     border: none;
+    outline:none;
+
 }
+
 
 .new:hover {
     transition: 0.1s;
@@ -178,8 +180,12 @@ body {
 .add-experience:active {
     transition: 0.1s;
     font-size: 1.5vh;
-    outline: none;
+
+    border-style: none;
+
 }
+
+/*****************/
 
 /*****************/
 
@@ -314,11 +320,18 @@ body {
 /*worh woth profile page*/
 
 .info {
+
     padding: 0 0 0 0;
+
 }
 
 .info input {
     max-width: 80%;
+
+}
+#dateedit{
+    margin-left:30px;
+
 }
 
 #status {
@@ -326,11 +339,13 @@ body {
     outline: none;
     border: none;
     width: 85%;
+
     margin: 20px 30px 0 30px;     /*I think it's should be edited*/
 }
 
 .info img {
     /*I think it's should be edited*/
+
     margin-top: 15px;
     margin-left: 30px;
     padding-right: 10px;
@@ -338,6 +353,7 @@ body {
 }
 
 .profile-job {
+
     /*I think it's should be edited*/
     margin: 10px 0 0 30px;
     font-size: 1.5vh;
@@ -422,18 +438,18 @@ body {
 /* The line */
 .timeline {
     /*I think it's should be edited*/
+
     margin: 30px 0 30px 30px;
     padding: 0;
     list-style: none;
     position: relative;
-
 }
 
 .timeline:before {
     content: '';
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: -30px;
     width: 2px;
     background: #e9e9e9;
     left: 22%;
