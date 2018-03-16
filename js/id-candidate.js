@@ -1,20 +1,56 @@
 var data = "";
 $(document).ready(function () {
-    $('#saveData').hide();
-    $('#profedit').hide();
-    $('#salaryedit').hide();
-    $('#nameedit').hide();
-    $('#teledit').hide();
-    $('#emailedit').hide();
-    $('#adressedit').hide();
-    $('#bexperience').hide();
-    $('#bkills').hide();
+  $('#saveData').hide();
+  $('#profedit').hide();
+  $('#salaryedit').hide();
+  $('#nameedit').hide();
+  $('#teledit').hide();
+  $('#emailedit').hide();
+  $('#adressedit').hide();
+  $('#bexperience').hide();
+  $('#bkills').hide();
 
 
     var url = "http://127.0.0.1:8080/id-candidate?" + window.location.href.split('?')[1];
 
     $.getJSON(url, function (candidate) {
 
+
+    data = candidate;
+    //вот тут вносим данные, полученные с сервера
+    $('#prof').html(data.position);
+    $('#name').html(data.name);
+    $('#salary').html(data.salary);
+    $('#tel').html(data.mobileNumber);
+    $('#email').html(data.email);
+    $('#adress').html(data.adress);
+    var skills = data.skills.split(";");
+    for(var i=0;i<skills.length;i++) {
+      $('#skills').append(
+        '<label>' + skills[i] + '</label>'
+      );
+    }
+    var education = data.education;
+    for(var q=0;q<education.length;q++) {
+      $('.placeholder').append(
+        "<ul class='timeline'><li><time class='tmtime'>" +
+        "<span>" + education[q].time + "</span>" +
+        "<span>" + education[q].pos + "</span></time>" +
+        "<div class='icon icon-phone'></div><div class='label'>"+
+        "<h2>" + education[q].header + "</h2>" +
+        "<p>" + education[q].body + "</p></div></li></ul>"
+      );
+    }
+    var experience = data.info;
+    for(var j=0;j<experience.length-1;j++) {
+    $('.placeholder').append(
+      "<ul class='timeline'><li><time class='tmtime'>" +
+      "<span>" + experience[j].time + "</span>" +
+      "<span>" + experience[j].pos + "</span></time>" +
+      "<div class='icon icon-phone'></div><div class='label'><h2>" + experience[j].header + "</h2>" +
+      "<p>" + experience[j].body + "</p></div></li></ul>"
+    );
+    }
 
         data = candidate;
 
@@ -56,7 +92,7 @@ $(document).ready(function () {
         }
 
 
-        // vvv  тут делал время, но пока в процессе доработке (Alex)  vvv
+
 
         var date = data.date;
         var now = new Date();
