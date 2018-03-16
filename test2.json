@@ -1,4 +1,3 @@
-
 [
   {
     "id": "1",
@@ -14,33 +13,30 @@
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
     "info": [
       {
-        "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
-        "pos": "Senior Java Developer<br>London UK",
-        "header": "Belrard",
-        "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
-      },
-      {
         "time": "Apr 2015 – Now",
         "pos": "Learn Java Developer",
         "header": "Itransition Group Ltd.",
         "body": "WEB Development, work with server side logic, take part in search engine development and optimization, develop integration solution with JIRA(https://www.atlassian.com/software/jira)<br>Technologies: Linux, JavaSE/JavaEE, Tomcat, REST API, JavaScript, JQuery, CSS Html, Git, Linux(CentOS), Spring, Hibermate, Atlassian Development(jura plugins), Enchache, JSF, JMX, PostgreSQL, MySQL, Aspect-oriented programming(AOP)"
+      },
+      {
+        "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
+        "pos": "Senior Java Developer<br>London UK",
+        "header": "Belrard",
+        "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
-
     ],
-
     "education": [
       {
-        "time": "Education",
+        "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
         "pos": "STUDENT",
         "header": "BSUIR",
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ]
-
   },
   {
     "id": "2",
-    "date": "1520509164",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "Nikita Senko",
     "adress": "Bezdomnii ",
@@ -64,7 +60,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -76,7 +71,7 @@
   },
   {
     "id": "3",
-    "date": "1520509164",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ТРЕТИЙ",
     "adress": "Bezdomnii ",
@@ -100,7 +95,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -112,7 +106,7 @@
   },
   {
     "id": "4",
-    "date": "1520336364",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ЧЕТВЕРТЫЙ",
     "adress": "Bezdomnii ",
@@ -136,7 +130,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -148,7 +141,7 @@
   },
   {
     "id": "5",
-    "date": "1519990764",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ПЯТЫЙ",
     "adress": "Bezdomnii ",
@@ -172,7 +165,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -184,7 +176,7 @@
   },
   {
     "id": "6",
-    "date": "1520509164",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -208,7 +200,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -220,7 +211,7 @@
   },
   {
     "id": "7",
-    "date": "1519990764",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -244,7 +235,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -256,7 +246,7 @@
   },
   {
     "id": "8",
-    "date": "1520336364",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -280,7 +270,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -292,7 +281,7 @@
   },
   {
     "id": "9",
-    "date": "1520595564",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -316,7 +305,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -328,7 +316,7 @@
   },
   {
     "id": "10",
-    "date": "1519990764",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -352,7 +340,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -364,7 +351,7 @@
   },
   {
     "id": "11",
-    "date": "1519990764",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -388,7 +375,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -400,7 +386,7 @@
   },
   {
     "id": "12",
-    "date": "1519990764",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -424,7 +410,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -436,7 +421,7 @@
   },
   {
     "id": "13",
-    "date": "1520595564",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -460,7 +445,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -472,7 +456,7 @@
   },
   {
     "id": "14",
-    "date": "1520509164",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -496,7 +480,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -508,7 +491,7 @@
   },
   {
     "id": "15",
-    "date": "1520336364",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -532,7 +515,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -544,7 +526,7 @@
   },
   {
     "id": "16",
-    "date": "1519990764",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -568,7 +550,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -580,7 +561,7 @@
   },
   {
     "id": "17",
-    "date": "1520595564",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -604,7 +585,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -616,7 +596,7 @@
   },
   {
     "id": "18",
-    "date": "1520509164",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -640,7 +620,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -652,7 +631,7 @@
   },
   {
     "id": "19",
-    "date": "1519990764",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -676,7 +655,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -688,7 +666,7 @@
   },
   {
     "id": "20",
-    "date": "1519990764",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -712,7 +690,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -724,7 +701,7 @@
   },
   {
     "id": "21",
-    "date": "1520595564",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -748,7 +725,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -760,7 +736,7 @@
   },
   {
     "id": "22",
-    "date": "1520509164",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -784,7 +760,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -796,7 +771,7 @@
   },
   {
     "id": "23",
-    "date": "1519990764",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -820,7 +795,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -832,7 +806,7 @@
   },
   {
     "id": "24",
-    "date": "1520595564",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -856,7 +830,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -868,7 +841,7 @@
   },
   {
     "id": "25",
-    "date": "1520509164",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -892,7 +865,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -904,7 +876,7 @@
   },
   {
     "id": "26",
-    "date": "1519990764",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -928,7 +900,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -940,7 +911,7 @@
   },
   {
     "id": "27",
-    "date": "1520336364",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -964,7 +935,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -976,7 +946,7 @@
   },
   {
     "id": "28",
-    "date": "1520595564",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -1000,7 +970,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -1012,7 +981,7 @@
   },
   {
     "id": "29",
-    "date": "1519990764",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -1036,7 +1005,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -1048,7 +1016,7 @@
   },
   {
     "id": "30",
-    "date": "1519385959",
+    "date": "1 day later",
     "position": "Java Developer",
     "name": "ШЕСТОЙ ",
     "adress": "Bezdomnii ",
@@ -1057,7 +1025,6 @@
     "email": "Ivan_ivanov@mail.ru",
     "salary": "250000$",
     "photo": "",
-
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
     "info": [
       {
@@ -1073,7 +1040,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -1082,8 +1048,5 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ]
-
   }
-
 ]
-
