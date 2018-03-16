@@ -30,16 +30,6 @@ $(document).ready(function () {
         '<label>' + skills[i] + '</label>'
       );
     }
-    var experience = data.info;
-    for(var j=0;j<experience.length-1;j++) {
-    $('.placeholder').append(
-      "<ul class='timeline'><li><time class='tmtime'>" +
-      "<span>" + experience[j].time + "</span>" +
-      "<span>" + experience[j].pos + "</span></time>" +
-      "<div class='icon icon-phone'></div><div class='label'><h2>" + experience[j].header + "</h2>" +
-      "<p>" + experience[j].body + "</p></div></li></ul>"
-    );
-    }
     var education = data.education;
     for(var q=0;q<education.length;q++) {
       $('.placeholder').append(
@@ -50,7 +40,18 @@ $(document).ready(function () {
         "<h2>" + education[q].header + "</h2>" +
         "<p>" + education[q].body + "</p></div></li></ul>"
       );
-      }
+    }
+    var experience = data.info;
+    for(var j=0;j<experience.length-1;j++) {
+    $('.placeholder').append(
+      "<ul class='timeline'><li><time class='tmtime'>" +
+      "<span>" + experience[j].time + "</span>" +
+      "<span>" + experience[j].pos + "</span></time>" +
+      "<div class='icon icon-phone'></div><div class='label'><h2>" + experience[j].header + "</h2>" +
+      "<p>" + experience[j].body + "</p></div></li></ul>"
+    );
+    }
+
 
       // vvv  тут делал время, но пока в процессе доработке (Alex)  vvv
 
