@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "date": "1519990764",
+    "date": "1521042620",
     "position": "Java Developer",
     "name": "Bomzh Vitalik",
     "adress": "Bezdomnii ",
@@ -1056,6 +1056,7 @@
     "email": "Ivan_ivanov@mail.ru",
     "salary": "250000$",
     "photo": "",
+
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
     "info": [
       {
@@ -1080,6 +1081,7 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ]
+
   }
 
 ]
