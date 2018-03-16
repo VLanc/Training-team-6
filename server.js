@@ -66,6 +66,7 @@ function respon_cand(req, res, next) {
 
       candidate.id = val.id;
       candidate.position = val.position;
+      candidate.date=val.date;
       candidate.name = val.name;
       candidate.salary = val.salary;
       candidate.adress = val.adress;
