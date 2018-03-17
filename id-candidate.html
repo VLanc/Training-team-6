@@ -16,7 +16,7 @@
 <div class="container-fluid">
 	<div class="row heading">
 		<div class="col-lg-2 beauty">
-			<h5>нr app</h5>
+			<h5>нr app</h5><!--TODO: is it russian н?-->
 		</div>
 		<div class="col-lg-10 beauty">
 			<div class="find-bar">
@@ -55,7 +55,7 @@
 			<div class="row">
 				<div class="top col-lg-12 col-md-12 col-sm-12 col-xs-12"><a href="candidates.html">Candidates</a> > Jim Carr
 				</div>
-				<div class="info col-lg-3 col-md-12 col-sm-12 col-xs-12" >
+				<div class="info col-lg-3 col-md-12 col-sm-12 col-xs-12" ><!--TODO: remove extra space-->
 					<div class="info-header">
 					  <select name="status" id="status">
 						  <option value="active">Accepted for interview</option>
@@ -91,7 +91,7 @@
 
 					</div>
 				</div>
-				<div class="time-line col-lg-9 col-md-12 col-sm-12 col-xs-12 ">
+				<div class="time-line col-lg-9 col-md-12 col-sm-12 col-xs-12 "><!--TODO: remove extra space-->
 					<div class="time-header">
 						<h5>Experience</h5>
 					</div>
@@ -104,10 +104,11 @@
 					</div>
 				</div>
 		</div>
+            <!--TODO: remove firing inline scripts, move to js file-->
 			<a id="editData" onclick="return editData()" href="#" class="new"><i class="fa fa-pencil"></i></a>
 			<a id="saveData" onclick="return saveData()" href="#" class="new"><i class="fa  fa-save"></i></a>
 
-
+            <!--TODO: remove firing inline scripts, move to js file-->
 			<a id ="bkills" onclick="return addSkill()" class="add-skills">Add skills</a>
 			<a id ="bexperience" onclick="return addExperience()" class="add-experience">Add experience</a>
 
@@ -124,7 +125,7 @@
 			<!-- Modal Header -->
 			<div class="modal-header">
 				<h4 class="modal-title">Modal Heading</h4>
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<button type="button" class="close" data-dismiss="modal">&times;</button><!--TODO: use unicode &times; instead-->
 			</div>
 
 			<!-- Modal body -->
@@ -143,7 +144,7 @@
 </div>
 
 
-<!--//модально окно-->
+<!--//модально окно--><!--TODO: if you have started coding in English translate all the places in English-->
 <div id="modal_form">
 	<span id="modal_close">Close</span>
 	<input id="modalskill" type="text" value="">
@@ -151,7 +152,7 @@
 </div>
 <div id="overlay"></div>
 
-<!--//модально окно2-->
+<!--//модально окно2--><!--TODO: if you have started coding in English translate all the places in English-->
 <div id="modal_form2">
 	<span id="modal_close2">Close</span>
 	<input id="datework" type="text" value="" placeholder="Enter date...">
@@ -159,7 +160,8 @@
 	<input id="posistionwork" type="text" value="" placeholder="Enter position...">
 	<!--<input id="bodywork" type="text" value="" placeholder="What you do on work...">-->
 	<textarea rows="1" placeholder="What you do on work..."  id="bodywork"></textarea>
-	<button onclick="return saveExperience()" type="button" id="modal-button2" class="btn btn-primary">SAVE</button>
+    <!--TODO: remove firing inline scripts, move to js file-->
+    <button onclick="return saveExperience()" type="button" id="modal-button2" class="btn btn-primary">SAVE</button>
 </div>
 <div id="overlay2"></div>
 </body>
