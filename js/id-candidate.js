@@ -53,6 +53,9 @@ $(document).ready(function () {
     }
 
         data = candidate;
+
+
+
         //вот тут вносим данные, полученные с сервера
         $('#prof').html(data.position);
         $('#name').html(data.name);
@@ -90,15 +93,13 @@ $(document).ready(function () {
 
 
 
-      // vvv  тут делал время, но пока в процессе доработке (Alex)  vvv
 
         var date = data.date;
         var now = new Date();
         now = now.getTime() / 1000;
-        console.log(now);
-        console.log(date);
+
         var dateOfAddUser = (now - date) / 86400;
-        console.log(dateOfAddUser);
+
         if (dateOfAddUser < 1) data.date = 'today';
         else if (1 < dateOfAddUser && 2 > dateOfAddUser) data.date = '1 day later';
         else if (2 < dateOfAddUser && 3 > dateOfAddUser) data.date = '2 day later';
@@ -190,9 +191,20 @@ function saveData() {
     $('#email').html($('#emailedit').val());
     $('#adress').html($('#adressedit').val());
 
+    data.position = $('#profedit').val();
+    data.salary = $('#salaryedit').val();
+    data.name = $('#nameedit').val();
+    data.mobileNumber = $('#teledit').val();
+    data.email = $('#emailedit').val();
+    data.adress = $('#adressedit').val();
+
+
+    var url = "http://127.0.0.1:8080/id-candidate?";
+
+    $.post(url, data);
+
 
 }
-
 
 function addSkill() {
     //открываем модальное окно
@@ -214,6 +226,8 @@ function saveSkill() {
             "<label>" + skill + "</label>"
         );
     }
+
+    data.skills += ";" + skill;
 
 
     //закрытие модального окна
