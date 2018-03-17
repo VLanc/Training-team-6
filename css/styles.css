@@ -625,3 +625,24 @@ body {
     cursor:pointer;
     display:none;
 }
+#calendar {
+    max-width: 95%;
+    margin: 0 auto;
+}
+#calendar .fc-today{
+    background: #c6c8ca;
+}
+#calendar .fc-center, .fc-day-header,.fc-axis,.fc-widget-header{
+    color: #767676;
+
+}
+.interview-footer{
+    text-transform: none;
+    font-size:25px;
+    margin:30px;
+    color: #767676;
+}
+#calendar .fc-time-grid-event{
+    margin:10px;
+    border-radius:15px;
+}
