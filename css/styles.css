@@ -3,7 +3,7 @@ body {
     letter-spacing: 1px;
     cursor: default;
     text-transform: uppercase;
-    font-size: 2vh;
+    font-size: 2vh; /*TODO: use px for all the places for font size. Design of your page should not change depending of screen height*/
 
 }
 
@@ -13,13 +13,13 @@ body {
 }
 
 .heading {
-    box-shadow: 0.3vw 0 0.5vw rgba(221, 221, 221, 1);
+    box-shadow: 0.3vw 0 0.5vw rgba(221, 221, 221, 1);/*TODO: use px instead*/
 }
 
 .beauty h5 {
     color: #6a6967;
-    padding: 3vh 2.4vw;
-    font-size: 2.4vh;
+    padding: 3vh 2.4vw;/*TODO: use px instead*/
+    font-size: 2.4vh;/*TODO: use px instead*/
     background-color: #e9e9e9;
 }
 
@@ -29,8 +29,8 @@ body {
 }
 
 .find-bar {
-    padding: 2.5vh 0.5vw;
-    font-size: 2.7vh;
+    padding: 2.5vh 0.5vw;/*TODO: use px instead*/
+    font-size: 2.7vh;/*TODO: use px instead...*/
 }
 
 .find-bar form {
@@ -69,7 +69,7 @@ body {
 }
 
 .row-data {
-    height: 90vh;
+    height: 90vh;/*TODO: use px instead*/
 
 }
 
@@ -116,24 +116,24 @@ body {
 }
 
 .add-skills {
-    padding:0 5px;
+    padding:0 5px;/*TODO: extra space is missing*/
     position: fixed;
     bottom: 6vh;
     right: 15vh;
     font-size: 1.5vh;
     color: #6e6e6e;
     text-shadow: 7px 10px 17px rgba(203, 203, 203, 1);
-    background-color:#6e6e6e;
+    background-color:#6e6e6e;/*TODO: extra space is missing*/
     border-radius: 20px;
 }
 
 .add-experience {
-    padding:0 5px;
+    padding:0 5px;/*TODO: extra space is missing*/
     position: fixed;
     bottom: 6vh;
     right: 27vh;
     font-size: 1.5vh;
-    background-color:#6e6e6e;
+    background-color:#6e6e6e;/*TODO: extra space is missing*/
     text-shadow: 7px 10px 17px rgba(203, 203, 203, 1);
     border-radius: 20px;
 
@@ -189,7 +189,7 @@ body {
     height: 90vh;
 }
 
-#grid {
+#grid {/*TODO: remove if you do not need it*/
 }
 
 .grid {
@@ -279,7 +279,7 @@ body {
 
 #flavor-nav a:hover, #flavor-nav a.current {
     background: #A74C10;
-    color: white;
+    color: white;/*TODO: #fff*/
 }
 
 .form-filter {
@@ -316,7 +316,7 @@ body {
 
 .info {
 
-    padding: 0 0 0 0;
+    padding: 0 0 0 0;/*TODO: padding: 0; will do the same*/
 
 }
 
@@ -443,7 +443,7 @@ body {
     content: '';
     position: absolute;
     top: -30px;
-  bottom:0px;
+  bottom:0px;/*TODO: bottom: 0; and 2 spaces are missing*/
     width: 2px;
     background: #e9e9e9;
     left: 22%;
@@ -492,10 +492,10 @@ body {
 /* Right content */
 .timeline > li .label {
     /*I think it's should be edited*/
-    margin: -20px 20px 20px 27%;
+    margin: -20px 20px 20px 27%;/*TODO: all the margins except one in ps, are you sure about %?*/
     background: #fff;
     border: 1px solid #e9e9e9;
-    color: black;
+    color: black;/*TODO: #000*/
     padding: 1em;
     font-size: 0.8em;
     font-weight: 200;
@@ -542,7 +542,7 @@ body {
 }
 
 .footer h5 {
-    padding: 15px 30px 10px 0px;
+    padding: 15px 30px 10px 0px;/*TODO: padding: 15px 30px 10px 0; instead*/
     font-size: 2vh;
     color: #6e6e6e;
     font-weight: bold;
@@ -591,7 +591,7 @@ body {
 
 #modal_form #modalskill {
     /*I think it's should be edited*/
-    width: 220px;
+    width: 220px;/*TODO: this is hardcoded values. only modal wrapper has to be positioned absolutely. All the insight of the modal should go in a normal flow*/
     height: 50px;
     position: absolute;
     top: 40px;
@@ -603,7 +603,7 @@ body {
 
 #modal_form #modal-button {
     /*I think it's should be edited*/
-    width: 220px;
+    width: 220px;/*TODO: this is hardcoded values. only modal wrapper has to be positioned absolutely. All the insight of the modal should go in a normal flow*/
     height: 40px;
     position: absolute;
     top: 95px;
@@ -617,7 +617,7 @@ body {
     background-color:#000;
     opacity:0.8;
     -moz-opacity:0.8;
-    filter:alpha(opacity=80);
+    filter:alpha(opacity=80);/*TODO: that was user fir IE7 which is already dead*/
     width:100%;
     height:100%;
     top:0;
@@ -679,7 +679,7 @@ body {
 
 #modal_form2 #posistionwork {
     /*I think it's should be edited*/
-    width: 320px;
+    width: 320px;/*TODO: this is hardcoded values. only modal wrapper has to be positioned absolutely. All the insight of the modal should go in a normal flow*/
     height: 40px;
     position: absolute;
     top: 130px;
@@ -691,7 +691,7 @@ body {
 
 #modal_form2 #bodywork {
     /*I think it's should be edited*/
-    width: 320px;
+    width: 320px;/*TODO: this is hardcoded values. only modal wrapper has to be positioned absolutely. All the insight of the modal should go in a normal flow*/
     height: 110px;
     position: absolute;
     top: 180px;
@@ -706,7 +706,7 @@ body {
 
 #modal_form2 #modal-button2 {
     /*I think it's should be edited*/
-    width: 220px;
+    width: 220px;/*TODO: this is hardcoded values. only modal wrapper has to be positioned absolutely. All the insight of the modal should go in a normal flow*/
     height: 40px;
     right: 60px;
     position: absolute;
@@ -721,7 +721,7 @@ body {
     background-color:#000;
     opacity:0.8;
     -moz-opacity:0.8;
-    filter:alpha(opacity=80);
+    filter:alpha(opacity=80);/*TODO: that was user fir IE7 which is already dead*/
     width:100%;
     height:100%;
     top:0;

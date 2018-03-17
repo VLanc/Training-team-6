@@ -14,7 +14,7 @@ function respon_cand(req, res, next) {
         date: "",
         position: "",
         name: "",
-        adress: " ",
+        adress: " ",//TODO: why spaces here but not in the above fields? There is two "d" in address word
         city: " ",
         mobileNumber: "",
         email: "",
@@ -37,13 +37,13 @@ function respon_cand(req, res, next) {
 
     // console.log(id);
 
-    var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
+    var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8')); //TODO: give a clear name for the object
 
     obj.forEach(function (val) {
 
         if (val.id === id) {
 
-            candidate.id = val.id;
+            candidate.id = val.id;//TODO: as fields names in the json and candidate template are the same better to go over object keys and fill with json data - Object.keys(obj).forEach(function(prop){console.log(prop)})
             candidate.position = val.position;
             candidate.date = val.date;
             candidate.name = val.name;
@@ -138,7 +138,7 @@ server.post('/id-candidate', function (req, res, next) {
         if (val.id === candidate.id) {
 
 
-            val.position = candidate.position;
+            val.position = candidate.position;//TODO: as fields names in the json and candidate template are the same better to go over object keys and fill with json data - Object.keys(obj).forEach(function(prop){console.log(prop)})
             val.name = candidate.name;
             val.salary = candidate.salary;
             val.adress = candidate.adress;
