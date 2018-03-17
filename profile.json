@@ -1,17 +1,16 @@
-
 [
   {
     "id": "1",
     "date": "1521042620",
     "position": "Java Developer",
-    "name": "Bomzh Vitalik",
+    "name": "norm chel",
     "adress": "Bezdomnii ",
     "city": "from Moscow",
     "mobileNumber": "+375447549706",
     "email": "Ivan_ivanov@mail.ru",
     "salary": "250000$",
     "photo": "",
-    "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+    "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel;c++",
     "info": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -24,10 +23,14 @@
         "pos": "Learn Java Developer",
         "header": "Itransition Group Ltd.",
         "body": "WEB Development, work with server side logic, take part in search engine development and optimization, develop integration solution with JIRA(https://www.atlassian.com/software/jira)<br>Technologies: Linux, JavaSE/JavaEE, Tomcat, REST API, JavaScript, JQuery, CSS Html, Git, Linux(CentOS), Spring, Hibermate, Atlassian Development(jura plugins), Enchache, JSF, JMX, PostgreSQL, MySQL, Aspect-oriented programming(AOP)"
+      },
+      {
+        "time": "april 2016 - may 2018",
+        "pos": "EPAM",
+        "header": "JS FULL STACK DEVELOPER",
+        "body": "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST "
       }
-
     ],
-
     "education": [
       {
         "time": "Education",
@@ -36,7 +39,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ]
-
   },
   {
     "id": "2",
@@ -64,7 +66,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -100,7 +101,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -136,7 +136,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -172,7 +171,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -208,7 +206,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -244,7 +241,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -280,7 +276,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -316,7 +311,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -352,7 +346,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -388,7 +381,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -424,7 +416,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -460,7 +451,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -496,7 +486,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -532,7 +521,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -568,7 +556,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -604,7 +591,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -640,7 +626,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -676,7 +661,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -712,7 +696,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -748,7 +731,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -784,7 +766,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -820,7 +801,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -856,7 +836,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -892,7 +871,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -928,7 +906,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -964,7 +941,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -1000,7 +976,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -1036,7 +1011,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -1057,7 +1031,6 @@
     "email": "Ivan_ivanov@mail.ru",
     "salary": "250000$",
     "photo": "",
-
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
     "info": [
       {
@@ -1073,7 +1046,6 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
-
     "education": [
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
@@ -1082,8 +1054,5 @@
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ]
-
   }
-
 ]
-

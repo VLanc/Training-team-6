@@ -1,14 +1,14 @@
 var data = "";
 $(document).ready(function () {
-  $('#saveData').hide();
-  $('#profedit').hide();
-  $('#salaryedit').hide();
-  $('#nameedit').hide();
-  $('#teledit').hide();
-  $('#emailedit').hide();
-  $('#adressedit').hide();
-  $('#bexperience').hide();
-  $('#bkills').hide();
+    $('#saveData').hide();
+    $('#profedit').hide();
+    $('#salaryedit').hide();
+    $('#nameedit').hide();
+    $('#teledit').hide();
+    $('#emailedit').hide();
+    $('#adressedit').hide();
+    $('#bexperience').hide();
+    $('#bkills').hide();
 
 
     var url = "http://127.0.0.1:8080/id-candidate?" + window.location.href.split('?')[1];
@@ -16,46 +16,7 @@ $(document).ready(function () {
     $.getJSON(url, function (candidate) {
 
 
-    data = candidate;
-    //вот тут вносим данные, полученные с сервера
-    $('#prof').html(data.position);
-    $('#name').html(data.name);
-    $('#salary').html(data.salary);
-    $('#tel').html(data.mobileNumber);
-    $('#email').html(data.email);
-    $('#adress').html(data.adress);
-    var skills = data.skills.split(";");
-    for(var i=0;i<skills.length;i++) {
-      $('#skills').append(
-        '<label>' + skills[i] + '</label>'
-      );
-    }
-    var education = data.education;
-    for(var q=0;q<education.length;q++) {
-      $('.placeholder').append(
-        "<ul class='timeline'><li><time class='tmtime'>" +
-        "<span>" + education[q].time + "</span>" +
-        "<span>" + education[q].pos + "</span></time>" +
-        "<div class='icon icon-phone'></div><div class='label'>"+
-        "<h2>" + education[q].header + "</h2>" +
-        "<p>" + education[q].body + "</p></div></li></ul>"
-      );
-    }
-    var experience = data.info;
-    for(var j=0;j<experience.length-1;j++) {
-    $('.placeholder').append(
-      "<ul class='timeline'><li><time class='tmtime'>" +
-      "<span>" + experience[j].time + "</span>" +
-      "<span>" + experience[j].pos + "</span></time>" +
-      "<div class='icon icon-phone'></div><div class='label'><h2>" + experience[j].header + "</h2>" +
-      "<p>" + experience[j].body + "</p></div></li></ul>"
-    );
-    }
-
         data = candidate;
-
-
-
         //вот тут вносим данные, полученные с сервера
         $('#prof').html(data.position);
         $('#name').html(data.name);
@@ -81,7 +42,7 @@ $(document).ready(function () {
             );
         }
         var experience = data.info;
-        for (var j = 0; j < experience.length - 1; j++) {
+        for (var j = 0; j < experience.length; j++) {
             $('.placeholder').append(
                 "<ul class='timeline'><li><time class='tmtime'>" +
                 "<span>" + experience[j].time + "</span>" +
@@ -90,8 +51,6 @@ $(document).ready(function () {
                 "<p>" + experience[j].body + "</p></div></li></ul>"
             );
         }
-
-
 
 
         var date = data.date;
@@ -124,6 +83,16 @@ $(document).ready(function () {
                 function () { // пoсле aнимaции
                     $(this).css('display', 'none'); // скрываем окно
                     $('#overlay').fadeOut(400); // скрывaем пoдлoжку
+                }
+            );
+    });
+
+    $('#modal_close2, #overlay2').click(function () {
+        $('#modal_form2')
+            .animate({opacity: 0, top: '45%'}, 200,  // уменьшаем прозрачность
+                function () { // пoсле aнимaции
+                    $(this).css('display', 'none'); // скрываем окно
+                    $('#overlay2').fadeOut(400); // скрывaем пoдлoжку
                 }
             );
     });
@@ -243,6 +212,55 @@ function saveSkill() {
 
 
 }
+
+function addExperience() {
+    //открываем модальное окно
+    event.preventDefault();
+    $('#overlay2').fadeIn(400, // анимируем показ обложки
+        function () { // далее показываем мод. окно
+            $('#modal_form2')
+                .css('display', 'block')
+                .animate({opacity: 1, top: '50%'}, 200);
+        });
+}
+
+
+function saveExperience() {
+
+    var experience = {
+        time: "",
+        pos: "",
+        header: "",
+        body: ""
+    };
+
+    experience.time = $('#datework').val();
+    experience.pos=$('#companywork').val();
+    experience.header=$('#posistionwork').val();
+    experience.body=$('#bodywork').val();
+
+
+    $('.placeholder').append(
+        "<ul class='timeline'><li><time class='tmtime'>" +
+        "<span>" + experience.time + "</span>" +
+        "<span>" + experience.pos + "</span></time>" +
+        "<div class='icon icon-phone'></div><div class='label'><h2>" + experience.header + "</h2>" +
+        "<p>" + experience.body + "</p></div></li></ul>"
+    );
+
+    data.info.push(experience);
+
+//закрытие модального окна
+    $('#modal_form2')
+        .animate({opacity: 0, top: '45%'}, 200,  // уменьшаем прозрачность
+            function () { // пoсле aнимaции
+                $(this).css('display', 'none'); // скрываем окно
+                $('#overlay2').fadeOut(400); // скрывaем пoдлoжку
+            }
+        );
+}
+
+
 
 
 

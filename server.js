@@ -22,27 +22,13 @@ function respon_cand(req, res, next) {
         photo: "",
         skills: "",
         info: [
-            {
-                time: "",
-                pos: "",
-                header: "",
-                body: ""
-            },
-            {
-                time: "",
-                pos: "",
-                header: "",
-                body: ""
-            }
+
+
+
         ],
 
         education: [
-            {
-                time: "",
-                pos: "",
-                header: "",
-                body: ""
-            }
+
         ]
 
     };
@@ -72,19 +58,23 @@ function respon_cand(req, res, next) {
             for (var i = 0; i < val.info.length; i++) {
 
 
-                candidate.info[i].time = val.info[i].time;
-                candidate.info[i].pos = val.info[i].pos;
-                candidate.info[i].header = val.info[i].header;
-                candidate.info[i].body = val.info[i].body;
+                    candidate.info.push(val.info[i]);
+                    // candidate.info[i].time = val.info[i].time;
+                    // candidate.info[i].pos = val.info[i].pos;
+                    // candidate.info[i].header = val.info[i].header;
+                    // candidate.info[i].body = val.info[i].body;
+                }
 
 
-            }
+
+
 
             for (var i = 0; i < val.education.length; i++) {
-                candidate.education[i].time = val.education[i].time;
-                candidate.education[i].pos = val.education[i].pos;
-                candidate.education[i].header = val.education[i].header;
-                candidate.education[i].body = val.education[i].body;
+                candidate.education.push(val.education[i]);
+                // candidate.education[i].time = val.education[i].time;
+                // candidate.education[i].pos = val.education[i].pos;
+                // candidate.education[i].header = val.education[i].header;
+                // candidate.education[i].body = val.education[i].body;
             }
 
 
@@ -158,23 +148,26 @@ server.post('/id-candidate', function (req, res, next) {
             val.salary = candidate.salary;
             val.photo = candidate.photo;
             val.skills = candidate.skills;
+            val.info = [];
+            for (var i = 0; i < candidate.info.length; i++) {
+                //
+                // val.info[i].time =  candidate.info[i].time;
+                // val.info[i].pos = candidate.info[i].pos;
+                // val.info[i].header = candidate.info[i].header;
+                // val.info[i].body = candidate.info[i].body;
+                val.info.push(candidate.info[i]);
 
-            // for (var i = 0; i < candidate.info.length; i++) {
-            //
-            //     val.info[i].time =  candidate.info[i].time;
-            //     val.info[i].pos = candidate.info[i].pos;
-            //     val.info[i].header = candidate.info[i].header;
-            //     val.info[i].body = candidate.info[i].body;
-            //
-            //
-            // }
 
+            }
+
+            val.education = [];
             for (var i = 0; i < candidate.education.length; i++) {
 
-                val.education[i].time = candidate.education[i].time;
-                val.education[i].pos = candidate.education[i].pos;
-                val.education[i].header = candidate.education[i].header;
-                val.education[i].body = candidate.education[i].body;
+                // val.education[i].time = candidate.education[i].time;
+                // val.education[i].pos = candidate.education[i].pos;
+                // val.education[i].header = candidate.education[i].header;
+                // val.education[i].body = candidate.education[i].body;
+                val.education.push(candidate.education[i]);
 
             }
 

@@ -109,7 +109,7 @@
 
 
 			<a id ="bkills" onclick="return addSkill()" class="add-skills">Add skills</a>
-			<a id ="bexperience" class="add-experience">Add experience</a>
+			<a id ="bexperience" onclick="return addExperience()" class="add-experience">Add experience</a>
 
 	</div>
 </div>
@@ -149,7 +149,18 @@
 	<input id="modalskill" type="text" value="">
 	<button onclick="return saveSkill()" type="button" id="modal-button" class="btn btn-primary">ADD SKILL</button>
 </div>
-
 <div id="overlay"></div>
+
+<!--//модально окно2-->
+<div id="modal_form2">
+	<span id="modal_close2">Close</span>
+	<input id="datework" type="text" value="" placeholder="Enter date...">
+	<input id="companywork" type="text" value="" placeholder="Enter company...">
+	<input id="posistionwork" type="text" value="" placeholder="Enter position...">
+	<!--<input id="bodywork" type="text" value="" placeholder="What you do on work...">-->
+	<textarea rows="1" placeholder="What you do on work..."  id="bodywork"></textarea>
+	<button onclick="return saveExperience()" type="button" id="modal-button2" class="btn btn-primary">SAVE</button>
+</div>
+<div id="overlay2"></div>
 </body>
 </html>
