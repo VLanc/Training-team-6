@@ -802,10 +802,12 @@ NOTE: use percentage font sizes or else old IE chokes
   margin-top: 1em; }
 
 .fc-toolbar .fc-left {
-  float: left; }
+  float: left;
+  margin-bottom:10px;}
 
 .fc-toolbar .fc-right {
-  float: right; }
+  float: right;
+  margin-bottom:10px;}
 
 .fc-toolbar .fc-center {
   display: inline-block; }

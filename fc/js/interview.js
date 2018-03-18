@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
   $('#calendar').fullCalendar({
     header: {
       left: 'prev,next today',
@@ -73,5 +74,6 @@ $(document).ready(function() {
       }
     ]
   });
-
+  // create object
+  // var events = JSON.parse('event.json', 'utf8');
 });

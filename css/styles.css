@@ -4,7 +4,6 @@ body {
     cursor: default;
     text-transform: uppercase;
     font-size: 2vh;
-
 }
 
 .reset {
@@ -625,6 +624,7 @@ body {
     cursor:pointer;
     display:none;
 }
+
 #calendar {
     max-width: 95%;
     margin: 0 auto;
@@ -645,4 +645,13 @@ body {
 #calendar .fc-time-grid-event{
     margin:10px;
     border-radius:15px;
+
+}
+.fc-button-group button{
+    border:none;
+    color:#767676;
+    outline: none;
+}
+.fc-today-button:active{
+    outline: none;
 }
