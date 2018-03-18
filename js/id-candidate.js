@@ -15,7 +15,6 @@ $(document).ready(function () {
 
     $.getJSON(url, function (candidate) {
 
-
         data = candidate;
         //вот тут вносим данные, полученные с сервера /*TODO: translate to english all the file please*/
         $('#prof').html(data.position);
@@ -43,6 +42,7 @@ $(document).ready(function () {
         }
         var experience = data.info;
         for (var j = 0; j < experience.length; j++) {
+
             $('.placeholder').append(/*TODO: put searching for the fields outside the loop*/
                 "<ul class='timeline'><li><time class='tmtime'>" +
                 "<span>" + experience[j].time + "</span>" +
