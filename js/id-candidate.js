@@ -16,41 +16,6 @@ $(document).ready(function () {
     $.getJSON(url, function (candidate) {
 
 
-    data = candidate;
-    //вот тут вносим данные, полученные с сервера
-    $('#prof').html(data.position);
-    $('#name').html(data.name);
-    $('#salary').html(data.salary);
-    $('#tel').html(data.mobileNumber);
-    $('#email').html(data.email);
-    $('#adress').html(data.adress);
-    var skills = data.skills.split(";");
-    for(var i=0;i<skills.length;i++) {
-      $('#skills').append(
-        '<label>' + skills[i] + '</label>'
-      );
-    }
-    var education = data.education;
-    for(var q=0;q<education.length;q++) {
-      $('.placeholder').append(
-        "<ul class='timeline'><li><time class='tmtime'>" +
-        "<span>" + education[q].time + "</span>" +
-        "<span>" + education[q].pos + "</span></time>" +
-        "<div class='icon icon-phone'></div><div class='label'>"+
-        "<h2>" + education[q].header + "</h2>" +
-        "<p>" + education[q].body + "</p></div></li></ul>"
-      );
-    }
-    var experience = data.info;
-    for(var j=0;j<experience.length-1;j++) {
-    $('.placeholder').append(
-      "<ul class='timeline'><li><time class='tmtime'>" +
-      "<span>" + experience[j].time + "</span>" +
-      "<span>" + experience[j].pos + "</span></time>" +
-      "<div class='icon icon-phone'></div><div class='label'><h2>" + experience[j].header + "</h2>" +
-      "<p>" + experience[j].body + "</p></div></li></ul>"
-    );
-    }
 
         data = candidate;
 
@@ -81,7 +46,7 @@ $(document).ready(function () {
             );
         }
         var experience = data.info;
-        for (var j = 0; j < experience.length - 1; j++) {
+        for (var j = 0; j < experience.length; j++) {
             $('.placeholder').append(
                 "<ul class='timeline'><li><time class='tmtime'>" +
                 "<span>" + experience[j].time + "</span>" +
