@@ -18,12 +18,6 @@ $(function () {
     });
 });
 
-function openTab() {
-
-
-    console.log(id);
-}
-
 $(function () {
     var now = new Date();
     now = now.getTime() / 1000;
@@ -54,7 +48,7 @@ $(function () {
                 '<div class="grid__candidate__box__icon__status">' + val['status'] + '</div>' +
                 '<img src="images/' + val['photo'] + '.png" alt="user">' +
                 '</div>' +
-                '<div class="grid__candidate__box__position">' + val['Position'] + '</div>' +/*TODO: that property should be from lowercase like all the rest. Change the json if needed*/
+                '<div class="grid__candidate__box__position">' + val['position'] + '</div>' +/*TODO: that property should be from lowercase like all the rest. Change the json if needed*/
                 '<div class="grid__candidate__box__name">' + val['name'] + '</div>' +
                 '<div class="grid__candidate__box__salary">' + val['salary'] + '</div>' +
                 '<div class="grid__candidate__box__date">' + val['date'] + '</div>' +
