@@ -18,15 +18,7 @@ $(function () {
     });
 });
 
-// function openTab() {
-//
-//
-//     console.log(id);
-// }
-
 $(function () {
-
-
     var now = new Date();
     now = now.getTime() / 1000;
     $.getJSON('profile.json', function (data) {
@@ -68,12 +60,3 @@ $(function () {
         });
     });
 });
-//
-
-//
-// $(document).ready(function () {
-//     $('#grid').bind("click", openTab);
-//     //$(document).on("click", "div", openTab)
-//
-// });
-
