@@ -5,3 +5,5 @@
 3. Была сделана таблица 
 4. Данные в таблицу грузятся из json файла.
 5. Была добавлена пагинация.
+
+//TODO: add description on how to start the server part

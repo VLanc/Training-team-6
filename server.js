@@ -14,7 +14,7 @@ function respon_cand(req, res, next) {
         date: "",
         position: "",
         name: "",
-        address: " ",
+        address: " ",//TODO: why spaces here but not in the above fields? There is two "d" in address word
         city: " ",
         mobileNumber: "",
         email: "",
@@ -23,27 +23,13 @@ function respon_cand(req, res, next) {
         skills: "",
         description: "",
         info: [
-            {
-                time: "",
-                pos: "",
-                header: "",
-                body: ""
-            },
-            {
-                time: "",
-                pos: "",
-                header: "",
-                body: ""
-            }
+
+
+
         ],
 
         education: [
-            {
-                time: "",
-                pos: "",
-                header: "",
-                body: ""
-            }
+
         ]
 
     };
@@ -52,13 +38,13 @@ function respon_cand(req, res, next) {
 
     // console.log(id);
 
-    var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
+    var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8')); //TODO: give a clear name for the object
 
     obj.forEach(function (val) {
 
         if (val.id === id) {
 
-            candidate.id = val.id;
+            candidate.id = val.id;//TODO: as fields names in the json and candidate template are the same better to go over object keys and fill with json data - Object.keys(obj).forEach(function(prop){console.log(prop)})
             candidate.position = val.position;
             candidate.date = val.date;
             candidate.name = val.name;
@@ -74,19 +60,23 @@ function respon_cand(req, res, next) {
             for (var i = 0; i < val.info.length; i++) {
 
 
-                candidate.info[i].time = val.info[i].time;
-                candidate.info[i].pos = val.info[i].pos;
-                candidate.info[i].header = val.info[i].header;
-                candidate.info[i].body = val.info[i].body;
+                    candidate.info.push(val.info[i]);
+                    // candidate.info[i].time = val.info[i].time;
+                    // candidate.info[i].pos = val.info[i].pos;
+                    // candidate.info[i].header = val.info[i].header;
+                    // candidate.info[i].body = val.info[i].body;
+                }
 
 
-            }
+
+
 
             for (var i = 0; i < val.education.length; i++) {
-                candidate.education[i].time = val.education[i].time;
-                candidate.education[i].pos = val.education[i].pos;
-                candidate.education[i].header = val.education[i].header;
-                candidate.education[i].body = val.education[i].body;
+                candidate.education.push(val.education[i]);
+                // candidate.education[i].time = val.education[i].time;
+                // candidate.education[i].pos = val.education[i].pos;
+                // candidate.education[i].header = val.education[i].header;
+                // candidate.education[i].body = val.education[i].body;
             }
 
 
@@ -150,7 +140,7 @@ server.post('/id-candidate', function (req, res, next) {
         if (val.id === candidate.id) {
 
 
-            val.position = candidate.position;
+            val.position = candidate.position;//TODO: as fields names in the json and candidate template are the same better to go over object keys and fill with json data - Object.keys(obj).forEach(function(prop){console.log(prop)})
             val.name = candidate.name;
             val.salary = candidate.salary;
             val.address = candidate.address;
@@ -171,13 +161,26 @@ server.post('/id-candidate', function (req, res, next) {
             //
             //
             // }
+            val.info = [];
+            for (var i = 0; i < candidate.info.length; i++) {
+                //
+                // val.info[i].time =  candidate.info[i].time;
+                // val.info[i].pos = candidate.info[i].pos;
+                // val.info[i].header = candidate.info[i].header;
+                // val.info[i].body = candidate.info[i].body;
+                val.info.push(candidate.info[i]);
 
+
+            }
+
+            val.education = [];
             for (var i = 0; i < candidate.education.length; i++) {
 
-                val.education[i].time = candidate.education[i].time;
-                val.education[i].pos = candidate.education[i].pos;
-                val.education[i].header = candidate.education[i].header;
-                val.education[i].body = candidate.education[i].body;
+                // val.education[i].time = candidate.education[i].time;
+                // val.education[i].pos = candidate.education[i].pos;
+                // val.education[i].header = candidate.education[i].header;
+                // val.education[i].body = candidate.education[i].body;
+                val.education.push(candidate.education[i]);
 
             }
 

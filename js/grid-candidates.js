@@ -18,18 +18,24 @@ $(function () {
     });
 });
 
+function openTab() {
+
+
+    console.log(id);
+}
+
 $(function () {
     var now = new Date();
     now = now.getTime() / 1000;
     $.getJSON('profile.json', function (data) {
         $.each(data, function (key, val) {
             if (!val['photo']) {
-                val['photo'] = 'anounymus'
-}
+                val['photo'] = 'anounymus';
+            }
 
             var dateOfAddUser = (now - val['date']) / 86400;
             if (dateOfAddUser < 1) val['date'] = 'today';
-            else if (1 < dateOfAddUser && 2 > dateOfAddUser) val['date'] = '1 day later';
+            else if (1 < dateOfAddUser && 2 > dateOfAddUser) val['date'] = '1 day later'; /*TODO: https://www.w3schools.com/js/js_switch.asp*/
             else if (2 < dateOfAddUser && 3 > dateOfAddUser) val['date'] = '2 day later';
             else if (3 < dateOfAddUser && 4 > dateOfAddUser) val['date'] = '3 day later';
             else if (4 < dateOfAddUser && 5 > dateOfAddUser) val['date'] = '4 day later';
@@ -38,7 +44,7 @@ $(function () {
             else if (7 < dateOfAddUser && 14 > dateOfAddUser) val['date'] = 'about 1 week';
             else if (14 < dateOfAddUser && 20 > dateOfAddUser) val['date'] = 'about 2 weeks';
             else if (20 < dateOfAddUser && 27 > dateOfAddUser) val['date'] = 'about 3 weeks';
-            else if (27 < dateOfAddUser) val['date'] = 'оч старый';
+            else if (27 < dateOfAddUser) val['date'] = 'оч старый';/*TODO: more than a month*/
             var id = val['id'];
             $('#grid').append(
                 "<div class=\"col-lg-3 col-md-4 col-xs-6 grid__candidate all " + val['status'] + '">' +
@@ -48,7 +54,7 @@ $(function () {
                 '<div class="grid__candidate__box__icon__status">' + val['status'] + '</div>' +
                 '<img src="images/' + val['photo'] + '.png" alt="user">' +
                 '</div>' +
-                '<div class="grid__candidate__box__position">' + val['position'] + '</div>' +
+                '<div class="grid__candidate__box__position">' + val['Position'] + '</div>' +/*TODO: that property should be from lowercase like all the rest. Change the json if needed*/
                 '<div class="grid__candidate__box__name">' + val['name'] + '</div>' +
                 '<div class="grid__candidate__box__salary">' + val['salary'] + '</div>' +
                 '<div class="grid__candidate__box__date">' + val['date'] + '</div>' +
