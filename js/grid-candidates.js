@@ -18,22 +18,22 @@ $(function () {
     });
 });
 
-function openTab() {
-
-
-    console.log(id);
-}
+// function openTab() {
+//
+//
+//     console.log(id);
+// }
 
 $(function () {
 
 
     var now = new Date();
     now = now.getTime() / 1000;
-    $.getJSON('grid.json', function (data) {
+    $.getJSON('profile.json', function (data) {
         $.each(data, function (key, val) {
             if (!val['photo']) {
-                val['photo'] = 'anounymus';
-            }
+                val['photo'] = 'anounymus'
+}
 
             var dateOfAddUser = (now - val['date']) / 86400;
             if (dateOfAddUser < 1) val['date'] = 'today';
@@ -56,7 +56,7 @@ $(function () {
                 '<div class="grid__candidate__box__icon__status">' + val['status'] + '</div>' +
                 '<img src="images/' + val['photo'] + '.png" alt="user">' +
                 '</div>' +
-                '<div class="grid__candidate__box__position">' + val['Position'] + '</div>' +
+                '<div class="grid__candidate__box__position">' + val['position'] + '</div>' +
                 '<div class="grid__candidate__box__name">' + val['name'] + '</div>' +
                 '<div class="grid__candidate__box__salary">' + val['salary'] + '</div>' +
                 '<div class="grid__candidate__box__date">' + val['date'] + '</div>' +

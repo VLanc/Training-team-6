@@ -4,6 +4,8 @@ body {
     cursor: default;
     text-transform: uppercase;
     font-size: 2vh;
+    overflow: hidden;
+
 
 }
 
@@ -624,4 +626,24 @@ body {
     left:0;
     cursor:pointer;
     display:none;
+}
+
+/*/удалить*/
+.modal-description {
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+    border: 1px #000000 solid;
+    /*box-shadow: 5px 5px 5px rgba(221, 221, 221, 1);*/
+    background: #fff;
+    /*position: fixed;*/
+    /*top: 45%;*/
+    /*left: 50%;*/
+    /*margin-top: -150px;*/
+    /*margin-left: -150px;*/
+    /*display: none;*/
+    /*opacity: 0;*/
+    z-index: 5;
+    /*padding: 20px 10px;*/
+    /*box-shadow: 5px 5px 5px rgba(221, 221, 221, 1);*/
 }

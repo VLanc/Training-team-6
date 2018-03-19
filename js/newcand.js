@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     $.getJSON( url, function( candidates ) {
 
-        //данные пользователей хранятся в переменной data из файла grid.json
+        //данные пользователей хранятся в переменной data из файла profile.json
         var i = 0;
         $.each(candidates, function (key, val) {
             i++;

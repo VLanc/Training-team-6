@@ -14,13 +14,14 @@ function respon_cand(req, res, next) {
         date: "",
         position: "",
         name: "",
-        adress: " ",
+        address: " ",
         city: " ",
         mobileNumber: "",
         email: "",
         salary: "",
         photo: "",
         skills: "",
+        description: "",
         info: [
             {
                 time: "",
@@ -62,13 +63,14 @@ function respon_cand(req, res, next) {
             candidate.date = val.date;
             candidate.name = val.name;
             candidate.salary = val.salary;
-            candidate.adress = val.adress;
+            candidate.address = val.address;
             candidate.city = val.city;
             candidate.mobileNumber = val.mobileNumber;
             candidate.email = val.email;
             candidate.salary = val.salary;
             candidate.photo = val.photo;
             candidate.skills = val.skills;
+            candidate.description = val.description;
             for (var i = 0; i < val.info.length; i++) {
 
 
@@ -103,7 +105,7 @@ function respond_grid(req, res, next) {
     res.header('Access-Control-Allow-Methods', 'POST, GET');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
-    var obj = JSON.parse(fs.readFileSync('grid.json', 'utf8'));
+    var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
 
     res.send(obj);
     next();
@@ -115,7 +117,7 @@ function respond_newcand(req, res, next) {
     res.header('Access-Control-Allow-Methods', 'POST, GET');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
-    var obj = JSON.parse(fs.readFileSync('grid.json', 'utf8'));
+    var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
 
     res.send(obj);
     next();
@@ -151,13 +153,14 @@ server.post('/id-candidate', function (req, res, next) {
             val.position = candidate.position;
             val.name = candidate.name;
             val.salary = candidate.salary;
-            val.adress = candidate.adress;
+            val.address = candidate.address;
             val.city = candidate.city;
             val.mobileNumber = candidate.mobileNumber;
             val.email = candidate.email;
             val.salary = candidate.salary;
             val.photo = candidate.photo;
             val.skills = candidate.skills;
+            val.description=candidate.description;
 
             // for (var i = 0; i < candidate.info.length; i++) {
             //
