@@ -44,7 +44,7 @@ $(function () {
             visible: false
         },
 
-        columns: ["Position",
+        columns: ["position",
             "name",
             "address",
             "city",

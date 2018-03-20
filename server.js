@@ -14,13 +14,14 @@ function respon_cand(req, res, next) {
         date: "",
         position: "",
         name: "",
-        adress: " ",//TODO: why spaces here but not in the above fields? There is two "d" in address word
+        address: " ",//TODO: why spaces here but not in the above fields? There is two "d" in address word
         city: " ",
         mobileNumber: "",
         email: "",
         salary: "",
         photo: "",
         skills: "",
+        description: "",
         info: [
 
 
@@ -48,13 +49,14 @@ function respon_cand(req, res, next) {
             candidate.date = val.date;
             candidate.name = val.name;
             candidate.salary = val.salary;
-            candidate.adress = val.adress;
+            candidate.address = val.address;
             candidate.city = val.city;
             candidate.mobileNumber = val.mobileNumber;
             candidate.email = val.email;
             candidate.salary = val.salary;
             candidate.photo = val.photo;
             candidate.skills = val.skills;
+            candidate.description = val.description;
             for (var i = 0; i < val.info.length; i++) {
 
 
@@ -93,7 +95,7 @@ function respond_grid(req, res, next) {
     res.header('Access-Control-Allow-Methods', 'POST, GET');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
-    var obj = JSON.parse(fs.readFileSync('grid.json', 'utf8'));
+    var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
 
     res.send(obj);
     next();
@@ -105,7 +107,7 @@ function respond_newcand(req, res, next) {
     res.header('Access-Control-Allow-Methods', 'POST, GET');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
-    var obj = JSON.parse(fs.readFileSync('grid.json', 'utf8'));
+    var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
 
     res.send(obj);
     next();
@@ -141,13 +143,24 @@ server.post('/id-candidate', function (req, res, next) {
             val.position = candidate.position;//TODO: as fields names in the json and candidate template are the same better to go over object keys and fill with json data - Object.keys(obj).forEach(function(prop){console.log(prop)})
             val.name = candidate.name;
             val.salary = candidate.salary;
-            val.adress = candidate.adress;
+            val.address = candidate.address;
             val.city = candidate.city;
             val.mobileNumber = candidate.mobileNumber;
             val.email = candidate.email;
             val.salary = candidate.salary;
             val.photo = candidate.photo;
             val.skills = candidate.skills;
+            val.description=candidate.description;
+
+            // for (var i = 0; i < candidate.info.length; i++) {
+            //
+            //     val.info[i].time =  candidate.info[i].time;
+            //     val.info[i].pos = candidate.info[i].pos;
+            //     val.info[i].header = candidate.info[i].header;
+            //     val.info[i].body = candidate.info[i].body;
+            //
+            //
+            // }
             val.info = [];
             for (var i = 0; i < candidate.info.length; i++) {
                 //
