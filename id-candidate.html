@@ -50,15 +50,23 @@
                     <li>
                         <a href="#">Management</a>
                     </li>
-                    <li>
-                        <a href="#" onclick="return openModalWindowDescription()" data-toggle="modal">Review</a>
-                    </li>
                 </ul>
             </nav>
         </div>
         <div class="col-lg-10 col-md-12  col-sm-12 col-xs-12 row-data grid">
             <div class="row">
-                <div class="top col-lg-12 col-md-12 col-sm-12 col-xs-12"><a href="candidates.html">Candidates</a>
+                <div class="top col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="bread-crumbs">
+                        <a href="candidates.html">Candidates /</a>
+                        <div id="breadCrumbs"></div>
+                    </div>
+
+                    <div class="review-button">
+                        <button onclick="return openModalWindowDescription();" class="btn btn-secondary review">Review
+                        </button>
+                    </div>
+
+
                 </div>
                 <div class="info col-lg-3 col-md-12 col-sm-12 col-xs-12">
                     <div class="info-header">
@@ -121,33 +129,6 @@
 </div>
 
 
-<!-- The Modal -->
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Modal Heading</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-                Modal body..
-            </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-
 <!--модально окно-->
 <div id="modal_form">
     <span id="modal_close">Close</span>
@@ -162,6 +143,9 @@
         <div class="modal-content  modal-window-description">
             <div class="modal-header">
                 <div class="modal-window-description__title">Description of candidate</div>
+                <a href="#" onclick="return closeDescription();" class="modal-close">
+                    <i class="fa fa-window-close-o"></i>
+                </a>
                 <div id="receiptDate"
                      class="modal-window-description__date-off-add-candidate">
                 </div>
@@ -187,25 +171,19 @@
                            aria-controls="Form4" aria-selected="false">Form</a>
                     </li>
                 </ul>
-
                 <div class="tab-content" id="myTabContent">
-
                     <div class="tab-pane fade show active" id="form1" role="Form" aria-labelledby="Form1">
                         <textarea class="form-control" id="area1" rows="7" name="desc1"
                                   placeholder="Write..."></textarea>
                     </div>
-
                     <div class="tab-pane fade" id="form2" role="Form" aria-labelledby="profile-tab">
-
                         <textarea class="form-control" id="area2" rows="7" name="desc2"
                                   placeholder="Write..."></textarea>
                     </div>
-
                     <div class="tab-pane fade" id="form3" role="Form" aria-labelledby="contact-tab">
 
                         <textarea class="form-control" id="area3" rows="7" name="desc3"
                                   placeholder="Write..."></textarea>
-
                     </div>
                     <div class="tab-pane fade" id="form4" role="Form" aria-labelledby="contact-tab">
 

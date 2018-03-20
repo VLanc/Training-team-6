@@ -16,17 +16,22 @@ body {
 }
 
 .modal-header {
-    margin-top: 3vh;
+    margin-top: 0;
     border-bottom: none;
+    flex: 1;
+    display: inline;
 }
 
 .modal-window-description__title {
     font-weight: bold;
+    display:inline;
 
 
 }
 .modal-window-description__date-off-add-candidate {
-    text-align: right;
+    margin-right: 20px;
+    display:inline;
+    float:right;
 }
 
 .modal-body textarea {
@@ -56,4 +61,35 @@ body {
     font-weight: bold;
     text-transform: none;
     border-radius: 0;
+}
+
+.review {
+    margin: 7px 0 0 0;
+    background-color: #c6c8ca;
+    border:none;
+    text-transform: uppercase;
+    font-size: 110%;
+    float:right;
+}
+
+
+
+.review-button {
+    flex: 1;
+    display: inline;
+}
+
+.modal-close {
+    font-size: 5vh;
+    color: #6e6e6e;
+    text-shadow: 2px 0 5px #6c757d;
+    float:right;
+}
+
+.modal-close:hover {
+    color: #6e6e6e;
+}
+
+.modal-close:active {
+    text-shadow: none;
 }

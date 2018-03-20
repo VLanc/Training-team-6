@@ -24,6 +24,7 @@ $(document).ready(function () {
         $('#tel').html(data.mobileNumber);
         $('#email').html(data.email);
         $('#address').html(data.address);
+        $('#breadCrumbs').html(data.name);
 
 
         var skills = data.skills.split(";"); /*TODO: if you have to split it manually that means that backend didn't give you them in a proper format. Should be splitted in backend*/
@@ -285,3 +286,8 @@ function saveDescription() {
     $('.modal').modal('hide');
 };
 
+function closeDescription() {
+    var url = "http://127.0.0.1:8080/id-candidate?";
+    $.post(url, data);
+    $('.modal').modal('hide');
+};
