@@ -122,14 +122,14 @@
 
 
             <a id="bkills" onclick="return addSkill()" class="add-skills">Add skills</a>
-            <a id="bexperience" class="add-experience">Add experience</a>
+            <a id="bexperience" onclick="return addExperience()" class="add-experience">Add experience</a>
 
         </div>
     </div>
 </div>
 
 
-<!--модально окно-->
+<!--modal window-->
 <div id="modal_form">
     <span id="modal_close">Close</span>
     <input id="modalskill" type="text" value="">
@@ -138,11 +138,23 @@
 
 <div id="overlay"></div>
 
+-<div id="modal_form2">
+       <span id="modal_close2">Close</span>
+       <input id="datework" type="text" value="" placeholder="Enter date...">
+       <input id="companywork" type="text" value="" placeholder="Enter position...">
+       <input id="posistionwork" type="text" value="" placeholder="Enter company...">
+
+       <textarea rows="1" placeholder="What you do on work..."  id="bodywork"></textarea>
+       <!--TODO: remove firing inline scripts, move to js file-->
+       <button onclick="return saveExperience()" type="button" id="modal-button2" class="btn btn-primary">SAVE</button>
+</div>
+<div id="overlay2"></div>
+
 <div id="modalWindowDescription" class="modal fade">
     <div id="modalBody" class="modal-dialog modal-lg">
         <div class="modal-content  modal-window-description">
             <div class="modal-header">
-                <div class="modal-window-description__title">Description of candidate</div>
+                <div class="modal-window-description__title" id="descriptionName"></div>
                 <a href="#" onclick="return closeDescription();" class="modal-close">
                     <i class="fa fa-window-close-o"></i>
                 </a>
@@ -155,41 +167,42 @@
                 </div>
                 <ul class="nav nav-tabs" id="TabDescription" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="toForm1" data-toggle="tab" href="#Form1" role="tab"
-                           aria-controls="Form1" aria-selected="true">Form</a>
+                        <a class="nav-link active" id="toForm1" data-toggle="tab" href="#form1" role="tab"
+                           aria-controls="Form1" aria-selected="true">Add review</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="toForm2" data-toggle="tab" href="#Form2" role="tab"
-                           aria-controls="Form2" aria-selected="false">Form</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="toForm3" data-toggle="tab" href="#Form3" role="tab"
-                           aria-controls="Form3" aria-selected="false">Form</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="toForm4" data-toggle="tab" href="#Form4" role="tab"
-                           aria-controls="Form4" aria-selected="false">Form</a>
-                    </li>
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link" id="toForm2" data-toggle="tab" href="#form2" role="tab"-->
+                           <!--aria-controls="Form2" aria-selected="false">Form</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link" id="toForm3" data-toggle="tab" href="#Form3" role="tab"-->
+                           <!--aria-controls="Form3" aria-selected="false">Form</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link" id="toForm4" data-toggle="tab" href="#Form4" role="tab"-->
+                           <!--aria-controls="Form4" aria-selected="false">Form</a>-->
+                    <!--</li>-->
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="form1" role="Form" aria-labelledby="Form1">
+                    <div class="tab-pane fade show active" id="form1"  aria-labelledby="Form1">
                         <textarea class="form-control" id="area1" rows="7" name="desc1"
                                   placeholder="Write..."></textarea>
                     </div>
-                    <div class="tab-pane fade" id="form2" role="Form" aria-labelledby="profile-tab">
-                        <textarea class="form-control" id="area2" rows="7" name="desc2"
-                                  placeholder="Write..."></textarea>
-                    </div>
-                    <div class="tab-pane fade" id="form3" role="Form" aria-labelledby="contact-tab">
+                    <!--<div class="tab-pane fade" id="form2"  aria-labelledby="Form2">-->
 
-                        <textarea class="form-control" id="area3" rows="7" name="desc3"
-                                  placeholder="Write..."></textarea>
-                    </div>
-                    <div class="tab-pane fade" id="form4" role="Form" aria-labelledby="contact-tab">
+                        <!--<textarea class="form-control" id="area2" rows="7" name="desc2"-->
+                                  <!--placeholder="Writdsafdsafdsafe..."></textarea>-->
+                    <!--</div>-->
+                    <!--<div class="tab-pane fade" id="form3" role="Form" aria-labelledby="contact-tab">-->
 
-                        <textarea class="form-control" id="area4" rows="7" name="desc4"
-                                  placeholder="Write..."></textarea>
-                    </div>
+                        <!--<textarea class="form-control" id="area3" rows="7" name="desc3"-->
+                                  <!--placeholder="Wrifdsgte..."></textarea>-->
+                    <!--</div>-->
+                    <!--<div class="tab-pane fade" id="form4" role="Form" aria-labelledby="contact-tab">-->
+
+                        <!--<textarea class="form-control" id="area4" rows="7" name="desc4"-->
+                                  <!--placeholder="Wridfsgfdste..."></textarea>-->
+                    <!--</div>-->
                 </div>
                 <button onclick="return saveDescription();" class="btn btn-secondary">Send</button>
             </div>
