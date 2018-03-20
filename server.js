@@ -14,23 +14,16 @@ function respon_cand(req, res, next) {
         date: "",
         position: "",
         name: "",
-        address: " ",//TODO: why spaces here but not in the above fields? There is two "d" in address word
-        city: " ",
+        address: "",
+        city: "",
         mobileNumber: "",
         email: "",
         salary: "",
         photo: "",
         skills: "",
-        description: "",
-        info: [
-
-
-
-        ],
-
-        education: [
-
-        ]
+        description: [],
+        info: [],
+        education: []
 
     };
     var id = req.query.id;
@@ -56,27 +49,23 @@ function respon_cand(req, res, next) {
             candidate.salary = val.salary;
             candidate.photo = val.photo;
             candidate.skills = val.skills;
-            candidate.description = val.description;
+
             for (var i = 0; i < val.info.length; i++) {
 
 
-                    candidate.info.push(val.info[i]);
-                    // candidate.info[i].time = val.info[i].time;
-                    // candidate.info[i].pos = val.info[i].pos;
-                    // candidate.info[i].header = val.info[i].header;
-                    // candidate.info[i].body = val.info[i].body;
-                }
+                candidate.info.push(val.info[i]);
 
-
-
+            }
 
 
             for (var i = 0; i < val.education.length; i++) {
                 candidate.education.push(val.education[i]);
-                // candidate.education[i].time = val.education[i].time;
-                // candidate.education[i].pos = val.education[i].pos;
-                // candidate.education[i].header = val.education[i].header;
-                // candidate.education[i].body = val.education[i].body;
+
+            }
+
+            for (var i = 0; i<val.description.length; i++)
+            {
+                candidate.description.push(val.description[i]);
             }
 
 
@@ -150,24 +139,12 @@ server.post('/id-candidate', function (req, res, next) {
             val.salary = candidate.salary;
             val.photo = candidate.photo;
             val.skills = candidate.skills;
-            val.description=candidate.description;
+            val.description = candidate.description;
 
-            // for (var i = 0; i < candidate.info.length; i++) {
-            //
-            //     val.info[i].time =  candidate.info[i].time;
-            //     val.info[i].pos = candidate.info[i].pos;
-            //     val.info[i].header = candidate.info[i].header;
-            //     val.info[i].body = candidate.info[i].body;
-            //
-            //
-            // }
+
             val.info = [];
             for (var i = 0; i < candidate.info.length; i++) {
-                //
-                // val.info[i].time =  candidate.info[i].time;
-                // val.info[i].pos = candidate.info[i].pos;
-                // val.info[i].header = candidate.info[i].header;
-                // val.info[i].body = candidate.info[i].body;
+
                 val.info.push(candidate.info[i]);
 
 
@@ -176,12 +153,14 @@ server.post('/id-candidate', function (req, res, next) {
             val.education = [];
             for (var i = 0; i < candidate.education.length; i++) {
 
-                // val.education[i].time = candidate.education[i].time;
-                // val.education[i].pos = candidate.education[i].pos;
-                // val.education[i].header = candidate.education[i].header;
-                // val.education[i].body = candidate.education[i].body;
+
                 val.education.push(candidate.education[i]);
 
+            }
+            val.description = [];
+            for (var i = 0; i<candidate.description.length; i++)
+            {
+                val.description.push(candidate.description[i]);
             }
 
 
