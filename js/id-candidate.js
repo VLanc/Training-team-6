@@ -23,7 +23,10 @@ $(document).ready(function () {
         $('#salary').html(data.salary);
         $('#tel').html(data.mobileNumber);
         $('#email').html(data.email);
-        $('#adress').html(data.adress);
+        $('#address').html(data.address);
+        $('#breadCrumbs').html(data.name);
+
+
         var skills = data.skills.split(";"); /*TODO: if you have to split it manually that means that backend didn't give you them in a proper format. Should be splitted in backend*/
         for (var i = 0; i < skills.length; i++) {
             $('#skills').append(/*TODO: put searching for the fields outside the loop*/
@@ -43,6 +46,7 @@ $(document).ready(function () {
         }
         var experience = data.info;
         for (var j = 0; j < experience.length; j++) {
+
             $('.placeholder').append(/*TODO: put searching for the fields outside the loop*/
                 "<ul class='timeline'><li><time class='tmtime'>" +
                 "<span>" + experience[j].time + "</span>" +
@@ -52,24 +56,25 @@ $(document).ready(function () {
             );
         }
 
+        var photo = data.photo ? data.photo : 'anounymus';
+        $('#avatar').attr({src: 'images/' + photo + '.png'});
 
         var date = data.date;
         var now = new Date();
         now = now.getTime() / 1000;
-
         var dateOfAddUser = (now - date) / 86400;
 
-        if (dateOfAddUser < 1) data.date = 'today';
-        else if (1 < dateOfAddUser && 2 > dateOfAddUser) data.date = '1 day later';/*TODO: https://www.w3schools.com/js/js_switch.asp*/
-        else if (2 < dateOfAddUser && 3 > dateOfAddUser) data.date = '2 day later';
-        else if (3 < dateOfAddUser && 4 > dateOfAddUser) data.date = '3 day later';
-        else if (4 < dateOfAddUser && 5 > dateOfAddUser) data.date = '4 day later';
-        else if (5 < dateOfAddUser && 6 > dateOfAddUser) data.date = '5 day later';
-        else if (6 < dateOfAddUser && 7 > dateOfAddUser) data.date = '6 day later';
-        else if (7 < dateOfAddUser && 14 > dateOfAddUser) data.date = 'about 1 week';
-        else if (14 < dateOfAddUser && 20 > dateOfAddUser) data.date = 'about 2 weeks';
-        else if (20 < dateOfAddUser && 27 > dateOfAddUser) data.date = 'about 3 weeks';
-        else if (27 < dateOfAddUser) data.date = 'a month ago';
+        if (dateOfAddUser < 1) date = 'today';
+        else if (1 < dateOfAddUser && 2 > dateOfAddUser) date = '1 day later';/*TODO: https://www.w3schools.com/js/js_switch.asp*/
+        else if (2 < dateOfAddUser && 3 > dateOfAddUser) date = '2 day later';
+        else if (3 < dateOfAddUser && 4 > dateOfAddUser) date = '3 day later';
+        else if (4 < dateOfAddUser && 5 > dateOfAddUser) date = '4 day later';
+        else if (5 < dateOfAddUser && 6 > dateOfAddUser) date = '5 day later';
+        else if (6 < dateOfAddUser && 7 > dateOfAddUser) date = '6 day later';
+        else if (7 < dateOfAddUser && 14 > dateOfAddUser) date = 'about 1 week';
+        else if (14 < dateOfAddUser && 20 > dateOfAddUser) date = 'about 2 weeks';
+        else if (20 < dateOfAddUser && 27 > dateOfAddUser) date = 'about 3 weeks';
+        else if (27 < dateOfAddUser) date = 'a month ago';
         $('#date').append(
             "<p id='date' class='profile-time'>" + data.date + "</p>"
         );
@@ -108,7 +113,7 @@ function editData() {/*TODO: all that block looks super hackish. Hide and show w
     $('#name').hide();
     $('#tel').hide();
     $('#email').hide();
-    $('#adress').hide();
+    $('#address').hide();
 
 
     $('#saveData').show();
@@ -117,7 +122,7 @@ function editData() {/*TODO: all that block looks super hackish. Hide and show w
     $('#nameedit').show();
     $('#teledit').show();
     $('#emailedit').show();
-    $('#adressedit').show();
+    $('#addressedit').show();
     $('#bexperience').show();
     $('#bkills').show();
 
@@ -126,7 +131,7 @@ function editData() {/*TODO: all that block looks super hackish. Hide and show w
     $('#nameedit').val($('#name').html());
     $('#teledit').val($('#tel').html());
     $('#emailedit').val($('#email').html());
-    $('#adressedit').val($("#adress").html());
+    $('#addressedit').val($("#address").html());
 
 }
 
@@ -140,7 +145,7 @@ function saveData() {/*TODO: all that block looks super hackish. Hide and show w
     $('#date').show();
     $('#tel').show();
     $('#email').show();
-    $('#adress').show();
+    $('#address').show();
 
 
     $('#saveData').hide();
@@ -149,7 +154,7 @@ function saveData() {/*TODO: all that block looks super hackish. Hide and show w
     $('#nameedit').hide();
     $('#teledit').hide();
     $('#emailedit').hide();
-    $('#adressedit').hide();
+    $('#addressedit').hide();
     $('#bexperience').hide();
     $('#bkills').hide();
 
@@ -158,14 +163,14 @@ function saveData() {/*TODO: all that block looks super hackish. Hide and show w
     $('#name').html($('#nameedit').val());
     $('#tel').html($('#teledit').val());
     $('#email').html($('#emailedit').val());
-    $('#adress').html($('#adressedit').val());
+    $('#address').html($('#addressedit').val());
 
     data.position = $('#profedit').val();
     data.salary = $('#salaryedit').val();
     data.name = $('#nameedit').val();
     data.mobileNumber = $('#teledit').val();
     data.email = $('#emailedit').val();
-    data.adress = $('#adressedit').val();
+    data.address = $('#addressedit').val();
 
 
     var url = "http://127.0.0.1:8080/id-candidate?";
@@ -209,7 +214,6 @@ function saveSkill() {
                 $('#overlay').fadeOut(400); // скрывaем пoдлoжку
             }
         );
-
 
 }
 
@@ -260,7 +264,30 @@ function saveExperience() {
         );
 }
 
+function openModalWindowDescription() {
 
+    var dateObject = new Date(data.date * 1000);
+    receiptDate = dateObject.toDateString();
 
+    $(document).ready(function () {
 
+        $('#receiptDate').html(receiptDate);
+        $('#havingDescription').html(data.description);
+        $('#area1').html(data.description);
+        $('#modalWindowDescription').modal('show');
 
+    });
+};
+
+function saveDescription() {
+    data.description = $('#area1').val() + $('#area2').val() + $('#area3').val() + $('#area4').val();
+    var url = "http://127.0.0.1:8080/id-candidate?";
+    $.post(url, data);
+    $('.modal').modal('hide');
+};
+
+function closeDescription() {
+    var url = "http://127.0.0.1:8080/id-candidate?";
+    $.post(url, data);
+    $('.modal').modal('hide');
+};

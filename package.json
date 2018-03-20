@@ -7,8 +7,11 @@
     "connect": "^3.6.6",
     "fs": "0.0.1-security",
     "jscs": "^3.0.7",
+    "node": "^9.8.0",
     "node-restify": "^0.2.1",
-    "restify": "^6.3.4"
+    "node-static": "^0.7.10",
+    "restify": "^6.3.4",
+    "static": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {
