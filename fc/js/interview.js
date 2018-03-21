@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
 
   $('#calendar').fullCalendar({
@@ -9,11 +9,16 @@ $(document).ready(function() {
     },
     defaultDate: '2018-03-12',
     navLinks: true, // can click day/week names to navigate views
+    dayClick: function (date, jsEvent, view) {
+      var clickDate = date.format();
 
+      $('#start').val(clickDate);
+
+      $('#dialog').dialog('open');
+    },
     weekNumbers: true,
     weekNumbersWithinDays: true,
     weekNumberCalculation: 'ISO',
-
     editable: true,
     eventLimit: true, // allow "more" link when too many events
 
@@ -76,4 +81,28 @@ $(document).ready(function() {
   });
   // create object
   // var events = JSON.parse('event.json', 'utf8');
+  $('#dialog').dialog({
+    autoOpen: true,
+    minWidth: 600,
+    show: {
+      effect: 'drop',
+      duration: 500
+    },
+    hide: {
+      effect: 'clip',
+      duration: 500
+    }
+  });
+  $('.datepicker').datepicker({
+    dataFormat: "yy-mm-dd"
+  });
+  $( "#speed" ).selectmenu();
 });
+
+
+function HideTime(){
+  $(document).ready(function () {
+    $('#time').hide();
+  });
+}
+HideTime();

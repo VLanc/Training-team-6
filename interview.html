@@ -4,14 +4,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>hr app</title>
+
 	<link href="css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="fc/css/jquery-ui.css">
 	<link href="css/styles.css" rel="stylesheet">
+	<link href='fc/css/fullcalendar.css' rel='stylesheet'/>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
-	<link href='fc/css/fullcalendar.css' rel='stylesheet' />
-	<link href='fc/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script type='text/javascript' src="js/bootstrap.min.js"></script>
+	<script src="fc/js/jquery-ui.js"></script>
 	<script src='fc/lib/moment.min.js'></script>
-	<script src='fc/lib/jquery.min.js'></script>
 	<script src='fc/js/fullcalendar.js'></script>
 	<script src="fc/js/interview.js"></script>
 
@@ -58,6 +61,45 @@
 		<div class="col-lg-10 col-md-12  col-sm-12 col-xs-12 row-data grid">
 			<div class="interview-footer">Interview</div>
 			<div id='calendar'></div>
+			<div class="back-dialog" id="dialog">
+				<form>
+					<div class="form-group top-event">
+						<input type="text" class="form-control event top-event" id="title" placeholder="Добавьте название и время">
+						<label for="title" class="label-event">Мероприятие</label>
+					</div>
+					<div class="form-group " id="content-event">
+						<span class="fa fa-clock-o" aria-hidden="true"></span>
+						<button type="button" onclick="return $('#time').show();" class="btn btn-light add-time">Добавить время</button>
+						<input type="text" class="datepicker form-control add-time" id="end" placeholder="End" value="">
+						<input type="text" class="datepicker form-control add-time" id="start" placeholder="Start" value="start">
+					</div>
+					<div id="time">
+						<button type="button" onclick="return $('#time').hide();" class="btn btn-light add-time">Скрыть время</button>
+						<input type="time" class="form-control add-time">
+						<input type="time" class="form-control add-time">
+					</div>
+					<div>
+						<div class="fa fa-calendar" aria-hidden="true"></div>
+						<select name="candidates-range" id="candidates-range" class="form-control">
+							<option>Slower</option>
+							<option>Slow</option>
+							<option selected="selected">Medium</option>
+							<option>Fast</option>
+							<option>Faster</option>
+						</select>
+					</div>
+					<div class="form-group ">
+					<button type="submit" class="btn btn-primary save">Сохранить</button>
+					<button type="button" class="btn btn-light others" >Другие параметры</button>
+					</div>
+				</form>
+			</div>
 		</div>
+
+
 	</div>
 </div>
+
+
+</body>
+</html>

@@ -1,13 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>CANDIDATES</title>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/newcand.js"></script>
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>hr app</title>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="fc/css/jquery-ui.css">
+	<link href="css/styles.css" rel="stylesheet">
+	<link href='fc/css/fullcalendar.css' rel='stylesheet' />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script type='text/javascript' src="js/bootstrap.min.js"></script>
+	<script src="fc/js/jquery-ui.js"></script>
+	<script src='fc/lib/moment.min.js'></script>
+	<script src='fc/js/fullcalendar.js'></script>
+	<script src="fc/js/interview.js"></script>
+	</body>
 </head>
 <body>
-<p>dfdsf</p>
+<div id='calendar'></div>
+<div class="calendar__dialog" id="dialog">
+	<form >
+		<div class="form-group">
+			<label for="title">Название события</label>
+			<input type="text" class="form-control" id="title" placeholder="Название события">
+		</div>
+		<div class="form-group">
+			<label for="start">Начало события</label>
+			<input type="text" class="datepicker form-control" id="start" placeholder="Начало события">
+		</div>
+		<div class="form-group">
+			<label for="end">Конец события</label>
+			<input type="text" class="datepicker form-control" id="end" placeholder="Конец события">
+		</div>
+		<button type="submit" class="btn btn-primary">Сохранить</button>
+	</form>
+</div>
+</div>
+
+</div>
+
 </body>
 </html>
