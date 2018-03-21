@@ -788,7 +788,8 @@ body {
   text-transform: none;
   max-height: 84vh;
   overflow-y: auto;
-  /*visibility: hidden;*/
+  visibility: hidden;
+  opacity: 0;
 }
 
 .notifications {
@@ -833,7 +834,6 @@ body {
   font-size: 20px;
   padding: 20px 30px 5px 38px;
   color: #a1a1a1;
-  min-width: 225px;
 }
 
 .notification-bar-view-all {
