@@ -67,6 +67,8 @@
 						<input type="text" class="form-control event top-event" id="title" placeholder="Добавьте название и время">
 						<label for="title" class="label-event">Мероприятие</label>
 					</div>
+
+
 					<div class="form-group " id="content-event">
 						<span class="fa fa-clock-o" aria-hidden="true"></span>
 						<button type="button" onclick="return $('#time').show();" class="btn btn-light add-time">Добавить время</button>
@@ -74,18 +76,19 @@
 						<input type="text" class="datepicker form-control add-time" id="start" placeholder="Start" value="start">
 					</div>
 					<div id="time">
+						<span class="fa fa-clock-o" aria-hidden="true" id="format-time"></span>
 						<button type="button" onclick="return $('#time').hide();" class="btn btn-light add-time">Скрыть время</button>
-						<input type="time" class="form-control add-time">
-						<input type="time" class="form-control add-time">
+						<input type="time" id="allDay-start" class="form-control add-time">
+						<input type="time" id="allDay-end" class="form-control add-time">
 					</div>
 					<div>
-						<div class="fa fa-calendar" aria-hidden="true"></div>
+						<span class="fa fa-calendar" aria-hidden="true"></span>
 						<select name="candidates-range" id="candidates-range" class="form-control">
-							<option>Slower</option>
-							<option>Slow</option>
-							<option selected="selected">Medium</option>
-							<option>Fast</option>
-							<option>Faster</option>
+							<option>Nikita</option>
+							<option>Lewa</option>
+							<option selected="selected">Bomzh Vitalik</option>
+							<option>Sanya</option>
+							<option>Vlados</option>
 						</select>
 					</div>
 					<div class="form-group ">

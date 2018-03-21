@@ -1,6 +1,4 @@
 $(document).ready(function () {
-
-
   $('#calendar').fullCalendar({
     header: {
       left: 'prev,next today',
@@ -9,11 +7,9 @@ $(document).ready(function () {
     },
     defaultDate: '2018-03-12',
     navLinks: true, // can click day/week names to navigate views
+
     dayClick: function (date, jsEvent, view) {
       var clickDate = date.format();
-
-      $('#start').val(clickDate);
-
       $('#dialog').dialog('open');
     },
     weekNumbers: true,
@@ -21,6 +17,8 @@ $(document).ready(function () {
     weekNumberCalculation: 'ISO',
     editable: true,
     eventLimit: true, // allow "more" link when too many events
+    selectable: true,
+    selectHelper: true,
 
     events: [
       {
@@ -82,7 +80,7 @@ $(document).ready(function () {
   // create object
   // var events = JSON.parse('event.json', 'utf8');
   $('#dialog').dialog({
-    autoOpen: true,
+    autoOpen: false,
     minWidth: 600,
     show: {
       effect: 'drop',
@@ -96,7 +94,7 @@ $(document).ready(function () {
   $('.datepicker').datepicker({
     dataFormat: "yy-mm-dd"
   });
-  $( "#speed" ).selectmenu();
+
 });
 
 
@@ -106,3 +104,13 @@ function HideTime(){
   });
 }
 HideTime();
+// $(document).ready(function () {
+// $.getJSON('profile.json', function (candidate) {
+//   data = candidate;
+//   for (var g = 0; g < data.length; g++) {
+//     $('#candidates-range').append(
+//     '<option>'+data[g].name+'</option>'
+//     );
+//   }
+// });
+// });

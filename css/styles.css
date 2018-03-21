@@ -786,6 +786,7 @@ body {
 #dialog input {
   float: right;
   width:31.5%;
+    text-align: center;
 }
 
 #dialog .top-event input:first-child {
@@ -802,10 +803,8 @@ body {
   float: right;
 }
 #dialog .add-time{
-  background-color: #e9e9e9;
   border:none;
   border-radius:0;
-  margin:5px 0;
 }
 #dialog .time button{
   background:#fff;
@@ -820,4 +819,13 @@ body {
   border:none;
   background-color: #e9e9e9;
   margin:10px 0;
+}
+.fa{
+    padding:20px 0;
+}
+#format-time{
+    padding:15px 0;
+}
+#dialog #content-event{
+    margin-bottom:4px;
 }
