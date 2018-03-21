@@ -1,213 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>hr app</title>
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/modal.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/id-candidate.js"></script>
-    <script type='text/javascript' src="js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>hr app</title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/modal.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/id-candidate.js"></script>
+  <script type='text/javascript' src="js/bootstrap.min.js"></script>
+  <script src="js/notifications.js"></script>
 
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row heading">
-        <div class="col-lg-2 beauty">
-            <h5>нr app</h5>
-        </div>
-        <div class="col-lg-10 beauty">
-            <div class="find-bar">
-                <form action="#">
-                    <button type="submit" class="find-bar__button">
-                        <i class="icon fa fa-search"></i>
-                    </button>
-                    <input type="search" placeholder="Search for vacancies, candidates" name="find-string"
-                           class="find-bar__string">
-                </form>
-                <a title="quiet" href="#"><i class="icon fa fa-bell b"></i></a>
-                <a title="exit" href="#"><i class="icon fa fa-sign-out"></i></a>
-            </div>
-        </div>
+  <div class="row heading">
+    <div class="col-lg-2 beauty">
+      <h5>нr app</h5>
     </div>
-    <div class="row">
-        <div class="col-lg-2 beauty reset">
-            <nav>
-                <ul class="menu">
-                    <li>
-                        <a href="#">Interview</a>
-                    </li>
-                    <li>
-                        <a href="workplace.html">Vacancies</a>
-                    </li>
-                    <li>
-                        <a href="candidates.html" class="active">Candidates</a>
-                    </li>
-                    <li>
-                        <a href="#">Management</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <div class="col-lg-10 col-md-12  col-sm-12 col-xs-12 row-data grid">
-            <div class="row">
-                <div class="top col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="bread-crumbs">
-                        <a href="candidates.html">Candidates /</a>
-                        <div id="breadCrumbs"></div>
-                    </div>
-
-                    <div class="review-button">
-                        <button onclick="return openModalWindowDescription();" class="btn btn-secondary review">Review
-                        </button>
-                    </div>
-
-
-                </div>
-                <div class="info col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                    <div class="info-header">
-                        <select name="status" id="status">
-                            <option value="active">Accepted for interview</option>
-                            <option value="">All</option>
-                            <option value="">New</option>
-                            <option value="">CV-Accepted</option>
-                            <option value="">CV-Rejected</option>
-                        </select>
-                        <img id="avatar" alt="profile">
-                        <p id="prof" class="profile-job"></p>
-                        <input id="profedit" class="profile-job" type="text" value="">
-
-                        <p id="name" class="profile-name"></p>
-                        <input id="nameedit" class="profile-name" type="text" value="">
-
-                        <p id="salary" class="profile-salary">800$</p>
-                        <input id="salaryedit" class="profile-name" type="text" value="">
-
-                        <div id="date"></div>
-
-                    </div>
-                    <div class="info-footer">
-                        <h5>Contact information</h5>
-                        <p class="profile-text">phone:</p>
-                        <p id="tel"></p>
-                        <input id="teledit" type="text" value="">
-                        <p class="profile-text">email:</p>
-                        <p id="email"></p>
-                        <input id="emailedit" type="text" value="">
-                        <p class="profile-text">address:</p>
-                        <p id="address"></p>
-                        <input id="addressedit" type="text" value="">
-
-                    </div>
-                </div>
-                <div class="time-line col-lg-9 col-md-12 col-sm-12 col-xs-12 ">
-                    <div class="time-header">
-                        <h5>Experience</h5>
-                    </div>
-
-                    <div class="placeholder"></div>
-                    <div class="footer">
-                        <h5>Skills</h5>
-
-                        <div id="skills" class="skills"></div>
-                    </div>
-                </div>
-            </div>
-            <a id="editData" onclick="return editData()" href="#" class="new"><i class="fa fa-pencil"></i></a>
-            <a id="saveData" onclick="return saveData()" href="#" class="new"><i class="fa  fa-save"></i></a>
-
-
-            <a id="bkills" onclick="return addSkill()" class="add-skills">Add skills</a>
-            <a id="bexperience" onclick="return addExperience()" class="add-experience">Add experience</a>
-
-        </div>
+    <div class="col-lg-10 beauty">
+      <div class="find-bar">
+        <form action="#">
+          <button type="submit" class="find-bar__button">
+            <i class="icon fa fa-search"></i>
+          </button>
+          <input type="search" placeholder="Search for vacancies, candidates" name="find-string"
+                 class="find-bar__string">
+        </form>
+        <a id="notification-button" title="notifications" href="#"><i class="icon fa fa-bell b"></i>
+        </a>
+        <a title="exit" href="#"><i class="icon fa fa-sign-out"></i></a>
+      </div>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2 beauty reset">
+      <nav>
+        <ul class="menu">
+          <li>
+            <a href="#">Interview</a>
+          </li>
+          <li>
+            <a href="workplace.html">Vacancies</a>
+          </li>
+          <li>
+            <a href="newcandidates.html" class="active">Candidates</a>
+          </li>
+          <li>
+            <a href="#">Management</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-lg-10 col-md-12  col-sm-12 col-xs-12 row-data grid">
+      <div class="row">
+        <div class="top col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="bread-crumbs">
+            <a href="newcandidates.html">Candidates /</a>
+            <div id="breadCrumbs"></div>
+          </div>
+
+          <div class="review-button">
+            <button onclick="return openModalWindowDescription();" class="btn btn-secondary review">Review
+            </button>
+          </div>
+
+
+        </div>
+        <div class="info col-lg-3 col-md-12 col-sm-12 col-xs-12">
+          <div class="info-header">
+            <select name="status" id="status">
+              <option value="active">Accepted for interview</option>
+              <option value="">All</option>
+              <option value="">New</option>
+              <option value="">CV-Accepted</option>
+              <option value="">CV-Rejected</option>
+            </select>
+            <img id="avatar" alt="profile">
+            <p id="prof" class="profile-job"></p>
+            <input id="profedit" class="profile-job" type="text" value="">
+
+            <p id="name" class="profile-name"></p>
+            <input id="nameedit" class="profile-name" type="text" value="">
+
+            <p id="salary" class="profile-salary">800$</p>
+            <input id="salaryedit" class="profile-name" type="text" value="">
+
+            <div id="date"></div>
+
+          </div>
+          <div class="info-footer">
+            <h5>Contact information</h5>
+            <p class="profile-text">phone:</p>
+            <p id="tel"></p>
+            <input id="teledit" type="text" value="">
+            <p class="profile-text">email:</p>
+            <p id="email"></p>
+            <input id="emailedit" type="text" value="">
+            <p class="profile-text">address:</p>
+            <p id="address"></p>
+            <input id="addressedit" type="text" value="">
+
+          </div>
+        </div>
+        <div class="time-line col-lg-9 col-md-12 col-sm-12 col-xs-12 ">
+          <div class="time-header">
+            <h5>Experience</h5>
+          </div>
+
+          <div class="placeholder"></div>
+          <div class="footer">
+            <h5>Skills</h5>
+
+            <div id="skills" class="skills"></div>
+          </div>
+        </div>
+      </div>
+      <a id="editData" onclick="return editData()" href="#" class="new"><i class="fa fa-pencil"></i></a>
+      <a id="saveData" onclick="return saveData()" href="#" class="new"><i class="fa  fa-save"></i></a>
+
+
+      <a id="bkills" onclick="return addSkill()" class="add-skills">Add skills</a>
+      <a id="bexperience" onclick="return addExperience()" class="add-experience">Add experience</a>
+
+    </div>
+  </div>
 </div>
 
 
 <!--modal window-->
 <div id="modal_form">
-    <span id="modal_close">Close</span>
-    <input id="modalskill" type="text" value="">
-    <button onclick="return saveSkill()" type="button" id="modal-button" class="btn btn-primary">ADD SKILL</button>
+  <span id="modal_close">Close</span>
+  <input id="modalskill" type="text" value="">
+  <button onclick="return saveSkill()" type="button" id="modal-button" class="btn btn-primary">ADD SKILL</button>
 </div>
 
 <div id="overlay"></div>
 
--<div id="modal_form2">
-       <span id="modal_close2">Close</span>
-       <input id="datework" type="text" value="" placeholder="Enter date...">
-       <input id="companywork" type="text" value="" placeholder="Enter position...">
-       <input id="posistionwork" type="text" value="" placeholder="Enter company...">
+-
+<div id="modal_form2">
+  <span id="modal_close2">Close</span>
+  <input id="datework" type="text" value="" placeholder="Enter date...">
+  <input id="companywork" type="text" value="" placeholder="Enter position...">
+  <input id="posistionwork" type="text" value="" placeholder="Enter company...">
 
-       <textarea rows="1" placeholder="What you do on work..."  id="bodywork"></textarea>
-       <!--TODO: remove firing inline scripts, move to js file-->
-       <button onclick="return saveExperience()" type="button" id="modal-button2" class="btn btn-primary">SAVE</button>
+  <textarea rows="1" placeholder="What you do on work..." id="bodywork"></textarea>
+  <!--TODO: remove firing inline scripts, move to js file-->
+  <button onclick="return saveExperience()" type="button" id="modal-button2" class="btn btn-primary">SAVE</button>
 </div>
 <div id="overlay2"></div>
 
 <div id="modalWindowDescription" class="modal fade">
-    <div id="modalBody" class="modal-dialog modal-lg">
-        <div class="modal-content  modal-window-description">
-            <div class="modal-header">
-                <div class="modal-window-description__title" id="descriptionName"></div>
-                <a href="#" onclick="return closeDescription();" class="modal-close">
-                    <i class="fa fa-window-close-o"></i>
-                </a>
-                <div id="receiptDate"
-                     class="modal-window-description__date-off-add-candidate">
-                </div>
-            </div>
-            <div class="modal-body">
-                <div id="havingDescription" class="modal-body__having-description">
-                </div>
-                <ul class="nav nav-tabs" id="TabDescription" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="toForm1" data-toggle="tab" href="#form1" role="tab"
-                           aria-controls="Form1" aria-selected="true">Add review</a>
-                    </li>
-                    <!--<li class="nav-item">-->
-                        <!--<a class="nav-link" id="toForm2" data-toggle="tab" href="#form2" role="tab"-->
-                           <!--aria-controls="Form2" aria-selected="false">Form</a>-->
-                    <!--</li>-->
-                    <!--<li class="nav-item">-->
-                        <!--<a class="nav-link" id="toForm3" data-toggle="tab" href="#Form3" role="tab"-->
-                           <!--aria-controls="Form3" aria-selected="false">Form</a>-->
-                    <!--</li>-->
-                    <!--<li class="nav-item">-->
-                        <!--<a class="nav-link" id="toForm4" data-toggle="tab" href="#Form4" role="tab"-->
-                           <!--aria-controls="Form4" aria-selected="false">Form</a>-->
-                    <!--</li>-->
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="form1"  aria-labelledby="Form1">
+  <div id="modalBody" class="modal-dialog modal-lg">
+    <div class="modal-content  modal-window-description">
+      <div class="modal-header">
+        <div class="modal-window-description__title" id="descriptionName"></div>
+        <a href="#" onclick="return closeDescription();" class="modal-close">
+          <i class="fa fa-window-close-o"></i>
+        </a>
+        <div id="receiptDate"
+             class="modal-window-description__date-off-add-candidate">
+        </div>
+      </div>
+      <div class="modal-body">
+        <div id="havingDescription" class="modal-body__having-description">
+        </div>
+        <ul class="nav nav-tabs" id="TabDescription" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="toForm1" data-toggle="tab" href="#form1" role="tab"
+               aria-controls="Form1" aria-selected="true">Add review</a>
+          </li>
+          <!--<li class="nav-item">-->
+          <!--<a class="nav-link" id="toForm2" data-toggle="tab" href="#form2" role="tab"-->
+          <!--aria-controls="Form2" aria-selected="false">Form</a>-->
+          <!--</li>-->
+          <!--<li class="nav-item">-->
+          <!--<a class="nav-link" id="toForm3" data-toggle="tab" href="#Form3" role="tab"-->
+          <!--aria-controls="Form3" aria-selected="false">Form</a>-->
+          <!--</li>-->
+          <!--<li class="nav-item">-->
+          <!--<a class="nav-link" id="toForm4" data-toggle="tab" href="#Form4" role="tab"-->
+          <!--aria-controls="Form4" aria-selected="false">Form</a>-->
+          <!--</li>-->
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="form1" aria-labelledby="Form1">
                         <textarea class="form-control" id="area1" rows="7" name="desc1"
                                   placeholder="Write..."></textarea>
-                    </div>
-                    <!--<div class="tab-pane fade" id="form2"  aria-labelledby="Form2">-->
+          </div>
+          <!--<div class="tab-pane fade" id="form2"  aria-labelledby="Form2">-->
 
-                        <!--<textarea class="form-control" id="area2" rows="7" name="desc2"-->
-                                  <!--placeholder="Writdsafdsafdsafe..."></textarea>-->
-                    <!--</div>-->
-                    <!--<div class="tab-pane fade" id="form3" role="Form" aria-labelledby="contact-tab">-->
+          <!--<textarea class="form-control" id="area2" rows="7" name="desc2"-->
+          <!--placeholder="Writdsafdsafdsafe..."></textarea>-->
+          <!--</div>-->
+          <!--<div class="tab-pane fade" id="form3" role="Form" aria-labelledby="contact-tab">-->
 
-                        <!--<textarea class="form-control" id="area3" rows="7" name="desc3"-->
-                                  <!--placeholder="Wrifdsgte..."></textarea>-->
-                    <!--</div>-->
-                    <!--<div class="tab-pane fade" id="form4" role="Form" aria-labelledby="contact-tab">-->
+          <!--<textarea class="form-control" id="area3" rows="7" name="desc3"-->
+          <!--placeholder="Wrifdsgte..."></textarea>-->
+          <!--</div>-->
+          <!--<div class="tab-pane fade" id="form4" role="Form" aria-labelledby="contact-tab">-->
 
-                        <!--<textarea class="form-control" id="area4" rows="7" name="desc4"-->
-                                  <!--placeholder="Wridfsgfdste..."></textarea>-->
-                    <!--</div>-->
-                </div>
-                <button onclick="return saveDescription();" class="btn btn-secondary">Send</button>
-            </div>
+          <!--<textarea class="form-control" id="area4" rows="7" name="desc4"-->
+          <!--placeholder="Wridfsgfdste..."></textarea>-->
+          <!--</div>-->
         </div>
+        <button onclick="return saveDescription();" class="btn btn-secondary">Send</button>
+      </div>
     </div>
+  </div>
 </div>
 </body>
 </html>
