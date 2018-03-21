@@ -19,47 +19,88 @@
 </head>
 <body>
 <div class="container-fluid">
-  <div class="row heading">
-    <div class="col-lg-2 beauty">
-      <h5>нr app</h5>
-    </div>
-    <div class="col-lg-10 beauty">
-      <div class="find-bar">
-        <form action="#">
-          <button type="submit" class="find-bar__button">
-            <i class="icon fa fa-search"></i>
-          </button>
-          <input type="search" placeholder="Search for vacancies, candidates" name="find-string"
-                 class="find-bar__string">
-        </form>
-        <a id="notification-button" title="notifications" href="#"><i class="icon fa fa-bell b"></i>
-        </a>
-        <a title="exit" href="#"><i class="icon fa fa-sign-out"></i></a>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-2 beauty reset">
-      <nav>
-        <ul class="menu">
-          <li>
-            <a href="interview.html" class="active">Interview</a>
-          </li>
-          <li>
-            <a href="workplace.html">Vacancies</a>
-          </li>
-          <li>
-            <a href="newcandidates.html">Candidates</a>
-          </li>
-          <li>
-            <a href="#">Management</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <div class="col-lg-10 col-md-12  col-sm-12 col-xs-12 row-data grid">
-      <div class="interview-footer">Interview</div>
-      <div id='calendar'></div>
-    </div>
-  </div>
+	<div class="row heading">
+		<div class="col-lg-2 beauty">
+			<h5>нr app</h5>
+		</div>
+		<div class="col-lg-10 beauty">
+			<div class="find-bar">
+				<form action="#">
+					<button type="submit" class="find-bar__button">
+						<i class="icon fa fa-search"></i>
+					</button>
+					<input type="search" placeholder="Search for vacancies, candidates" name="find-string"
+								 class="find-bar__string">
+				</form>
+				<a id="notification-button" title="notifications" href="#"><i class="icon fa fa-bell b"></i></a>
+				<a title="exit" href="#"><i class="icon fa fa-sign-out"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-2 beauty reset">
+			<nav>
+				<ul class="menu">
+					<li>
+						<a href="interview.html" class="active">Interview</a>
+					</li>
+					<li>
+						<a href="workplace.html">Vacancies</a>
+					</li>
+					<li>
+						<a href="candidates.html">Candidates</a>
+					</li>
+					<li>
+						<a href="#">Management</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="col-lg-10 col-md-12  col-sm-12 col-xs-12 row-data grid">
+			<div class="interview-footer">Interview</div>
+			<div id='calendar'></div>
+			<div class="back-dialog" id="dialog">
+				<form>
+					<div class="form-group top-event">
+						<input type="text" class="form-control event top-event" id="title" placeholder="Добавьте название и время">
+						<label for="title" class="label-event">Мероприятие</label>
+					</div>
+
+
+					<div class="form-group " id="content-event">
+						<span class="fa fa-clock-o" aria-hidden="true"></span>
+						<button type="button" onclick="return $('#time').show();" class="btn btn-light add-time">Добавить время</button>
+						<input type="text" class="datepicker form-control add-time" id="end" placeholder="End" value="">
+						<input type="text" class="datepicker form-control add-time" id="start" placeholder="Start" value="start">
+					</div>
+					<div id="time">
+						<span class="fa fa-clock-o" aria-hidden="true" id="format-time"></span>
+						<button type="button" onclick="return $('#time').hide();" class="btn btn-light add-time">Скрыть время</button>
+						<input type="time" id="allDay-start" class="form-control add-time">
+						<input type="time" id="allDay-end" class="form-control add-time">
+					</div>
+					<div>
+						<span class="fa fa-calendar" aria-hidden="true"></span>
+						<select name="candidates-range" id="candidates-range" class="form-control">
+							<option>Nikita</option>
+							<option>Lewa</option>
+							<option selected="selected">Bomzh Vitalik</option>
+							<option>Sanya</option>
+							<option>Vlados</option>
+						</select>
+					</div>
+					<div class="form-group ">
+					<button type="submit" class="btn btn-primary save">Сохранить</button>
+					<button type="button" class="btn btn-light others" >Другие параметры</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+	</div>
 </div>
+
+
+</body>
+</html>

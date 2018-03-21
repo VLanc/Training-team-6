@@ -5,6 +5,7 @@ body {
     text-transform: uppercase;
     font-size: 2vh;
     overflow: hidden;
+
 }
 
 .modal-content {
@@ -16,17 +17,17 @@ body {
 }
 
 .modal-header {
+
     margin-top: 0;
     border-bottom: none;
     flex: 1;
     display: inline;
+
 }
 
 .modal-window-description__title {
     font-weight: bold;
     display:inline;
-
-
 }
 .modal-window-description__date-off-add-candidate {
     margin-right: 20px;
@@ -93,3 +94,4 @@ body {
 .modal-close:active {
     text-shadow: none;
 }
+
