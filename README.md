@@ -6,4 +6,5 @@
 4. Данные в таблицу грузятся из json файла.
 5. Была добавлена пагинация.
 
-//TODO: add description on how to start the server part
+How to start server:
+in webstorm terminal: nmp start

@@ -4,7 +4,7 @@ $(function () {
 
     $("#flavor-nav ").change(function () {
 
-        $("#grid").fadeTo(200, 0.10);/*TODO: put all the jquery selector searches outside the function that might be called multiple times. Search for it in a root level and put into the variable*/
+        $("#grid").fadeTo(200, 0.10);
 
         $("#flavor-nav option").removeClass("current");
         $(this).addClass("current");
@@ -18,18 +18,10 @@ $(function () {
     });
 });
 
-function openTab() {
-
-
-    console.log(id);
-}
-
 $(function () {
-
-
     var now = new Date();
     now = now.getTime() / 1000;
-    $.getJSON('grid.json', function (data) {
+    $.getJSON('profile.json', function (data) {
         $.each(data, function (key, val) {
             if (!val['photo']) {
                 val['photo'] = 'anounymus';
@@ -56,7 +48,7 @@ $(function () {
                 '<div class="grid__candidate__box__icon__status">' + val['status'] + '</div>' +
                 '<img src="images/' + val['photo'] + '.png" alt="user">' +
                 '</div>' +
-                '<div class="grid__candidate__box__position">' + val['Position'] + '</div>' +/*TODO: that property should be from lowercase like all the rest. Change the json if needed*/
+                '<div class="grid__candidate__box__position">' + val['position'] + '</div>' +/*TODO: that property should be from lowercase like all the rest. Change the json if needed*/
                 '<div class="grid__candidate__box__name">' + val['name'] + '</div>' +
                 '<div class="grid__candidate__box__salary">' + val['salary'] + '</div>' +
                 '<div class="grid__candidate__box__date">' + val['date'] + '</div>' +
@@ -68,12 +60,3 @@ $(function () {
         });
     });
 });
-//
-
-//
-// $(document).ready(function () {
-//     $('#grid').bind("click", openTab);
-//     //$(document).on("click", "div", openTab)
-//
-// });
-
