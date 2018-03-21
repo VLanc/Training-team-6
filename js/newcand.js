@@ -6,7 +6,8 @@ $.getJSON(url, function (candidates) {
 });
 
 $(function () {
-  $.getJSON('fc/event.json', function (data) {
+
+  $.getJSON('fc/event.json', function (data) { //TODO server
 
     $.each(data.events, function (key, val) {
       var eventDate = val["start"].split("T")[0];
