@@ -892,6 +892,84 @@ body {
   color: #c4c4c4;
 }
 
+#dialog{
+  display:inline-block;
+}
+#dialog .others, .save {
+  float: right;
+  margin: 0 10px;
+}
+
+#dialog .label-event {
+  text-transform: none;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 13px;
+  border-radius: 20px;
+  background-color: #007bff;
+  border-color: #007bff;
+  margin-left: 40px;
+
+}
+
+.ui-dialog-titlebar {
+  background: #fff;
+  border: none;
+  padding: 0;
+}
+
+.middle-event{
+  width:100%;
+}
+#dialog input {
+  float: right;
+  width:31.5%;
+    text-align: center;
+}
+
+#dialog .top-event input:first-child {
+  border: none;
+  font-size: 30px;
+  width: 93%;
+}
+.form-group span {
+  padding-top: 15px;
+}
+
+
+#dialog button{
+  float: right;
+}
+#dialog .add-time{
+  border:none;
+  border-radius:0;
+}
+#dialog .time button{
+  background:#fff;
+}
+#dialog #candidates-range span{
+}
+#dialog #time{
+}
+#dialog #candidates-range {
+  float: right;
+  width: 93%;
+  border:none;
+  background-color: #e9e9e9;
+  margin:10px 0;
+}
+.fa{
+    padding:20px 0;
+}
+#format-time{
+    padding:15px 0;
+}
+#dialog #content-event{
+    margin-bottom:4px;
+}
 #notification-button:hover {
   text-decoration: none;
+
 }
