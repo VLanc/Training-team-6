@@ -9,7 +9,7 @@ $(document).ready(function () {
 
   $(function () {
     $("#selectStatus").dxSelectBox({
-      dataSource: ["All", "New", "CV-Accepted", "CV-Rejected", "Accepted"],
+      dataSource: ["All", "New", "CV-Accepted", "CV-Rejected", "Accepted for interview"],
       value: data[0],
       onValueChanged: function (data) {
         if (data.value == "All")
