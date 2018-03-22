@@ -5,18 +5,22 @@
     "position": "Java Developer",
     "status": "Accepted for interview",
     "name": "Alex Korolev",
-    "address": "Eseni",
-    "city": "from Moscow",
+    "address": "Esenina",
+    "city": "Minsk",
     "mobileNumber": "5447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.",
+    "email": "Alex_Korolev@mail.ru",
     "salary": "2500$",
     "photo": "",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel;node",
     "description": [
       {
-        "name": "authorName",
+        "name": "Аляксандр Грыгор'евич",
         "review": "Хороший кандидат"
+      },
+      {
+        "name": "Якубович",
+        "review": "берем"
       }
     ],
     "info": [
@@ -48,15 +52,24 @@
     "position": "Смотрящий",
     "status": "CV-Rejected",
     "name": "Nikita Senko",
-    "address": "Esenina",
-    "city": "from Moscow",
+    "address": "где-то в Минске",
+    "city": "Минск",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
     "email": "Ivan_ivanov@mail.ru",
     "salary": "250000$",
     "photo": "02",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [],
+    "description": [
+      {
+        "name": "Аляксандр Грыгор'евич",
+        "review": "Хороший кандидат"
+      },
+      {
+        "name": "Маша Распутина",
+        "review": "мне бы его в Гималаи"
+      }
+    ],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -85,16 +98,18 @@
     "date": "1520509164",
     "position": "Java Developer",
     "status": "CV-Accepted",
-    "name": "ТРЕТИЙ",
-    "address": "Esenina",
-    "city": "from Moscow",
+    "name": "Гуф",
+    "address": "улица",
+    "city": "Moscow",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
     "email": "Ivan_ivanov@mail.ru",
     "salary": "250000$",
     "photo": "03",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -123,16 +138,18 @@
     "date": "1520336364",
     "position": "Java Developer",
     "status": "CV-Rejected",
-    "name": "ЧЕТВЕРТЫЙ",
-    "address": "Esenina",
+    "name": "Дядя Федор",
+    "address": "Простоквашино",
     "city": "from Moscow",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
     "email": "Ivan_ivanov@mail.ru",
     "salary": "250000$",
-    "photo": "04",
+    "photo": "10",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -143,7 +160,7 @@
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
         "pos": "Senior Java Developer<br>London UK",
-        "header": "Belrard",
+        "header": "Belhard",
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
@@ -161,16 +178,18 @@
     "date": "1519990764",
     "position": "Java Developer",
     "status": "CV-Accepted",
-    "name": "ПЯТЫЙ",
-    "address": "Esenina",
-    "city": "from Moscow",
+    "name": "Hatfield",
+    "address": "California",
+    "city": "Los Angeles",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru",
+    "email": "mitol@mail.ru",
     "salary": "250000$",
-    "photo": "01",
+    "photo": "05",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -181,7 +200,7 @@
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
         "pos": "Senior Java Developer<br>London UK",
-        "header": "Belrard",
+        "header": "Belhard",
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
@@ -199,16 +218,18 @@
     "date": "1520509164",
     "position": "Java Developer",
     "status": "New",
-    "name": "ШЕСТОЙ ",
-    "address": "Esenina",
-    "city": "from Moscow",
+    "name": "CHIG",
+    "address": "Prostore",
+    "city": "from Minsk",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
     "email": "Ivan_ivanov@mail.ru",
     "salary": "250000$",
-    "photo": "02",
+    "photo": "",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -219,7 +240,7 @@
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
         "pos": "Senior Java Developer<br>London UK",
-        "header": "Belrard",
+        "header": "Belhard",
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
@@ -237,16 +258,18 @@
     "date": "1519990764",
     "position": "Java Developer",
     "status": "CV-Accepted",
-    "name": "ШЕСТОЙ ",
-    "address": "Esenina",
-    "city": "from Moscow",
+    "name": "девушка Лида",
+    "address": "Кавказ",
+    "city": "СССР",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru",
+    "email": "lida@mail.ru",
     "salary": "250000$",
-    "photo": "04",
+    "photo": "07",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -275,7 +298,7 @@
     "date": "1520336364",
     "position": "Java Developer",
     "status": "CV-Accepted",
-    "name": "ШЕСТОЙ ",
+    "name": "Восьмой",
     "address": "Esenina",
     "city": "from Moscow",
     "mobileNumber": "+375447549706",
@@ -284,7 +307,9 @@
     "salary": "250000$",
     "photo": "03",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -295,7 +320,7 @@
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
         "pos": "Senior Java Developer<br>London UK",
-        "header": "Belrard",
+        "header": "Belhard",
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
@@ -313,7 +338,7 @@
     "date": "1520595564",
     "position": "Java Developer",
     "status": "CV-Rejected",
-    "name": "ШЕСТОЙ ",
+    "name": "девятый",
     "address": "Esenina",
     "city": "from Moscow",
     "mobileNumber": "+375447549706",
@@ -322,7 +347,9 @@
     "salary": "250000$",
     "photo": "04",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -351,16 +378,18 @@
     "date": "1519990764",
     "position": "Java Developer",
     "status": "CV-Accepted",
-    "name": "ШЕСТОЙ ",
-    "address": "Esenina",
-    "city": "from Moscow",
+    "name": "Василий Пупкин",
+    "address": "белый дом",
+    "city": "Moscow",
     "mobileNumber": "+375447549706",
     "homeNumber": "+375172245587",
-    "email": "Ivan_ivanov@mail.ru",
+    "email": "Pup@mail.ru",
     "salary": "250000$",
     "photo": "01",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -371,7 +400,7 @@
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
         "pos": "Senior Java Developer<br>London UK",
-        "header": "Belrard",
+        "header": "Belhard",
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
@@ -389,7 +418,7 @@
     "date": "1519990764",
     "position": "Java Developer",
     "status": "CV-Accepted",
-    "name": "ШЕСТОЙ ",
+    "name": "Не шестой",
     "address": "Esenina",
     "city": "from Moscow",
     "mobileNumber": "+375447549706",
@@ -398,7 +427,9 @@
     "salary": "250000$",
     "photo": "01",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -409,7 +440,7 @@
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
         "pos": "Senior Java Developer<br>London UK",
-        "header": "Belrard",
+        "header": "Belhard",
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
@@ -436,7 +467,9 @@
     "salary": "250000$",
     "photo": "02",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -474,7 +507,9 @@
     "salary": "250000$",
     "photo": "03",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -512,7 +547,9 @@
     "salary": "250000$",
     "photo": "04",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -550,7 +587,9 @@
     "salary": "250000$",
     "photo": "01",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -561,7 +600,7 @@
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
         "pos": "Senior Java Developer<br>London UK",
-        "header": "Belrard",
+        "header": "Belhard",
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
@@ -588,7 +627,9 @@
     "salary": "250000$",
     "photo": "04",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -626,7 +667,9 @@
     "salary": "250000$",
     "photo": "02",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
+
     "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -637,7 +680,7 @@
       {
         "time": "Oct 2012 – Mar 2015 (2 year 7 month)",
         "pos": "Senior Java Developer<br>London UK",
-        "header": "Belrard",
+        "header": "Belhard",
         "body": "Design, build, and maintain efficient, reusable, and reliable Java code. Identify bottlenecks and bugs and devise solutions to these problems. Support continuous improvement by investigating alternatives and technologies and presenting these for architectural review."
       }
     ],
