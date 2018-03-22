@@ -107,16 +107,9 @@
     "salary": "250000$",
     "photo": "03",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "Виссарионыч",
-        "review": "расстрелять"
-      },
-      {
-        "name": "ВИА гра",
-        "review": "хороший танцор"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -154,16 +147,9 @@
     "salary": "250000$",
     "photo": "10",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "Мама",
-        "review": "тагяется с блохастыми животными, социопат"
-      },
-      {
-        "name": "Печкин",
-        "review": "они бы еще с чемоданом за грибами пошли"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -201,16 +187,9 @@
     "salary": "250000$",
     "photo": "05",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "Ulrich",
-        "review": "мне его не перепить"
-      },
-      {
-        "name": "фанат",
-        "review": "а новый альбом будет?"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -248,12 +227,9 @@
     "salary": "250000$",
     "photo": "",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "Аляксандр Грыгор'евич",
-        "review": "хде налох?"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -291,12 +267,9 @@
     "salary": "250000$",
     "photo": "07",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "Шурик",
-        "review": "комсомолка и красавица"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -334,12 +307,9 @@
     "salary": "250000$",
     "photo": "03",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "НR",
-        "review": "Видали и получше"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -377,16 +347,9 @@
     "salary": "250000$",
     "photo": "04",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "ЭШЕР",
-        "review": "девятый у меня не первый("
-      },
-      {
-        "name": "ЭШЕР",
-        "review": "взять на карандаш"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -424,16 +387,9 @@
     "salary": "250000$",
     "photo": "01",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "Петросян",
-        "review": "Не смешно"
-      },
-      {
-        "name": "Василий Пупкин",
-        "review": "себя не похвалишь - день насмарку!"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -471,12 +427,9 @@
     "salary": "250000$",
     "photo": "01",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "HR",
-        "review": "Хороший человек, это пригодится другим"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -514,8 +467,9 @@
     "salary": "250000$",
     "photo": "02",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -553,16 +507,9 @@
     "salary": "250000$",
     "photo": "03",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "HR",
-        "review": "Хороший кандидат"
-      },
-      {
-        "name": "HR",
-        "review": "Пойдет"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -600,16 +547,9 @@
     "salary": "250000$",
     "photo": "04",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "HR",
-        "review": "Хороший кандидат"
-      },
-      {
-        "name": "HR",
-        "review": "Пойдет"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -647,16 +587,9 @@
     "salary": "250000$",
     "photo": "01",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "hr",
-        "review": "Хороший кандидат"
-      },
-      {
-        "name": "hr",
-        "review": "Пойдет"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -694,12 +627,9 @@
     "salary": "250000$",
     "photo": "04",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "HR",
-        "review": "НЕ Хороший кандидат"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -737,16 +667,9 @@
     "salary": "250000$",
     "photo": "02",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "житель Дроздов",
-        "review": "Хороший кандидат"
-      },
-      {
-        "name": "житель Шабанов",
-        "review": "застройте Дрозды панельками!"
-      }
-    ],
+
+    "description": [],
+
     "info": [
       {
         "time": "Apr 2015 – Now",
