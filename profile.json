@@ -15,12 +15,12 @@
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel;node",
     "description": [
       {
-        "name": "Аляксандр Грыгор'евич",
-        "review": "Хороший кандидат"
+        "name": "Alex Kolonitsky",
+        "review": "Ну такое..."
       },
       {
-        "name": "Якубович",
-        "review": "берем"
+        "name": "Marta",
+        "review": "Эх..."
       }
     ],
     "info": [
@@ -60,16 +60,7 @@
     "salary": "250000$",
     "photo": "02",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": [
-      {
-        "name": "Аляксандр Грыгор'евич",
-        "review": "Хороший кандидат"
-      },
-      {
-        "name": "Маша Распутина",
-        "review": "мне бы его в Гималаи"
-      }
-    ],
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
