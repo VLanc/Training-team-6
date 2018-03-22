@@ -114,3 +114,10 @@ HideTime();
 //   }
 // });
 // });
+
+
+function saveEvent() {
+
+  var end = $('#end').html();
+console.log(end);
+}
