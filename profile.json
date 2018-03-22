@@ -94,7 +94,7 @@
     "salary": "250000$",
     "photo": "03",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "тоже ниче",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -132,7 +132,7 @@
     "salary": "250000$",
     "photo": "04",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -170,7 +170,7 @@
     "salary": "250000$",
     "photo": "01",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -208,7 +208,7 @@
     "salary": "250000$",
     "photo": "02",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -246,7 +246,7 @@
     "salary": "250000$",
     "photo": "04",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -284,7 +284,7 @@
     "salary": "250000$",
     "photo": "03",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -322,7 +322,7 @@
     "salary": "250000$",
     "photo": "04",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -360,7 +360,7 @@
     "salary": "250000$",
     "photo": "01",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -398,7 +398,7 @@
     "salary": "250000$",
     "photo": "01",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -436,7 +436,7 @@
     "salary": "250000$",
     "photo": "02",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -474,7 +474,7 @@
     "salary": "250000$",
     "photo": "03",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -512,7 +512,7 @@
     "salary": "250000$",
     "photo": "04",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -550,7 +550,7 @@
     "salary": "250000$",
     "photo": "01",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -588,7 +588,7 @@
     "salary": "250000$",
     "photo": "04",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
@@ -626,7 +626,7 @@
     "salary": "250000$",
     "photo": "02",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae sequi tempore velit voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum cumque doloremque earum eius eos error exercitationem expedita, ipsa maiores modi perspiciatis quam quibusdam quo recusandae",
+    "description": [],
     "info": [
       {
         "time": "Apr 2015 – Now",
