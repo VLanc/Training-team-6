@@ -5,6 +5,8 @@ var restify = require('restify');
 
 function respon_cand(req, res, next) {
 
+function respon_cand(req, res, next) {
+
   res.header('X-Frame-Options', 'ALLOWALL');
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'POST, GET');
@@ -30,11 +32,9 @@ function respon_cand(req, res, next) {
   var id = req.query.id;
 
 
-  // console.log(id);
-
-  var profiles = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
-  Object.keys(profiles).forEach(function(prop){console.log(prop)});
-  profiles.forEach(function (val) {
+    var profiles = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
+    Object.keys(profiles).forEach(function(prop){console.log(prop)});
+    profiles.forEach(function (val) {
 
     if (val.id === id) {
 
@@ -79,15 +79,15 @@ function respon_cand(req, res, next) {
   next();
 }
 function respond_events(req, res, next) {
-  res.header('X-Frame-Options', 'ALLOWALL');
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'POST, GET');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('X-Frame-Options', 'ALLOWALL');
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'POST, GET');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
-  var events = JSON.parse(fs.readFileSync('fc/event.json', 'utf8'));
+    var events = JSON.parse(fs.readFileSync('fc/event.json', 'utf8'));
 
-  res.send(events);
-  next();
+    res.send(events);
+    next();
 }
 function respond_grid(req, res, next) {
   res.header('X-Frame-Options', 'ALLOWALL');
@@ -96,7 +96,8 @@ function respond_grid(req, res, next) {
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
 
-  var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
+
+    var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
 
   res.send(obj);
   next();
@@ -135,10 +136,10 @@ server.post('/id-candidate', function (req, res, next) {
   //console.log(candidate); //всё ок, выведет объект
 
 
-  var profiles = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
+    var profiles = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
 
 
-  profiles.forEach(function (val) {
+    profiles.forEach(function (val) {
 
     if (val.id === candidate.id) {
 
@@ -184,8 +185,8 @@ server.post('/id-candidate', function (req, res, next) {
   });
 
 
-  fs.writeFileSync('profile.json', JSON.stringify(profiles));
-  next();
+    fs.writeFileSync('profile.json', JSON.stringify(profiles));
+    next();
 
 });
 

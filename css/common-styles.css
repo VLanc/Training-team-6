@@ -1,151 +1,190 @@
+/******* common styles ******/
 body {
-    font-family: Arial, sans-serif;
-    letter-spacing: 1px;
-    cursor: default;
-    text-transform: uppercase;
-    font-size: 2vh;
-    overflow: hidden;
-
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+  cursor: default;
+  text-transform: uppercase;
+  font-size: 14px;
 }
-
-/*@media (max-width: 700px) {*/
-/*.for-desktop {*/
-/*display: none;*/
-/*}*/
-
-/*}*/
-
-/*@media (min-width: 701px) {*/
-/*.for-desktop {*/
-/*display: block;*/
-/*}*/
 
 .reset {
-    padding: 0;
-    margin: 0;
-}
-
-h5 {
-    color: #6a6967;
-    padding: 3vh 2.4vw;
-    font-size: 2.4vh;
-    background-color: #e9e9e9;
+  padding: 0;
+  margin: 0;
 }
 
 .beauty {
-    background-color: #e9e9e9;
-    box-shadow: 3px 2px 4px rgba(221, 221, 221, 1);
+  background-color: #e9e9e9;
+  box-shadow: 3px 2px 4px rgba(221, 221, 221, 1);
 }
 
-.find-bar {
-    padding: 2.5vh 0.5vw;
-    font-size: 2.7vh;
+h5 {
+  color: #6a6967;
+  margin: 16px 0 16px 30px;
+  font-size: 18px;
 }
 
-.find-bar form {
-    display: inline;
-}
+/******* common styles END ******/
 
-.find-bar form button, input {
-    outline: none;
-}
+/******* side menu styles ******/
+.for-desktop {
+  z-index: 2;
 
-.find-bar__button {
-    background: #e9e9e9;
-    border: none;
-    outline: none;
-    font-size: 2.72vh;
-    color: #767676;
-}
-
-.find-bar__string {
-    width: 80%;
-    background: #e9e9e9;
-    border: none;
-    letter-spacing: 1px;
-}
-
-.icon {
-    font-size: 3vh;
-    margin: 0 1vw;
-    color: #767676;
-}
-
-.icon:active {
-    transition: 0.1s;
-    font-size: 2.4vh;
-    margin-right: 1.15vw;
-}
-
-.all-display {
-    height: 100vh;
-}
-
-.row-data {
-    background-color: #ffffff;
 }
 
 .menu {
-    padding: 0;
-    margin: 0;
-    background: #e9e9e9;
-    box-sizing: border-box;
-    word-wrap: break-word;
+  padding: 0;
 }
 
 .menu :hover {
-    background: #dddddd;
+  background-color: #dddddd;
 }
 
 .active {
-    background: #c6c8ca;
-}
-
-.menu li {
-    list-style-type: none;
-
+  background-color: #c6c8ca;
 }
 
 .menu a {
-    text-decoration: none;
-    color: #3b3b3b;
-    display: block;
-    padding: 3vh 2.4vw;
+  text-decoration: none;
+  color: #3b3b3b;
+  display: block;
+  padding: 18px 30px;
 }
 
-/*it's a button ADD*/
-.new {
+.menu li {
+  list-style-type: none;
+}
+/******* side menu styles END ******/
+
+/******* right row styles ******/
+.all-displays {
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+/******* top bar styles ******/
+.find-bar {
+  font-size: 17px;
+  height: 53px;
+}
+
+.find-bar button, form, form input, a i {
+  margin-left: 14px;
+  background-color: #e9e9e9;
+  outline: none;
+  text-decoration: none;
+  color: #767676;
+  border: none;
+  display: inline;
+}
+
+.find-bar__navicon {
+  font-size: 30px;
+  display: none;
+  position: relative;
+  top: 5px;
+}
+
+.find-bar__string {
+  width: 80%;
+  margin: 13px 0 13px 10px;
+  letter-spacing: 1px;
+}
+
+/******* styles of bar icons ******/
+.find-bar__icons {
+  display: inline;
+  position: fixed;
+  right: 20px;
+  top: 10px;
+}
+
+.icon {
+  font-size: 22px;
+  display: inline;
+}
+
+.icon:hover {
+  transition: 0.1s;
+  font-size: 23px;
+  margin-right: -1px;
+  text-shadow: 1px 1px 2px rgba(203, 203, 203, 1);
+}
+
+.icon:active {
+  font-size: 22px;
+  margin-right: 0;
+  text-shadow: none;
+}
+/******* styles of bar icons END ******/
+/******* top bar styles END ******/
+
+/******* button ADD (NEW) ******/
+.new i {
+  background-color: #ffffff;
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  font-size: 50px;
+  color: #6e6e6e;
+  text-shadow: 3px 5px 2px rgba(203, 203, 203, 1);
+}
+
+.new i:hover {
+  transition: 0.1s;
+  font-size: 54px;
+  color: #6e6e9e;
+}
+
+.new i:active {
+  transition: 0.1s;
+  font-size: 50px;
+  text-shadow: none;
+}
+/******* button ADD  КОНЕЦ******/
+
+/******* only for mobile menu******/
+@media screen and (max-device-width: 993px) {
+  .for-desktop {
     position: fixed;
-    bottom: 4vh;
-    right: 6vh;
-    font-size: 8vh;
-    color: #6e6e6e;
-    text-shadow: 7px 10px 17px rgba(203, 203, 203, 1);
-}
+    display: none;
+    z-index: 2;
+    top: 53px;
+    left: -174px;
+    box-shadow: inset 3px 2px 4px rgba(221, 221, 221, 1);
+  }
 
-.new a {
-    text-decoration: none; /*do not work :(*/
-}
+  .find-bar {
+    box-shadow: inset 3px 2px 4px rgba(221, 221, 221, 1);
+  }
 
-.new:hover {
-    transition: 0.1s;
-    font-size: 8.2vh;
-    color: #6e6e9e;
-}
+  .find-bar__navicon {
+    display: inline;
+  }
 
-.new:active {
-    transition: 0.1s;
-    font-size: 8vh;
+  .find-bar__string {
+    width: 70%;
+  }
 }
+/******* only for mobile menu END******/
 
-#gridContainer {
-margin-top: 5px;
+/******* row DATA styles ******/
+.row-data {
+  margin: 0;
+  height: calc(100% - 75px);
 }
+/******* row DATA styles END******/
 
+
+/******* right row styles ******/
+/******* common styles ******/
+/***************************************************************/
+
+
+/*
 /*.add-skills:active {*/
-    /*transition: 0.1s;*/
-    /*font-size: 1.5vh;*/
-    /*outline: none;*/
+/*transition: 0.1s;*/
+/*font-size: 1.5vh;*/
+/*outline: none;*/
 /*}*/
 
 /*.add-skills {*/
@@ -197,8 +236,6 @@ margin-top: 5px;
 /*}*/
 
 /*!*****************!*/
-
-
 
 /*#grid {*/
 /*}*/

@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "connect": "^3.6.6",
+    "cors": "^2.8.4",
     "fs": "0.0.1-security",
     "fullcalendar": "^3.9.0",
     "jscs": "^3.0.7",
