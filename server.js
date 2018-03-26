@@ -3,7 +3,7 @@ var restify = require('restify');
 
 
 
-function respon_cand(req, res, next) {
+
 
 function respon_cand(req, res, next) {
 
