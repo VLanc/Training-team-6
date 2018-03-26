@@ -32,9 +32,9 @@ function respon_cand(req, res, next) {
 
     // console.log(id);
 
-    var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8')); //TODO: give a clear name for the object
-
-    obj.forEach(function (val) {
+    var profiles = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
+    Object.keys(profiles).forEach(function(prop){console.log(prop)});
+    profiles.forEach(function (val) {
 
         if (val.id === id) {
 
@@ -135,10 +135,10 @@ server.post('/id-candidate', function (req, res, next) {
     //console.log(candidate); //всё ок, выведет объект
 
 
-    var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
+    var profiles = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
 
 
-    obj.forEach(function (val) {
+    profiles.forEach(function (val) {
 
         if (val.id === candidate.id) {
 
@@ -184,7 +184,7 @@ server.post('/id-candidate', function (req, res, next) {
     });
 
 
-    fs.writeFileSync('profile.json', JSON.stringify(obj));
+    fs.writeFileSync('profile.json', JSON.stringify(profiles));
     next();
 
 });
