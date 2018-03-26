@@ -2,6 +2,7 @@ var fs = require('fs');
 var restify = require('restify');
 
 
+
 function respon_cand(req, res, next) {
 
     res.header('X-Frame-Options', 'ALLOWALL');
@@ -77,12 +78,23 @@ function respon_cand(req, res, next) {
 
     next();
 }
+function respond_events(req, res, next) {
+    res.header('X-Frame-Options', 'ALLOWALL');
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'POST, GET');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
+    var events = JSON.parse(fs.readFileSync('fc/event.json', 'utf8'));
+
+    res.send(events);
+    next();
+}
 function respond_grid(req, res, next) {
     res.header('X-Frame-Options', 'ALLOWALL');
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'POST, GET');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
 
     var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
 
@@ -109,9 +121,11 @@ server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
 
+
 server.get('/id-candidate', respon_cand);
 server.get('/vacancies-grid', respond_grid);
 server.get('/newcand', respond_newcand);
+server.get('/interview', respond_events);
 //server.head('/test', respond);
 
 server.post('/id-candidate', function (req, res, next) {
