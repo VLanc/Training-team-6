@@ -11,9 +11,9 @@ $(document).ready(function () {
     eventLimit: true, // allow "more" link when too many events
     selectable: true,
     /*selectHelper: true,*/
-    eventSources: [
-      'fc/event.json'
-    ],
+    events: {
+      url: 'http://127.0.0.1:8080/interview'
+    },
     dayClick: function (date, jsEvent, view) {
       $('#exampleModalCenter').modal('show');
       $("#event-start-date").val("" + date.format() + " 00:00");
