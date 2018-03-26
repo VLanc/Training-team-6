@@ -20,7 +20,6 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/datepicker.min.js"></script>
   <script src="js/datepicker.en.js"></script>
-
 </head>
 <body>
 <div class="container-fluid">
@@ -70,55 +69,59 @@
       </div>
       <div id='calendar'></div>
     </div>
-
     <div class="modal fade bd-example-modal-sm" id="exampleModalCenter" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="new-event-modal">Create new event</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" id="close-event-modal-button-top" data-dismiss="modal"
+                    aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-
             <form>
               <div class="form-group">
-                <p class="selection-section">Enter event's name</p>
-                <input type="text" class="form-control" id="event-title" required/> <!--placeholder="Enter email"-->
+                <input type="text" class="form-control" id="event-title" placeholder="Enter event's name" required/>
+                <!--placeholder="Enter email"-->
               </div>
               <div class="form-group">
-                <p class="selection-section">Choose start date and time</p>
-                <input type='text' class="datepicker-here form-control" id="event-start-date" data-language='en'
-                       data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii" required/>
+                <input type="text" class="form-control" id="event-start-date" placeholder="Choose start date and time"
+                       required/>
+                <button type="button" class="btn btn-primary" id="show-calendar-button-for-start">Show calendar</button>
+                <div type='text' class="event-start-datepicker" data-language='en'
+                     data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii"></div>
               </div>
               <div class="form-group">
-                <p class="selection-section">Choose end date and time</p>
-                <input type='text' class="datepicker-here form-control" id="event-end-date" data-language='en'
-                       data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii" required/>
+                <input type="text" class="form-control" id="event-end-date" placeholder="Choose end date and time"
+                       placeholder="Choose end date and time" required/>
+                <button type="button" class="btn btn-primary" id="show-calendar-button-for-end">Show calendar</button>
+                <div type='text' class="event-end-datepicker" data-language='en'
+                     data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii"
+                     data-position='top left'></div>
               </div>
-              <p class="selection-section">Choose participant</p>
               <div class="input-group mb-3">
                 <select class="custom-select" id="select-participant" required>
-                  <option selected></option>
+                  <option value="" disabled selected>Choose a participant</option>
                   <option value="1">Alex Korolev</option>
                   <option value="2">Nikita Senko</option>
                   <option value="3">Vlad Vasilyev</option>
                   <option value="3">Alex Sakovsky</option>
                 </select>
               </div>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary" id="save-event-button">Save</button>
+              <button type="button" class="btn btn-primary btn-block" id="other-options-button">Other options</button>
+              <div class="modal-footer justify-content-end event-modal-footer">
+                <button type="button" class="btn btn-secondary" id="close-event-modal-button-bottom"
+                        data-dismiss="modal">Close
+                </button>
+                <button type="submit" class="btn btn-primary" id="save-event-button">Save</button>
+              </div>
             </form>
-
           </div>
-
         </div>
       </div>
     </div>
-
-
   </div>
 </div>
 
