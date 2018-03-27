@@ -1,0 +1,11 @@
+/******* row DATA styles ******/
+.row-data {
+  margin: 10px;
+  height: calc(100% - 75px);
+}
+
+.all-displays {
+  height: 100vh;
+  background-color: #ffffff;
+}
+/******* row DATA styles END******/

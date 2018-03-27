@@ -1,0 +1,43 @@
+/******* only for mobile menu ******/
+@media screen and (max-device-width: 993px) {
+  .for-desktop {
+    position: fixed;
+    display: none;
+    z-index: 2;
+    top: 53px;
+    left: -174px;
+    box-shadow: inset 3px 2px 4px rgba(221, 221, 221, 1);
+  }
+
+  .find-bar {
+    box-shadow: inset 3px 2px 4px rgba(221, 221, 221, 1);
+  }
+
+  .find-bar__navicon {
+    display: inline;
+  }
+
+  .find-bar__string {
+    margin-right: 0;
+    font-size: 10px;
+    letter-spacing: normal;
+  }
+
+  .icon {
+    margin-left: 5px;
+  }
+
+  .find-bar button {
+    margin-left: 4px;
+  }
+
+  .delimiter {
+    border-top: 2px solid #e9e9e9;
+  }
+
+  .experience {
+    border: none;
+  }
+
+}
+/******* only for mobile menu END ******/
