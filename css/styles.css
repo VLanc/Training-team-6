@@ -904,9 +904,9 @@ body {
   background-color: #fff !important;
 }
 
-.datepicker-here {
+/*.datepicker-here {
   width: 100%;
-}
+}*/
 
 .selection-section {
   text-transform: none;
@@ -914,16 +914,16 @@ body {
   margin: 10px 0 0 0;
 }
 
-.event-start-datepicker {
+/*.event-start-datepicker {
   display: none;
 }
 
 .event-end-datepicker {
   display: none;
-}
+}*/
 
 #other-options-button {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .event-modal-footer {
@@ -932,4 +932,8 @@ body {
 
 #select-participant {
   font-size: 1rem;
+}
+
+#event-start-date, #event-end-date {
+  margin-bottom: 15px;
 }
