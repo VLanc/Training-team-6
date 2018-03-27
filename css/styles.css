@@ -57,7 +57,6 @@ body {
   letter-spacing: 1px;
 }
 
-
 .row-data {
   height: 90vh; /*TODO: use px instead*/
 
@@ -904,23 +903,11 @@ body {
   background-color: #fff !important;
 }
 
-/*.datepicker-here {
-  width: 100%;
-}*/
-
 .selection-section {
   text-transform: none;
   font-size: 15px;
   margin: 10px 0 0 0;
 }
-
-/*.event-start-datepicker {
-  display: none;
-}
-
-.event-end-datepicker {
-  display: none;
-}*/
 
 #other-options-button {
   margin-bottom: 16px;
@@ -936,4 +923,14 @@ body {
 
 #event-start-date, #event-end-date {
   margin-bottom: 15px;
+}
+
+/*for calendar height*/
+.fc-scroller.fc-day-grid-container {
+  height: 100% !important;
+}
+
+/*for calendar table cells min height*/
+.fc-basic-view .fc-body .fc-row {
+  min-height: 5em !important;
 }
