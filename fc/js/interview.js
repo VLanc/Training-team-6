@@ -82,7 +82,9 @@ $(document).ready(function () {
         if (!eventTitle || !eventStartDate || !eventEndDate || !eventParticipantIndex) return;
 
         var event = {title: eventTitle, allDay: false, start: eventStartDate, end: eventEndDate};
+        var url = "http://127.0.0.1:8080/interview?";
 
+        $.post(url, event);
         $('#calendar').fullCalendar('renderEvent', event, true);
 
         e.preventDefault();
