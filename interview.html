@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>hr app</title>
   <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="css/common-styles.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <!--<link href="css/common-styles.css" rel="stylesheet">-->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
   <link href='fc/css/fullcalendar.css' rel='stylesheet'/>
-  <link href='fc/css/jquery-ui.css' rel='stylesheet'/>
-  <link href='fc/css/jquery-ui.theme.css' rel='stylesheet'/>
   <link href='fc/css/fullcalendar.print.min.css' rel='stylesheet' media='print'/>
+  <link href="css/datepicker.min.css" rel="stylesheet" type="text/css">
   <script src='fc/lib/moment.min.js'></script>
   <script src='fc/lib/jquery.min.js'></script>
   <script src='fc/js/fullcalendar.js'></script>
   <script src="fc/js/interview.js"></script>
   <script src="js/notifications.js"></script>
   <script src="js/jquery-ui.min.js"></script>
-
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/datepicker.min.js"></script>
+  <script src="js/datepicker.en.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -48,10 +50,10 @@
             <a href="interview.html" class="active">Interview</a>
           </li>
           <li>
-            <a href="vacancies.html">Vacancies</a>
+            <a href="workplace.html">Vacancies</a>
           </li>
           <li>
-            <a href="candidates.html">Candidates</a>
+            <a href="newcandidates.html">Candidates</a>
           </li>
           <li>
             <a href="#">Management</a>
@@ -60,54 +62,60 @@
       </nav>
     </div>
     <div class="col-lg-10 col-md-12  col-sm-12 col-xs-12 row-data grid">
-      <div class="interview-footer">Interview</div>
+      <div class="interview-footer">Interview
+        <button type="button" class="btn btn-secondary add-event-button" data-toggle="modal"
+                data-target="#new-event-modal">
+          Add new event
+        </button>
+      </div>
       <div id='calendar'></div>
-      <div class="back-dialog" id="dialog">
-        <form>
-          <div class="form-group top-event">
-            <input type="text" class="form-control event top-event" id="title"
-                   placeholder="Добавьте название и время">
-            <label for="title" class="label-event">Мероприятие</label>
-          </div>
-
-
-          <div class="form-group " id="content-event">
-            <span class="fa fa-clock-o" aria-hidden="true"></span>
-            <button type="button" onclick="return $('#time').show();" class="btn btn-light add-time">
-              Добавить время
+    </div>
+    <div class="modal fade bd-example-modal-sm" id="new-event-modal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="new-event-modal-title">Create new event</h5>
+            <button type="button" class="close" id="close-event-modal-button-top" data-dismiss="modal"
+                    aria-label="Close">
+              <span aria-hidden="true">&times;</span>
             </button>
-            <input type="text" class="datepicker form-control add-time" id="end" placeholder="End" value="">
-            <input type="text" class="datepicker form-control add-time" id="start" placeholder="Start"
-                   value="start">
           </div>
-          <div id="time">
-            <span class="fa fa-clock-o" aria-hidden="true" id="format-time"></span>
-            <button type="button" onclick="return $('#time').hide();" class="btn btn-light add-time">Скрыть
-              время
-            </button>
-            <input type="time" id="allDay-start" class="form-control add-time">
-            <input type="time" id="allDay-end" class="form-control add-time">
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" id="event-title" placeholder="Enter event's name" required/>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="event-start-date" placeholder="Choose start date and time"
+                       disabled required/>
+                <div type='text' class="event-start-datepicker" data-language='en'
+                     data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="event-end-date" placeholder="Choose end date and time"
+                       placeholder="Choose end date and time" disabled required/>
+                <div type='text' class="event-end-datepicker" data-language='en'
+                     data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii"
+                     data-position='top left'></div>
+              </div>
+              <div class="input-group mb-3">
+                <select class="custom-select" id="select-participant" required>
+                  <option value="" disabled selected>Choose a participant</option>
+                </select>
+              </div>
+              <button type="button" class="btn btn-primary btn-block" id="other-options-button">Other options</button>
+              <div class="modal-footer justify-content-end event-modal-footer">
+                <button type="button" class="btn btn-secondary" id="close-event-modal-button-bottom"
+                        data-dismiss="modal">Close
+                </button>
+                <button type="submit" class="btn btn-primary" id="save-event-button">Save</button>
+              </div>
+            </form>
           </div>
-          <div>
-            <span class="fa fa-calendar" aria-hidden="true"></span>
-            <select name="candidates-range" id="candidates-range" class="form-control">
-              <option>Nikita</option>
-              <option>Lewa</option>
-              <option selected="selected">Bomzh Vitalik</option>
-              <option>Sanya</option>
-              <option>Vlados</option>
-            </select>
-          </div>
-          <div class="form-group ">
-            <button type="submit" class="btn btn-primary save" onclick="return saveEvent()">Сохранить
-            </button>
-            <button type="button" class="btn btn-light others">Другие параметры</button>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
-
-
   </div>
 </div>
 

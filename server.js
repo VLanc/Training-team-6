@@ -29,11 +29,9 @@ function respon_cand(req, res, next) {
     var id = req.query.id;
 
 
-    // console.log(id);
+    var profiles = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
 
-    var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8')); //TODO: give a clear name for the object
-
-    obj.forEach(function (val) {
+    profiles.forEach(function (val) {
 
         if (val.id === id) {
 
@@ -63,8 +61,7 @@ function respon_cand(req, res, next) {
 
             }
 
-            for (var i = 0; i<val.description.length; i++)
-            {
+            for (var i = 0; i < val.description.length; i++) {
                 candidate.description.push(val.description[i]);
             }
 
@@ -78,11 +75,24 @@ function respon_cand(req, res, next) {
     next();
 }
 
+function respond_events(req, res, next) {
+    res.header('X-Frame-Options', 'ALLOWALL');
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'POST, GET');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
+    var events = JSON.parse(fs.readFileSync('fc/event.json', 'utf8'));
+
+    res.send(events);
+    next();
+}
+
 function respond_grid(req, res, next) {
     res.header('X-Frame-Options', 'ALLOWALL');
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'POST, GET');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
 
     var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
 
@@ -103,28 +113,13 @@ function respond_newcand(req, res, next) {
 
 }
 
-
-var server = restify.createServer();
-server.use(restify.plugins.acceptParser(server.acceptable));
-server.use(restify.plugins.queryParser());
-server.use(restify.plugins.bodyParser());
-
-server.get('/id-candidate', respon_cand);
-server.get('/vacancies-grid', respond_grid);
-server.get('/newcand', respond_newcand);
-//server.head('/test', respond);
-
-server.post('/id-candidate', function (req, res, next) {
-
+function req_idcand(req, res, next) {
 
     var candidate = JSON.parse(JSON.stringify(req.body));
-    //console.log(candidate); //всё ок, выведет объект
+    var profiles = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
 
 
-    var obj = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
-
-
-    obj.forEach(function (val) {
+    profiles.forEach(function (val) {
 
         if (val.id === candidate.id) {
 
@@ -158,22 +153,42 @@ server.post('/id-candidate', function (req, res, next) {
 
             }
             val.description = [];
-            for (var i = 0; i<candidate.description.length; i++)
-            {
+            for (var i = 0; i < candidate.description.length; i++) {
                 val.description.push(candidate.description[i]);
             }
 
 
         }
-
-
     });
 
+    fs.writeFileSync('profile.json', JSON.stringify(profiles));
+    next();
+}
 
-    fs.writeFileSync('profile.json', JSON.stringify(obj));
+function req_events(req, res, next) {
+    var event = JSON.parse(JSON.stringify(req.body));
+    var events = JSON.parse(fs.readFileSync('fc/event.json', 'utf8'));
+    events.push(event);
+    fs.writeFileSync('fc/event.json', JSON.stringify(events));
     next();
 
-});
+}
+
+var server = restify.createServer();
+server.use(restify.plugins.acceptParser(server.acceptable));
+server.use(restify.plugins.queryParser());
+server.use(restify.plugins.bodyParser());
+
+
+server.get('/id-candidate', respon_cand);
+server.get('/vacancies-grid', respond_grid);
+server.get('/newcand', respond_newcand);
+server.get('/interview', respond_events);
+
+server.post('/id-candidate', req_idcand);
+server.post('/interview', req_events);
+
+
 
 server.listen(8080, '127.0.0.1', function () {
 

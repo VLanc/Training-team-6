@@ -1,3 +1,10 @@
+var data = "";
+var url = "http://127.0.0.1:8080/newcand";
+
+$.getJSON(url, function (candidates) {
+  data = candidates;
+});
+
 $(document).ready(function () {
   $('#calendar').fullCalendar({
     header: {
@@ -5,119 +12,80 @@ $(document).ready(function () {
       center: 'title',
       right: 'month,agendaWeek,agendaDay,listWeek'
     },
-    defaultDate: '2018-03-12',
-    navLinks: true, // can click day/week names to navigate views
-
-    dayClick: function (date, jsEvent, view) {
-      var clickDate = date.format();
-      $('#dialog').dialog('open');
-    },
-    weekNumbers: true,
-    weekNumbersWithinDays: true,
+    /*defaultDate: '2018-03-12',*/
+    /*navLinks: true,*/ // can click day/week names to navigate views
+    /*weekNumbers: true,
+    weekNumbersWithinDays: true,*/
     weekNumberCalculation: 'ISO',
-    editable: true,
+    /*editable: true,*/
     eventLimit: true, // allow "more" link when too many events
     selectable: true,
-    selectHelper: true,
-
-    events: [
-      {
-        title: 'All Day Event',
-        start: '2018-03-01'
-      },
-      {
-        title: 'Long Event',
-        start: '2018-03-07',
-        end: '2018-03-10'
-      },
-      {
-        id: 999,
-        title: 'Repeating Event',
-        start: '2018-03-09T16:00:00'
-      },
-      {
-        id: 999,
-        title: 'Repeating Event',
-        start: '2018-03-16T16:00:00'
-      },
-      {
-        title: 'бухнуть',
-        start: '2018-03-11',
-        end: '2018-03-13'
-      },
-      {
-        title: 'Meeting',
-        start: '2018-03-12T10:30:00',
-        end: '2018-03-12T12:30:00'
-      },
-      {
-        title: 'Lunch',
-        start: '2018-03-12T12:00:00'
-      },
-      {
-        title: 'Meeting',
-        start: '2018-03-12T14:30:00'
-      },
-      {
-        title: 'Happy Hour',
-        start: '2018-03-12T17:30:00'
-      },
-      {
-        title: 'Dinner',
-        start: '2018-03-12T20:00:00'
-      },
-      {
-        title: 'Birthday Party',
-        start: '2018-03-13T07:00:00'
-      },
-      {
-        title: 'Click for Google',
-        url: 'http://google.com/',
-        start: '2018-03-28'
-      }
-    ]
-  });
-  // create object
-  // var events = JSON.parse('event.json', 'utf8');
-  $('#dialog').dialog({
-    autoOpen: false,
-    minWidth: 600,
-    show: {
-      effect: 'drop',
-      duration: 500
+    /*selectHelper: true,*/
+    events: {
+      url: 'http://127.0.0.1:8080/interview'
     },
-    hide: {
-      effect: 'clip',
-      duration: 500
+    dayClick: function (date) {
+      $('#new-event-modal').modal('show');
+
+      var currentDate = date["_d"];
+      currentDate.setHours(23, 59);
+      $(".event-start-datepicker").data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()));
+      $(".event-end-datepicker").data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), currentDate.getHours(), currentDate.getMinutes()));
+    }
+    /*    eventClick: function(calEvent, jsEvent, view) {
+          console.log('Event: ' + calEvent.title);
+          console.log('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+          console.log('View: ' + view.name);
+          $(this).css('border-color', 'red');
+        }*/
+  });
+
+  $.each(data, function (key, val) {
+    var participantHtml = "<option value=\"" + key + "\">" + val["name"] + "</option>";
+    $("#select-participant").append(participantHtml);
+  });
+
+  function clearModalWindow() {
+    $("#event-title").val("");
+    $("#event-start-date").val("");
+    $("#event-end-date").val("");
+    $("#select-participant").val($("#select-participant option:first").val());
+  }
+
+  $("#save-event-button").click(function (e) {
+    var eventTitle = $("#event-title").val();
+    var eventStartDate = $("#event-start-date").val().replace(" ", "T");
+    var eventEndDate = $("#event-end-date").val().replace(" ", "T");
+    var eventParticipantIndex = $("#select-participant option:selected").val();
+    var eventParticipant = $("#select-participant option:selected").html();
+    eventTitle += " - " + eventParticipant;
+    if (!eventTitle || !eventStartDate || !eventEndDate || !eventParticipantIndex) return;
+
+    var event = {title: eventTitle, allDay: false, start: eventStartDate, end: eventEndDate};
+    var url = "http://127.0.0.1:8080/interview?";
+
+    $.post(url, event);
+    $('#calendar').fullCalendar('renderEvent', event, true);
+
+    e.preventDefault();
+    clearModalWindow();
+    $('#new-event-modal').modal('hide');
+  });
+
+  $('#new-event-modal').on('hide.bs.modal', function () {
+    clearModalWindow();
+  });
+
+  $(".event-start-datepicker").datepicker({
+    onSelect: function onSelect(date) {
+      $("#event-start-date").val(date);
     }
   });
-  $('.datepicker').datepicker({
-    dataFormat: "yy-mm-dd"
+
+  $(".event-end-datepicker").datepicker({
+    onSelect: function onSelect(date) {
+      $("#event-end-date").val(date);
+    }
   });
 
 });
-
-
-function HideTime(){
-  $(document).ready(function () {
-    $('#time').hide();
-  });
-}
-HideTime();
-// $(document).ready(function () {
-// $.getJSON('profile.json', function (candidate) {
-//   data = candidate;
-//   for (var g = 0; g < data.length; g++) {
-//     $('#candidates-range').append(
-//     '<option>'+data[g].name+'</option>'
-//     );
-//   }
-// });
-// });
-
-
-// function saveEvent() {
-//
-//   var end = $('#end').html();
-// console.log(end);
-// }

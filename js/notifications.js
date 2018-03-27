@@ -45,7 +45,7 @@ $(function () {
 $(function () {
   $.getJSON('fc/event.json', function (data) {
 
-    $.each(data.events, function (key, val) {
+    $.each(data, function (key, val) {
       var eventDate = val["start"].split("T")[0];
       var eventTime = val["start"].split("T")[1];
       if (!eventTime) eventTime = "";
