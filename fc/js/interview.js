@@ -24,8 +24,18 @@ $(document).ready(function () {
         },
         dayClick: function (date, jsEvent, view) {
             $('#exampleModalCenter').modal('show');
-            $("#event-start-date").val("" + date.format() + " 00:00");
-            $("#event-end-date").val("" + date.format() + " 23:59");
+            var currentDate = date["_d"];
+            currentDate.setHours(23, 59);
+
+            $(".event-start-datepicker").data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()));
+            $(".event-end-datepicker").data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), currentDate.getHours(), currentDate.getMinutes()));
+
+            /*$("#event-start-date").get(0).value += " 00:00";*/
+              /*.val("" + date.format() + " 00:00");*/
+            /*$("#event-end-date").get(0).value += " 23:59";*/
+              /*.val("" + date.format() + " 23:59");*/
+
+
         }
         /*    eventClick: function(calEvent, jsEvent, view) {
               console.log('Event: ' + calEvent.title);
@@ -54,6 +64,12 @@ $(document).ready(function () {
         dateFormat: "yy-mm-dd"
       });*/
 
+  function clearModalWindow() {
+    $("#event-title").val("");
+    $("#event-start-date").val("");
+    $("#event-end-date").val("");
+    $("#select-participant").val($("#select-participant option:first").val());
+  }
 
     $("#save-event-button").click(function (e) {
 
@@ -65,20 +81,14 @@ $(document).ready(function () {
         eventTitle += " - " + eventParticipant;
         if (!eventTitle || !eventStartDate || !eventEndDate || !eventParticipantIndex) return;
 
-        var event = {title: eventTitle, start: eventStartDate, end: eventEndDate};
+        var event = {title: eventTitle, allDay: false, start: eventStartDate, end: eventEndDate};
 
         $('#calendar').fullCalendar('renderEvent', event, true);
 
         e.preventDefault();
         clearModalWindow();
+        $('#exampleModalCenter').modal('hide');
     });
-
-    function clearModalWindow() {
-        $("#event-title").val("");
-        $("#event-start-date").val("");
-        $("#event-end-date").val("");
-        $("#select-participant").val($("#select-participant option:first").val());
-    }
 
     $("#close-event-modal-button-top").click(function () {
         clearModalWindow();
@@ -88,7 +98,7 @@ $(document).ready(function () {
         clearModalWindow();
     });
 
-    var isCalendarForStartHidden = true;
+/*    var isCalendarForStartHidden = true;
     $("#show-calendar-button-for-start").click(function () {
         if (isCalendarForStartHidden) {
             $("#show-calendar-button-for-start").html("Hide calendar");
@@ -99,7 +109,7 @@ $(document).ready(function () {
         }
 
         $(".event-start-datepicker").slideToggle("slow");
-    });
+    });*/
 
     $(".event-start-datepicker").datepicker({
         onSelect: function onSelect(date) {
@@ -107,7 +117,7 @@ $(document).ready(function () {
         }
     });
 
-    var isCalendarForEndHidden = true;
+/*    var isCalendarForEndHidden = true;
     $("#show-calendar-button-for-end").click(function () {
         if (isCalendarForEndHidden) {
             $("#show-calendar-button-for-end").html("Hide calendar");
@@ -118,7 +128,7 @@ $(document).ready(function () {
         }
 
         $(".event-end-datepicker").slideToggle("slow");
-    });
+    });*/
 
     $(".event-end-datepicker").datepicker({
         onSelect: function onSelect(date) {
