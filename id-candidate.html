@@ -72,24 +72,24 @@
               </select>
               <img id="avatar" alt="profile">
               <p id="position" class="profile-job"></p>
-              <input id="positionEdit" class="profile-job" type="text" onfocus="this.select()" value="">
+              <input id="positionEdit" class="profile-job hidden" type="text" onfocus="this.select()" value="">
               <p id="name" class="profile-name"></p>
-              <input id="nameEdit" class="profile-name" type="text" onfocus="this.select()" value="">
+              <input id="nameEdit" class="profile-name hidden" type="text" onfocus="this.select()" value="">
               <p id="salary" class="profile-salary"></p>
-              <input id="salaryEdit" class="profile-salary" type="text" onfocus="this.select()" value="">
+              <input id="salaryEdit" class="profile-salary hidden" type="text" onfocus="this.select()" value="">
               <div id="date" class="profile-time"></div>
             </div>
             <div class="footer-info">
               <h6>Contact information:</h6>
               <p class="profile-text">phone number:</p>
               <p id="phone" class="profile-data"></p>
-              <input id="phoneEdit" type="text" onfocus="this.select()" value="">
+              <input id="phoneEdit" class="hidden" type="text" onfocus="this.select()" value="">
               <p class="profile-text">E-mail:</p>
               <p id="email" class="profile-data"></p>
-              <input id="emailEdit" type="text" onfocus="this.select()" value="">
+              <input id="emailEdit" class="hidden" type="text" onfocus="this.select()" value="">
               <p class="profile-text">Address:</p>
               <p id="address" class="profile-data"></p>
-              <input id="addressEdit" type="text" onfocus="this.select()" value="">
+              <input id="addressEdit" class="hidden" type="text" onfocus="this.select()" value="">
             </div>
           </div>
           <!-- left data END --------------------------------->
@@ -108,12 +108,12 @@
             </div>
 
             <a id="editData" onclick="return editData()" href="#" class="button-new"><i class="fa fa-pencil"></i></a>
-            <a id="saveData" onclick="return saveData()" href="#" class="button-new"><i class="fa fa-save"></i></a>
+            <a id="saveData" onclick="return saveData()" href="#" class="button-new hidden"><i class="fa fa-save"></i></a>
 
             <div class="buttons">
-              <a id="buttonSkills" onclick="return addSkill()" class="buttons__add-experiences-and-skills">Add
+              <a id="buttonSkills" onclick="return addSkill()" class="buttons__add-experiences-and-skills hidden">Add
                 skills</a>
-              <a id="buttonExperience" onclick="return addExperience()" class="buttons__add-experiences-and-skills">Add
+              <a id="buttonExperience" onclick="return addExperience()" class="buttons__add-experiences-and-skills hidden">Add
                 experience</a>
             </div>
           </div>

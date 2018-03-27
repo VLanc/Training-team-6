@@ -17,6 +17,10 @@ body {
   box-shadow: 3px 2px 4px rgba(221, 221, 221, 1);
 }
 
+.hidden {
+  display: none;
+}
+
 h5 {
   color: #6a6967;
   margin: 16px 0 16px 30px;

@@ -31,50 +31,12 @@ $(document).ready(function () {
     else if (20 < dateOfAddUser && 27 > dateOfAddUser) date = 'about 3 weeks';
     else if (27 < dateOfAddUser) date = 'a month ago';
 
-
-    // //process of obtaining data for timeLine
-    // var timeLine = '';
-    // var experience = data.info;
-    // for (var countExperience = 0; countExperience < experience.length; countExperience++) {
-    //   timeLine += '<div class="timeline__unit">' +
-    //     '<div class="timeline__unit__left-information">' +
-    //     '<div class="timeline__unit__left-information__date">' + experience[countExperience].time + '</div>' +
-    //     '<div class="timeline__unit__left-information__position">' + experience[countExperience].pos + '</div></div>' +
-    //     '<div class="timeline__unit__diagram">' +
-    //     '<div class="timeline__unit__diagram__dot"></div>' +
-    //     '<div class="timeline__unit__diagram__line__job"></div>' +
-    //     '</div>' +
-    //     '<div class="timeline__unit__right-information">' +
-    //     '<div class="timeline__unit__right-information__name-of-place">' + experience[countExperience].header + '</div>' +
-    //     '<div class="timeline__unit__right-information__responsibility">' + experience[countExperience].body + '</div></div>' +
-    //     '</div>';
-    // }
-    //
-    // var education = data.education;
-    // for (var countEducation = 0; countEducation < education.length; countEducation++) {
-    //   timeLine += '<div class="timeline__unit">' +
-    //
-    //     '<div class="timeline__unit__left-information">' +
-    //     '<div class="timeline__unit__left-information__date">' + education[countEducation].time + '</div>' +
-    //     '<div class="timeline__unit__left-information__position">' + education[countEducation].pos + '</div></div>' +
-    //     '<div class="timeline__unit__diagram">' +
-    //     '<div class="timeline__unit__diagram__dot"></div>' +
-    //     '<div class="timeline__unit__diagram__line__study"></div>' +
-    //     '</div>' +
-    //     '<div class="timeline__unit__right-information">' +
-    //     '<div class="timeline__unit__right-information__name-of-place">' + education[countEducation].header + '</div>' +
-    //     '<div class="timeline__unit__right-information__responsibility">' + education[countEducation].body + '</div></div>' +
-    //     '</div>';
-    // }
-    // timeLine = timeLine.split("").reverse().join("").replace('__enil__margaid__tinu__enilemit', '').split("").reverse().join("");
-
     //process of obtaining data for skills
     var patternSkills = '';
     var skills = data.skills.split(";");
     for (var countSkills = 0; countSkills < skills.length; countSkills++) {
       patternSkills += '<div class="skills__skill">' + skills[countSkills] + '</div>';
     }
-
 
     $('#position').html(data.position);
     $('#name').html(data.name);
@@ -98,18 +60,20 @@ function prepareTimeline() {
 
   var timeLine = '';
   var experience = data.info;
-  for (var countExperience = 0; countExperience < experience.length; countExperience++) {
+  var countExperience = experience.length ;
+  for (; countExperience > 0; countExperience--) {
+    var index = countExperience - 1;
     timeLine += '<div class="timeline__unit">' +
       '<div class="timeline__unit__left-information">' +
-      '<div class="timeline__unit__left-information__date">' + experience[countExperience].time + '</div>' +
-      '<div class="timeline__unit__left-information__position">' + experience[countExperience].pos + '</div></div>' +
+      '<div class="timeline__unit__left-information__date">' + experience[index].time + '</div>' +
+      '<div class="timeline__unit__left-information__position">' + experience[index].pos + '</div></div>' +
       '<div class="timeline__unit__diagram">' +
       '<div class="timeline__unit__diagram__dot"></div>' +
       '<div class="timeline__unit__diagram__line__job"></div>' +
       '</div>' +
       '<div class="timeline__unit__right-information">' +
-      '<div class="timeline__unit__right-information__name-of-place">' + experience[countExperience].header + '</div>' +
-      '<div class="timeline__unit__right-information__responsibility">' + experience[countExperience].body + '</div></div>' +
+      '<div class="timeline__unit__right-information__name-of-place">' + experience[index].header + '</div>' +
+      '<div class="timeline__unit__right-information__responsibility">' + experience[index].body + '</div></div>' +
       '</div>';
   }
 
@@ -133,24 +97,9 @@ function prepareTimeline() {
 }
 
 function editData() {/*TODO: all that block looks super hackish. Hide and show wrappers of fields, not each field*/
-  $('#editData').hide();
-  $('#position').hide();
-  $('#salary').hide();
-  $('#name').hide();
-  $('#phone').hide();
-  $('#email').hide();
-  $('#address').hide();
-
-
-  $('#saveData').show();
-  $('#positionEdit').show();
-  $('#salaryEdit').show();
-  $('#nameEdit').show();
-  $('#phoneEdit').show();
-  $('#emailEdit').show();
-  $('#addressEdit').show();
-  $('#buttonExperience').show();
-  $('#buttonSkills').show();
+  $('#editData, #position, #salary, #name, #phone, #email, #address').addClass("hidden");
+  $('#saveData, #positionEdit, #salaryEdit, #nameEdit, #phoneEdit, #emailEdit, #addressEdit, #buttonExperience, #buttonSkills')
+    .removeClass("hidden");
 
   $('#positionEdit').val($('#position').html());
   $('#salaryEdit').val($('#salary').html());
@@ -163,26 +112,9 @@ function editData() {/*TODO: all that block looks super hackish. Hide and show w
 
 
 function saveData() {/*TODO: all that block looks super hackish. Hide and show wrappers of fields, not each field*/
-
-  $('#editData').show();
-  $('#position').show();
-  $('#salary').show();
-  $('#name').show();
-  $('#date').show();
-  $('#phone').show();
-  $('#email').show();
-  $('#address').show();
-
-
-  $('#saveData').hide();
-  $('#positionEdit').hide();
-  $('#salaryEdit').hide();
-  $('#nameEdit').hide();
-  $('#phoneEdit').hide();
-  $('#emailEdit').hide();
-  $('#addressEdit').hide();
-  // $('#buttonExperience').hide();
-  // $('#buttonSkills').hide();
+  $('#saveData, #positionEdit, #salaryEdit, #nameEdit, #phoneEdit, #emailEdit, #addressEdit, #buttonExperience, #buttonSkills')
+    .addClass("hidden");
+  $('#editData, #position, #salary, #name, #phone, #email, #address').removeClass("hidden");
 
   $('#position').html($('#positionEdit').val());
   $('#salary').html($('#salaryEdit').val());
@@ -219,6 +151,7 @@ function saveSkill() {
     $('#skills').append('<div class="skills__skill">' + skill + '</div>');
 
     data.skills += ';' + skill;
+
     closeModalWindow();
   } else {
     alert('Data can not be saved. Sorry :(');
@@ -238,9 +171,9 @@ function saveExperience() {
   experience.header = $('#addPositionExperience').val();
   experience.body = $('#addBodyExperience').val();
   data.info.push(experience);
-  var url = "http://127.0.0.1:8080/id-candidate?";
-  $.post(url, data);
+
   $('#timeLine').empty().append(prepareTimeline());
+
   closeModalWindow();
 }
 
