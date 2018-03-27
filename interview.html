@@ -63,18 +63,18 @@
     <div class="col-lg-10 col-md-12  col-sm-12 col-xs-12 row-data grid">
       <div class="interview-footer">Interview
         <button type="button" class="btn btn-secondary add-event-button" data-toggle="modal"
-                data-target="#exampleModalCenter">
+                data-target="#new-event-modal">
           Add new event
         </button>
       </div>
       <div id='calendar'></div>
     </div>
-    <div class="modal fade bd-example-modal-sm" id="exampleModalCenter" tabindex="-1" role="dialog"
+    <div class="modal fade bd-example-modal-sm" id="new-event-modal" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="new-event-modal">Create new event</h5>
+            <h5 class="modal-title" id="new-event-modal-title">Create new event</h5>
             <button type="button" class="close" id="close-event-modal-button-top" data-dismiss="modal"
                     aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -84,19 +84,16 @@
             <form>
               <div class="form-group">
                 <input type="text" class="form-control" id="event-title" placeholder="Enter event's name" required/>
-                <!--placeholder="Enter email"-->
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" id="event-start-date" placeholder="Choose start date and time"
-                      disabled required/>
-                <!--<button type="button" class="btn btn-primary" id="show-calendar-button-for-start">Show calendar</button>-->
+                       disabled required/>
                 <div type='text' class="event-start-datepicker" data-language='en'
                      data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii"></div>
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" id="event-end-date" placeholder="Choose end date and time"
                        placeholder="Choose end date and time" disabled required/>
-                <!--<button type="button" class="btn btn-primary" id="show-calendar-button-for-end">Show calendar</button>-->
                 <div type='text' class="event-end-datepicker" data-language='en'
                      data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii"
                      data-position='top left'></div>
@@ -104,10 +101,6 @@
               <div class="input-group mb-3">
                 <select class="custom-select" id="select-participant" required>
                   <option value="" disabled selected>Choose a participant</option>
-                  <option value="1">Alex Korolev</option>
-                  <option value="2">Nikita Senko</option>
-                  <option value="3">Vlad Vasilyev</option>
-                  <option value="3">Alex Sakovsky</option>
                 </select>
               </div>
               <button type="button" class="btn btn-primary btn-block" id="other-options-button">Other options</button>
