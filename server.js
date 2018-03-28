@@ -188,7 +188,10 @@ server.get('/', function (req, res, next) {
     res.send("zdarova");
     return next();
 });
-
+server.get('/index', function (req, res, next) {
+    res.send("zdarova");
+    return next();
+});
 server.post('/id-candidate', req_idcand);
 server.post('/interview', req_events);
 
