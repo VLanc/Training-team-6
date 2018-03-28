@@ -184,6 +184,10 @@ server.get('/id-candidate', respon_cand);
 server.get('/vacancies-grid', respond_grid);
 server.get('/newcand', respond_newcand);
 server.get('/interview', respond_events);
+server.get('/', function (req, res, next) {
+    res.send("zdarova");
+    return next();
+});
 
 server.post('/id-candidate', req_idcand);
 server.post('/interview', req_events);
