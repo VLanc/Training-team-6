@@ -1,0 +1,88 @@
+
+.modal-window-description {
+  border: none;
+  border-radius: 0;
+}
+
+.modal-header {
+  margin-top: 0;
+  border-bottom: none;
+  flex: 1;
+  display: inline;
+}
+
+.modal-window__title {
+  font-weight: bold;
+  display: inline;
+}
+
+.modal-window-description__date-off-add-candidate {
+  margin-right: 20px;
+  display: inline;
+  float: right;
+}
+
+.modal-body textarea {
+  resize: none;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #ebebeb;
+  text-transform: none;
+  color: #000000;
+  font-weight: bold
+}
+
+.nav-tabs .nav-link {
+  color: #000000;
+  font-weight: bold;
+  text-transform: none;
+  border-radius: 0;
+}
+
+.modal-close {
+  font-size: 25px;
+  color: #6e6e6e;
+  text-shadow: 2px 0 5px #6c757d;
+  float: right;
+}
+
+.modal-close:hover {
+  color: #6e6e6e;
+}
+
+.modal-close:active {
+  text-shadow: none;
+}
+
+#modalWindowSkill input {
+  margin-top: -20px;
+  display: flex;
+}
+
+#modalWindowSkill input {
+  margin-top: -20px;
+  display: flex;
+  text-align: center;
+}
+
+#modalWindowExperience input,
+#modalWindowSkill input {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: inline;
+  text-align: center;
+}
+#modalWindowExperience input, textarea,
+#modalWindowSkill input {
+  border: 2px solid #c8c8c8;
+  border-radius: 10px;
+  outline:none;
+}
+.modalWindowExperience, .modal-body {
+  padding: 20px;
+  box-sizing: border-box;
+}
+.modalWindowExperience__textarea textarea {
+  width: 100%;
+}
