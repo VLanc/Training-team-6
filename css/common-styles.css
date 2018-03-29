@@ -109,7 +109,10 @@ outline: none;
   color: #767676;
   outline: none;
 }
-.find-bar__navicon:visited {
+.find-bar__navicon:hover {
+  color: #767676;
+
+}.find-bar__navicon:visited {
   color: #767676;
 }
 
