@@ -177,7 +177,8 @@ body {
 }
 
 .grid {
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
+  /*overflow-y: hidden;*/
 }
 
 .grid__candidate__box {
