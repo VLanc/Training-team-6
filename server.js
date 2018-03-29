@@ -179,15 +179,19 @@ server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
 
+server.get(/(^\/$)|(\.(html|js|css|png|jpg)$)/, restify.plugins.serveStatic({
+    directory: __dirname,
+    default: 'vacancies.html'
 
+}));
 server.get('/id-candidate', respon_cand);
 server.get('/vacancies-grid', respond_grid);
 server.get('/newcand', respond_newcand);
 server.get('/interview', respond_events);
-server.get('/', function (req, res, next) {
-    res.send("zdarova");
-    return next();
-});
+// server.get('/', function (req, res, next) {
+//     res.send("zdarova");
+//     return next();
+// });
 server.get('/index', function (req, res, next) {
     res.send("zdarova");
     return next();
