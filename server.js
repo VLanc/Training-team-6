@@ -168,6 +168,7 @@ function req_idcand(req, res, next) {
 function req_events(req, res, next) {
     var event = JSON.parse(JSON.stringify(req.body));
     var events = JSON.parse(fs.readFileSync('fc/event.json', 'utf8'));
+    event.id = events.length+1;
     events.push(event);
     fs.writeFileSync('fc/event.json', JSON.stringify(events));
     next();

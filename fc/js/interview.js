@@ -61,7 +61,7 @@ $(document).ready(function () {
     eventTitle += " - " + eventParticipant;
     if (!eventTitle || !eventStartDate || !eventEndDate || !eventParticipantIndex) return;
 
-    var event = {title: eventTitle, allDay: false, start: eventStartDate, end: eventEndDate};
+    var event = {id: 0, title: eventTitle, allDay: false, start: eventStartDate, end: eventEndDate};
     var url = "http://127.0.0.1:8080/interview?";
 
     $.post(url, event);
