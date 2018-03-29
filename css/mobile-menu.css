@@ -1,6 +1,6 @@
 /******* only for mobile menu ******/
 @media screen and (max-device-width: 993px) {
-  .for-desktop {
+  .class-menu {
     position: fixed;
     display: none;
     z-index: 2;
@@ -11,6 +11,12 @@
 
   .find-bar {
     box-shadow: inset 3px 2px 4px rgba(221, 221, 221, 1);
+    position: sticky;
+
+  }
+
+  .under-find-bar {
+    margin-top: 0;
   }
 
   .find-bar__navicon {
@@ -38,6 +44,7 @@
   .experience {
     border: none;
   }
+
 
 }
 /******* only for mobile menu END ******/

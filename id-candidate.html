@@ -17,11 +17,10 @@
   <script type="text/javascript" src="js/notifications.js"></script>
   <script type="text/javascript" src="js/id-candidate.js"></script>
 </head>
-
-<body class="id-candidates">
+<body>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-2 col-xl-2 beauty reset for-desktop">
+    <div class="col-lg-2 col-xl-2 beauty reset class-menu">
       <h5>hr app</h5>
       <nav>
         <ul class="menu">
@@ -33,24 +32,25 @@
       </nav>
     </div>
 
-    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10  reset all-displays">
-      <div class="find-bar beauty">
+    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10  reset all-displays scrolling">
+      <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10  find-bar beauty">
         <a id="hamburger" class="find-bar__navicon" href="#"><i class="fa fa-bars"></i></a>
-        <form action="#">
-          <button type="submit" class="find-bar__button icon">
+        <form action="#" class="find-bar-element">
+          <button type="submit" class="icon find-bar-element">
             <i class="fa fa-search"></i>
           </button>
           <input type="search" placeholder="Search for vacancies, candidates..." name="find-string"
-                 class="find-bar__string">
+                 class="find-bar-element find-bar__string">
         </form>
-        <a id="notification-button" class="icon" title="notifications" href="#"><i class="fa fa-bell"></i></a>
-        <a class="icon" title="exit" href="#"><i class="fa fa-sign-out"></i></a>
+        <a id="notification-button" class="icon" title="notifications" href="#"><i class="fa fa-bell find-bar-element"></i></a>
+        <a class="icon" title="exit" href="#"><i class="fa fa-sign-out find-bar-element"></i></a>
       </div>
-      <div class="container-fluid">
+      <div class="container-fluid under-find-bar">
+
         <div class="row">
           <!-- DATA ------------------------------>
           <div class="header-data col-sm-12 col-md-12 col-lg-12">
-            <div class="bread-crumbs"><a href="candidates.html">Candidates ></a>
+            <div class="bread-crumbs"><a href="temp/candidates.html">Candidates ></a>
               <div id="breadCrumbs"></div>
             </div>
             <div class="review-button-block">
@@ -108,12 +108,14 @@
             </div>
 
             <a id="editData" onclick="return editData()" href="#" class="button-new"><i class="fa fa-pencil"></i></a>
-            <a id="saveData" onclick="return saveData()" href="#" class="button-new hidden"><i class="fa fa-save"></i></a>
+            <a id="saveData" onclick="return saveData()" href="#" class="button-new hidden"><i
+                class="fa fa-save"></i></a>
 
             <div class="buttons">
               <a id="buttonSkills" onclick="return addSkill()" class="buttons__add-experiences-and-skills hidden">Add
                 skills</a>
-              <a id="buttonExperience" onclick="return addExperience()" class="buttons__add-experiences-and-skills hidden">Add
+              <a id="buttonExperience" onclick="return addExperience()"
+                 class="buttons__add-experiences-and-skills hidden">Add
                 experience</a>
             </div>
           </div>
@@ -155,7 +157,7 @@
         <input id="addPlaceExperience" type="text" value="" placeholder="Enter position...">
         <input id="addPositionExperience" type="text" value="" placeholder="Enter company...">
         <div class="modalWindowExperience__textarea">
-        <textarea id="addBodyExperience" rows="4" placeholder="Write..."></textarea>
+          <textarea id="addBodyExperience" rows="4" placeholder="Write..."></textarea>
         </div>
         <button onclick="return saveExperience()" type="button" id="modal-button2" class="btn btn-secondary">add
         </button>

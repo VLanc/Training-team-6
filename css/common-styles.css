@@ -5,6 +5,11 @@ body {
   cursor: default;
   text-transform: uppercase;
   font-size: 14px;
+  overflow-y: hidden;
+}
+
+.scrolling {
+  overflow-y: auto;
 }
 
 .reset {
@@ -27,11 +32,11 @@ h5 {
   font-size: 18px;
 }
 
-/******* common styles END ******/
+
 
 /******* side menu styles ******/
-.for-desktop {
-  z-index: 2;
+.class-menu {
+  z-index: 6;
 }
 
 .menu {
@@ -59,16 +64,34 @@ h5 {
 /******* side menu styles END ******/
 
 /******* right row styles ******/
-.all-displays {
-  background-color: #ffffff;
+/******* row DATA styles ******/
+.row-data {
+  margin: 10px;
+  height: calc(100% - 75px);
 }
+.all-displays {
+  height: 100vh;
+}
+/******* row DATA styles END******/
 
 /******* top bar styles ******/
 .find-bar {
   height: 53px;
+  position: fixed;
+  z-index: 5;
 }
 
-.find-bar button, form, form input, a i {
+.under-find-bar {
+  margin-top: 53px;
+}
+
+/*.find-bar button, form, form input, a i */
+/* this is a hardcode {*/
+
+button[type=submit] {
+outline: none;
+}
+.find-bar-element {
   margin-left: 14px;
   background-color: #e9e9e9;
   outline: none;
@@ -77,12 +100,17 @@ h5 {
   border: none;
   display: inline;
 }
-
+/**** end if hardcode *****/
 .find-bar__navicon {
   font-size: 30px;
   display: none;
   position: relative;
   top: 5px;
+  color: #767676;
+  outline: none;
+}
+.find-bar__navicon:visited {
+  color: #767676;
 }
 
 .find-bar__string {
@@ -114,9 +142,9 @@ h5 {
 /******* styles of bar icons END ******/
 /******* top bar styles END ******/
 
-/******* button ADD (NEW) ******/
+/******* buttons NEW, EDIT, SAVE ******/
 .button-new i {
-  background-color: #ffffff;
+  background: none;
   position: fixed;
   bottom: 51px;
   right: 20px;
@@ -136,77 +164,14 @@ h5 {
   font-size: 50px;
   text-shadow: none;
 }
-/******* button ADD  END ******/
+/******* buttons NEW, EDIT, SAVE END ******/
 
-
-
-
-/******* right row styles ******/
-/******* common styles END ******/
-/***************************************************************/
-
-.calendar {
-  max-width: 95%;
-  margin: 0 auto;
-}
-
-#calendar .fc-today {
-  background: #c6c8ca;
-}
-
-#calendar .fc-center, .fc-day-header, .fc-axis, .fc-widget-header {
-  color: #767676;
-
-}
-
-.interview-footer {
-  text-transform: none;
-  font-size: 25px;
-  margin: 30px;
-  color: #767676;
-}
-
-#calendar .fc-time-grid-event {
-  margin: 10px;
-  border-radius: 15px;
-
-}
-
-.fc-button-group button {
-  border: none;
-  color: #767676;
-  outline: none;
-}
-
-.fc-today-button:active {
-  outline: none;
-}
-
-/*New candidates page*/
-
-#gridContainerCandidates {
-  height: 80vh;
-}
-
-.left-side {
-  width: 200px;
-  margin-top: 10px;
-  display: inline-block;
-}
-
-.filter-by-status {
-  display: inline-block;
-  position: relative;
-  top: -11px;
-  margin-bottom: 5px;
-  text-transform: none;
-}
-
+/******* modal window NOTIFICATION *******/
 .notification-bar {
   box-shadow: 2px 4px 10px 1px #dbdbdb;
   position: absolute;
   right: 5%;
-  z-index: 2;
+  z-index: 1000;
   background-color: #fff;
   text-transform: none;
   max-height: 84vh;
@@ -335,7 +300,6 @@ h5 {
   background-color: #007bff;
   border-color: #007bff;
   margin-left: 40px;
-
 }
 
 .ui-dialog-titlebar {
@@ -391,7 +355,6 @@ h5 {
   margin: 10px 0;
 }
 
-
 #format-time {
   padding: 15px 0;
 }
@@ -404,3 +367,4 @@ h5 {
   text-decoration: none;
 
 }
+/******* common styles END ******/

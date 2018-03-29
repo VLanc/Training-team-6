@@ -6,7 +6,6 @@
   <title>hr app</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/common-styles.css" rel="stylesheet">
-  <link href="css/vacancies.css" rel="stylesheet">
   <link href="css/mobile-menu.css" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/17.2.5/css/dx.common.css"/>
@@ -14,14 +13,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script>window.jQuery || document.write(decodeURIComponent('%3Cscript src="js/jquery-3.1.0.min.js"%3E%3C/script%3E'))</script>
   <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/17.2.5/js/dx.all.js"></script>
-  <script type="text/javascript" src="js/mobile-navigation.js"></script>
   <script type="text/javascript" src="js/notifications.js"></script>
   <script type="text/javascript" src="js/grid.js"></script>
+  <script type="text/javascript" src="js/mobile-navigation.js"></script>
 </head>
 <body>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-2 col-xl-2 beauty reset for-desktop">
+    <div class="col-lg-2 col-xl-2 beauty reset class-menu">
       <h5>hr app</h5>
       <nav>
         <ul class="menu">
@@ -33,19 +32,19 @@
       </nav>
     </div>
     <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10  reset all-displays">
-      <div class="find-bar beauty">
-        <a id="hamburger" class="find-bar__navicon" href="#"><i class="fa fa-bars"></i></a>
-        <form action="#">
-          <button type="submit" class="find-bar__button icon">
+      <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10  find-bar beauty">
+        <a id="hamburger" class="find-bar__navicon black" href="#"><i class="fa fa-bars"></i></a>
+        <form action="#" class="find-bar-element">
+          <button type="submit" class="icon find-bar-element">
             <i class="fa fa-search"></i>
           </button>
           <input type="search" placeholder="Search for vacancies, candidates..." name="find-string"
-                 class="find-bar__string">
+                 class="find-bar-element find-bar__string">
         </form>
-        <a id="notification-button" class="icon" title="notifications" href="#"><i class="fa fa-bell"></i></a>
-        <a class="icon" title="exit" href="#"><i class="fa fa-sign-out"></i></a>
+        <a id="notification-button" class="icon" title="notifications" href="#"><i class="fa fa-bell find-bar-element"></i></a>
+        <a class="icon" title="exit" href="#"><i class="fa fa-sign-out find-bar-element"></i></a>
       </div>
-      <div class="row-data" id="gridContainer"></div>
+      <div id="gridContainer" class="row-data under-find-bar" ></div>
       <a href="#" class="button-new"><i class="fa fa-plus-circle"></i></a>
     </div>
   </div>
