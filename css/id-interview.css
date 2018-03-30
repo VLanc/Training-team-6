@@ -1,0 +1,105 @@
+.datepicker {
+  margin: 0 auto;
+}
+
+.datepicker--body {
+  background-color: #fff !important;
+}
+
+.datepicker--time-row {
+  background: linear-gradient(to right, #dedede, #dedede) left 50%/100% 2px no-repeat !important;
+}
+
+#event-start-date, #event-end-date {
+  margin-bottom: 15px;
+}
+
+.event-content-wrapper {
+  margin-top: 75px;
+}
+
+@media screen and (max-device-width: 993px) {
+  .event-content-wrapper {
+    margin-top: 20px;
+  }
+}
+
+#event-description {
+  resize: none;
+  height: 125px;
+}
+
+.current-event-color-text {
+  margin: 13px 0 8px 0;
+}
+
+.event-color-wrapper {
+  border-radius: 5px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  transition: all linear .2s;
+  margin: 5px 5px;
+}
+
+#current-event-color {
+  cursor: auto;
+}
+
+#current-event-color:hover {
+  transform: none;
+}
+
+.event-color-wrapper.current {
+  background-color: #3a87ad;
+}
+
+.event-color-wrapper:hover {
+  transform: scale(1.1);
+}
+
+.event-color-wrapper.red {
+  background-color: #e74c3c !important;
+}
+
+.event-color-wrapper.blue {
+  background-color: #3498db !important;
+}
+
+.event-color-wrapper.yellow {
+  background-color: #f1c40e !important;
+}
+
+.event-color-wrapper.brown {
+  background-color: #a5860a !important;
+}
+
+.event-color-wrapper.grey {
+  background-color: #95a5a6 !important;
+}
+
+.event-color-wrapper.green {
+  background-color: #27ae60 !important;
+}
+
+.event-color-wrapper.orange {
+  background-color: #f39c12 !important;
+}
+
+.event-color-wrapper.purple {
+  background-color: #9b59b6 !important;
+}
+
+#save-event-changes-button {
+  margin-bottom: 16px;
+}
+
+/*Successful saving modal*/
+
+.successful-saving-message {
+  margin: 0 0 0 30px;
+}
+
+.successful-saving-modal-title {
+  margin: 5px 0 0 30px;
+}

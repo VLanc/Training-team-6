@@ -149,8 +149,8 @@ outline: none;
 .button-new i {
   background: none;
   position: fixed;
-  bottom: 51px;
-  right: 20px;
+  bottom: 18%;
+  right: 3%;
   font-size: 50px;
   color: #6e6e6e;
   text-shadow: 3px 5px 2px rgba(203, 203, 203, 1);

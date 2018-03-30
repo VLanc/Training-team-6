@@ -1,8 +1,14 @@
-var data = "";
+var participants = "";
 var url = "http://127.0.0.1:8080/newcand";
 
 $.getJSON(url, function (candidates) {
-  data = candidates;
+  participants = candidates;
+});
+
+var events = "";
+var eventsUrl = "http://127.0.0.1:8080/interview";
+$.getJSON(eventsUrl, function (data) {
+  events = data;
 });
 
 $(document).ready(function () {
@@ -12,15 +18,9 @@ $(document).ready(function () {
       center: 'title',
       right: 'month,agendaWeek,agendaDay,listWeek'
     },
-    /*defaultDate: '2018-03-12',*/
-    /*navLinks: true,*/ // can click day/week names to navigate views
-    /*weekNumbers: true,
-    weekNumbersWithinDays: true,*/
     weekNumberCalculation: 'ISO',
-    /*editable: true,*/
-    eventLimit: true, // allow "more" link when too many events
+    eventLimit: true,
     selectable: true,
-    /*selectHelper: true,*/
     events: {
       url: 'http://127.0.0.1:8080/interview'
     },
@@ -31,16 +31,16 @@ $(document).ready(function () {
       currentDate.setHours(23, 59);
       $(".event-start-datepicker").data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()));
       $(".event-end-datepicker").data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), currentDate.getHours(), currentDate.getMinutes()));
+    },
+    eventRender: function (event, element) {
+      element.bind('dblclick', function () {
+        var url = "id-interview.html?id=" + event.id;
+        window.open(url, "_self");
+      });
     }
-    /*    eventClick: function(calEvent, jsEvent, view) {
-          console.log('Event: ' + calEvent.title);
-          console.log('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-          console.log('View: ' + view.name);
-          $(this).css('border-color', 'red');
-        }*/
   });
 
-  $.each(data, function (key, val) {
+  $.each(participants, function (key, val) {
     var participantHtml = "<option value=\"" + key + "\">" + val["name"] + "</option>";
     $("#select-participant").append(participantHtml);
   });
@@ -53,15 +53,30 @@ $(document).ready(function () {
   }
 
   $("#save-event-button").click(function (e) {
+    var eventId = events.length + 1;
     var eventTitle = $("#event-title").val();
     var eventStartDate = $("#event-start-date").val().replace(" ", "T");
     var eventEndDate = $("#event-end-date").val().replace(" ", "T");
     var eventParticipantIndex = $("#select-participant option:selected").val();
     var eventParticipant = $("#select-participant option:selected").html();
     eventTitle += " - " + eventParticipant;
+    var eventColor = $("#current-event-color").css("backgroundColor");
+    var eventLocation = $("#event-location").val();
+    var eventDescription = $("#event-description").val();
     if (!eventTitle || !eventStartDate || !eventEndDate || !eventParticipantIndex) return;
 
-    var event = {id: 0, title: eventTitle, allDay: false, start: eventStartDate, end: eventEndDate};
+    var event = {
+      id: eventId,
+      title: eventTitle,
+      allDay: false,
+      start: eventStartDate,
+      end: eventEndDate,
+      color: eventColor,
+      participant: eventParticipant,
+      participantIndex: eventParticipantIndex,
+      location: eventLocation,
+      description: eventDescription
+    };
     var url = "http://127.0.0.1:8080/interview?";
 
     $.post(url, event);
@@ -88,4 +103,28 @@ $(document).ready(function () {
     }
   });
 
+  $("#event-color-pickers").click(function (e) {
+    var target = e.target;
+    if ($(target).attr("data-color")) {
+      var selectedColor = $(target).attr("data-color");
+      var lastClassCurrentColor = $("#current-event-color").attr('class').split(' ').pop();
+      $("#current-event-color").removeClass(lastClassCurrentColor);
+      $("#current-event-color").addClass(selectedColor);
+    }
+  });
+
+
+  $("#other-options-button").click(function () {
+    var isOtherOptionsHidden = $("#other-options-wrapper").hasClass("hidden");
+    if (isOtherOptionsHidden) {
+      $("#other-options-button").html("Hide other options");
+      $("#other-options-wrapper").removeClass("hidden");
+      $("#other-options-wrapper").addClass("visible");
+    } else {
+      $("#other-options-button").html("Show other options");
+      $("#other-options-wrapper").removeClass("visible");
+      $("#other-options-wrapper").addClass("hidden");
+    }
+
+  });
 });
