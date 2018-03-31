@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>hr app</title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/common-styles.css" rel="stylesheet">
+  <link href="css/mobile-menu.css" rel="stylesheet">
+  <link href="css/id-interview.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
+  <link href="css/datepicker.min.css" rel="stylesheet" type="text/css">
+  <!--<script src='fc/lib/moment.min.js'></script>-->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/id-interview.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/datepicker.min.js"></script>
+  <script src="js/datepicker.en.js"></script>
+  <script type="text/javascript" src="js/mobile-navigation.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2 col-xl-2 beauty reset class-menu">
+      <h5>hr app</h5>
+      <nav>
+        <ul class="menu">
+          <li><a href="interview.html" class="active">Interview</a></li>
+          <li><a href="vacancies.html">Vacancies</a></li>
+          <li><a href="candidates.html">Candidates</a></li>
+          <li><a href="#">Management</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10  reset all-displays scrolling">
+      <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10  find-bar beauty">
+        <a id="hamburger" class="find-bar__navicon" href="#"><i class="fa fa-bars black"></i></a>
+        <form action="#" class="find-bar-element">
+          <button type="submit" class="icon find-bar-element">
+            <i class="fa fa-search"></i>
+          </button>
+          <input type="search" placeholder="Search for vacancies, candidates..." name="find-string"
+                 class="find-bar-element find-bar__string">
+        </form>
+        <a id="notification-button" class="icon" title="notifications" href="#"><i
+          class="fa fa-bell find-bar-element"></i></a>
+        <a class="icon" title="exit" href="#"><i class="fa fa-sign-out find-bar-element"></i></a>
+      </div>
+      <div class="row-data under-find-bar">
+        <div class="container event-content-wrapper">
+          <div class="row">
+            <div class="col">
+              <form>
+                <div class="form-group">
+                  <label for="event-title">Event name</label>
+                  <input type="text" class="form-control" id="event-title" placeholder="Enter event name*" required/>
+                </div>
+                <div class="form-group">
+                  <label for="event-start-date">Start date and time</label>
+                  <input type="text" class="form-control" id="event-start-date"
+                         placeholder="Choose start date and time*"
+                         disabled required/>
+                  <div class="event-start-datepicker" data-language='en'
+                       data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii"></div>
+                </div>
+                <div class="form-group">
+                  <label for="event-end-date">End date and time</label>
+                  <input type="text" class="form-control" id="event-end-date" placeholder="Choose end date and time*"
+                         disabled required/>
+                  <div class="event-end-datepicker" data-language='en'
+                       data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii"
+                       data-position='top left'></div>
+                </div>
+                <div class="form-group">
+                  <label for="event-end-date">A participant</label>
+                  <select class="custom-select" id="select-participant" required>
+                    <option value="" disabled selected>Choose a participant*</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="event-location">Location</label>
+                  <input type="text" class="form-control" id="event-location" placeholder="Enter location"/>
+                </div>
+                <div class="form-group">
+                  <p class="current-event-color-text">Current event color</p>
+                  <div class="event-color-wrapper current" id="current-event-color"></div>
+                  <p class="current-event-color-text">Change event color</p>
+                  <div class="d-flex flex-wrap" id="event-color-pickers">
+                    <div class="event-color-wrapper red" data-color="red"></div>
+                    <div class="event-color-wrapper blue" data-color="blue"></div>
+                    <div class="event-color-wrapper yellow" data-color="yellow"></div>
+                    <div class="event-color-wrapper brown" data-color="brown"></div>
+                    <div class="event-color-wrapper grey" data-color="grey"></div>
+                    <div class="event-color-wrapper green" data-color="green"></div>
+                    <div class="event-color-wrapper orange" data-color="orange"></div>
+                    <div class="event-color-wrapper purple" data-color="purple"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="event-description">Event description</label>
+                  <textarea class="form-control" id="event-description"
+                            placeholder="Enter event description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="save-event-changes-button">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="successful-saving-modal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="successful-saving-modal-title">Successful saving</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="successful-saving-message">Your changes were successfully saved. <br>You will be redirected to
+          Interview page.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="successful-saving-modal-ok-button">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

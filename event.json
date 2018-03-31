@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Event 1 - Hatfield",
+    "allDay": "false",
+    "start": "2018-02-27T15:29",
+    "end": "2018-02-28T18:26",
+    "color": "rgb(155, 89, 182)",
+    "participant": "Hatfield",
+    "participantIndex": "4",
+    "location": "Pinsk",
+    "description": "Text"
+  },
+  {
+    "id": 2,
+    "title": "Event 2 - Гуф",
+    "allDay": "false",
+    "start": "2018-03-05T14:35",
+    "end": "2018-03-07T18:26",
+    "color": "rgb(149, 165, 166)",
+    "participant": "Гуф",
+    "participantIndex": "2",
+    "location": "Minsk",
+    "description": "Text"
+  },
+  {
+    "id": 3,
+    "title": "Event 3 - Nikita Sen'ko",
+    "allDay": "false",
+    "start": "2018-03-08T15:29",
+    "end": "2018-03-10T18:26",
+    "color": "rgb(39, 174, 96)",
+    "participant": "Nikita Sen'ko",
+    "participantIndex": "1",
+    "location": "Pinsk",
+    "description": "Text"
+  },
+  {
+    "id": 4,
+    "title": "Event 4 - девушка Лида",
+    "allDay": "false",
+    "start": "2018-03-08T15:29",
+    "end": "2018-03-09T18:26",
+    "color": "rgb(243, 156, 18)",
+    "participant": "девушка Лида",
+    "participantIndex": "6",
+    "location": "Minsk",
+    "description": "Some description"
+  },
+  {
+    "id": 5,
+    "title": "Some event - Вася",
+    "allDay": "false",
+    "start": "2018-03-14T15:29",
+    "end": "2018-03-16T18:26",
+    "color": "rgb(165, 134, 10)",
+    "participant": "Вася",
+    "participantIndex": "11",
+    "location": "Minsk",
+    "description": "Text"
+  }
+]
