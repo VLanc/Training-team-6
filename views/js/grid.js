@@ -1,5 +1,5 @@
 var orders;
-var url = "http://127.0.0.1:8080/vacancies-grid";
+var url = "/vacancies-grid";
 $.getJSON(url, function (data) {
 
 

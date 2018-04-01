@@ -4,7 +4,7 @@ var qtest = 1111;
 
 $(document).ready(function () {
 
-  var url = "http://127.0.0.1:8080/id-candidate?" + window.location.href.split('?')[1];
+  var url = "/id-candidate?" + window.location.href.split('?')[1];
 
   $.getJSON(url, function (candidate) {
     data = candidate;
@@ -131,7 +131,7 @@ function saveData() {/*TODO: all that block looks super hackish. Hide and show w
   data.email = $('#emailEdit').val();
   data.address = $('#addressEdit').val();
 
-  var url = "http://127.0.0.1:8080/id-candidate?";
+  var url = "/id-candidate?";
   $.post(url, data);
 
 }
@@ -228,7 +228,7 @@ function saveDescription() {
   );
   qtest++;
   data.description.push(review);
-  var url = "http://127.0.0.1:8080/id-candidate?";
+  var url = "/id-candidate?";
   $.post(url, data);
   closeModalWindow();
 }

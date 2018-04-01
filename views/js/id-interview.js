@@ -1,5 +1,5 @@
 var participants = "";
-var participantsUrl = "http://127.0.0.1:8080/newcand";
+var participantsUrl = "/newcand";
 
 $.getJSON(participantsUrl, function (candidates) {
     participants = candidates;
@@ -8,7 +8,7 @@ $.getJSON(participantsUrl, function (candidates) {
 $(document).ready(function () {
 
     var event = "";
-    var eventsUrl = "http://127.0.0.1:8080/id-interview?id=" + window.location.href.split('?')[1];
+    var eventsUrl = "/id-interview?id=" + window.location.href.split('?')[1];
     $.getJSON(eventsUrl, function (data) {
         event = data;
 
@@ -66,7 +66,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         var newEventObject = createModifiedEventObject();
-        var url = "http://127.0.0.1:8080/id-interview?";
+        var url = "/id-interview?";
         $.post(url, newEventObject);
 
         $('#successful-saving-modal').modal('show');

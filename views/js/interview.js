@@ -1,12 +1,12 @@
 var participants = "";
-var url = "http://127.0.0.1:8080/newcand";
+var url = "/newcand";
 
 $.getJSON(url, function (candidates) {
   participants = candidates;
 });
 
 var events = "";
-var eventsUrl = "http://127.0.0.1:8080/interview";
+var eventsUrl = "/interview";
 $.getJSON(eventsUrl, function (data) {
   events = data;
 });
@@ -22,7 +22,7 @@ $(document).ready(function () {
     eventLimit: true,
     selectable: true,
     events: {
-      url: 'http://127.0.0.1:8080/interview'
+      url: '/interview'
     },
     dayClick: function (date) {
       $('#new-event-modal').modal('show');
@@ -77,7 +77,7 @@ $(document).ready(function () {
       location: eventLocation,
       description: eventDescription
     };
-    var url = "http://127.0.0.1:8080/interview?";
+    var url = "/interview?";
 
     $.post(url, event);
     $('#calendar').fullCalendar('renderEvent', event, true);
