@@ -113,18 +113,18 @@ server.get(/(^\/$)|(\.(html|js|css|png|jpg)$)/, restify.plugins.serveStatic({
     default: 'candidates.html'
 }));
 
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'hrappdb'
-});
-
-connection.connect();
-connection.query('SELECT * from users', function(err, rows, fields) {
-    if (err) throw err;
-    //console.log(rows[0].name);
-});
+// var connection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'root',
+//     database: 'hrappdb'
+// });
+//
+// connection.connect();
+// connection.query('SELECT * from users', function(err, rows, fields) {
+//     if (err) throw err;
+//     //console.log(rows[0].name);
+// });
 
 server.get('/id-candidate', respon_cand);
 server.get('/vacancies-grid', respond_grid);
