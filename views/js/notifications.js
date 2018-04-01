@@ -1,10 +1,12 @@
-$(document).ready(function () {
-    var data = "";
-    var url = "/newcand";
+var data = "";
+var url = "/newcand";
 
-    $.getJSON(url, function (candidates) {
-        data = candidates;
-    });
+$.getJSON(url, function (candidates) {
+    data = candidates;
+});
+
+$(document).ready(function () {
+
 
     $(function () {
         var notificationBarHtml = "   <div class=\"notification-bar\">\n" +
