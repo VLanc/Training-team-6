@@ -102,7 +102,7 @@ $(function () {
 
             var candidateHtml = "           <div class=\"row no-gutters\" data-row=\"true>\n" +
                 "                    <div class=\"col\">\n" +
-                "                      <a href=\"../Training-team-6/id-candidate.html?id=" + val['id'] + "\" class=\"d-flex notification-candidate-wrapper\">\n" +
+                "                      <a href=\"../id-candidate.html?id=" + val['id'] + "\" class=\"d-flex notification-candidate-wrapper\">\n" +
                 "                        <img src=\" " + photoId + "\" class=\"avatar-small\"></img>\n" +
                 "                        <div class=\"notification-candidate-information-wrapper\">\n" +
                 "                          <div class=\"notification-candidate-name\">" + val["name"] +
