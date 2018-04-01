@@ -136,8 +136,15 @@ server.get('/id-interview', respond_interview);
 //     return next();
 // });
 server.get('/index', function (req, res, next) {
-    res.send("zdarova");
-    return next();
+    fs.readFile(__dirname+'/views/candidates.html', function (err, data) {
+        if (err) {
+            next(err);
+            return;
+        }
+        res.write(data);
+        res.end();
+        next();
+    });
 });
 server.post('/id-candidate', req_idcand);
 server.post('/interview', req_events);
