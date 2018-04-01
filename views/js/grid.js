@@ -7,7 +7,6 @@ $.getJSON(url, function (data) {
 
 
 });
-$(document).ready(function () {
     $(function () {
 
         var dataGrid = $("#gridContainer").dxDataGrid({
@@ -106,4 +105,3 @@ $(document).ready(function () {
 
     });
 
-});
