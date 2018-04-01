@@ -1,14 +1,13 @@
+var data = "";
+var url = "/newcand";
+
+$.getJSON(url, function (candidates) {
+  data = candidates;
+});
 
 $(document).ready(function () {
-    var data = "";
-    var url = "/newcand";
-    
-    $.getJSON(url, function (candidates) {
-        data = candidates;
-    });
 
-
-    $(function () {
+  $(function () {
     $("#selectStatus").dxSelectBox({
       dataSource: ["All", "New", "CV-Accepted", "CV-Rejected", "Accepted for interview"],
       value: data[0],
