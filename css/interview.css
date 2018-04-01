@@ -125,7 +125,25 @@
 
 /*for calendar table cells min height*/
 .fc-basic-view .fc-body .fc-row {
-  min-height: 5em !important;
+  min-height: 11vh !important;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: portrait) {
+  .fc-basic-view .fc-body .fc-row {
+    min-height: 10vh !important;
+  }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation: portrait) {
+  .fc-basic-view .fc-body .fc-row {
+    min-height: 10vh !important;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .fc-basic-view .fc-body .fc-row {
+    min-height: 13vh !important;
+  }
 }
 
 .fc-toolbar .fc-state-active, .fc-toolbar .ui-state-active {
