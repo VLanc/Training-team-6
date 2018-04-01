@@ -1,11 +1,12 @@
-var participants = "";
-var participantsUrl = "/newcand";
 
-$.getJSON(participantsUrl, function (candidates) {
-    participants = candidates;
-});
 
 $(document).ready(function () {
+    var participants = "";
+    var participantsUrl = "/newcand";
+
+    $.getJSON(participantsUrl, function (candidates) {
+        participants = candidates;
+    });
 
     var event = "";
     var eventsUrl = "/id-interview?id=" + window.location.href.split('?')[1];
