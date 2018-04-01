@@ -1,5 +1,5 @@
 var data = "";
-var url = "http://127.0.0.1:8080/newcand";
+var url = "/newcand";
 
 $.getJSON(url, function (candidates) {
   data = candidates;
@@ -55,12 +55,12 @@ $(document).ready(function () {
         allowSorting: false,
         cellTemplate: function (container, options) {
           if (!options.value) {
-            $("<div>").html("<a href=\"../views/id-candidate.html?id=" + options.data['id'] + "\" class=\"candidate-avatar-wrapper\">\n" +
+            $("<div>").html("<a href=\"../id-candidate.html?id=" + options.data['id'] + "\" class=\"candidate-avatar-wrapper\">\n" +
               "                    <img src=\"images/anounymus.png\" alt=\"\" class=\"candidate-avatar\">\n" +
               "                </a>")
               .appendTo(container);
           } else {
-            $("<div>").html("<a href=\"../views/id-candidate.html?id=" + options.data['id'] + "\" class=\"candidate-avatar-wrapper\">\n" +
+            $("<div>").html("<a href=\"../id-candidate.html?id=" + options.data['id'] + "\" class=\"candidate-avatar-wrapper\">\n" +
               "                    <img src=\"images/" + options.value + ".png\" alt='' class='candidate-avatar'>\n" +
               "                </a>")
               .appendTo(container);

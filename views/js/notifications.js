@@ -1,5 +1,5 @@
 var data = "";
-var url = "http://127.0.0.1:8080/newcand";
+var url = "/newcand";
 
 $.getJSON(url, function (candidates) {
     data = candidates;
@@ -43,7 +43,7 @@ $(function () {
 });
 
 $(function () {
-    var url = "http://127.0.0.1:8080/interview";
+    var url = "/interview";
     $.getJSON(url, function (data) {
         console.log(data);
 
