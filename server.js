@@ -149,6 +149,9 @@ server.get('/index', function (req, res, next) {
 server.post('/id-candidate', req_idcand);
 server.post('/interview', req_events);
 server.post('/id-interview', req_idevents);
-server.listen(8080, '127.0.0.1', function () {
-    console.log('%s listening at %s', server.name, server.url);
-});
+// server.listen(8080, '127.0.0.1', function () {
+//     console.log('%s listening at %s', server.name, server.url);
+// });
+var port = process.env.PORT || 8080;
+server.listen(port);
+console.log("Server running at http://localhost:%d", port);
