@@ -1,11 +1,13 @@
-;
+
 $(document).ready(function () {
   var sighIn = true;
   var flagOfAction = 'SIGN_IN';
 
   $('#signUpTab').click(function () {
     if (sighIn === true) {
-      $('#ForgotPasswordTitle').addClass('hidden');
+      $('#forgotPasswordTitle').addClass('hidden');
+      $('#forgotPassword').addClass('hidden');
+      $('#labelForEmail').html('E-mail address');
       $('.nav-item').toggleClass("active-tab no-active");
       $('#passwordBlock').removeClass('hidden');
       $('#forgotPassword').addClass('hidden');
@@ -18,12 +20,7 @@ $(document).ready(function () {
   $('#signInTab').click(function () {
     if (sighIn === false) {
       $('.nav-item').toggleClass("active-tab no-active");
-      $('#ForgotPasswordTitle').addClass('hidden');
-      $('#passwordBlock').removeClass('hidden');
-      $('#forgotPassword').removeClass('hidden');
-      $('#button').html('Sign in');
-      flagOfAction = 'SIGN_IN';
-      sighIn = true;
+      signIn();
     }
   });
 
@@ -36,7 +33,33 @@ $(document).ready(function () {
     flagOfAction = 'FORGOT_PASSWORD';
   });
 
+
+
+  $('#button').click(function () {
+      if(flagOfAction === 'FORGOT_PASSWORD') {
+      $('.modal').modal('show');
+      }
+    });
+
+
+  $('#modal-button').click(function () {
+    // hardcode - window.location = 'login.html';
+    // or just:
+    signIn();
+  });
+
+  function signIn() {
+    $('#ForgotPasswordTitle').addClass('hidden');
+    $('#labelForEmail').html('E-mail address');
+    $('#passwordBlock').removeClass('hidden');
+    $('#forgotPassword').removeClass('hidden');
+    $('#button').html('Sign in');
+    flagOfAction = 'SIGN_IN';
+    sighIn = true;
+  }
+
   function badEmail() {
     $('#labelForEmail').html('Sorry, your password is not valid');
-    }
+  }
 });
+

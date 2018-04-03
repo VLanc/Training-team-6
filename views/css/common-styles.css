@@ -23,7 +23,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 h5 {
@@ -31,8 +31,6 @@ h5 {
   margin: 16px 0 16px 30px;
   font-size: 18px;
 }
-
-
 
 /******* side menu styles ******/
 .class-menu {
@@ -91,6 +89,7 @@ h5 {
 button[type=submit] {
 outline: none;
 }
+
 .find-bar-element {
   margin-left: 14px;
   background-color: #e9e9e9;
@@ -101,6 +100,7 @@ outline: none;
   display: inline;
 }
 /**** end if hardcode *****/
+
 .find-bar__navicon {
   font-size: 30px;
   display: none;
@@ -149,7 +149,7 @@ outline: none;
 .button-new i {
   background: none;
   position: fixed;
-  bottom: 18%;
+  bottom: 7%;
   right: 3%;
   font-size: 50px;
   color: #6e6e6e;
