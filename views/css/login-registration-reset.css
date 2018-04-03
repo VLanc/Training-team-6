@@ -23,18 +23,18 @@ h6 {
   height: 100vh;
 }
 
- .tab-content {
-   background-color: #ffffff;
-   border-left: 1px solid #dddddd;
-   display: block;
-   height: 100%;
-   padding: 25px;
-   border-top-left-radius: 10px;
-   border-bottom-left-radius: 10px;
-   border-bottom-right-radius: 10px;
- }
+.tab-content {
+  background-color: #ffffff;
+  border-left: 1px solid #dddddd;
+  display: block;
+  height: 100%;
+  padding: 25px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 
-.active-tab{
+.active-tab {
   background-color: #ffffff;
   box-shadow: 1px -3px 4px rgba(221, 221, 221, 1);
   color: #495057;
@@ -57,25 +57,26 @@ h6 {
   border-bottom: none;
 }
 
-
 .no-active {
   background-color: #d4d4d4;
   color: #989898;
   outline: none;
 
-}.no-active:hover{
+}
+
+.no-active:hover {
   color: #495057;
 }
 
-.active-tab:hover{
-   color: #989898;
+.active-tab:hover {
+  color: #989898;
 }
 
-.helper:hover::after{
+.helper:hover::after {
   content: attr(data-helper);
   position: absolute;
   left: 40%;
-  z-index: 1;
+  /*z-index: 1;*/
   background: #5b5b5d;
   font-family: Arial, sans-serif;
   font-size: 10px;
@@ -84,8 +85,6 @@ h6 {
   color: #ffffff;
   text-transform: none;
 }
-
-
 
 #forgotPassword {
   display: block;
@@ -96,12 +95,14 @@ h6 {
   font-style: italic;
   text-decoration: none;
 }
+.modal-body {
+  text-align: center;
+}
 
-
-
-
-
-
+.modal-text {
+  text-transform: none;
+  margin-bottom: 25px;
+}
 
 /******* only for mobile view ******/
 @media screen and (max-device-width: 767px) {
