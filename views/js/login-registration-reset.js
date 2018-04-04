@@ -1,24 +1,15 @@
+var flagOfAction = 'SIGN_IN';
+
 $(document).ready(function () {
-  sighIn = true;
-  flagOfAction = 'SIGN_IN';
 
   $('#signUpTab').click(function () {
-    if (sighIn === true) {
-      $('#forgotPasswordTitle').addClass('hidden');
-      $('#forgotPassword').addClass('hidden');
-      $('#labelForEmail').html('E-mail address');
-      $('.nav-item').toggleClass("active-tab no-active");
-      $('#passwordBlock').removeClass('hidden');
-      $('#inputPassword').attr('required');
-      $('#forgotPassword').addClass('hidden');
-      $('#button').html('Sign up');
-      flagOfAction = 'SIGN_UP';
-      sighIn = false;
+    if (flagOfAction === 'SIGN_IN') {
+      signUp();
     }
   });
 
   $('#signInTab').click(function () {
-    if (sighIn === false) {
+    if (flagOfAction === 'SIGN_UP') {
       $('.nav-item').toggleClass("active-tab no-active");
       signIn();
     }
@@ -30,51 +21,78 @@ $(document).ready(function () {
 
 
   $('#button').click(function () {
-
-    if (flagOfAction === 'FORGOT_PASSWORD')
-    // if (flagOfAction === 'FORGOT_PASSWORD' && checkInputEmail() === true) { (must work)
-      $('.modal').modal('show');
-
-    // else {
-      // alert('Sorry, invalid email');
-      // signIn();
-    // }
+    if (!checkInputEmail()) {
+      $('#labelForEmail').html('please, enter valid e-mail');
+      redBlink('labelForEmail');
+    } else {
+      switch (flagOfAction) {
+        case 'SIGN_IN':
+          if (checkPassword()) {
+            /********* there ara must be action **********/
+          }
+          break;
+        case 'FORGOT_PASSWORD':
+          $('.modal').modal('show');
+          signIn();
+          break;
+        case 'SIGN_UP':
+          if (checkPassword()) {
+            $('#signUpTab').removeClass("active");
+            $('.nav-item').toggleClass("active-tab no-active");
+            signIn();
+            break;
+          }
+      }
+    }
   });
-
-
-  $('#modal-button').click(function () {
-    signIn();
-  });
-
-  function signIn() {
-    $('#ForgotPasswordTitle').addClass('hidden');
-    $('#labelForEmail').html('E-mail address');
-    $('#passwordBlock').removeClass('hidden');
-    $('#inputPassword').attr('required');
-    $('#forgotPassword').removeClass('hidden');
-    $('#button').html('Sign in');
-    flagOfAction = 'SIGN_IN';
-    sighIn = true;
-  }
-
-  function forgotPassword() {
-    $('#ForgotPasswordTitle').removeClass('hidden');
-    $('#labelForEmail').html('Enter your e-mail, please');
-    $('#passwordBlock').addClass('hidden');
-    $('#inputPassword').removeAttr('required');
-    $('#forgotPassword').addClass('hidden');
-    $('#button').html('Send instructions');
-    flagOfAction = 'FORGOT_PASSWORD';
-  }
-
-  function checkInputEmail() {
-    var emailPattern = /[0-9a-z_]+@[0-9a-z_]+\.[a-z]{2,5}/i;
-    var inputEmail = $('#inputEmail').val().trim();
-    return emailPattern.test(inputEmail);
-  }
-
-  function badEmail() {
-    $('#labelForEmail').html('Sorry, your password is not valid');
-  }
 });
 
+function signIn() {
+  $('#ForgotPasswordTitle').addClass('hidden');
+  $('#labelForEmail').html('E-mail address');
+  $('#passwordBlock').removeClass('hidden');
+  $('#forgotPassword').removeClass('hidden');
+  $('#button').html('Sign in');
+  flagOfAction = 'SIGN_IN';
+}
+
+function signUp() {
+  $('#forgotPasswordTitle').addClass('hidden');
+  $('#labelForEmail').html('E-mail address');
+  $('.nav-item').toggleClass("active-tab no-active");
+  $('#passwordBlock').removeClass('hidden');
+  $('#forgotPassword').addClass('hidden');
+  $('#button').html('Sign up');
+  flagOfAction = 'SIGN_UP';
+}
+
+function forgotPassword() {
+  $('#ForgotPasswordTitle').removeClass('hidden');
+  $('#labelForEmail').html('Enter your e-mail, please');
+  $('#passwordBlock').addClass('hidden');
+  $('#forgotPassword').addClass('hidden');
+  $('#button').html('Send instructions');
+  flagOfAction = 'FORGOT_PASSWORD';
+}
+
+function checkPassword() {
+  var password = $('#inputPassword').val().trim();
+  if (!password) {
+    redBlink('labelForPassword');
+    return false;
+  } else
+    return true;
+}
+
+function checkInputEmail() {
+  var emailPattern = /[0-9a-z_]+@[0-9a-z_]+\.[a-z]{2,5}/i;
+  var inputEmail = $('#inputEmail').val().trim();
+  return emailPattern.test(inputEmail);
+}
+
+function redBlink(id) {
+  $('#' + id).addClass('warning');
+  setTimeout(function () {
+    $('#' + id).removeClass('warning');
+  }, 1000);
+}
