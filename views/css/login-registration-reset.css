@@ -95,6 +95,7 @@ h6 {
   font-style: italic;
   text-decoration: none;
 }
+
 .modal-body {
   text-align: center;
 }
@@ -102,6 +103,11 @@ h6 {
 .modal-text {
   text-transform: none;
   margin-bottom: 25px;
+}
+
+.warning {
+  transition-duration: 300ms;
+  color: #ff0000;
 }
 
 /******* only for mobile view ******/

@@ -34,21 +34,23 @@
               <div class="form-group">
                 <div class="helper" data-helper="Enter e-mail, please: example@example.com">
                   <label id="labelForEmail" for="inputEmail">E-mail address</label>
-                  <!--<input type="email" class="form-control" id="inputEmail" aria-describedby="email"-->
                   <input class="form-control" id="inputEmail" aria-describedby="email"
                          placeholder="e-mail" name="email" autofocus required>
                 </div>
               </div>
               <div id="passwordBlock" class="form-group">
                 <div class="helper" data-helper="Enter password, please: any symbols">
-                  <label for="inputPassword">Password</label>
+                  <label id="labelForPassword" for="inputPassword">Password</label>
                   <input type="password" class="form-control" id="inputPassword"
-                         placeholder="enter password" name="password" required>
+                         placeholder="enter password" name="password">
                 </div>
               </div>
-              <button id="button" type="submit" class="btn btn-primary">Sign in</button>
+              <!--<button id="button" type="submit" class="btn btn-primary">Sign in</button>-->
+
             </form>
+            <button id="button" class="btn btn-primary">Sign in</button>
             <a id="forgotPassword" href="#">Forgot your password?</a>
+
           </div>
         </div>
       </div>
@@ -56,7 +58,7 @@
   </div>
 </div>
 
-<div id="modalWindowSendInstructions" class="modal fade" >
+<div id="modalWindowSendInstructions" class="modal fade">
   <div class="modal-dialog modal-dialog-centered modal-sm">
     <div class="modal-content">
       <div class="modal-body">
