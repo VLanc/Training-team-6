@@ -3,14 +3,13 @@ var flagOfAction = 'SIGN_IN';
 $(document).ready(function () {
 
   $('#signUpTab').click(function () {
-    if (flagOfAction === 'SIGN_IN') {
+    if (flagOfAction !== 'SIGN_UP') {
       signUp();
     }
   });
 
   $('#signInTab').click(function () {
-    if (flagOfAction === 'SIGN_UP') {
-      $('.nav-item').toggleClass("active-tab no-active");
+    if (flagOfAction !== 'SIGN_IN') {
       signIn();
     }
   });
@@ -48,6 +47,8 @@ $(document).ready(function () {
 });
 
 function signIn() {
+  $('#signInTab').addClass("active-tab").removeClass("no-active");
+  $('#signUpTab').addClass("no-active").removeClass("active-tab");
   $('#ForgotPasswordTitle').addClass('hidden');
   $('#labelForEmail').html('E-mail address');
   $('#passwordBlock').removeClass('hidden');
@@ -57,9 +58,10 @@ function signIn() {
 }
 
 function signUp() {
+  $('#signInTab').addClass("no-active").removeClass("active-tab");
+  $('#signUpTab').removeClass("no-active").addClass("active-tab");
   $('#forgotPasswordTitle').addClass('hidden');
   $('#labelForEmail').html('E-mail address');
-  $('.nav-item').toggleClass("active-tab no-active");
   $('#passwordBlock').removeClass('hidden');
   $('#forgotPassword').addClass('hidden');
   $('#button').html('Sign up');
@@ -67,6 +69,7 @@ function signUp() {
 }
 
 function forgotPassword() {
+  $('#signInTab').toggleClass("active-tab no-active").removeClass("active");
   $('#ForgotPasswordTitle').removeClass('hidden');
   $('#labelForEmail').html('Enter your e-mail, please');
   $('#passwordBlock').addClass('hidden');
