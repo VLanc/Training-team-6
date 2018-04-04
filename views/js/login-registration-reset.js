@@ -21,24 +21,27 @@ $(document).ready(function () {
 
 
   $('#button').click(function () {
-    console.log('метод BUTTON, flagOfAction = ' + flagOfAction);
     if (!checkInputEmail()) {
       $('#labelForEmail').html('please, enter valid e-mail');
       redBlink('labelForEmail');
     } else {
       switch (flagOfAction) {
         case 'SIGN_IN':
-          checkPassword();
-          /********* there ara must be action **********/
+          if (checkPassword()) {
+            /********* there ara must be action **********/
+          }
           break;
         case 'FORGOT_PASSWORD':
           $('.modal').modal('show');
           signIn();
           break;
         case 'SIGN_UP':
-          checkPassword();
-          signIn();
-          break;
+          if (checkPassword()) {
+            $('#signUpTab').removeClass("active");
+            $('.nav-item').toggleClass("active-tab no-active");
+            signIn();
+            break;
+          }
       }
     }
   });
@@ -76,7 +79,9 @@ function checkPassword() {
   var password = $('#inputPassword').val().trim();
   if (!password) {
     redBlink('labelForPassword');
-  }
+    return false;
+  } else
+    return true;
 }
 
 function checkInputEmail() {
