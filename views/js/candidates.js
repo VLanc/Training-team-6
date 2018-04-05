@@ -91,7 +91,7 @@ $(document).ready(function () {
             else if (27 < dateOfAddUser) convertDate = 'over a month ago';
             return convertDate;
           }
-        },
+        }
       ]
     }).dxDataGrid('instance');
   });

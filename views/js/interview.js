@@ -21,6 +21,7 @@ $(document).ready(function () {
     weekNumberCalculation: 'ISO',
     eventLimit: true,
     selectable: true,
+    contentHeight: "auto",
     events: {
       url: '/interview'
     },
