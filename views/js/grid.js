@@ -1,5 +1,5 @@
 var vacancies;
-var url = "vacancies.json";
+var url = "/vacancies-grid";
 $.getJSON(url, function (data) {
 
 

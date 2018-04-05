@@ -2,6 +2,65 @@ var fs = require('fs');
 var restify = require('restify');
 var mysql = require('mysql');
 
+
+var server = restify.createServer();
+server.use(restify.plugins.acceptParser(server.acceptable));
+server.use(restify.plugins.queryParser());
+server.use(restify.plugins.bodyParser());
+server.get(/(^\/$)|(\.(html|js|css|png|jpg)$)/, restify.plugins.serveStatic({
+    directory: 'views',
+    default: 'candidates.html'
+}));
+
+
+var users = [
+    {username: 'admin', password: '12345'},
+    {username: 'foo', password: '12345'}
+];
+// var connection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'root',
+//     database: 'hrappdb'
+// });
+//
+// connection.connect();
+// connection.query('SELECT * from users', function(err, rows, fields) {
+//     if (err) throw err;
+//     //console.log(rows[0].name);
+// });
+
+server.get('/id-candidate', respon_cand);
+server.get('/vacancies-grid', respond_grid);
+server.get('/newcand', respond_newcand);
+server.get('/interview', respond_events);
+server.get('/id-interview', respond_interview);
+// server.get('/', function (req, res, next) {
+//     res.send("zdarova");
+//     return next();
+// });
+server.get('/index', function (req, res, next) {
+    fs.readFile(__dirname + '/views/candidates.html', function (err, data) {
+        if (err) {
+            next(err);
+            return;
+        }
+        res.write(data);
+        res.end();
+        next();
+    });
+});
+server.post('/id-candidate', req_idcand);
+server.post('/interview', req_events);
+server.post('/id-interview', req_idevents);
+// server.listen(8080, '127.0.0.1', function () {
+//     console.log('%s listening at %s', server.name, server.url);
+// });
+var port = process.env.PORT || 8080;
+server.listen(port);
+console.log("Server running at http://localhost:%d", port);
+
+
 function respon_cand(req, res, next) {
     res.header('X-Frame-Options', 'ALLOWALL');
     res.header('Access-Control-Allow-Origin', '*');
@@ -52,7 +111,7 @@ function respond_grid(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'POST, GET');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    var obj = JSON.parse(fs.readFileSync('views/profile.json', 'utf8'));
+    var obj = JSON.parse(fs.readFileSync('views/vacancies.json', 'utf8'));
     res.send(obj);
     next();
 }
@@ -103,55 +162,3 @@ function req_idevents(req, res, next) {
     fs.writeFileSync('views/event.json', JSON.stringify(newEvents));
     next();
 }
-
-var server = restify.createServer();
-server.use(restify.plugins.acceptParser(server.acceptable));
-server.use(restify.plugins.queryParser());
-server.use(restify.plugins.bodyParser());
-server.get(/(^\/$)|(\.(html|js|css|png|jpg)$)/, restify.plugins.serveStatic({
-    directory: 'views',
-    default: 'candidates.html'
-}));
-
-// var connection = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'root',
-//     database: 'hrappdb'
-// });
-//
-// connection.connect();
-// connection.query('SELECT * from users', function(err, rows, fields) {
-//     if (err) throw err;
-//     //console.log(rows[0].name);
-// });
-
-server.get('/id-candidate', respon_cand);
-server.get('/vacancies-grid', respond_grid);
-server.get('/newcand', respond_newcand);
-server.get('/interview', respond_events);
-server.get('/id-interview', respond_interview);
-// server.get('/', function (req, res, next) {
-//     res.send("zdarova");
-//     return next();
-// });
-server.get('/index', function (req, res, next) {
-    fs.readFile(__dirname+'/views/candidates.html', function (err, data) {
-        if (err) {
-            next(err);
-            return;
-        }
-        res.write(data);
-        res.end();
-        next();
-    });
-});
-server.post('/id-candidate', req_idcand);
-server.post('/interview', req_events);
-server.post('/id-interview', req_idevents);
-// server.listen(8080, '127.0.0.1', function () {
-//     console.log('%s listening at %s', server.name, server.url);
-// });
-var port = process.env.PORT || 8080;
-server.listen(port);
-console.log("Server running at http://localhost:%d", port);
