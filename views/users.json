@@ -1,1 +1,54 @@
-[{"email":"admin","password":"admin","role":"developer","name":"admin","surname":"admin","photo":""},{"email":"test","password":"test","role":"manager","name":"test","surname":"test","photo":""},{"role":"","name":"","surname":"","photo":""},{"role":"","name":"","surname":"","photo":""},{"email":"test@mail.ru","password":"111","role":"","name":"","surname":"","photo":""},{"email":"test@mail.ru","password":"111","role":"","name":"","surname":"","photo":""},{"email":"sakovski_ne_try@mail.ru","password":"1","role":"","name":"","surname":"","photo":""}]
+[
+  {
+    "email": "admin",
+    "password": "admin",
+    "role": "developer",
+    "name": "admin",
+    "surname": "admin",
+    "photo": ""
+  },
+  {
+    "email": "test",
+    "password": "test",
+    "role": "manager",
+    "name": "test",
+    "surname": "test",
+    "photo": ""
+  },
+  {
+    "role": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
+  },
+  {
+    "role": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
+  },
+  {
+    "email": "test@mail.ru",
+    "password": "111",
+    "role": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
+  },
+  {
+    "email": "test@mail.ru",
+    "password": "111",
+    "role": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
+  },
+  {
+    "email": "asdfg.ru@gmail.com",
+    "password": "12345",
+    "role": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
+  }
+]

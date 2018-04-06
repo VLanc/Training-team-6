@@ -1,10 +1,16 @@
 var fs = require('fs');
 const clientSession = require("client-sessions");
 var restify = require('restify');
-
+var mailOptions, nodemailer, transporter;
 // var mysql = require('mysql');
-
-
+nodemailer = require('nodemailer');
+transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'hrappmifort2018@gmail.com',
+        pass: 'cegthpfobnf'
+    }
+});
 var server = restify.createServer();
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
@@ -69,7 +75,7 @@ server.post('/id-interview', req_idevents);
 // server.post('/login', login);
 server.post('/login', login);
 server.get('/userdata', userdata);
-
+server.post('/reset', reset_password);
 server.get('/check', function (req, res, next) {
     if (req.session.username) {
         res.set('Content-Type', 'text/html');
@@ -274,4 +280,30 @@ function userdata(req, res, next) {
     });
     res.send(user);
     next();
+}
+
+function reset_password(req, res, next) {
+    var email = req.body.email;
+    console.log(email);
+    var users = JSON.parse(fs.readFileSync('views/users.json', 'utf8'));
+    var password;
+    users.forEach(function (val) {
+       if (email == val.email) {
+           password = val.password;
+       }
+    });
+    console.log(password);
+    mailOptions = {
+        from: 'HRAPP <feronodemailer@gmail.com>',
+        to: email,
+        subject: 'HRAPP password reset',
+        html: '<b>Your password:</b>' + password +''
+    };
+    transporter.sendMail(mailOptions, function(err, info) {
+        if (err) {
+            return console.log(err);
+        }
+        return console.log("Message sent: " + info.response);
+    });
+        next();
 }
