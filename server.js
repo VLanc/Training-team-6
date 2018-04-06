@@ -1,22 +1,31 @@
 var fs = require('fs');
+const clientSession = require("client-sessions");
 var restify = require('restify');
-var mysql = require('mysql');
+
+// var mysql = require('mysql');
 
 
 var server = restify.createServer();
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
+// server.use(server.sessions());
+server.use(clientSession({
+    cookieName: 'session',
+    secret: 'random_string_goes_here',
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000
+}));
 server.use(restify.plugins.bodyParser());
+server.use(restify.plugins.gzipResponse());
+server.use(restify.plugins.requestLogger());
+
+
 server.get(/(^\/$)|(\.(html|js|css|png|jpg)$)/, restify.plugins.serveStatic({
     directory: 'views',
-    default: 'candidates.html'
+    default: 'register-login-reset.html'
 }));
 
 
-var users = [
-    {username: 'admin', password: '12345'},
-    {username: 'foo', password: '12345'}
-];
 // var connection = mysql.createConnection({
 //     host: 'localhost',
 //     user: 'root',
@@ -48,11 +57,30 @@ server.get('/index', function (req, res, next) {
         res.write(data);
         res.end();
         next();
+
     });
+    console.log('1');
 });
+server.get('/user-cabinet', req_user_cabinet);
+
 server.post('/id-candidate', req_idcand);
 server.post('/interview', req_events);
 server.post('/id-interview', req_idevents);
+// server.post('/login', login);
+server.post('/login', login);
+server.get('/userdata', userdata);
+
+server.get('/check', function (req, res, next) {
+    if (req.session.username) {
+        res.set('Content-Type', 'text/html');
+        res.send('<h2>User ' + req.session.username + ' is logged in! </h2>')
+    } else {
+        res.send('not logged in');
+    }
+    return next();
+});
+server.post('/register', register);
+server.get('/logout', logout);
 // server.listen(8080, '127.0.0.1', function () {
 //     console.log('%s listening at %s', server.name, server.url);
 // });
@@ -160,5 +188,90 @@ function req_idevents(req, res, next) {
         return val;
     });
     fs.writeFileSync('views/event.json', JSON.stringify(newEvents));
+    next();
+}
+
+function login(req, res, next) {
+
+    var users = JSON.parse(fs.readFileSync('views/users.json', 'utf8'));
+    var foundUser;
+    users.forEach(function (val) {
+        if (val.email == req.body.email && val.password == req.body.password) {
+            foundUser = val;
+        }
+    });
+
+    if (foundUser !== undefined) {
+        req.session.email = foundUser.email;
+        res.send(req.session.email);
+        console.log("Login succeeded: ", foundUser.email);
+        next();
+    } else {
+        // req.session.reset();
+        //res.send(req.session);
+        console.log("Login failed: ", req.body.email);
+        next();
+    }
+}
+
+
+function logout(req, res) {
+    req.session.reset();
+    res.send(req.session);
+}
+
+function register(req, res, next) {
+    var user ={};
+    user.email = req.body.email;
+    user.password = req.body.password;
+    user.role = "";
+    user.name = "";
+    user.surname = "";
+    user.photo = "";
+    console.log(user);
+    var users = JSON.parse(fs.readFileSync('views/users.json', 'utf8'));
+    users.push(user);
+    fs.writeFileSync('views/users.json', JSON.stringify(users));
+    var foundUser = user;
+    if (foundUser !== undefined) {
+        req.session.email = foundUser.email;
+        res.send(req.session.email);
+        console.log("Login succeeded: ", foundUser.email);
+        next();
+    } else {
+        // req.session.reset();
+        //res.send(req.session);
+        console.log("Login failed: ", foundUser.email);
+        next();
+    }
+}
+
+function req_user_cabinet(req, res, next) {
+    if (req.session.email) {
+        if (req.session.email == "log") {
+            res.send(200, 'false');
+        } else {
+            res.send(req.session);
+        }
+        //var session = JSON.parse(req.session);
+        //console.log(req.session);
+
+    } else {
+        res.send(200, 'false');
+    }
+
+    return next();
+}
+
+function userdata(req, res, next) {
+    var email = req.query.email;
+    var users = JSON.parse(fs.readFileSync('views/users.json', 'utf8'));
+    var user = {};
+     users.map(function (val) {
+        if (val.email == email) {
+            user = val;
+        }
+    });
+    res.send(user);
     next();
 }
