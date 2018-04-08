@@ -13,7 +13,7 @@
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/mobile-navigation.js"></script>
-  <script type="text/javascript" src="js/notifications.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
   <script src="js/user-cabinet.js"></script>
 
 </head>
@@ -24,7 +24,7 @@
       <h5>hr app</h5>
       <nav>
         <ul class="menu">
-          <li><a href="interview.html" class="active">Interview</a></li>
+          <li><a href="interview.html">Interview</a></li>
           <li><a href="vacancies.html">Vacancies</a></li>
           <li><a href="candidates.html">Candidates</a></li>
           <li><a href="#">Management</a></li>
@@ -42,9 +42,12 @@
           <input type="search" placeholder="Search for vacancies, candidates..." name="find-string"
                  class="find-bar-element find-bar__string">
         </form>
+        <a id="user-cabinet-button" class="icon" title="cabinet" href="user-cabinet.html">
+          <i class="fa fa-user find-bar-element" aria-hidden="true"></i>
+        </a>
         <a id="notification-button" class="icon" title="notifications" href="#"><i
           class="fa fa-bell find-bar-element"></i></a>
-        <a id="exit" class="icon"  title="exit" href="#"><i class="fa fa-sign-out find-bar-element"></i></a>
+        <a id="exit" class="icon" title="exit" href="#"><i class="fa fa-sign-out find-bar-element"></i></a>
       </div>
       <div class="row-data under-find-bar">
         <div class="container user-cabinet-content-wrapper">
@@ -52,6 +55,9 @@
             <div class="col">
               <form>
                 <h2 class="user-cabinet-title">Your cabinet</h2>
+                <div class="alert alert-success successful-saving hidden" role="alert">
+                  Your changes were successfully saved
+                </div>
                 <div class="form-group">
                   <div class="user-avatar"></div>
                   <label class="custom-file-upload">
@@ -62,7 +68,7 @@
                 <div class="form-group" id="user-name-field">
                   <div class="user-writable-fields hidden">
                     <label for="user-name" class="user-field-title">Name</label>
-                    <input type="text" class="form-control" id="user-name" placeholder="Enter your name">
+                    <input type="text" class="form-control user-name" id="user-name" placeholder="Enter your name">
                   </div>
                   <div class="user-readonly-fields visible">
                     <p class="user-field-title">Name</p>
@@ -73,7 +79,8 @@
                 <div class="form-group" id="user-surname-field">
                   <div class="user-writable-fields hidden">
                     <label for="user-surname" class="user-field-title">Surname</label>
-                    <input type="text" class="form-control" id="user-surname" placeholder="Enter your surname">
+                    <input type="text" class="form-control user-surname" id="user-surname"
+                           placeholder="Enter your surname">
                   </div>
                   <div class="user-readonly-fields visible">
                     <p class="user-field-title">Surname</p>
@@ -103,15 +110,13 @@
                   </div>
                   <div class="user-readonly-fields visible">
                     <p class="user-field-title">Email</p>
-                    <p id = "email" class="user-field-email">You haven't filled this field yet</p>
+                    <p class="user-field-email">You haven't filled this field yet</p>
                   </div>
                 </div>
                 <hr>
-                <button type="submit" class="btn btn-primary save-user-info-button hidden" id="save-user-info-button">
-                  Save
-                </button>
               </form>
               <button class="btn btn-primary edit-user-info-button visible" id="edit-user-info-button">Edit</button>
+              <button class="btn btn-primary save-user-info-button hidden" id="save-user-info-button">Save</button>
             </div>
           </div>
         </div>

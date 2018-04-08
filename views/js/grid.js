@@ -54,6 +54,9 @@ $(function () {
           var now = new Date();
           now = now.getTime() / 1000;
           var dateOfAddUser = (now - rowData.date) / 86400;
+
+          /*hardcode*/
+
           if (dateOfAddUser < 1) convertDate = 'today';
           else if (1 < dateOfAddUser && 2 > dateOfAddUser) convertDate = '1 day later';
           else if (2 < dateOfAddUser && 3 > dateOfAddUser) convertDate = '2 days later';

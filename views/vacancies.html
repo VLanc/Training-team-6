@@ -13,7 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script>window.jQuery || document.write(decodeURIComponent('%3Cscript src="js/jquery-3.1.0.min.js"%3E%3C/script%3E'))</script>
   <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/17.2.5/js/dx.all.js"></script>
-  <script type="text/javascript" src="js/notifications.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
   <script type="text/javascript" src="js/grid.js"></script>
   <script type="text/javascript" src="js/mobile-navigation.js"></script>
 </head>
@@ -41,8 +41,11 @@
           <input type="search" placeholder="Search for vacancies, candidates..." name="find-string"
                  class="find-bar-element find-bar__string">
         </form>
+        <a id="user-cabinet-button" class="icon" title="cabinet" href="user-cabinet.html">
+          <i class="fa fa-user find-bar-element" aria-hidden="true"></i>
+        </a>
         <a id="notification-button" class="icon" title="notifications" href="#"><i class="fa fa-bell find-bar-element"></i></a>
-        <a class="icon" title="exit" href="#"><i class="fa fa-sign-out find-bar-element"></i></a>
+        <a id="exit" class="icon" title="exit" href="#"><i class="fa fa-sign-out find-bar-element"></i></a>
       </div>
       <div id="gridContainer" class="row-data under-find-bar" ></div>
       <a href="#" class="button-new"><i class="fa fa-plus-circle"></i></a>

@@ -1,54 +1,65 @@
 [
   {
-    "email": "admin",
+    "email": "admin@mail.ru",
     "password": "admin",
-    "role": "developer",
+    "role": "Developer",
+    "roleIndex": "2",
     "name": "admin",
     "surname": "admin",
-    "photo": ""
+    "photo": "01"
   },
   {
-    "email": "test",
+    "email": "test@test.ru",
     "password": "test",
-    "role": "manager",
+    "role": "Manager",
+    "roleIndex": "1",
     "name": "test",
     "surname": "test",
     "photo": ""
   },
   {
+    "email": "test3@mail.ru",
+    "password": "345",
     "role": "",
-    "name": "",
+    "roleIndex": "",
+    "name": "test3",
     "surname": "",
-    "photo": ""
+    "photo": "02"
   },
   {
+    "email": "test5@qwer.ru",
+    "password": "345",
     "role": "",
-    "name": "",
+    "roleIndex": "",
+    "name": "test5",
     "surname": "",
-    "photo": ""
+    "photo": "03"
   },
   {
-    "email": "test@mail.ru",
+    "email": "test1@mail.ru",
     "password": "111",
     "role": "",
-    "name": "",
+    "roleIndex": "",
+    "name": "test1",
     "surname": "",
-    "photo": ""
+    "photo": "04"
   },
   {
-    "email": "test@mail.ru",
+    "email": "test2@mail.ru",
     "password": "111",
     "role": "",
-    "name": "",
+    "roleIndex": "",
+    "name": "test2",
     "surname": "",
-    "photo": ""
+    "photo": "05"
   },
   {
     "email": "asdfg.ru@gmail.com",
     "password": "12345",
     "role": "",
-    "name": "",
+    "roleIndex": "",
+    "name": "asdfg.ru",
     "surname": "",
-    "photo": ""
+    "photo": "07"
   }
 ]
