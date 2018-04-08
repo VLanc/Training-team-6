@@ -1,7 +1,15 @@
 [
   {
+    "email": "almaguante@gmail.com",
+    "password": "111",
+    "role": "developer",
+    "name": "admin",
+    "surname": "admin",
+    "photo": ""
+  },
+  {
     "email": "admin",
-    "password": "admin",
+    "password": "",
     "role": "developer",
     "name": "admin",
     "surname": "admin",
@@ -46,6 +54,38 @@
   {
     "email": "asdfg.ru@gmail.com",
     "password": "12345",
+    "role": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
+  },
+  {
+    "email": "й",
+    "password": "й",
+    "role": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
+  },
+  {
+    "email": "",
+    "password": "",
+    "role": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
+  },
+  {
+    "email": "",
+    "password": "",
+    "role": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
+  },
+  {
+    "email": "Vasia.Pupkin@mail.ru",
+    "password": "11111111",
     "role": "",
     "name": "",
     "surname": "",
