@@ -31,7 +31,6 @@ $(document).ready(function () {
             console.log('логинимся');
             login();
             console.log('залогинились');
-            /********* there ara must be action **********/
           }
 
 
@@ -96,8 +95,8 @@ function checkPassword() {
 }
 
 function checkInputEmail() {
-  var emailPattern = /[0-9a-z_]+@[0-9a-z_]+\.[a-z]{2,5}/i;
-  var inputEmail = $('#inputEmail').val().trim();
+  let emailPattern = /[0-9a-z_]+@[0-9a-z_]+\.[a-z]{2,5}/i;
+  let inputEmail = $('#inputEmail').val().trim();
   return emailPattern.test(inputEmail);
 }
 
@@ -108,3 +107,24 @@ function redBlink(id) {
   }, 1000);
 }
 
+function userObject(action) {
+  let data = {};
+  data.email = $('#inputEmail').val();
+  data.password = $('#inputPassword').val();
+  $.post("/" + action, data);
+  window.open("/user-cabinet.html", "_self");
+}
+
+function login() {
+  userObject('login');
+}
+
+function register() {
+  userObject('register');
+}
+
+function reset() {
+  let email = {};
+  email.email = $('#inputEmail').val();
+  $.post('/reset', email);
+}

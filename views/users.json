@@ -90,5 +90,29 @@
     "name": "",
     "surname": "",
     "photo": ""
+  },
+  {
+    "email": "almaguante@mail.ru",
+    "password": "1111111",
+    "role": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
+  },
+  {
+    "email": "Almaguante@ya.ru",
+    "password": "123",
+    "role": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
+  },
+  {
+    "email": "almaguante@gmail.com",
+    "password": "111",
+    "role": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
   }
 ]
