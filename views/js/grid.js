@@ -50,21 +50,24 @@ $(function () {
       {
         dataField: "date",
         calculateCellValue: function (rowData) {
-          var convertDate = "";
-          var now = new Date();
+
+          let convertDate;
+          let now = new Date();
           now = now.getTime() / 1000;
-          var dateOfAddUser = (now - rowData.date) / 86400;
+          let dateOfAddUser = (now - rowData.date) / 86400;
           if (dateOfAddUser < 1) convertDate = 'today';
-          else if (1 < dateOfAddUser && 2 > dateOfAddUser) convertDate = '1 day later';
-          else if (2 < dateOfAddUser && 3 > dateOfAddUser) convertDate = '2 days later';
-          else if (3 < dateOfAddUser && 4 > dateOfAddUser) convertDate = '3 days later';
-          else if (4 < dateOfAddUser && 5 > dateOfAddUser) convertDate = '4 days later';
-          else if (5 < dateOfAddUser && 6 > dateOfAddUser) convertDate = '5 days later';
-          else if (6 < dateOfAddUser && 7 > dateOfAddUser) convertDate = '6 days later';
-          else if (7 < dateOfAddUser && 14 > dateOfAddUser) convertDate = 'about 1 week';
-          else if (14 < dateOfAddUser && 20 > dateOfAddUser) convertDate = 'about 2 weeks';
-          else if (20 < dateOfAddUser && 27 > dateOfAddUser) convertDate = 'about 3 weeks';
-          else if (27 < dateOfAddUser) convertDate = 'over a month ago';
+          else if (2 < dateOfAddUser && 7 > dateOfAddUser) convertDate = Math.ceil(dateOfAddUser) + ' days later';
+          else if (7 < dateOfAddUser && 27 > dateOfAddUser) convertDate = 'about ' + getWeek(dateOfAddUser) + ' week' + getEnding(getWeek(dateOfAddUser)) + ' later';
+          else if (27 < dateOfAddUser) convertDate = 'a month ago';
+
+          function getWeek(num) {
+            return Math.ceil(num / 7);
+          }
+
+          function getEnding(number) {
+            return number > 1 ? 's' : '';
+          }
+
           return convertDate;
         }
       },

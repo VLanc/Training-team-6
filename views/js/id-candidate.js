@@ -1,40 +1,41 @@
 var data = "";
 var flagreview = true;
 var qtest = 1111;
-
+/****ask about var and let****/
 $(document).ready(function () {
 
-  var url = "/id-candidate?" + window.location.href.split('?')[1];
+  let url = "/id-candidate?" + window.location.href.split('?')[1];
 
   $.getJSON(url, function (candidate) {
     data = candidate;
 
     // process of obtaining a profile photo
-    var photo = data.photo ? data.photo : 'anounymus';
+    let photo = data.photo ? data.photo : 'anounymus';
     photo = 'images/' + photo + '.png';
 
     //process of obtaining a written date display
-    var date = data.date;
-    var now = new Date();
+    let date = data.date;
+    let now = new Date();
     now = now.getTime() / 1000;
-    var dateOfAddUser = (now - date) / 86400;
+    let dateOfAddUser = (now - date) / 86400;
 
     if (dateOfAddUser < 1) date = 'today';
-    else if (1 < dateOfAddUser && 2 > dateOfAddUser) date = '1 day later';/*TODO: https://www.w3schools.com/js/js_switch.asp*/
-    else if (2 < dateOfAddUser && 3 > dateOfAddUser) date = '2 day later';
-    else if (3 < dateOfAddUser && 4 > dateOfAddUser) date = '3 day later';
-    else if (4 < dateOfAddUser && 5 > dateOfAddUser) date = '4 day later';
-    else if (5 < dateOfAddUser && 6 > dateOfAddUser) date = '5 day later';
-    else if (6 < dateOfAddUser && 7 > dateOfAddUser) date = '6 day later';
-    else if (7 < dateOfAddUser && 14 > dateOfAddUser) date = 'about 1 week';
-    else if (14 < dateOfAddUser && 20 > dateOfAddUser) date = 'about 2 weeks';
-    else if (20 < dateOfAddUser && 27 > dateOfAddUser) date = 'about 3 weeks';
-    else if (27 < dateOfAddUser) date = 'a month ago';
+      else if (2 < dateOfAddUser && 7 > dateOfAddUser) date = Math.ceil(dateOfAddUser) + ' days later';
+        else if (7 < dateOfAddUser && 27 > dateOfAddUser) date = 'about ' + getWeek(dateOfAddUser) + ' week' + getEnding(getWeek(dateOfAddUser)) + ' later';
+          else if (27 < dateOfAddUser) date = 'a month ago';
+
+    function getWeek(num) {
+      return Math.ceil(num / 7);
+    }
+
+    function getEnding(number) {
+      return number > 1 ? 's' : '';
+    }
 
     //process of obtaining data for skills
-    var patternSkills = '';
-    var skills = data.skills.split(";");
-    for (var countSkills = 0; countSkills < skills.length; countSkills++) {
+    let patternSkills = '';
+    let skills = data.skills.split(";");
+    for (let countSkills = 0; countSkills < skills.length; countSkills++) {
       patternSkills += '<div class="skills__skill">' + skills[countSkills] + '</div>';
     }
 
@@ -58,11 +59,11 @@ $(document).ready(function () {
 //process of obtaining data for timeLine
 function prepareTimeline() {
 
-  var timeLine = '';
-  var experience = data.info;
-  var countExperience = experience.length ;
+  let timeLine = '';
+  let experience = data.info;
+  let countExperience = experience.length;
   for (; countExperience > 0; countExperience--) {
-    var index = countExperience - 1;
+    let index = countExperience - 1;
     timeLine += '<div class="timeline__unit">' +
       '<div class="timeline__unit__left-information">' +
       '<div class="timeline__unit__left-information__date">' + experience[index].time + '</div>' +
@@ -77,8 +78,8 @@ function prepareTimeline() {
       '</div>';
   }
 
-  var education = data.education;
-  for (var countEducation = 0; countEducation < education.length; countEducation++) {
+  let education = data.education;
+  for (let countEducation = 0; countEducation < education.length; countEducation++) {
     timeLine += '<div class="timeline__unit">' +
 
       '<div class="timeline__unit__left-information">' +
@@ -93,7 +94,7 @@ function prepareTimeline() {
       '<div class="timeline__unit__right-information__responsibility">' + education[countEducation].body + '</div></div>' +
       '</div>';
   }
-  return  timeLine.split("").reverse().join("").replace('__enil__margaid__tinu__enilemit', '').split("").reverse().join("");
+  return timeLine.split("").reverse().join("").replace('__enil__margaid__tinu__enilemit', '').split("").reverse().join("");
 }
 
 function editData() {/*TODO: all that block looks super hackish. Hide and show wrappers of fields, not each field*/
@@ -143,6 +144,7 @@ function addSkill() {
 function addExperience() {
   $('#modalWindowExperience').modal('show');
 }
+
 /************TODO FOR NIKITA ********************/
 function saveSkill() {
   var skill = $('#addWindowSkill').val();

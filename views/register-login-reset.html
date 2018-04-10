@@ -1,30 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="js/register-login.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>hr app</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/common-styles.css" rel="stylesheet">
+  <link href="css/login-registration-reset.css" rel="stylesheet">
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/login-registration-reset.js"></script>
+  <script type="text/javascript" src="js/register-login.js"></script>
 </head>
 <body>
-<div>
-    <label>LOGIN</label>
-    <input id="log_email" placeholder="email">
-    <input id="log_pass" placeholder="pass">
-    <button id="log_button">login</button>
-</div>
-<br><br><br>
-<div>
-    <label>REGISTER</label>
-    <input id="reg_email" placeholder="email">
-    <input id="reg_pass" placeholder="pass">
-    <button id="reg_button">register</button>
+<div class="container-fluid height-100 beauty">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 offset-md-3 offset-lg-4 offset-xl-4">
+      <div class="login-registration-reset-forms">
+
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <h2>hr app</h2>
+            <a class="nav-item nav-link active-tab" id="signInTab" data-toggle="tab" role="tab" aria-controls="nav-home"
+               aria-selected="true">Sign in</a>
+            <a class="nav-item nav-link no-active" id="signUpTab" data-toggle="tab" role="tab"
+               aria-controls="nav-profile" aria-selected="false">Sign up</a>
+          </div>
+        </nav>
+
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-panel" id="nav-login" role="tabpanel">
+            <h6 id="forgotPasswordTitle" class="hidden">Forgot password?</h6>
+            <form action="#" method="get">
+              <div class="form-group">
+                <div class="helper" data-helper="Enter e-mail, please: example@example.com">
+                  <label id="labelForEmail" for="inputEmail">E-mail address</label>
+                  <input class="form-control" id="inputEmail" aria-describedby="email"
+                         placeholder="e-mail" name="email" autofocus required>
+                </div>
+              </div>
+              <div id="passwordBlock" class="form-group">
+                <div class="helper" data-helper="Enter password, please: any symbols">
+                  <label id="labelForPassword" for="inputPassword">Password</label>
+                  <input type="password" class="form-control" id="inputPassword"
+                         placeholder="enter password" name="password">
+                </div>
+              </div>
+              <!--<button id="button" type="submit" class="btn btn-primary">Sign in</button> it's button only for form
+              button bottom must be deleted-->
+            </form>
+            <button id="button" class="btn btn-primary">Sign in</button>
+            <a id="forgotPassword" href="#">Forgot your password?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div>
-    <label>RESET</label>
-    <input id="res_email" placeholder="email">
-    <button id="res_button">register</button>
+<div id="modalWindowSendInstructions" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-text">Instructions are sent to the address you specified</div>
+        <button type="button" id="modal-button" data-dismiss="modal" class="btn btn-primary">O K</button>
+      </div>
+    </div>
+  </div>
 </div>
 </body>
-</html>
