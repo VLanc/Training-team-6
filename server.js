@@ -64,7 +64,7 @@ server.get('/index', function (req, res, next) {
     console.log('1');
 });
 server.get('/user-cabinet', req_user_cabinet);
-
+server.post('/saveUserChanges', saveUserChanges);
 server.post('/id-candidate', req_idcand);
 server.post('/interview', req_events);
 server.post('/id-interview', req_idevents);
@@ -228,6 +228,7 @@ function register(req, res, next) {
         newUser.email = email;
         newUser.password = password;
         newUser.role = "";
+        newUser.roleIndex="";
         newUser.name = "";
         newUser.surname = "";
         newUser.photo = "";
@@ -305,4 +306,18 @@ function foundUser(email) {
         }
     });
     return user;
+}
+
+function saveUserChanges(req, res, next) {
+    var user = JSON.parse(JSON.stringify(req.body));
+    var users = JSON.parse(fs.readFileSync('views/users.json', 'utf8'));
+    var newUsers = users.map(function (val) {
+        if (val.id === user.id) {
+            val = user;
+            return val;
+        }
+        return val;
+    });
+    fs.writeFileSync('views/users.json', JSON.stringify(newUsers));
+    next();
 }

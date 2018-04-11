@@ -104,8 +104,8 @@ $(document).ready(function () {
     user.name = $("#user-name").val();
     user.surname = $("#user-surname").val();
 
-    /*   var url = "/path?";
-         $.post(url, user);*/
+         let url = "/saveUserChanges";
+         $.post(url, user);
   }
 
   function checkFieldsValidation() {
