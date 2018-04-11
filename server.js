@@ -312,7 +312,7 @@ function saveUserChanges(req, res, next) {
     var user = JSON.parse(JSON.stringify(req.body));
     var users = JSON.parse(fs.readFileSync('views/users.json', 'utf8'));
     var newUsers = users.map(function (val) {
-        if (val.id === user.id) {
+        if (val.email == user.email) {
             val = user;
             return val;
         }
