@@ -14,7 +14,7 @@
   <script src="js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="js/mobile-navigation.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/notifications.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
   <script type="text/javascript" src="js/id-candidate.js"></script>
 </head>
 <body>
@@ -42,9 +42,13 @@
           <input type="search" placeholder="Search for vacancies, candidates..." name="find-string"
                  class="find-bar-element find-bar__string">
         </form>
-        <a id="notification-button" class="icon" title="notifications" href="#"><i
-            class="fa fa-bell find-bar-element"></i></a>
-        <a class="icon" title="exit" href="#"><i class="fa fa-sign-out find-bar-element"></i></a>
+
+        <a id="user-cabinet-button" class="icon" title="cabinet" href="user-cabinet.html">
+          <i class="fa fa-user find-bar-element" aria-hidden="true"></i>
+        </a>
+        <a id="notification-button" class="icon" title="notifications" href="#"><i class="fa fa-bell find-bar-element"></i></a>
+        <a id="exit" class="icon" title="exit" href="#"><i class="fa fa-sign-out find-bar-element"></i></a>
+
       </div>
       <div class="container-fluid under-find-bar">
 

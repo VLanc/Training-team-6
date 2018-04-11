@@ -49,24 +49,29 @@
 .user-readonly-fields.visible,
 .user-writable-fields.visible,
 .edit-user-info-button.visible,
-.save-user-info-button.visible {
+.save-user-info-button.visible,
+.successful-saving.visible {
   display: block;
 }
 
 .user-readonly-fields.hidden,
 .user-writable-fields.hidden,
 .edit-user-info-button.hidden,
-.save-user-info-button.hidden {
+.save-user-info-button.hidden,
+.successful-saving.hidden {
   display: none;
 }
 
+.user-name.invalid,
+.user-surname.invalid,
+.custom-select.invalid,
 .user-email.invalid {
   border-color: #f20505;
   outline: 0;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(242, 5, 5, 0.5);
 }
 
-input[type="file"] {
+.avatar-input {
   display: none;
 }
 

@@ -54,7 +54,9 @@ $(function () {
           let convertDate;
           let now = new Date();
           now = now.getTime() / 1000;
+
           let dateOfAddUser = (now - rowData.date) / 86400;
+
           if (dateOfAddUser < 1) convertDate = 'today';
           else if (2 < dateOfAddUser && 7 > dateOfAddUser) convertDate = Math.ceil(dateOfAddUser) + ' days later';
           else if (7 < dateOfAddUser && 27 > dateOfAddUser) convertDate = 'about ' + getWeek(dateOfAddUser) + ' week' + getEnding(getWeek(dateOfAddUser)) + ' later';

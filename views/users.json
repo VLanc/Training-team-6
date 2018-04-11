@@ -1,34 +1,38 @@
 [
   {
+
     "email": "almaguante@gmail.com",
     "password": "111",
     "role": "developer",
     "name": "admin",
     "surname": "admin",
-    "photo": ""
+    "photo": "01"
   },
   {
     "email": "asdfg.ru@gmail.com",
     "password": "qwerty",
     "role": "",
-    "name": "",
+    "roleIndex": "",
+    "name": "test1",
     "surname": "",
-    "photo": ""
+    "photo": "04"
   },
   {
     "email": "test@mail.ru",
     "password": "1",
     "role": "",
-    "name": "",
+    "roleIndex": "",
+    "name": "test2",
     "surname": "",
-    "photo": ""
+    "photo": "05"
   },
   {
     "email": "qwerty@mail.ru",
     "password": "33",
     "role": "",
-    "name": "",
+    "roleIndex": "",
+    "name": "asdfg.ru",
     "surname": "",
-    "photo": ""
+    "photo": "07"
   }
 ]
