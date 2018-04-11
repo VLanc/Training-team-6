@@ -50,10 +50,6 @@ server.get('/vacancies-grid', respond_grid);
 server.get('/newcand', respond_newcand);
 server.get('/interview', respond_events);
 server.get('/id-interview', respond_interview);
-// server.get('/', function (req, res, next) {
-//     res.send("zdarova");
-//     return next();
-// });
 server.get('/index', function (req, res, next) {
     fs.readFile(__dirname + '/views/candidates.html', function (err, data) {
         if (err) {
@@ -73,9 +69,9 @@ server.post('/id-candidate', req_idcand);
 server.post('/interview', req_events);
 server.post('/id-interview', req_idevents);
 // server.post('/login', login);
-server.post('/login', login);
+server.get('/login', login);
 server.get('/userdata', userdata);
-server.post('/reset', reset_password);
+server.get('/reset', reset_password);
 server.get('/check', function (req, res, next) {
     if (req.session.username) {
         res.set('Content-Type', 'text/html');
@@ -85,7 +81,7 @@ server.get('/check', function (req, res, next) {
     }
     return next();
 });
-server.post('/register', register);
+server.get('/register', register);
 server.get('/logout', logout);
 // server.listen(8080, '127.0.0.1', function () {
 //     console.log('%s listening at %s', server.name, server.url);
@@ -198,26 +194,20 @@ function req_idevents(req, res, next) {
 }
 
 function login(req, res, next) {
-
-    var users = JSON.parse(fs.readFileSync('views/users.json', 'utf8'));
-    var foundUser;
-    users.forEach(function (val) {
-        if (val.email == req.body.email && val.password == req.body.password) {
-            foundUser = val;
-        }
-    });
-
-    if (foundUser !== undefined) {
-        req.session.email = foundUser.email;
-        res.send(req.session.email);
-        console.log("Login succeeded: ", foundUser.email);
-        next();
+    var email = req.query.email;
+    var password = req.query.password;
+    var user = foundUser(email);
+    if (user !== undefined && password == user.password) {
+            req.session.email = user.email;
+            res.send(req.session.email);
+            console.log("Login succeeded: ", user.email);
+            next();
     } else {
-        // req.session.reset();
-        //res.send(req.session);
-        console.log("Login failed: ", req.body.email);
+        res.send("false");
+        console.log("Login failed: ", email);
         next();
     }
+
 }
 
 
@@ -227,27 +217,26 @@ function logout(req, res) {
 }
 
 function register(req, res, next) {
-    var user ={};
-    user.email = req.body.email;
-    user.password = req.body.password;
-    user.role = "";
-    user.name = "";
-    user.surname = "";
-    user.photo = "";
-    console.log(user);
-    var users = JSON.parse(fs.readFileSync('views/users.json', 'utf8'));
-    users.push(user);
-    fs.writeFileSync('views/users.json', JSON.stringify(users));
-    var foundUser = user;
-    if (foundUser !== undefined) {
-        req.session.email = foundUser.email;
-        res.send(req.session.email);
-        console.log("Login succeeded: ", foundUser.email);
+    var email = req.query.email;
+    var password = req.query.password;
+    var user = foundUser(email);
+    if (user !== undefined) {
+        res.send("false");
         next();
     } else {
-        // req.session.reset();
-        //res.send(req.session);
-        console.log("Login failed: ", foundUser.email);
+        var newUser = {};
+        newUser.email = email;
+        newUser.password = password;
+        newUser.role = "";
+        newUser.name = "";
+        newUser.surname = "";
+        newUser.photo = "";
+        var users = JSON.parse(fs.readFileSync('views/users.json', 'utf8'));
+        users.push(newUser);
+        fs.writeFileSync('views/users.json', JSON.stringify(users));
+        req.session.email = newUser.email;
+        res.send(req.session.email);
+        console.log("Login succeeded: ", newUser.email);
         next();
     }
 }
@@ -273,7 +262,7 @@ function userdata(req, res, next) {
     var email = req.query.email;
     var users = JSON.parse(fs.readFileSync('views/users.json', 'utf8'));
     var user = {};
-     users.map(function (val) {
+    users.map(function (val) {
         if (val.email == email) {
             user = val;
         }
@@ -283,27 +272,37 @@ function userdata(req, res, next) {
 }
 
 function reset_password(req, res, next) {
-    var email = req.body.email;
-    console.log(email);
-    var users = JSON.parse(fs.readFileSync('views/users.json', 'utf8'));
-    var password;
-    users.forEach(function (val) {
-       if (email == val.email) {
-           password = val.password;
-       }
-    });
-    console.log(password);
-    mailOptions = {
-        from: 'HRAPP <feronodemailer@gmail.com>',
-        to: email,
-        subject: 'HRAPP password reset',
-        html: '<b>Your password:</b>' + password +''
-    };
-    transporter.sendMail(mailOptions, function(err, info) {
-        if (err) {
-            return console.log(err);
-        }
-        return console.log("Message sent: " + info.response);
-    });
+    var email = req.query.email;
+    var user = foundUser(email);
+    if (user !== undefined) {
+        mailOptions = {
+            from: 'HRAPP <feronodemailer@gmail.com>',
+            to: email,
+            subject: 'HRAPP password reset',
+            html: '<b>Your password:</b>' + user.password +''
+        };
+        transporter.sendMail(mailOptions, function(err, info) {
+            if (err) {
+                return console.log(err);
+            }
+            return console.log("Message sent: " + info.response);
+        });
+        res.send("true");
         next();
+    } else {
+        res.send("false");
+        next();
+    }
+
+}
+
+function foundUser(email) {
+    var users = JSON.parse(fs.readFileSync('views/users.json', 'utf8'));
+    var user;
+    users.forEach(function (val) {
+        if (email == val.email) {
+            user = val;
+        }
+    });
+    return user;
 }

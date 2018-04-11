@@ -8,108 +8,24 @@
     "photo": ""
   },
   {
-    "email": "admin",
-    "password": "",
-    "role": "developer",
-    "name": "admin",
-    "surname": "admin",
-    "photo": ""
-  },
-  {
-    "email": "test",
-    "password": "test",
-    "role": "manager",
-    "name": "test",
-    "surname": "test",
-    "photo": ""
-  },
-  {
-    "role": "",
-    "name": "",
-    "surname": "",
-    "photo": ""
-  },
-  {
-    "role": "",
-    "name": "",
-    "surname": "",
-    "photo": ""
-  },
-  {
-    "email": "test@mail.ru",
-    "password": "111",
-    "role": "",
-    "name": "",
-    "surname": "",
-    "photo": ""
-  },
-  {
-    "email": "test@mail.ru",
-    "password": "111",
-    "role": "",
-    "name": "",
-    "surname": "",
-    "photo": ""
-  },
-  {
     "email": "asdfg.ru@gmail.com",
-    "password": "12345",
+    "password": "qwerty",
     "role": "",
     "name": "",
     "surname": "",
     "photo": ""
   },
   {
-    "email": "й",
-    "password": "й",
+    "email": "test@mail.ru",
+    "password": "1",
     "role": "",
     "name": "",
     "surname": "",
     "photo": ""
   },
   {
-    "email": "",
-    "password": "",
-    "role": "",
-    "name": "",
-    "surname": "",
-    "photo": ""
-  },
-  {
-    "email": "",
-    "password": "",
-    "role": "",
-    "name": "",
-    "surname": "",
-    "photo": ""
-  },
-  {
-    "email": "Vasia.Pupkin@mail.ru",
-    "password": "11111111",
-    "role": "",
-    "name": "",
-    "surname": "",
-    "photo": ""
-  },
-  {
-    "email": "almaguante@mail.ru",
-    "password": "1111111",
-    "role": "",
-    "name": "",
-    "surname": "",
-    "photo": ""
-  },
-  {
-    "email": "Almaguante@ya.ru",
-    "password": "123",
-    "role": "",
-    "name": "",
-    "surname": "",
-    "photo": ""
-  },
-  {
-    "email": "almaguante@gmail.com",
-    "password": "111",
+    "email": "qwerty@mail.ru",
+    "password": "33",
     "role": "",
     "name": "",
     "surname": "",

@@ -12,7 +12,6 @@ $(document).ready(function () {
 
     $.get('/user-cabinet', function (data) {
         if (data == "false") {
-
             window.open("/register-login-reset.html", "_self");
         }
         usercookie = data;
