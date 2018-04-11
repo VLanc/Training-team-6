@@ -1,4 +1,4 @@
-var flagOfAction = 'SIGN_IN';
+let flagOfAction = 'SIGN_IN';
 
 $(document).ready(function () {
 
@@ -24,23 +24,26 @@ $(document).ready(function () {
             $('#labelForEmail').html('please, enter valid e-mail');
             redBlink('labelForEmail');
         } else {
+            // require('register-login.js');
             switch (flagOfAction) {
                 case 'SIGN_IN':
                     if (checkPassword()) {
-                        /********* there ara must be action **********/
+                        //console.log('логинимся');
+                        login();
+                        //console.log('залогинились');
                     }
 
 
                     break;
                 case 'FORGOT_PASSWORD':
-                    $('.modal').modal('show');
-                    signIn();
+                    reset();
                     break;
                 case 'SIGN_UP':
                     if (checkPassword()) {
                         $('#signUpTab').removeClass("active");
                         $('.nav-item').toggleClass("active-tab no-active");
-                        signIn();
+                        // signIn();
+                        register();
                         break;
                     }
             }
@@ -81,7 +84,7 @@ function forgotPassword() {
 }
 
 function checkPassword() {
-    var password = $('#inputPassword').val().trim();
+    let password = $('#inputPassword').val().trim();
     if (!password) {
         redBlink('labelForPassword');
         return false;
@@ -90,8 +93,8 @@ function checkPassword() {
 }
 
 function checkInputEmail() {
-    var emailPattern = /[0-9a-z_]+@[0-9a-z_]+\.[a-z]{2,5}/i;
-    var inputEmail = $('#inputEmail').val().trim();
+    let emailPattern = /[0-9a-z_]+@[0-9a-z_]+\.[a-z]{2,5}/i;
+    let inputEmail = $('#inputEmail').val().trim();
     return emailPattern.test(inputEmail);
 }
 
@@ -102,3 +105,55 @@ function redBlink(id) {
     }, 1000);
 }
 
+
+
+function login() {
+    let data = {};
+    data.email = $('#inputEmail').val();
+    data.password = $('#inputPassword').val();
+    var url = '/login?email='+data.email + "&password=" + data.password;
+    $.get(url, function (data) {
+        if (data == "false") {
+            $('#labelForEmail').html('email or password incorrect');
+            redBlink('labelForEmail');
+        }else {
+            window.open("/user-cabinet.html", "_self");
+        }
+    });
+
+}
+
+function register() {
+    let data = {};
+    data.email = $('#inputEmail').val();
+    data.password = $('#inputPassword').val();
+    var url = '/register?email='+data.email + "&password=" + data.password;
+    $.get(url, function (data) {
+        if (data == "false") {
+            $('#labelForEmail').html('such email is registered');
+            redBlink('labelForEmail');
+        }else {
+            window.open("/user-cabinet.html", "_self");
+        }
+    });
+}
+
+function reset() {
+    let email = {};
+    let check;
+    email.email = $('#inputEmail').val();
+    let url = '/reset?email=' + email.email;
+    $.get(url, function (data) {
+        console.log(data);
+        check = data;
+        if (check == "false") {
+            $('#labelForEmail').html('user not found');
+            redBlink('labelForEmail');
+        }
+        else {
+            $('.modal').modal('show');
+            signIn();
+        }
+    });
+
+}

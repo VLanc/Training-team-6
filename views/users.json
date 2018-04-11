@@ -1,43 +1,16 @@
 [
   {
-    "email": "admin@mail.ru",
-    "password": "admin",
-    "role": "Developer",
-    "roleIndex": "2",
+
+    "email": "almaguante@gmail.com",
+    "password": "111",
+    "role": "developer",
     "name": "admin",
     "surname": "admin",
     "photo": "01"
   },
   {
-    "email": "test@test.ru",
-    "password": "test",
-    "role": "Manager",
-    "roleIndex": "1",
-    "name": "test",
-    "surname": "test",
-    "photo": ""
-  },
-  {
-    "email": "test3@mail.ru",
-    "password": "345",
-    "role": "",
-    "roleIndex": "",
-    "name": "test3",
-    "surname": "",
-    "photo": "02"
-  },
-  {
-    "email": "test5@qwer.ru",
-    "password": "345",
-    "role": "",
-    "roleIndex": "",
-    "name": "test5",
-    "surname": "",
-    "photo": "03"
-  },
-  {
-    "email": "test1@mail.ru",
-    "password": "111",
+    "email": "asdfg.ru@gmail.com",
+    "password": "qwerty",
     "role": "",
     "roleIndex": "",
     "name": "test1",
@@ -45,8 +18,8 @@
     "photo": "04"
   },
   {
-    "email": "test2@mail.ru",
-    "password": "111",
+    "email": "test@mail.ru",
+    "password": "1",
     "role": "",
     "roleIndex": "",
     "name": "test2",
@@ -54,8 +27,8 @@
     "photo": "05"
   },
   {
-    "email": "asdfg.ru@gmail.com",
-    "password": "12345",
+    "email": "qwerty@mail.ru",
+    "password": "33",
     "role": "",
     "roleIndex": "",
     "name": "asdfg.ru",

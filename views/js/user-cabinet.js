@@ -6,6 +6,7 @@ $(document).ready(function () {
   $.get('/user-cabinet', function (data) {
     if (data == "false") {
 
+
       window.open("/register-login-reset.html", "_self");
       return;
     }
@@ -30,6 +31,7 @@ $(document).ready(function () {
       $(".user-field-email").html(user.email);
       /* }
        $(".user-field-email").html(user.email);*/
+
     });
   });
 
