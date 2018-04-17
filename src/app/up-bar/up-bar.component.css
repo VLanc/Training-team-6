@@ -1,0 +1,5 @@
+@media only screen and (max-device-width: 993px) {
+  :host {
+    width: 100%;
+  }
+}
