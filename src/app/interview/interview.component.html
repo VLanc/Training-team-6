@@ -1,0 +1,14 @@
+<!--<app-menu></app-menu>
+
+<router-outlet></router-outlet>-->
+
+<div class="interview-header">Interview
+  <button type="button" class="btn btn-secondary add-event-button" data-toggle="modal"
+          data-target="#new-event-modal">
+    Add new event
+  </button>
+</div>
+<div *ngIf="calendarOptions">
+  <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="eventClick($event.detail)" (eventDrop)="updateEvent($event.detail)"
+                   (eventResize)="updateEvent($event.detail)" (clickButton)="clickButton($event.detail)"></ng-fullcalendar>
+</div>
