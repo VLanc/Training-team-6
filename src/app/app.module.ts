@@ -6,25 +6,20 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { VacanciesComponent } from './vacancies/vacancies.component';
+
 import { MenuComponent } from './menu/menu.component';
 import { UpBarComponent } from './up-bar/up-bar.component';
+import { VacanciesComponent } from './vacancies/vacancies.component';
+import { InterviewComponent } from './interview/interview.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
-/*main logic*/
-import { RouterModule, Routes } from '@angular/router';
+import { FullCalendarModule } from 'ng-fullcalendar';
 
-const appRoutes: Routes = [
-  // { path: 'interview', component: interview },
-  { path: 'vacancies', component: VacanciesComponent },
-  // { path: 'candidates', component: candidates },
-  // { path: 'management', component: management },
-  // { path: '**', component: PageNotFoundComponent },
-  { path: '',
-    redirectTo: '/vacancies',
-    pathMatch: 'full'
-  }
-];
+/*main logic*/
+
+
+
+
 
 
 @NgModule({
@@ -32,17 +27,18 @@ const appRoutes: Routes = [
     AppComponent,
     MenuComponent,
     VacanciesComponent,
-    UpBarComponent
+    UpBarComponent,
+    InterviewComponent
   ],
   imports: [
     BrowserModule, /*чтобы что-то показывал*/
-    RouterModule.forRoot(
+/*    RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    ),
+    ),*/
     AppRoutingModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    FullCalendarModule
     // other imports here
   ],
 
