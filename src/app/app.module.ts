@@ -15,6 +15,8 @@ import {InterviewComponent} from './interview/interview.component';
 
 import {FullCalendarModule} from 'ng-fullcalendar';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {UsersServices} from "./shared/services/users.services";
+import {HttpClientModule, HttpClient } from "@angular/common/http";
 
 
 @NgModule({
@@ -30,12 +32,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserModule,
     AuthModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FullCalendarModule
   ],
 
   /*main logic END*/
-  providers: [],
+  providers: [UsersServices, HttpClientModule],
   bootstrap: [AppComponent]
 
 })
