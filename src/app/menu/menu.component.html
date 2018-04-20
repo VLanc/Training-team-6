@@ -1,18 +1,9 @@
-<!--<div class="container-fluid">
-  <div class="row">-->
-    <div class="col-xl-2 col-lg-2 beauty reset class-menu" [ngClass]="{'visible' : visible}" [@openClose]="stateExpression">
-      <h5>hr app</h5>
-      <nav>
-        <ul class="menu">
-          <li><a routerLink="/interview" routerLinkActive="active">Interview</a></li>
-          <li><a routerLink="/vacancies" routerLinkActive="active">Vacancies</a></li>
-          <li><a routerLink="/candidates" routerLinkActive="active">Candidates</a></li>
-          <li><a routerLink="/management" routerLinkActive="active">Management</a></li>
-        </ul>
-      </nav>
-    </div>
-
-
-    <!--<app-up-bar [toggle]="toggle"></app-up-bar>-->
-
-<!--  </div></div>-->
+<h5>hr app</h5>
+<nav (click)="toggle()">
+  <ul class="menu">
+    <li><a routerLink="/interview" routerLinkActive="active">Interview</a></li>
+    <li><a routerLink="/vacancies" routerLinkActive="active">Vacancies</a></li>
+    <li><a routerLink="/candidates" routerLinkActive="active">Candidates</a></li>
+    <li><a routerLink="/management" routerLinkActive="active">Management</a></li>
+  </ul>
+</nav>

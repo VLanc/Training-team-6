@@ -1,5 +1,5 @@
 /******* only for mobile menu ******/
-@media screen and (max-device-width: 993px) {
+@media screen and (max-device-width: 991px) {
   .class-menu {
     position: fixed;
     z-index: 2;

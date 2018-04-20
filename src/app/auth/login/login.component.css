@@ -1,0 +1,127 @@
+.login-registration-reset-forms {
+  margin-top: 100px;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+span {
+  text-transform: lowercase;
+}
+
+h2 {
+  color: #6a6967;
+  float: left;
+  font-size: 25px;
+  font-weight: bold;
+  margin: auto auto auto 10px;
+}
+
+h6 {
+  margin-bottom: 30px;
+  display: block;
+  text-align: center;
+}
+
+.height-100 {
+  height: 100vh;
+}
+
+.tab-content {
+  background-color: #ffffff;
+  border-left: 1px solid #dddddd;
+  display: block;
+  height: 100%;
+  padding: 25px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.active-tab {
+  background-color: #ffffff;
+  box-shadow: 1px -3px 4px rgba(221, 221, 221, 1);
+  color: #495057;
+  outline: none;
+  border-bottom: none;
+}
+
+.nav-tabs {
+  border-bottom: none;
+}
+
+.nav-link {
+  border-color: #e9ecef #e9ecef #dee2e6;
+  cursor: pointer;
+  user-select: none;
+  justify-content: left;
+}
+
+.nav-link:hover {
+  border-bottom: none;
+}
+
+.no-active {
+  background-color: #d4d4d4;
+  color: #989898;
+  outline: none;
+
+}
+
+.no-active:hover {
+  color: #495057;
+}
+
+.active-tab:hover {
+  color: #989898;
+}
+
+.helper:hover::after {
+  content: attr(data-helper);
+  position: absolute;
+  left: 40%;
+  /*z-index: 1;*/
+  background: #5b5b5d;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 10px;
+  color: #ffffff;
+  text-transform: none;
+}
+
+.forgotPassword {
+  display: block;
+  margin-top: 30px;
+  text-align: center;
+  color: #2b2b2b;
+  text-transform: none;
+  font-style: italic;
+  text-decoration: none;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-text {
+  text-transform: none;
+  margin-bottom: 25px;
+}
+
+.warning {
+  transition-duration: 300ms;
+  color: #ff0000;
+}
+
+/******* only for mobile view ******/
+@media screen and (max-device-width: 767px) {
+
+  .login-registration-reset-forms {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 85vh;
+    border-radius: 0;
+  }
+
+}
+/******* only for mobile view END ******/
