@@ -2,10 +2,10 @@
   {
     "email": "asdfg.ru@gmail.com",
     "password": "123",
-    "role": "Manager",
-    "roleIndex": "1",
-    "name": "3",
-    "surname": "3",
+    "role": "Developer",
+    "roleIndex": "2",
+    "name": "admin",
+    "surname": "admin",
     "photo": ""
   },
   {
@@ -15,6 +15,15 @@
     "roleIndex": "1",
     "name": "test",
     "surname": "test",
+    "photo": ""
+  },
+  {
+    "email": "test2@mail.ru",
+    "password": "1234",
+    "role": "",
+    "roleIndex": "",
+    "name": "",
+    "surname": "",
     "photo": ""
   }
 ]
