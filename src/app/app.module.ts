@@ -14,6 +14,7 @@ import {InterviewComponent} from './interview/interview.component';
 
 
 import {FullCalendarModule} from 'ng-fullcalendar';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {FullCalendarModule} from 'ng-fullcalendar';
     MenuComponent,
     UpBarComponent,
     VacanciesComponent,
-    InterviewComponent
+    InterviewComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

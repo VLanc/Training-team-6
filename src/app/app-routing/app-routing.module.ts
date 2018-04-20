@@ -4,13 +4,15 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {VacanciesComponent} from '../vacancies/vacancies.component';
 import {InterviewComponent} from '../interview/interview.component';
+import {PageNotFoundComponent} from "../page-not-found/page-not-found.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'interview', component: InterviewComponent},
   {path: 'vacancies', component: VacanciesComponent},
   // { path: 'management', component: management },
-  // {path: '**', component: PageNotFoundComponent},
+  {path: 'not-found', component: PageNotFoundComponent},
+  {path: '**', redirectTo: '/not-found'},
 
 
 ];
