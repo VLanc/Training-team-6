@@ -13,10 +13,6 @@ export class UsersServices {
   constructor(private http: HttpClient) {}
 
   getUserByEmail(email : string): Observable<User> {
-      // return this.http.get(this.url+`login?email=`+email)
-      //   .map(response => {
-      //     return response;
-      //   });
     return this.http.get<User>(this.url+`login?email=`+email)
       .map((data) => {
         return data;
@@ -28,11 +24,5 @@ export class UsersServices {
 
   }
 
-  // getUsers() : Observable<User[]> {
-  //   return this.http.get('users.json').map(data=>{
-  //     let usersList = data["userList"];
-  //     return usersList.map(function(user:any) {
-  //       return {name: user.userName, age: user.userAge};
-  //     });
-  //   });
+
 }
