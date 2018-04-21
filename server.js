@@ -24,11 +24,61 @@ server.use(clientSession({
 server.use(restify.plugins.bodyParser());
 server.use(restify.plugins.gzipResponse());
 server.use(restify.plugins.requestLogger());
+server.get('/login', login);
+server.get('/reset', reset_password);
 
 let port = process.env.PORT || 8080;
 server.listen(port);
 console.log("Server running at http://localhost:%d", port);
 
+function login(req, res, next) {
+  res.header('X-Frame-Options', 'ALLOWALL');
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'POST, GET');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  var email = req.query.email;
+  console.log(email);
+  var user = foundUser(email);
+  res.send(user);
+  next();
 
+}
 
+function reset_password(req, res, next) {
+  res.header('X-Frame-Options', 'ALLOWALL');
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'POST, GET');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  var email = req.query.email;
+  var user = foundUser(email);
+  if (user !== undefined) {
+    mailOptions = {
+      from: 'HRAPP <feronodemailer@gmail.com>',
+      to: email,
+      subject: 'HRAPP password reset',
+      html: '<b>Your password:</b>' + user.password +''
+    };
+    transporter.sendMail(mailOptions, function(err, info) {
+      if (err) {
+        return console.log(err);
+      }
+      return console.log("Message sent: " + info.response);
+    });
+    res.send("true");
+    next();
+  } else {
+    res.send("false");
+    next();
+  }
+}
 
+function foundUser(email) {
+  var users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
+  var user;
+  users.forEach(function (val) {
+    if (email == val.email) {
+      user = val;
+    }
+  });
+  return user;
+}

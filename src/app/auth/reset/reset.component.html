@@ -1,6 +1,11 @@
 <div class="tab-content">
   <div class="tab-panel" role="tabpanel">
     <h6>Forgot password?</h6>
+    <div class="alert alert-{{message.type}}"
+         *ngIf="message.text"
+    >
+      {{message.text}}
+    </div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div
         class="form-group"
@@ -31,7 +36,6 @@
           type="submit"
           class="btn btn-primary"
           [disabled]="form.invalid"
-          (click)="openModal('m')"
         >
           Sign in
         </button>

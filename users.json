@@ -10,7 +10,7 @@
   },
   {
     "email": "test@mail.ru",
-    "password": "1",
+    "password": "123",
     "role": "Manager",
     "roleIndex": "1",
     "name": "test",
