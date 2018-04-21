@@ -12,6 +12,8 @@ import {UpBarComponent} from './up-bar/up-bar.component';
 import {VacanciesComponent} from './vacancies/vacancies.component';
 import {InterviewComponent} from './interview/interview.component';
 import {FullCalendarModule} from 'ng-fullcalendar';
+import {AuthServeces} from "../shared/services/auth.serveces";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {FullCalendarModule} from 'ng-fullcalendar';
     CommonModule,
     SystemRoutingModule,
     BrowserAnimationsModule,
-    FullCalendarModule
+    FullCalendarModule,
+    SharedModule
 
   ],
   providers: [],

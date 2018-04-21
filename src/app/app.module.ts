@@ -10,6 +10,8 @@ import {SystemModule} from './system/system.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {UsersServices} from "./shared/services/users.services";
 import {HttpClientModule, HttpClient } from "@angular/common/http";
+import {AuthServeces} from "./shared/services/auth.serveces";
+import {AuthGuard} from "./shared/services/auth.guard";
 
 
 @NgModule({
@@ -24,7 +26,11 @@ import {HttpClientModule, HttpClient } from "@angular/common/http";
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [UsersServices, HttpClientModule],
+  providers: [UsersServices,
+    HttpClientModule,
+    AuthServeces,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 
 })

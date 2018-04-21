@@ -1,5 +1,6 @@
 let fs = require('fs');
 const clientSession = require("client-sessions");
+const corsMiddleware = require('restify-cors-middleware');
 let restify = require('restify');
 let mailOptions, nodemailer, transporter;
 // var mysql = require('mysql');
@@ -12,6 +13,14 @@ transporter = nodemailer.createTransport({
   }
 });
 let server = restify.createServer();
+const cors = corsMiddleware({
+  origins: ['http://localhost:4200'],
+  allowHeaders: ['*'],
+  exposeHeaders: []
+});
+
+server.pre(cors.preflight);
+server.use(cors.actual);
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 // server.use(server.sessions());
@@ -26,18 +35,14 @@ server.use(restify.plugins.gzipResponse());
 server.use(restify.plugins.requestLogger());
 server.get('/login', login);
 server.get('/reset', reset_password);
+server.post('/register', register);
 
 let port = process.env.PORT || 8080;
 server.listen(port);
 console.log("Server running at http://localhost:%d", port);
 
 function login(req, res, next) {
-  res.header('X-Frame-Options', 'ALLOWALL');
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'POST, GET');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   var email = req.query.email;
-  console.log(email);
   var user = foundUser(email);
   res.send(user);
   next();
@@ -45,10 +50,6 @@ function login(req, res, next) {
 }
 
 function reset_password(req, res, next) {
-  res.header('X-Frame-Options', 'ALLOWALL');
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'POST, GET');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   var email = req.query.email;
   var user = foundUser(email);
   if (user !== undefined) {
@@ -56,9 +57,9 @@ function reset_password(req, res, next) {
       from: 'HRAPP <feronodemailer@gmail.com>',
       to: email,
       subject: 'HRAPP password reset',
-      html: '<b>Your password:</b>' + user.password +''
+      html: '<b>Your password:</b>' + user.password + ''
     };
-    transporter.sendMail(mailOptions, function(err, info) {
+    transporter.sendMail(mailOptions, function (err, info) {
       if (err) {
         return console.log(err);
       }
@@ -71,6 +72,30 @@ function reset_password(req, res, next) {
     next();
   }
 }
+
+function register(req, res, next) {
+  let user = JSON.parse(JSON.stringify(req.body));
+  if (foundUser(user.email)) {
+    //res.send('false');
+    next();
+  } else {
+    let newUser = {};
+    newUser.email = user.email;
+    newUser.password = user.password;
+    newUser.role = "";
+    newUser.roleIndex = "";
+    newUser.name = "";
+    newUser.surname = "";
+    newUser.photo = "";
+    let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
+    users.push(newUser);
+    fs.writeFileSync('users.json', JSON.stringify(users));
+    res.send(newUser);
+    next();
+  }
+
+}
+
 
 function foundUser(email) {
   var users = JSON.parse(fs.readFileSync('users.json', 'utf8'));

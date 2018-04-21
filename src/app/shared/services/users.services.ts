@@ -24,5 +24,12 @@ export class UsersServices {
 
   }
 
+  createNewUser(user: User): Observable<User> {
+    return this.http.post<User>(this.url+'register', user)
+      .map( data => {
+        return data;
+      });
+  }
+
 
 }

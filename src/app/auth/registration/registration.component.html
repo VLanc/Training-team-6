@@ -1,5 +1,10 @@
 <div class="tab-content">
   <div class="tab-panel" role="tabpanel">
+    <div class="alert alert-{{message.type}}"
+         *ngIf="message.text"
+    >
+      {{message.text}}
+    </div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div
         class="form-group"
@@ -21,6 +26,7 @@
           >
       <span *ngIf="form.get('email')['errors']['required']">E-mail cannot be empty!</span>
       <span *ngIf="form.get('email')['errors']['email']">Incorrect e-mail!</span>
+            <span *ngIf="form.get('email')['errors']['forbiddenEmail']">This user is register!</span>
     </span>
         </div>
       </div>
