@@ -9,7 +9,7 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div
         class="form-group"
-        [ngClass]="{'red': form.get('email').invalid && form.get('email').touched}"
+        [ngClass]="{'warning': form.get('email').invalid && form.get('email').touched}"
       >
         <div class="helper" data-helper="Enter e-mail, please: example@example.com">
           <label for="email">E-mail address</label>

@@ -1,0 +1,42 @@
+.reset {
+  padding: 0;
+  margin: 0;
+}
+
+.all-displays {
+  height: 100vh;
+}
+
+.class-menu {
+  z-index: 6;
+}
+
+.row-data {
+  margin: 10px;
+  height: calc(100% - 75px);
+}
+
+.all-displays {
+  height: 100vh;
+}
+
+.under-find-bar {
+  margin-top: 53px;
+}
+
+@media screen and (max-device-width: 991px) {
+
+  .class-menu {
+    position: fixed;
+    z-index: 2;
+    top: 53px;
+    left: -174px;
+    box-shadow: inset 3px 2px 4px rgba(221, 221, 221, 1);
+    width: 174px;
+  }
+
+  .under-find-bar {
+    margin-top: 0;
+  }
+
+}

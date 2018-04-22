@@ -1,0 +1,149 @@
+<div class="container-fluid"> <!-- контейнер есть в верхнем компоненте-->
+
+  <div class="row">
+    <!-- DATA ------------------------------>
+    <div class="header-data col-sm-12 col-md-12 col-lg-12">
+      <div class="bread-crumbs"><a href="candidates.html">Candidates ></a>
+        <div id="breadCrumbs"></div>
+      </div>
+      <div class="review-button-block">
+        <button onclick="return openModalWindowDescription();"
+                class="btn btn-secondary review-button-block__button">
+          Review
+        </button>
+      </div>
+    </div>
+    <!-- left data --------------------------------->
+    <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
+      <div class="header-info">
+        <select name="status" id="status">
+          <option value="active">Accepted for interview</option>
+          <option value="">All</option>
+          <option value="">New</option>
+          <option value="">CV-Accepted</option>
+          <option value="">CV-Rejected</option>
+        </select>
+        <img id="avatar" alt="profile">
+        <p id="position" class="profile-job"></p>
+        <input id="positionEdit" class="profile-job hidden" type="text" onfocus="this.select()" value="">
+        <p id="name" class="profile-name"></p>
+        <input id="nameEdit" class="profile-name hidden" type="text" onfocus="this.select()" value="">
+        <p id="salary" class="profile-salary"></p>
+        <input id="salaryEdit" class="profile-salary hidden" type="text" onfocus="this.select()" value="">
+        <div id="date" class="profile-time"></div>
+      </div>
+      <div class="footer-info">
+        <h6>Contact information:</h6>
+        <p class="profile-text">phone number:</p>
+        <p id="phone" class="profile-data"></p>
+        <input id="phoneEdit" class="hidden" type="text" onfocus="this.select()" value="">
+        <p class="profile-text">E-mail:</p>
+        <p id="email" class="profile-data"></p>
+        <input id="emailEdit" class="hidden" type="text" onfocus="this.select()" value="">
+        <p class="profile-text">Address:</p>
+        <p id="address" class="profile-data"></p>
+        <input id="addressEdit" class="hidden" type="text" onfocus="this.select()" value="">
+      </div>
+    </div>
+    <!-- left data END --------------------------------->
+
+    <!-- right data ----------------------------------->
+    <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9 experience">
+
+      <div class="delimiter">
+        <h6>Experience</h6>
+      </div>
+      <div id="timeLine" class="timeline"></div>
+
+      <div class="skills-delimiter">
+        <h6>Skills</h6>
+        <div id="skills" class="skills"></div>
+      </div>
+
+      <a id="editData" onclick="return editData()" href="#" class="button-new"><i class="fa fa-pencil"></i></a>
+      <a id="saveData" onclick="return saveData()" href="#" class="button-new hidden"><i
+        class="fa fa-save"></i></a>
+
+      <div class="buttons">
+        <a id="buttonSkills" onclick="return addSkill()" class="buttons__add-experiences-and-skills hidden">Add
+          skills</a>
+        <a id="buttonExperience" onclick="return addExperience()"
+           class="buttons__add-experiences-and-skills hidden">Add
+          experience</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- modal window ADD SKILL -->
+<div id="modalWindowSkill" class="modal fade">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-window__title">Add Skill</div>
+        <a href="#" onclick="return closeModalWindow();" class="modal-close"><i
+          class="fa fa-window-close-o"></i></a>
+      </div>
+      <div class="modal-body">
+        <input id="addWindowSkill" autofocus type="text">
+        <button onclick="return saveSkill();" type="button" id="addSkillButton" class="btn btn-secondary">add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal window ADD EXPERIENCE -->
+<div id="modalWindowExperience" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-window__title">Add Experience</div>
+        <a href="#" onclick="return closeModalWindow();" class="modal-close"><i
+          class="fa fa-window-close-o"></i></a>
+      </div>
+      <div class="modal-body">
+        <input id="addDateExperience" type="text" autofocus value="" placeholder="Enter date...">
+        <input id="addPlaceExperience" type="text" value="" placeholder="Enter position...">
+        <input id="addPositionExperience" type="text" value="" placeholder="Enter company...">
+        <div class="modalWindowExperience__textarea">
+          <textarea id="addBodyExperience" rows="4" placeholder="Write..."></textarea>
+        </div>
+        <button onclick="return saveExperience()" type="button" id="modal-button2" class="btn btn-secondary">add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal window REVIEW -->
+<div id="modalWindowDescription" class="modal fade">
+  <div id="modalBody" class="modal-dialog modal-lg">
+    <div class="modal-content  modal-window-description">
+      <div class="modal-header">
+        <div class="modal-window__title" id="descriptionName"></div>
+        <a href="#" onclick="return closeModalWindow();" class="modal-close">
+          <i class="fa fa-window-close-o"></i>
+        </a>
+        <div id="receiptDate"
+             class="modal-window-description__date-off-add-candidate">
+        </div>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs" id="TabDescription" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="toForm1" data-toggle="tab" href="#form1" role="tab"
+               aria-controls="Form1" aria-selected="true">Add review</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="form1" aria-labelledby="Form1">
+  <textarea class="form-control" id="area1" rows="7" name="desc1"
+            placeholder="Write..."></textarea>
+          </div>
+        </div>
+        <button onclick="return saveDescription();" class="btn btn-secondary">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

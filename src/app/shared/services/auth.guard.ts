@@ -2,20 +2,20 @@ import {ActivatedRouteSnapshot,
   CanActivate,
   CanActivateChild,
   Router,
-  RouterStateSnapshot} from "@angular/router";
-import {Observable} from "rxjs/Observable";
-import {AuthServeces} from "./auth.serveces";
-import {Injectable} from "@angular/core";
+  RouterStateSnapshot} from '@angular/router';
+import {Observable} from 'rxjs/Observable';
+import {AuthServeces} from './auth.serveces';
+import {Injectable} from '@angular/core';
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanActivateChild{
+export class AuthGuard implements CanActivate, CanActivateChild {
 
   constructor(private authServece: AuthServeces, private router: Router){}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
     if (this.authServece.isLoggedIn()) {
       return true;
-    }else {
+    } else {
       // this.router.navigate(['/login'], {
       //   queryParams: {
       //     accessDenied: true

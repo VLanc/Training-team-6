@@ -21,7 +21,6 @@
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "styles.css",
-        "mobile-menu.css",
         "../node_modules/font-awesome/css/font-awesome.css",
         "../node_modules/ng-fullcalendar/node_modules/fullcalendar/dist/fullcalendar.min.css"
       ],

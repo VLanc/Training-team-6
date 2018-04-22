@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
-import {Message} from "../../shared/models/message.model";
-import {UsersServices} from "../../shared/services/users.services";
-import {User} from "../../shared/models/user.model";
+import {Message} from '../../shared/models/message.model';
+import {UsersServices} from '../../shared/services/users.services';
+import {User} from '../../shared/models/user.model';
 
 
 @Component({
@@ -15,7 +15,7 @@ import {User} from "../../shared/models/user.model";
 export class RegistrationComponent implements OnInit {
 
   form: FormGroup;
-  message:Message;
+  message: Message;
 
   constructor(private userService: UsersServices,
               private router: Router) {
@@ -41,26 +41,25 @@ export class RegistrationComponent implements OnInit {
     const user = new User(email, password);
     this.userService.createNewUser(user)
       .subscribe((user: User) => {
-          this.router.navigate(['/login'], {
-            queryParams: {
-              nowCanLogin: true
-            }
-          });
-      })
+        this.router.navigate(['/login'], {
+          queryParams: {
+            nowCanLogin: true
+          }
+        });
+      });
   }
 
   forbiddenEmails(control: FormControl): Promise<any> {
     return new Promise((resolve => {
       this.userService.getUserByEmail(control.value)
-        .subscribe((user : User) => {
-          if (user)
-          {
-            resolve({forbiddenEmail: true})
+        .subscribe((user: User) => {
+          if (user) {
+            resolve({forbiddenEmail: true});
           } else {
             resolve(null);
           }
-        })
-    }))
+        });
+    }));
   }
 
 }

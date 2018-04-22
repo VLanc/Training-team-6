@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Message} from "../../shared/models/message.model";
-import {UsersServices} from "../../shared/services/users.services";
-import {stringDistance} from "codelyzer/util/utils";
+import {Message} from '../../shared/models/message.model';
+import {UsersServices} from '../../shared/services/users.services';
+import {stringDistance} from 'codelyzer/util/utils';
 
 @Component({
   selector: 'app-reset',
@@ -13,7 +13,7 @@ import {stringDistance} from "codelyzer/util/utils";
 export class ResetComponent implements OnInit {
 
   form: FormGroup;
-  message:Message;
+  message: Message;
   constructor(private userService: UsersServices) {
   }
 
@@ -33,11 +33,11 @@ export class ResetComponent implements OnInit {
   onSubmit() {
     const formData = this.form.value;
     this.userService.resetUserPassword(formData.email)
-      .subscribe((res:string) => {
+      .subscribe((res: string) => {
        if (res === 'true') {
-         this.showMessage("Message send.", 'success');
-       }else {
-         this.showMessage("Email not found.");
+         this.showMessage('Message send.', 'success');
+       } else {
+         this.showMessage('Email not found.');
        }
       });
   }

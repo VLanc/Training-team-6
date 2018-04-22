@@ -55,13 +55,13 @@ export class LoginComponent implements OnInit {
       .subscribe((user: User) => {
         if (user) {
           if (user.password === formData.password) {
-            this.message.text='';
+            this.message.text = '';
             window.localStorage.setItem('user',JSON.stringify(user));
             this.authService.login();
             this.router.navigate(['/vacancies']);
 
           } else {
-            this.showMessage("incorrect password");
+            this.showMessage('incorrect password');
           }
 
         } else {

@@ -12,8 +12,9 @@ import {UpBarComponent} from './up-bar/up-bar.component';
 import {VacanciesComponent} from './vacancies/vacancies.component';
 import {InterviewComponent} from './interview/interview.component';
 import {FullCalendarModule} from 'ng-fullcalendar';
-import {AuthServeces} from "../shared/services/auth.serveces";
-import {SharedModule} from "../shared/shared.module";
+import {AuthServeces} from '../shared/services/auth.serveces';
+import {SharedModule} from '../shared/shared.module';
+import { IdCandidateComponent } from './id-candidate/id-candidate.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {SharedModule} from "../shared/shared.module";
     UpBarComponent,
     SystemComponent,
     VacanciesComponent,
-    InterviewComponent
+    InterviewComponent,
+    IdCandidateComponent
   ],
   imports: [
     CommonModule,
