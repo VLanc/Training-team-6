@@ -15,6 +15,10 @@ import {FullCalendarModule} from 'ng-fullcalendar';
 import {AuthServeces} from '../shared/services/auth.serveces';
 import {SharedModule} from '../shared/shared.module';
 import { IdCandidateComponent } from './id-candidate/id-candidate.component';
+import { InterviewModalComponent } from './interview-modal/interview-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,15 +27,19 @@ import { IdCandidateComponent } from './id-candidate/id-candidate.component';
     SystemComponent,
     VacanciesComponent,
     InterviewComponent,
-    IdCandidateComponent
+    IdCandidateComponent,
+    InterviewModalComponent
   ],
   imports: [
     CommonModule,
     SystemRoutingModule,
     BrowserAnimationsModule,
     FullCalendarModule,
-    SharedModule
-
+    SharedModule,
+    FormsModule,
+    NgbModule.forRoot(),
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   providers: [],
   bootstrap: [SystemComponent]
