@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 // import {FormGroup, Validators} from '@angular/forms';
 // import {Message} from '../../shared/models/message.model';
 
@@ -9,8 +10,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./user-cabinet.component.css']
 })
 export class UserCabinetComponent implements OnInit {
-  // form: FormGroup;
   // message: Message;
+  form: FormGroup;
   userObject: object;
   private userObject: object;
    naqqme = 'skфывфывфывфывфывфвыфdfjsljdf';

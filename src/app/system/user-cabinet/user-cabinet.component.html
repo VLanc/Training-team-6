@@ -22,11 +22,11 @@
               type="text"
               class="form-control user-name"
               id="user-name"
-              placeholder="Enter your name"
-              [(ngModel)]= "naqqme"
+              placeholder="{{this.userObject.name}}"
+              formControlName="this.userObject.name"
             >
         </div>
-<p [(ngModel)]= "naqqme"></p>
+
         <div class="form-group">
             <label for="user-surname" class="user-field-title">Surname</label>
             <input
