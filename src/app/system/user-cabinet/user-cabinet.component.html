@@ -22,8 +22,7 @@
               type="text"
               class="form-control user-name"
               id="user-name"
-              placeholder="{{this.userObject.name}}"
-              formControlName="this.userObject.name"
+              formControlName="name"
             >
         </div>
 
@@ -34,7 +33,6 @@
               class="form-control user-surname"
               id="user-surname"
               placeholder="Enter your surname"
-              [(ngModel)]= "naqqme"
             >
         </div>
 
@@ -57,20 +55,23 @@
             >
         </div>
 
-      </form>
-
-      <button
-        class="btn btn-primary edit-user-info-button"
-        *ngIf="editing; else  editingStatus" (click)="editProfile()">Edit
-      </button>
-
-      <ng-template # #editingStatus>
         <button
-          class="btn btn-primary save-user-info-button"  (click)="saveProfile()">Save </button>
+          class="btn btn-primary edit-user-info-button"
+          *ngIf="editing; else  editingStatus" (click)="editProfile()">Edit
+        </button>
+
+        <ng-template # #editingStatus>
+          <button
+            type="submit"
+            class="btn btn-primary save-user-info-button">Save </button>
           <!--[disabled]="allowedToSave" (click)="saveProfile()">Save-->
           <!--(click)="saveProfile()">Save-->
-        <!--</button>-->
-      </ng-template>
+          <!--</button>-->
+        </ng-template>
+
+      </form>
+
+
 
 
 
