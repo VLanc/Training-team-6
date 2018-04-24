@@ -4,7 +4,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 import {SystemRoutingModule} from './system-routing.module';
-
 import {SystemComponent} from './system.component';
 
 import {MenuComponent} from './menu/menu.component';
@@ -12,9 +11,9 @@ import {UpBarComponent} from './up-bar/up-bar.component';
 import {VacanciesComponent} from './vacancies/vacancies.component';
 import {InterviewComponent} from './interview/interview.component';
 import {FullCalendarModule} from 'ng-fullcalendar';
-import {AuthServeces} from '../shared/services/auth.serveces';
 import {SharedModule} from '../shared/shared.module';
-import { IdCandidateComponent } from './id-candidate/id-candidate.component';
+import {IdCandidateComponent} from './id-candidate/id-candidate.component';
+import { UserCabinetComponent } from './user-cabinet/user-cabinet.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,8 @@ import { IdCandidateComponent } from './id-candidate/id-candidate.component';
     SystemComponent,
     VacanciesComponent,
     InterviewComponent,
-    IdCandidateComponent
+    IdCandidateComponent,
+    UserCabinetComponent
   ],
   imports: [
     CommonModule,

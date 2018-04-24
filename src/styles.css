@@ -9,6 +9,14 @@ body {
   overflow-y: hidden;
 }
 
+.hidden {
+  display: none!important;
+}
+
+.visible {
+  display: block!important;
+}
+
 .scrolling {
   overflow-y: auto;
 }

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "status": "New"
+  },
+  {
+    "id": "2",
+    "status": "Accepted for interview"
+  },
+  {
+    "id": "3",
+    "status": "CV-accepted"
+  },
+  {
+    "id": "4",
+    "status": "CV-rejected"
+  }
+]

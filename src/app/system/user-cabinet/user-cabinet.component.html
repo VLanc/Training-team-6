@@ -1,0 +1,79 @@
+<div class="container user-cabinet-content-wrapper">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h2 class="user-cabinet-title">Your cabinet</h2>
+
+        <!--<div class="alert alert-success successful-saving hidden" role="alert"> &lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+          <!--Your changes were successfully saved-->
+        <!--</div>&lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+
+        <div class="form-group">
+          <div class="user-avatar"></div>
+          <label for="avatar" class="custom-file-upload">
+            <input id="avatar" type="file" class="avatar-input">
+            Change photo
+          </label>
+        </div>
+
+        <div class="form-group" id="user-name-field">
+            <label for="user-name" class="user-field-title">Name</label>
+            <input
+              type="text"
+              class="form-control user-name"
+              id="user-name"
+              placeholder="Enter your name"
+              [(ngModel)]= "naqqme"
+            >
+        </div>
+<p [(ngModel)]= "naqqme"></p>
+        <div class="form-group">
+            <label for="user-surname" class="user-field-title">Surname</label>
+            <input
+              type="text"
+              class="form-control user-surname"
+              id="user-surname"
+              placeholder="Enter your surname"
+              [(ngModel)]= "naqqme"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="role-select" class="user-field-title">Role</label>
+            <select class="custom-select" id="role-select">
+              <option value="" disabled selected>Choose a role</option>
+              <option value="1">Manager</option>
+              <option value="2">Developer</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="user-email" class="user-field-title">Email</label>
+            <input
+              type="email"
+              class="form-control user-email"
+              id="user-email"
+              placeholder="Enter your email"
+            >
+        </div>
+
+      </form>
+
+      <button
+        class="btn btn-primary edit-user-info-button"
+        *ngIf="editing; else  editingStatus" (click)="editProfile()">Edit
+      </button>
+
+      <ng-template # #editingStatus>
+        <button
+          class="btn btn-primary save-user-info-button"  (click)="saveProfile()">Save </button>
+          <!--[disabled]="allowedToSave" (click)="saveProfile()">Save-->
+          <!--(click)="saveProfile()">Save-->
+        <!--</button>-->
+      </ng-template>
+
+
+
+    </div>
+  </div>
+</div>

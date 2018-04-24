@@ -45,6 +45,8 @@ function login(req, res, next) {
   var email = req.query.email;
   var user = foundUser(email);
   res.send(user);
+  // console.log(res.send(user));
+  // res.send(JSON.stringify(user));
   next();
 
 }
