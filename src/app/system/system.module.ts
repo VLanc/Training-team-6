@@ -11,9 +11,15 @@ import {UpBarComponent} from './up-bar/up-bar.component';
 import {VacanciesComponent} from './vacancies/vacancies.component';
 import {InterviewComponent} from './interview/interview.component';
 import {FullCalendarModule} from 'ng-fullcalendar';
+import {AuthServeces} from '../shared/services/auth.serveces';
 import {SharedModule} from '../shared/shared.module';
+import { IdCandidateComponent } from './id-candidate/id-candidate.component';
+import { InterviewModalComponent } from './interview-modal/interview-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {FormsModule} from "@angular/forms";
 import {IdCandidateComponent} from './id-candidate/id-candidate.component';
-import { UserCabinetComponent } from './user-cabinet/user-cabinet.component';
+import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +30,19 @@ import { UserCabinetComponent } from './user-cabinet/user-cabinet.component';
     InterviewComponent,
     IdCandidateComponent,
     UserCabinetComponent
+    IdCandidateComponent,
+    InterviewModalComponent
   ],
   imports: [
     CommonModule,
     SystemRoutingModule,
     BrowserAnimationsModule,
     FullCalendarModule,
-    SharedModule
-
+    SharedModule,
+    FormsModule,
+    NgbModule.forRoot(),
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   providers: [],
   bootstrap: [SystemComponent]
