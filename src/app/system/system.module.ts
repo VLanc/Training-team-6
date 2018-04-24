@@ -18,7 +18,6 @@ import { InterviewModalComponent } from './interview-modal/interview-modal.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {FormsModule} from '@angular/forms';
-import {IdCandidateComponent} from './id-candidate/id-candidate.component';
 import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
 
 @NgModule({
@@ -30,7 +29,6 @@ import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
     InterviewComponent,
     IdCandidateComponent,
     UserCabinetComponent,
-    IdCandidateComponent,
     InterviewModalComponent
   ],
   imports: [

@@ -24,7 +24,7 @@
 
 .user-avatar {
   /*background-image property will change through js so need divide background property*/
-  background-image: url(../../../assets/images/anounymus.png);
+  /*background-image: url(../../../assets/images/anounymus.png);*/
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
