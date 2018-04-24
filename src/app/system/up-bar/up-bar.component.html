@@ -7,13 +7,13 @@
     <input type="search" placeholder="Search for vacancies, candidates..." name="find-string"
            class="find-bar-element find-bar__string">
   </form>
-  <a id="user-cabinet-button" class="icon" title="cabinet" href="user-cabinet.html">
+  <a id="user-cabinet-button" class="icon" title="cabinet" routerLink="/user-cabinet">
     <i class="fa fa-user find-bar-element" aria-hidden="true"></i>
   </a>
   <a id="notification-button" class="icon" title="notifications" href="#">
     <i class="fa fa-bell find-bar-element"></i>
   </a>
-  <a id="exit" class="icon" title="exit" href="#">
+  <a id="exit" class="icon" title="exit" (click)="logout()">
     <i class="fa fa-sign-out find-bar-element"></i>
   </a>
 </div>

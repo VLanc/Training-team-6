@@ -24,7 +24,7 @@ export class SystemComponent  implements OnInit {
   constructor(private router: Router) {
   }
   ngOnInit() {
-    this.router.navigate(['./candidate']); /*TODO изменить на /cabinet*/
+    // this.router.navigate(['./interview']); /*TODO изменить на /cabinet*/
   }
   toggle = () => {
     if ( window.screen.availWidth < 993) {

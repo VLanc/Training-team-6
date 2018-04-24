@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-vacancies',
@@ -72,9 +73,13 @@ export class VacanciesComponent implements OnInit {
     }
     ];
 
+  //user: User;
   constructor() { }
 
   ngOnInit() {
+
+    // this.user =JSON.parse(window.localStorage.getItem('user'));
+    // console.log(this.user);
   }
 
 }

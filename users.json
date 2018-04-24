@@ -1,20 +1,38 @@
 [
   {
-    "email": "asdfg.ru@gmail.com",
-    "password": "123",
-    "role": "Manager",
-    "roleIndex": "1",
-    "name": "3",
-    "surname": "3",
-    "photo": ""
-  },
-  {
     "email": "test@mail.ru",
     "password": "123",
     "role": "Manager",
     "roleIndex": "1",
     "name": "test",
     "surname": "test",
+    "photo": "./assets/images/4.png"
+  },
+  {
+    "email": "111@mail.ru",
+    "password": "123",
+    "role": "",
+    "roleIndex": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
+  },
+  {
+    "email": "asdfg.ru@gmail.com",
+    "password": "qwerty",
+    "role": "",
+    "roleIndex": "",
+    "name": "",
+    "surname": "",
+    "photo": ""
+  },
+  {
+    "email": "test3@mail.ru",
+    "password": "123",
+    "role": "",
+    "roleIndex": "",
+    "name": "",
+    "surname": "",
     "photo": ""
   }
 ]

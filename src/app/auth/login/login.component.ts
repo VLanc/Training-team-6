@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
-import {UsersServices} from "../../shared/services/users.services";
-import {User} from "../../shared/models/user.model";
-import {Message} from "../../shared/models/message.model";
-import {AuthServeces} from "../../shared/services/auth.serveces";
+import {UsersServices} from '../../shared/services/users.services';
+import {User} from '../../shared/models/user.model';
+import {Message} from '../../shared/models/message.model';
+import {AuthServeces} from '../../shared/services/auth.serveces';
 
 
 
@@ -17,7 +17,7 @@ import {AuthServeces} from "../../shared/services/auth.serveces";
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
-  message:Message;
+  message: Message;
 
   constructor(private userService: UsersServices,
               private authService: AuthServeces,
@@ -56,9 +56,10 @@ export class LoginComponent implements OnInit {
         if (user) {
           if (user.password === formData.password) {
             this.message.text = '';
-            window.localStorage.setItem('user',JSON.stringify(user));
+            window.localStorage.setItem('user', JSON.stringify(user));
             this.authService.login();
             this.router.navigate(['/vacancies']);
+
 
           } else {
             this.showMessage('incorrect password');

@@ -4,7 +4,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 import {SystemRoutingModule} from './system-routing.module';
-
 import {SystemComponent} from './system.component';
 
 import {MenuComponent} from './menu/menu.component';
@@ -19,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {FormsModule} from "@angular/forms";
 import {DxButtonModule, DxDataGridModule, DxTemplateModule} from 'devextreme-angular';
+import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import {DxButtonModule, DxDataGridModule, DxTemplateModule} from 'devextreme-ang
     SystemComponent,
     VacanciesComponent,
     InterviewComponent,
-    IdCandidateComponent
+    IdCandidateComponent,
+    UserCabinetComponent
   ],
   imports: [
     CommonModule,

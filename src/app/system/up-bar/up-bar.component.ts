@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {AuthServeces} from '../../shared/services/auth.serveces';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -8,9 +10,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UpBarComponent implements OnInit {
   @Input() public toggle: () => void;
-  constructor() { }
+  constructor(private authService: AuthServeces,
+              private router: Router
+              ) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }
