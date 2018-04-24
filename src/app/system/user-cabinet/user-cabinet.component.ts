@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 // import {FormGroup, Validators} from '@angular/forms';
 // import {Message} from '../../shared/models/message.model';
 
@@ -14,7 +14,7 @@ export class UserCabinetComponent implements OnInit {
   form: FormGroup;
   userObject: object;
   private userObject: object;
-   naqqme = 'skфывфывфывфывфывфвыфdfjsljdf';
+  naqqme = 'skфывфывфывфывфывфвыфdfjsljdf';
   private editing = true;
   private allowedToSave = true;
 
@@ -40,7 +40,11 @@ export class UserCabinetComponent implements OnInit {
 
   ngOnInit() {
     this.userObject = JSON.parse(window.localStorage.getItem('user'));
-
+    this.form = new FormGroup({
+      'name': new FormControl(null, [Validators.required, Validators.email])
+      // 'password': new FormControl(null, [Validators.required, Validators.minLength(3)])
+    });
   }
-
 }
+
+
