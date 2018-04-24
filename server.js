@@ -35,6 +35,8 @@ server.use(restify.plugins.gzipResponse());
 server.use(restify.plugins.requestLogger());
 server.get('/login', login);
 server.get('/reset', reset_password);
+server.get('/events', respond_events);
+
 server.post('/register', register);
 
 let port = process.env.PORT || 8080;
@@ -108,4 +110,11 @@ function foundUser(email) {
     }
   });
   return user;
+}
+
+
+function respond_events(req, res, next) {
+  let events = JSON.parse(fs.readFileSync('event.json', 'utf8'));
+  res.send(events);
+  next();
 }

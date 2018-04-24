@@ -16,9 +16,10 @@ import {SharedModule} from '../shared/shared.module';
 import { IdCandidateComponent } from './id-candidate/id-candidate.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import {DxButtonModule, DxDataGridModule, DxTemplateModule} from 'devextreme-angular';
 import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
+import {InterviewService} from './shared/services/interview.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
     DxDataGridModule,
     DxTemplateModule
   ],
-  providers: [],
+  providers: [InterviewService],
   bootstrap: [SystemComponent]
 
 })

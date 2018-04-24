@@ -2,6 +2,8 @@ import {Component, OnInit, ViewChild, ViewEncapsulation, Input, Output, EventEmi
 import {CalendarComponent} from 'ng-fullcalendar';
 import {Options} from 'fullcalendar';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {Interview} from '../shared/models/interview.model';
+import {InterviewService} from '../shared/services/interview.service';
 
 @Component({
   selector: 'app-interview',
@@ -12,6 +14,64 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbActiveModal]
 })
 export class InterviewComponent implements OnInit {
+
+  interviews: Interview[];
+  events: [
+    {
+      id: number,
+      title: string,
+      allDay: boolean,
+      start: Date,
+      end: Date,
+      color: string,
+      participant: string,
+      participantIndex: number,
+      location: string,
+      description: string
+    }]
+     = [
+    {
+      id: 1,
+      title: "SUPER EVENT",
+      allDay: false,
+      start: new Date("2018-04-27T15:29"),
+      end: new Date("2018-04-28T18:26"),
+      color: "#27ae60",
+      participant: "Alex Sakovsky",
+      participantIndex: 1,
+      location: "Pinsk",
+      description: "Mega ADFDSAFDSA"
+    },
+    {
+      id: 2,
+      title: "Event 2",
+      allDay: false,
+      start: new Date("2018-04-05T14:35"),
+      end: new Date("2018-04-07T18:26"),
+      color: "#f39c12",
+      participant: "Vlad Vasilyev",
+      participantIndex: 2,
+      location: "Minsk",
+      description: "Text"
+    },
+    {
+      id: 3,
+      title: "SD",
+      allDay: false,
+      start: new Date("2018-04-02T00:00"),
+      end: new Date("2018-04-03T23:59"),
+      color: "#f1c40e",
+      participant: "Nikita Senko",
+      participantIndex: 3,
+      location: "Minsk",
+      description: "Some description"
+    }
+  ];
+
+  eventsLength: number ;
+
+
+
   participants = ['Alex Sakovsky', 'Vlad Vasilyev', 'Nikita Senko', 'Petya Petrov'];
   colors: [{ name: string, code: string }] = [
     {
@@ -65,76 +125,11 @@ export class InterviewComponent implements OnInit {
   calendarOptions: Options;
   @ViewChild(CalendarComponent) ucCalendar: CalendarComponent;
 
-  constructor(private modalService: NgbModal, private activeModal: NgbActiveModal) {
+  constructor(private modalService: NgbModal,
+              private activeModal: NgbActiveModal,
+              private interviewService: InterviewService) {
   }
 
-  events: [
-    {
-      id: number,
-      title: string,
-      allDay: boolean,
-      start: Date,
-      end: Date,
-      color: string,
-      participant: string,
-      participantIndex: number,
-      location: string,
-      description: string
-    }
-    ] = [
-    {
-      id: 1,
-      title: "SUPER EVENT",
-      allDay: false,
-      start: new Date("2018-04-27T15:29"),
-      end: new Date("2018-04-28T18:26"),
-      color: "#27ae60",
-      participant: "Alex Sakovsky",
-      participantIndex: 1,
-      location: "Pinsk",
-      description: "Mega ADFDSAFDSA"
-    },
-    {
-      id: 2,
-      title: "Event 2",
-      allDay: false,
-      start: new Date("2018-04-05T14:35"),
-      end: new Date("2018-04-07T18:26"),
-      color: "#f39c12",
-      participant: "Vlad Vasilyev",
-      participantIndex: 2,
-      location: "Minsk",
-      description: "Text"
-    },
-    {
-      id: 3,
-      title: "SD",
-      allDay: false,
-      start: new Date("2018-04-02T00:00"),
-      end: new Date("2018-04-03T23:59"),
-      color: "#f1c40e",
-      participant: "Nikita Senko",
-      participantIndex: 3,
-      location: "Minsk",
-      description: "Some description"
-    }
-  ];
-
-  eventsLength: number = this.events.length;
-/*  @Output() eventsLength = this.events.length;*/
-
-  /*  @Input() event: {
-      id: number,
-      title: string,
-      allDay: boolean,
-      start: string,
-      end: string,
-      color: string,
-      participant: string,
-      participantIndex: number,
-      location: string,
-      description: string
-    };*/
   updateEventCalendar(event: {
     id: number,
     title: string,
@@ -148,11 +143,23 @@ export class InterviewComponent implements OnInit {
     description: string
   }) {
     this.ucCalendar.fullCalendar('renderEvent', event);
-    console.log(event);
+    //console.log(event);
   }
 
 
+
+
   ngOnInit() {
+
+
+    this.interviewService.getEvents()
+      .subscribe(interviews => {
+        this.interviews = interviews;
+        console.log(this.interviews);
+      });
+
+    this.eventsLength = this.events.length;
+
     this.calendarOptions = {
       /*      editable: true,*/
       eventLimit: true,
@@ -164,7 +171,7 @@ export class InterviewComponent implements OnInit {
         center: 'title',
         right: 'month,agendaWeek,agendaDay,listMonth'
       },
-      events: this.events
+      events: this.interviews
     };
   }
 
