@@ -4,6 +4,7 @@ import {Options} from 'fullcalendar';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Interview} from '../shared/models/interview.model';
 import {InterviewService} from '../shared/services/interview.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-interview',
@@ -14,63 +15,8 @@ import {InterviewService} from '../shared/services/interview.service';
   providers: [NgbActiveModal]
 })
 export class InterviewComponent implements OnInit {
-
   interviews: Interview[];
-  events: [
-    {
-      id: number,
-      title: string,
-      allDay: boolean,
-      start: Date,
-      end: Date,
-      color: string,
-      participant: string,
-      participantIndex: number,
-      location: string,
-      description: string
-    }]
-     = [
-    {
-      id: 1,
-      title: "SUPER EVENT",
-      allDay: false,
-      start: new Date("2018-04-27T15:29"),
-      end: new Date("2018-04-28T18:26"),
-      color: "#27ae60",
-      participant: "Alex Sakovsky",
-      participantIndex: 1,
-      location: "Pinsk",
-      description: "Mega ADFDSAFDSA"
-    },
-    {
-      id: 2,
-      title: "Event 2",
-      allDay: false,
-      start: new Date("2018-04-05T14:35"),
-      end: new Date("2018-04-07T18:26"),
-      color: "#f39c12",
-      participant: "Vlad Vasilyev",
-      participantIndex: 2,
-      location: "Minsk",
-      description: "Text"
-    },
-    {
-      id: 3,
-      title: "SD",
-      allDay: false,
-      start: new Date("2018-04-02T00:00"),
-      end: new Date("2018-04-03T23:59"),
-      color: "#f1c40e",
-      participant: "Nikita Senko",
-      participantIndex: 3,
-      location: "Minsk",
-      description: "Some description"
-    }
-  ];
-
-  eventsLength: number ;
-
-
+  eventsLength: number;
 
   participants = ['Alex Sakovsky', 'Vlad Vasilyev', 'Nikita Senko', 'Petya Petrov'];
   colors: [{ name: string, code: string }] = [
@@ -127,52 +73,34 @@ export class InterviewComponent implements OnInit {
 
   constructor(private modalService: NgbModal,
               private activeModal: NgbActiveModal,
-              private interviewService: InterviewService) {
+              private interviewService: InterviewService,
+              private router: Router) {
   }
 
-  updateEventCalendar(event: {
-    id: number,
-    title: string,
-    allDay: boolean,
-    start: Date,
-    end: Date,
-    color: string,
-    participant: string,
-    participantIndex: number,
-    location: string,
-    description: string
-  }) {
+  updateEventCalendar(event: Interview) {
     this.ucCalendar.fullCalendar('renderEvent', event);
-    //console.log(event);
   }
-
-
 
 
   ngOnInit() {
-
-
     this.interviewService.getEvents()
       .subscribe(interviews => {
         this.interviews = interviews;
-        console.log(this.interviews);
+        this.eventsLength = this.interviews.length;
+        this.calendarOptions = {
+          /*      editable: true,*/
+          eventLimit: true,
+          weekNumberCalculation: 'ISO',
+          selectable: true,
+          contentHeight: 'auto',
+          header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay,listMonth'
+          },
+          events: this.interviews
+        };
       });
-
-    this.eventsLength = this.events.length;
-
-    this.calendarOptions = {
-      /*      editable: true,*/
-      eventLimit: true,
-      weekNumberCalculation: 'ISO',
-      selectable: true,
-      contentHeight: 'auto',
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay,listMonth'
-      },
-      events: this.interviews
-    };
   }
 
   openSm(content, eventDetail) {
@@ -292,8 +220,8 @@ export class InterviewComponent implements OnInit {
 
   saveEvent() {
     if (!this.checkFieldsValidation()) return;
-
-    this.updateEventCalendar({
+    this.activeModal.close();
+    let event = {
       id: ++this.eventsLength,
       title: `${this.selectedTitle} - ${this.selectedParticipant}`,
       allDay: false,
@@ -304,10 +232,11 @@ export class InterviewComponent implements OnInit {
       participantIndex: this.selectedParticipantIndex,
       location: this.selectedLocation,
       description: this.selectedDescription
-    });
-
+    };
+    this.updateEventCalendar(event);
     this.clearModalWindow();
-    this.activeModal.close();
+    this.interviewService.saveEvents(event).subscribe();
+    this.router.navigate(['/interview']);
   }
 
 }
