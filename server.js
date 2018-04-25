@@ -38,14 +38,15 @@ server.get('/reset', reset_password);
 server.get('/events', respond_events);
 
 server.post('/register', register);
+server.post('/saveEvent', saveEvent);
 
 let port = process.env.PORT || 8080;
 server.listen(port);
 console.log("Server running at http://localhost:%d", port);
 
 function login(req, res, next) {
-  var email = req.query.email;
-  var user = foundUser(email);
+  let email = req.query.email;
+  let user = foundUser(email);
   res.send(user);
   // console.log(res.send(user));
   // res.send(JSON.stringify(user));
@@ -54,8 +55,8 @@ function login(req, res, next) {
 }
 
 function reset_password(req, res, next) {
-  var email = req.query.email;
-  var user = foundUser(email);
+  let email = req.query.email;
+  let user = foundUser(email);
   if (user !== undefined) {
     mailOptions = {
       from: 'HRAPP <feronodemailer@gmail.com>',
@@ -102,8 +103,8 @@ function register(req, res, next) {
 
 
 function foundUser(email) {
-  var users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
-  var user;
+  let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
+  let user;
   users.forEach(function (val) {
     if (email == val.email) {
       user = val;
@@ -116,5 +117,13 @@ function foundUser(email) {
 function respond_events(req, res, next) {
   let events = JSON.parse(fs.readFileSync('event.json', 'utf8'));
   res.send(events);
+  next();
+}
+
+function saveEvent(req, res, next) {
+  let event = JSON.parse(JSON.stringify(req.body));
+  let events = JSON.parse(fs.readFileSync('event.json', 'utf8'));
+  events.push(event);
+  fs.writeFileSync('event.json', JSON.stringify(events));
   next();
 }

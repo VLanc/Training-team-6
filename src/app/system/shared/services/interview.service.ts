@@ -18,5 +18,12 @@ export class InterviewService {
       });
   }
 
+  saveEvents(event: Interview): Observable<Interview> {
+    return this.http.post<Interview>(this.url+'saveEvent', event);
+  }
+
+
+
+
 
 }
