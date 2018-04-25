@@ -44,7 +44,24 @@
 .user-field-role,
 .user-field-email {
   text-transform: none;
+  padding-top: 7px;
+  font-size: 1rem;
+  color: #495057;
 }
+
+.read-only-form-field {
+  margin-bottom: -10px;
+}
+
+hr {
+  color: #ced4da;
+}
+
+.warning {
+  font-size: 9px;
+  color: #ff0000;
+}
+
 
 /*.user-name.invalid,*/
 /*.user-surname.invalid,*/

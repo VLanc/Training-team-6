@@ -5,7 +5,7 @@
         <h2 class="user-cabinet-title">Your cabinet</h2>
 
         <!--<div class="alert alert-success successful-saving hidden" role="alert"> &lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-          <!--Your changes were successfully saved-->
+        <!--Your changes were successfully saved-->
         <!--</div>&lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
 
         <div class="form-group">
@@ -17,62 +17,115 @@
         </div>
 
         <div class="form-group" id="user-name-field">
-            <label for="user-name" class="user-field-title">Name</label>
+          <label for="user-name" class="user-field-title">Name</label>
+          <div
+            *ngIf="editing; else  editingName"
+            class="user-field-name">
+            <p class="read-only-form-field">{{user.name || textForEmptyField}}</p>
+            <hr>
+          </div>
+          <ng-template # #editingName>
             <input
               type="text"
               class="form-control user-name"
               id="user-name"
               formControlName="name"
+              [(ngModel)] = "user.name"
             >
+            <span
+              *ngIf="form.get('name').invalid && form.get('name').touched"
+              class="warning"
+              >{{textErrorForNames}}</span>
+          </ng-template>
         </div>
 
         <div class="form-group">
-            <label for="user-surname" class="user-field-title">Surname</label>
+          <label for="user-surname" class="user-field-title">Surname</label>
+          <div
+            *ngIf="editing; else  editingSurname"
+            class="user-field-surname">
+            <p class="read-only-form-field">{{user.surname || textForEmptyField}}</p>
+            <hr>
+          </div>
+          <ng-template #editingSurname>
             <input
               type="text"
               class="form-control user-surname"
               id="user-surname"
               placeholder="Enter your surname"
+              formControlName="surname"
+              [(ngModel)] = "user.surname"
             >
+            <span
+              *ngIf="form.get('surname').invalid && form.get('surname').touched"
+              class="warning"
+            >{{textErrorForNames}}</span>
+          </ng-template>
         </div>
 
         <div class="form-group">
-            <label for="role-select" class="user-field-title">Role</label>
-            <select class="custom-select" id="role-select">
+          <label for="role-select" class="user-field-title">Role</label>
+          <div
+            *ngIf="editing; else  editingRole"
+            class="user-field-role">
+            <p class="read-only-form-field">{{this.processingRole() || textForEmptyField}}</p>
+            <hr>
+          </div>
+          <ng-template #editingRole>
+            <select
+              class="custom-select"
+              id="role-select"
+              formControlName="roleIndex"
+              [(ngModel)] = "user.roleIndex"
+            >
               <option value="" disabled selected>Choose a role</option>
-              <option value="1">Manager</option>
-              <option value="2">Developer</option>
+              <option value="1">Developer</option>
+              <option value="2">Manager</option>
             </select>
+          </ng-template>
         </div>
 
         <div class="form-group">
-            <label for="user-email" class="user-field-title">Email</label>
+          <label for="user-email" class="user-field-title">Email</label>
+          <div
+            *ngIf="editing; else  editingEmail"
+            class="user-field-email">
+            <p class="read-only-form-field">{{user.email || textForEmptyField}}</p>
+            <hr>
+          </div>
+          <ng-template #editingEmail>
             <input
               type="email"
               class="form-control user-email"
               id="user-email"
               placeholder="Enter your email"
+              formControlName="email"
+              [(ngModel)] = "user.email"
             >
+            <span
+              *ngIf="form.get('email').invalid && form.get('email').touched"
+              class="warning"
+            >{{textErrorForEmail}}</span>
+          </ng-template>
         </div>
+
 
         <button
           class="btn btn-primary edit-user-info-button"
           *ngIf="editing; else  editingStatus" (click)="editProfile()">Edit
         </button>
 
+
         <ng-template # #editingStatus>
           <button
             type="submit"
-            class="btn btn-primary save-user-info-button">Save </button>
-          <!--[disabled]="allowedToSave" (click)="saveProfile()">Save-->
-          <!--(click)="saveProfile()">Save-->
-          <!--</button>-->
+            class="btn btn-primary save-user-info-button"
+            [disabled]="form.invalid"
+          >Save
+          </button>
         </ng-template>
 
       </form>
-
-
-
 
 
     </div>
