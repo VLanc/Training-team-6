@@ -1,1 +1,26 @@
-[{"id":1,"title":"test 4 - Alex Sakovsky","allDay":false,"start":"2018-04-12T21:00:00.000Z","end":"2018-04-13T20:59:00.000Z","color":"#3a87ad","participant":"Alex Sakovsky","participantIndex":1,"location":"","description":""},{"id":2,"title":"test3 - Alex Sakovsky","allDay":false,"start":"2018-04-03T21:00:00.000Z","end":"2018-04-04T20:59:00.000Z","color":"#3a87ad","participant":"Alex Sakovsky","participantIndex":1,"location":"","description":""},{"id":3,"title":"dsfdsaf - Petya Petrov","allDay":false,"start":"2018-04-04T21:00:00.000Z","end":"2018-04-05T20:59:00.000Z","color":"#e74c3c","participant":"Petya Petrov","participantIndex":4,"location":"","description":"adsfdsafdsaf"},{"id":4,"title":"dsfdsafdsafdsa - Alex Sakovsky","allDay":false,"start":"2018-04-05T22:59:00.000Z","end":"2018-04-07T20:59:00.000Z","color":"#3a87ad","participant":"Alex Sakovsky","participantIndex":1,"location":"","description":""},{"id":5,"title":"dsafdsaf - Petya Petrov","allDay":false,"start":"2018-04-10T21:00:00.000Z","end":"2018-04-11T20:59:00.000Z","color":"#3a87ad","participant":"Petya Petrov","participantIndex":4,"location":"","description":""},{"id":6,"title":"sdafdsaf - Alex Sakovsky","allDay":false,"start":"2018-04-25T00:51:18.734Z","end":"2018-04-25T00:51:18.734Z","color":"#3a87ad","participant":"Alex Sakovsky","participantIndex":1,"location":"","description":""},{"id":7,"title":"1 - Vlad Vasilyev","allDay":false,"start":"2018-03-28T21:00:00.000Z","end":"2018-03-29T20:59:00.000Z","color":"#27ae60","participant":"Vlad Vasilyev","participantIndex":2,"location":"","description":""}]
+[
+  {
+    "id": 1,
+    "title": "test 4 - Alex Sakovsky",
+    "allDay": false,
+    "start": "2018-04-12T21:00:00.000Z",
+    "end": "2018-04-13T20:59:00.000Z",
+    "color": "#3a87ad",
+    "participant": "Alex Sakovsky",
+    "participantIndex": 1,
+    "location": "",
+    "description": ""
+  },
+  {
+    "id": 2,
+    "title": "test3 - Alex Sakovsky",
+    "allDay": false,
+    "start": "2018-04-03T21:00:00.000Z",
+    "end": "2018-04-04T20:59:00.000Z",
+    "color": "#3a87ad",
+    "participant": "Alex Sakovsky",
+    "participantIndex": 1,
+    "location": "",
+    "description": ""
+  }
+]
