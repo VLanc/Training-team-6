@@ -16,3 +16,7 @@
 .menu li {
   list-style-type: none;
 }
+
+.active {
+  background-color: #c6c8ca;
+}
