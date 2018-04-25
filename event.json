@@ -31,7 +31,7 @@
     "end": "2018-03-03T23:59",
     "color": "rgb(231, 76, 60)",
     "participant": "девятый",
-    "participantIndex": "8",
+    "participantIndex": "1",
     "location": "",
     "description": ""
   },
@@ -43,7 +43,7 @@
     "end": "2018-03-27T23:59",
     "color": "rgb(241, 196, 14)",
     "participant": "девятый",
-    "participantIndex": "8",
+    "participantIndex": "3",
     "location": "Pinsk",
     "description": "test"
   },
@@ -55,7 +55,7 @@
     "end": "2018-04-11T23:59",
     "color": "rgb(149, 165, 166)",
     "participant": "Иван Иванов",
-    "participantIndex": "15",
+    "participantIndex": "4",
     "location": "",
     "description": ""
   }

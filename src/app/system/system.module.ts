@@ -14,11 +14,12 @@ import {FullCalendarModule} from 'ng-fullcalendar';
 import {AuthServeces} from '../shared/services/auth.serveces';
 import {SharedModule} from '../shared/shared.module';
 import { IdCandidateComponent } from './id-candidate/id-candidate.component';
-import { InterviewModalComponent } from './interview-modal/interview-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {FormsModule} from '@angular/forms';
+import {DxButtonModule, DxDataGridModule, DxTemplateModule} from 'devextreme-angular';
 import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
+import {InterviewService} from './shared/services/interview.service';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,7 @@ import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
     VacanciesComponent,
     InterviewComponent,
     IdCandidateComponent,
-    UserCabinetComponent,
-    InterviewModalComponent
+    UserCabinetComponent
   ],
   imports: [
     CommonModule,
@@ -40,9 +40,12 @@ import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
     FormsModule,
     NgbModule.forRoot(),
     OwlDateTimeModule,
-    OwlNativeDateTimeModule
+    OwlNativeDateTimeModule,
+    DxButtonModule,
+    DxDataGridModule,
+    DxTemplateModule
   ],
-  providers: [],
+  providers: [InterviewService],
   bootstrap: [SystemComponent]
 
 })
