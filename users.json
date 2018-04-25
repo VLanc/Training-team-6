@@ -2,11 +2,11 @@
   {
     "email": "test@mail.ru",
     "password": "123",
-    "role": "Manager",
+    "role": "dev",
     "roleIndex": "1",
-    "name": "test",
-    "surname": "test",
-    "photo": "./assets/images/4.png"
+    "name": "test123123",
+    "surname": "test123123",
+    "photo": ""
   },
   {
     "email": "111@mail.ru",
