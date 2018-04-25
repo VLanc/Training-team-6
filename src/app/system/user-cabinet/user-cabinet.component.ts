@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../shared/models/user.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UsersServices} from '../../shared/services/users.services';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class UserCabinetComponent implements OnInit {
   private editing = true;
 
 
-  constructor() {
+  constructor(private userService: UsersServices) {
   }
 
   editProfile(): void {
@@ -33,7 +34,13 @@ export class UserCabinetComponent implements OnInit {
         this.user[field].trim();
       }
     }
+    if (this.user.roleIndex == 2){
+      this.user.role='Developer';
+    } else {
+      this.user.role='Manager';
+    }
     window.localStorage.setItem('user', JSON.stringify(this.user));
+    this.userService.saveUserChanges(this.user).subscribe();
   }
 
   onSubmit(): void {
@@ -43,10 +50,10 @@ export class UserCabinetComponent implements OnInit {
 
   processingRole() {
     /*TODO this is a hardcode*/
-    if (this.user.roleIndex === '1') {
-      return 'developer';
+    if (this.user.roleIndex == 1) {
+      return 'Developer';
     } else {
-      return 'manager';
+      return 'Manager';
     }
     /*END of hardcode*/
   }
@@ -60,7 +67,6 @@ export class UserCabinetComponent implements OnInit {
       'roleIndex': new FormControl(null, [Validators.required, Validators.minLength(1)]),
       'email': new FormControl(null, [Validators.required, Validators.email])
     });
-// >>>>>>> 563fe1275cac8c098d170352210ccda1103371cc
   }
 }
 

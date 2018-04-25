@@ -36,7 +36,10 @@ server.use(restify.plugins.requestLogger());
 server.get('/login', login);
 server.get('/reset', reset_password);
 server.get('/events', respond_events);
+server.get('/vacancies', vacancies);
+server.get('/candidates', candidates)
 
+server.post('/saveUser', saveUser);
 server.post('/register', register);
 server.post('/saveEvent', saveEvent);
 
@@ -125,5 +128,33 @@ function saveEvent(req, res, next) {
   let events = JSON.parse(fs.readFileSync('event.json', 'utf8'));
   events.push(event);
   fs.writeFileSync('event.json', JSON.stringify(events));
+  next();
+}
+
+
+function vacancies(req, res, next) {
+  let obj = JSON.parse(fs.readFileSync('vacancies.json', 'utf8'));
+  res.send(obj);
+  next();
+}
+
+function saveUser(req, res, next) {
+  let user = JSON.parse(JSON.stringify(req.body));
+  let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
+  let newUsers = users.map(function (val) {
+    if (val.email == user.email) {
+      val = user;
+      flag = true;
+      return val;
+    }
+    return val;
+  });
+  fs.writeFileSync('users.json', JSON.stringify(newUsers));
+  next();
+}
+
+function candidates(req, res, next) {
+  let candidates = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
+  res.send(candidates);
   next();
 }

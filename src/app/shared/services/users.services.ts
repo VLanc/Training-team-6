@@ -31,5 +31,9 @@ export class UsersServices {
       });
   }
 
+  saveUserChanges(user: User): Observable<User> {
+    return this.http.post<User>(this.url + 'saveUser', user);
+  }
+
 
 }

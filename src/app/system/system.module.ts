@@ -20,6 +20,9 @@ import {FormsModule} from '@angular/forms';
 import {DxButtonModule, DxDataGridModule, DxTemplateModule} from 'devextreme-angular';
 import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
 import {InterviewService} from './shared/services/interview.service';
+import {VacanciesService} from './shared/services/vacancies.service';
+import { CandidatesComponent } from './candidates/candidates.component';
+import {CandidatesService} from './shared/services/candidates.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import {InterviewService} from './shared/services/interview.service';
     VacanciesComponent,
     InterviewComponent,
     IdCandidateComponent,
-    UserCabinetComponent
+    UserCabinetComponent,
+    CandidatesComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +49,11 @@ import {InterviewService} from './shared/services/interview.service';
     DxDataGridModule,
     DxTemplateModule
   ],
-  providers: [InterviewService],
+  providers: [
+    InterviewService,
+    VacanciesService,
+    CandidatesService
+  ],
   bootstrap: [SystemComponent]
 
 })
