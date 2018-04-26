@@ -26,10 +26,6 @@ export class VacanciesComponent implements OnInit {
     this.vacanciesService.getVacancies()
       .subscribe(vacancies => {
         this.vacancies = vacancies;
-        /*      this.vacancies.map(function (value) {
-                value.date = new Date(value.date);
-              });*/
-
         for (let i = 0; i < this.vacancies.length; i++) {
 
           let now: number = new Date().getTime() / 1000;
