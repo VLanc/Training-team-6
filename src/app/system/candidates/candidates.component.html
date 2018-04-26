@@ -1,3 +1,30 @@
-<p>
-  candidates works!
-</p>
+<p class="filter-by-status">Filter by status</p>
+<div class="left-side">
+  <dx-select-box (onValueChanged)="selectCandidateStatus($event)"
+                 [items]="candidatesStatuses"
+                 placeholder="Select status...">
+  </dx-select-box>
+</div>
+<dx-data-grid id="gridContainer" [dataSource]="candidates" [columnMinWidth]="100">
+  <dxo-paging [pageSize]="10"></dxo-paging>
+  <dxo-pager [showPageSizeSelector]="true"
+             [allowedPageSizes]="[10, 20, 50]"
+             [showNavigationButtons]="true">
+  </dxo-pager>
+  <dxo-filter-row [visible]="true"></dxo-filter-row>
+  <dxi-column dataField="photo" [width]="100" [allowFiltering]="false"
+              [allowSorting]="false" cellTemplate="cellTemplate"></dxi-column>
+  <dxi-column dataField="name"></dxi-column>
+  <dxi-column dataField="position"></dxi-column>
+  <dxi-column dataField="status"></dxi-column>
+  <dxi-column dataField="salary"></dxi-column>
+  <dxi-column dataField="date"></dxi-column>
+  <div *dxTemplate="let data of 'cellTemplate'">
+    <div>
+      <a routerLink="/id-candidate" routerLinkActive="active" class="candidate-avatar-wrapper">
+
+        <img [src]="'../../../assets/images/' + data.value + '.png'" alt="" class="candidate-avatar">
+      </a>
+    </div>
+  </div>
+</dx-data-grid>

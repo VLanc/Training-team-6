@@ -63,7 +63,7 @@
 
 @media only screen and (max-device-width: 767px) {
   .find-bar__string {
-    width: calc(82% - 180px);
+    width: calc(81% - 180px);
   }
 }
 

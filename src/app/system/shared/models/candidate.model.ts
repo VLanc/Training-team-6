@@ -1,7 +1,7 @@
 export class Candidate {
   constructor(
     public id: number,
-    public date: Date,
+    public date: string,
     public position: string,
     public status: string,
     public name: string,

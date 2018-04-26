@@ -4,6 +4,6 @@ export class Vacancy {
     public position: string,
     public experience: string,
     public salary: string,
-    public date: Date
+    public date: string
   ) {}
 }
