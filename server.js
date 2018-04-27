@@ -37,7 +37,8 @@ server.get('/login', login);
 server.get('/reset', reset_password);
 server.get('/events', respond_events);
 server.get('/vacancies', vacancies);
-server.get('/candidates', candidates)
+server.get('/candidates', candidates);
+server.get('/positions', positions);
 
 server.post('/saveUser', saveUser);
 server.post('/register', register);
@@ -156,5 +157,11 @@ function saveUser(req, res, next) {
 function candidates(req, res, next) {
   let candidates = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
   res.send(candidates);
+  next();
+}
+
+function positions(req, res, next) {
+  let positions = JSON.parse(fs.readFileSync('positions.json', 'utf8'));
+  res.send(positions);
   next();
 }

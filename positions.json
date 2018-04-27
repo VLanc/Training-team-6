@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "JAVA DEVELOPER"
+  },
+  {
+    "id": 2,
+    "name": "TEAM LEAD"
+  },
+  {
+    "id": 3,
+    "name": ".NET DEVELOPER"
+  },
+  {
+    "id": 4,
+    "name": "JAVASCRIPT DEVELOPER"
+  },
+  {
+    "id": 5,
+    "name": "RUBY DEVELOPER"
+  }
+]

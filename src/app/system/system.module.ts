@@ -23,6 +23,7 @@ import {InterviewService} from './shared/services/interview.service';
 import {VacanciesService} from './shared/services/vacancies.service';
 import { CandidatesComponent } from './candidates/candidates.component';
 import {CandidatesService} from './shared/services/candidates.service';
+import {PositionService} from './shared/services/position.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {CandidatesService} from './shared/services/candidates.service';
   providers: [
     InterviewService,
     VacanciesService,
-    CandidatesService
+    CandidatesService,
+    PositionService
   ],
   bootstrap: [SystemComponent]
 

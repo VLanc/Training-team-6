@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Vacancy} from '../shared/models/vacancy.model';
 import {VacanciesService} from '../shared/services/vacancies.service';
+import {PositionService} from '../shared/services/position.service';
+import {Position} from '../shared/models/position.model';
 
 
 @Component({
@@ -10,8 +12,10 @@ import {VacanciesService} from '../shared/services/vacancies.service';
 })
 export class VacanciesComponent implements OnInit {
   vacancies: Vacancy[];
+  positions: Position[];
 
-  constructor(private vacanciesService: VacanciesService) {
+  constructor(private vacanciesService: VacanciesService,
+              private positionService: PositionService) {
   }
 
   getWeek(num) {
@@ -35,6 +39,11 @@ export class VacanciesComponent implements OnInit {
           else if (7 < dateOfAddVacancy && 27 > dateOfAddVacancy) this.vacancies[i].date = 'about ' + this.getWeek(dateOfAddVacancy) + ' week' + this.getEnding(this.getWeek(dateOfAddVacancy)) + ' later';
           else if (27 < dateOfAddVacancy) this.vacancies[i].date = 'a month ago';
         }
+      });
+    this.positionService.getPositions()
+      .subscribe(positions => {
+        this.positions = positions;
+        console.log(this.positions);
       })
 
   }
