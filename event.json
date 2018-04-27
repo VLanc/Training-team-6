@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "title": "test 4 - Alex Sakovsky",
+    "allDay": false,
+    "start": "2018-04-14T21:00:00.000Z",
+    "end": "2018-04-15T20:59:00.000Z",
+    "color": "#e74c3c",
+    "participant": "Alex Sakovsky",
+    "participantIndex": 1,
+    "location": "",
+    "description": ""
+  },
+  {
+    "id": 2,
+    "title": "test3 - Petya Petrov",
+    "allDay": false,
+    "start": "2018-04-05T21:00:00.000Z",
+    "end": "2018-04-06T20:59:00.000Z",
+    "color": "#3a87ad",
+    "participant": "Petya Petrov",
+    "participantIndex": 4,
+    "location": "",
+    "description": ""
+  },
+  {
+    "id": 3,
+    "title": "test2 - Nikita Senko",
+    "allDay": false,
+    "start": "2018-04-17T21:00:00.000Z",
+    "end": "2018-04-19T20:59:00.000Z",
+    "color": "#f39c12",
+    "participant": "Nikita Senko",
+    "participantIndex": 3,
+    "location": "",
+    "description": ""
+  },
+  {
+    "id": 4,
+    "title": "test5 - Vlad Vasilyev",
+    "allDay": false,
+    "start": "2018-04-10T21:00:00.000Z",
+    "end": "2018-04-11T20:59:00.000Z",
+    "color": "#9b59b6",
+    "participant": "Vlad Vasilyev",
+    "participantIndex": 2,
+    "location": "",
+    "description": ""
+  },
+  {
+    "id": 5,
+    "title": "lol - Alex Sakovsky",
+    "allDay": false,
+    "start": "2018-04-03T14:59:00.000Z",
+    "end": "2018-04-03T20:59:00.000Z",
+    "color": "#e74c3c",
+    "participant": "Alex Sakovsky",
+    "participantIndex": 1,
+    "location": "",
+    "description": ""
+  },
+  {
+    "id": 6,
+    "title": "qwerty - Nikita Senko",
+    "allDay": false,
+    "start": "2018-04-04T16:59:00.000Z",
+    "end": "2018-04-04T20:59:00.000Z",
+    "color": "#3498db",
+    "participant": "Nikita Senko",
+    "participantIndex": 3,
+    "location": "",
+    "description": "gfdhgfdhgfdh"
+  },
+  {
+    "id": 7,
+    "title": "fdshgsfdhgfshg - Nikita Senko",
+    "allDay": false,
+    "start": "2018-04-26T15:10:11.869Z",
+    "end": "2018-04-01T15:10:11.000Z",
+    "color": "#3a87ad",
+    "participant": "Nikita Senko",
+    "participantIndex": 3,
+    "location": "",
+    "description": ""
+  }
+]
