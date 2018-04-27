@@ -12,10 +12,12 @@ import {UsersServices} from '../../shared/services/users.services';
 export class UserCabinetComponent implements OnInit {
   form: FormGroup;
   user: User;
-  private textForEmptyField = 'You haven\`t filled this field yet';
-  private textErrorForNames = 'field is empty or less than two characters';
-  private textErrorForRole = 'field is empty or less than two characters';
-  private textErrorForEmail = 'field is empty or is not email';
+  private email;
+  public textForEmptyField = 'You haven\`t filled this field yet';
+  public textErrorForNames = 'field is empty or less than two characters';
+  public textErrorForRole = 'field is empty or less than two characters';
+  public textErrorForEmail = 'field is empty or is not email';
+  public textBusyEmail = 'This email is busy';
   public editing = true;
 
 
@@ -29,15 +31,21 @@ export class UserCabinetComponent implements OnInit {
 
   saveProfile(): void {
     this.processingRole();
+
     for (const field in this.user) {
       if (this.user.hasOwnProperty(field) && this.user[field]) {
-        this.user[field].trim();
+        if (field == 'id') {
+
+        } else {
+          this.user[field].trim();
+        }
+
       }
     }
-    if (this.user.roleIndex == 2){
-      this.user.role='Developer';
+    if (this.user.roleIndex == 2) {
+      this.user.role = 'Developer';
     } else {
-      this.user.role='Manager';
+      this.user.role = 'Manager';
     }
     window.localStorage.setItem('user', JSON.stringify(this.user));
     this.userService.saveUserChanges(this.user).subscribe();
@@ -60,14 +68,32 @@ export class UserCabinetComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(window.localStorage.getItem('user'));
+    this.email = this.user.email;
     this.processingRole();
     this.form = new FormGroup({
-      'name': new FormControl(null, [Validators.required, Validators.minLength(2)]),
+      'name': new FormControl(null, [Validators.required, Validators.minLength(2)], ),
       'surname': new FormControl(null, [Validators.required, Validators.minLength(2)]),
       'roleIndex': new FormControl(null, [Validators.required, Validators.minLength(1)]),
-      'email': new FormControl(null, [Validators.required, Validators.email])
+      'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails.bind(this))
     });
   }
+
+  forbiddenEmails(control: FormControl): Promise<any> {
+    return new Promise((resolve => {
+      this.userService.getUserByEmail(control.value)
+        .subscribe((user2: User) => {
+          if (user2) {
+            if (this.email != user2.email) {
+              resolve({forbiddenEmail: true});
+            }
+
+          } else {
+            resolve(null);
+          }
+        });
+    }));
+  }
 }
+
 
 

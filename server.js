@@ -88,6 +88,8 @@ function register(req, res, next) {
     next();
   } else {
     let newUser = {};
+    let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
+    newUser.id=users.length+1;
     newUser.email = user.email;
     newUser.password = user.password;
     newUser.role = "";
@@ -95,7 +97,6 @@ function register(req, res, next) {
     newUser.name = "";
     newUser.surname = "";
     newUser.photo = "";
-    let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
     users.push(newUser);
     fs.writeFileSync('users.json', JSON.stringify(users));
     res.send(newUser);
@@ -142,9 +143,8 @@ function saveUser(req, res, next) {
   let user = JSON.parse(JSON.stringify(req.body));
   let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
   let newUsers = users.map(function (val) {
-    if (val.email == user.email) {
+    if (val.id == user.id) {
       val = user;
-      flag = true;
       return val;
     }
     return val;
