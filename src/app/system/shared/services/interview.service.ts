@@ -7,7 +7,7 @@ import {Interview} from '../models/interview.model';
 @Injectable()
 export class InterviewService {
 
-  url = 'http://localhost:8080/';
+  url = 'https://hrapp-mifort.herokuapp.com/';
   constructor(private http: HttpClient) {}
 
 

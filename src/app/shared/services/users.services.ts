@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UsersServices {
 
-  url = 'http://localhost:8080/';
+  url = 'https://hrapp-mifort.herokuapp.com/';
   constructor(private http: HttpClient) {}
 
   getUserByEmail(email: string): Observable<User> {

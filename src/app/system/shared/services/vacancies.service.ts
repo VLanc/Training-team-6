@@ -5,7 +5,7 @@ import {Vacancy} from '../models/vacancy.model';
 
 @Injectable()
 export class VacanciesService {
-  url = 'http://localhost:8080/';
+  url = 'https://hrapp-mifort.herokuapp.com/';
   constructor(private http: HttpClient) {}
 
   getVacancies(): Observable<Vacancy[]>{

@@ -9,7 +9,7 @@ export class CandidatesService {
   constructor(private http: HttpClient){
   }
 
-  url = 'http://localhost:8080/';
+  url = 'https://hrapp-mifort.herokuapp.com/';
   getCandidates():Observable<Candidate[]>{
     return this.http.get<Candidate[]>(this.url+'candidates')
       .map(data => {
