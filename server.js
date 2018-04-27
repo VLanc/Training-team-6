@@ -14,7 +14,7 @@ transporter = nodemailer.createTransport({
 });
 let server = restify.createServer();
 const cors = corsMiddleware({
-  origins: ['http://localhost:4200'],
+  origins: ['*'],
   allowHeaders: ['*'],
   exposeHeaders: []
 });

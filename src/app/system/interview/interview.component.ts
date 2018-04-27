@@ -103,7 +103,7 @@ export class InterviewComponent implements OnInit {
       });
   }
 
-  openSm(content, eventDetail) {
+  openSm(content, eventDetail?) {
     if (eventDetail) {
       this.selectedStartDate = new Date(eventDetail.date._d.setHours(0, 0));
       this.selectedEndDate = new Date(eventDetail.date._d.setHours(23, 59));
