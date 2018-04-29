@@ -1,0 +1,23 @@
+<div *ngFor="let experienceUnit of experience" class="timeLine__unit">
+  <div class="timeLine__unit__left-information">
+    <div class="timeLine__unit__left-information__date">
+      {{experienceUnit.timeStart}} - {{experienceUnit.timeEnd}}
+    </div>
+    <div class="timeLine__unit__left-information__position">
+      {{experienceUnit.position}}
+    </div>
+  </div>
+
+  <div class="timeLine__unit__diagram">
+    <div class="timeLine__unit__diagram__dot"></div>
+    <div class="timeLine__unit__diagram__line__job"></div>
+  </div>
+
+  <div class="timeLine__unit__right-information">
+    <div class="timeLine__unit__right-information__name-of-place">
+      {{experienceUnit.company}}
+    </div>
+    <div class="timeLine__unit__right-information__responsibility">
+      {{experienceUnit.responsibility}}</div>
+  </div>
+</div>

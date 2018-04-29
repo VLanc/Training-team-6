@@ -1,0 +1,96 @@
+/******* right block *******/
+
+.experience {
+  position: relative;
+  border-left: 2px solid #e9e9e9;
+}
+
+.timeLine {
+  word-wrap: break-word;
+  text-transform: none;
+  margin-bottom: 38px;
+}
+
+.timeLine__unit {
+  margin-top: 6px;
+  display: flex;
+}
+
+.timeLine__unit__left-information{
+  margin-right: 10px;
+  float: left;
+  width: 26%;
+  display:inLine;
+  font-size: 13px;
+  font-weight: bold;
+
+}
+.timeLine__unit__left-information__date{
+  float: right;
+  min-width: 63%;
+  max-width: 90%;
+  border: 2px solid #c8c8c8;
+  border-radius: 15px;
+  padding: 3px;
+  text-align: center;
+
+}
+.timeLine__unit__left-information__position {
+  max-width: 100%;
+  float: right;
+  color: #828282;
+  padding: 6px;
+  text-align: right;
+}
+.timeLine__unit__diagram{
+  float: left;
+  width: 24px;
+  display:inLine;
+
+}
+.timeLine__unit__diagram__dot{
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #c8c8c8;
+}
+
+.timeLine__unit__diagram__line__job{
+  width: 2px;
+  border: 1px solid #c8c8c8;
+  height: calc(100% - 12px);
+  margin: 0 auto;
+}
+
+.timeLine__unit__diagram__line__job:nth-last-of-type(3){
+  display:none;
+}
+
+.timeLine__unit__diagram__line__study{
+  width: 2px;
+  border: 1px dotted #c8c8c8;
+  height: calc(100% - 12px);
+  margin: 0 auto;
+}
+
+.timeLine__unit__right-information{
+  margin-left: 10px;
+  float: left;
+  max-width: calc(74% - 34px);
+  min-width: calc(74% - 34px);
+  display:inLine;
+  border: 2px solid #c8c8c8;
+  border-radius: 15px;
+  padding: 13px;
+}
+
+.timeLine__unit__right-information__name-of-place{
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: underLine;
+}
+
+.timeLine__unit__right-information__responsibility{
+  font-size: 14px;
+}
