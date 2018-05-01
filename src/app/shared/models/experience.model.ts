@@ -1,9 +1,11 @@
 export class Experience {
   constructor(
-    public id: number,
-    public time: string,
-    public position: string,
-    public positionHeader: string,
-    public positionBody: string,
+        public id: number,
+        public timeStart: string,
+        public timeEnd: string,
+        public position: string,
+        public place: string,
+        public company: string,
+        public responsibility: string
   ) {}
 }

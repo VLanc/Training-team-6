@@ -154,6 +154,11 @@ h6 {
 /******* left block END *******/
 
 /******* right block *******/
+.experience {
+  position: relative;
+  border-left: 2px solid #e9e9e9;
+}
+
 .skills-delimiter {
   border-top: 2px solid #e9e9e9;
 }
@@ -212,16 +217,6 @@ h6 {
 
 .buttons__add-experiences-and-skills:active {
   box-shadow: none;
-}
-
-@media screen and (max-device-width: 991px) {
-  .delimiter {
-    border-top: 2px solid #e9e9e9;
-  }
-
-  .experience {
-    border: none;
-  }
 }
 
 /******* ONLY modal windows ******/
@@ -313,3 +308,14 @@ h6 {
   width: 100%;
 }
 /****** ONLY modal wondows END ******/
+
+
+@media screen and (max-device-width: 991px) {
+  .delimiter {
+    border-top: 2px solid #e9e9e9;
+  }
+
+  .experience {
+    border: none;
+  }
+}

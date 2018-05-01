@@ -10,7 +10,7 @@ import {Experience} from '../../../shared/models/experience.model';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent {
-  experience: Experience;
+  // experience: Experience;
   public experience = [
     {
       'id': 1,
@@ -19,7 +19,7 @@ export class ExperienceComponent {
       'position': 'Learn Java Developer',
       'place': "Минск",
       'company': 'Itransition Group Ltd.',
-      'responsibility': 'WEB Development, work with server side logic, take part in search engine development and optimization'
+      'responsibility': 'WEB Development, wвпавпвшрь шкьрешгерьиншг кернрш гернкшгрешн ркшерншкреш кшреншкрешнрк шрнкренршкренк ршншгкренркшнр шкреншркшеншкр ешнркшеншкрешork with server side logic, take part in search engine development and optimization'
     },
     {
       'id': 2,
@@ -31,25 +31,29 @@ export class ExperienceComponent {
       'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
     }
   ];
-  // private experience = [
-  //   {
-  //     'id': 1,
-  //     'time': 'Apr 2015 – Now',
-  //     'position': 'Learn Java Developer',
-  //     'positionHeader': 'Itransition Group Ltd.',
-  //     'positionBody': 'WEB Development, work with server side logic, take part in search engine development and optimization'
-  //   }
-  // ];
 
-  // education: object = [
-  //   {
-  //     'time': 'Oct 2012 – Mar 2015<br>(2 year 7 month)',
-  //     'position': 'STUDENT',
-  //     'positionHeader': 'BSUIR',
-  //     'positionBody': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
-  //   }
-  // ];
-  experienceForms: any = {};
+  education: object = [
+    {
+      'id': 1,
+      'timeStart': 'Oct 2012',
+      'timeEnd': 'Mar 2015',
+      'position': 'STUDENT',
+      'place': "Минск",
+      'company': 'BSUIR',
+      'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
+    },
+    {
+      'id': 2,
+      'timeStart': 'Oct 2012',
+      'timeEnd': 'Mar 2015',
+      'position': 'STUDENT',
+      'place': "Минск",
+      'company': 'BSUIR',
+      'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
+    }
+  ];
+
+  experienceForms: any = [];
   // educationForms : FormGroup;
 
 
@@ -68,18 +72,18 @@ export class ExperienceComponent {
    // });
 
 
-      this.experience.forEach( (experienceUnit) => {
-
-      this.experienceForms[experienceUnit.id] = new FormGroup({
-        'timeStart': new FormControl(experienceUnit.timeStart, [Validators.required]),
-        'timeEnd': new FormControl(experienceUnit.timeEnd, [Validators.required]),
-        'position': new FormControl(experienceUnit.position, [Validators.required]),
-        'place': new FormControl(experienceUnit.place, [Validators.required]),
-        'company': new FormControl(experienceUnit.company, [Validators.required]),
-        'responsibility': new FormControl(experienceUnit.responsibility, [Validators.required])
-      });
-    });
-    console.log(this.experienceForms);
+    //   this.experience.forEach( (experienceUnit) => {
+    //
+    //   this.experienceForms[experienceUnit.id - 1] = new FormGroup({
+    //     'timeStart': new FormControl(experienceUnit.timeStart, [Validators.required]),
+    //     'timeEnd': new FormControl(experienceUnit.timeEnd, [Validators.required]),
+    //     'position': new FormControl(experienceUnit.position, [Validators.required]),
+    //     'place': new FormControl(experienceUnit.place, [Validators.required]),
+    //     'company': new FormControl(experienceUnit.company, [Validators.required]),
+    //     'responsibility': new FormControl(experienceUnit.responsibility, [Validators.required])
+    //   });
+    // });
+    // console.log(this.experienceForms);
 
 
 
