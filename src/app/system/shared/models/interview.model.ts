@@ -6,8 +6,8 @@ export class Interview  {
     public start: Date,
     public end: Date,
     public color: string,
-    public participant: string,
-    public participantIndex: number,
+    public participants: object[],
+    public interviewers: object[],
     public location: string,
     public description: string
   ) {}

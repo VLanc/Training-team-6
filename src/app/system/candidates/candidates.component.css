@@ -8,13 +8,13 @@
   display: inline-block;
 }
 
-.filter-by-status {
+/*.filter-by-status {
   display: inline-block;
   position: relative;
   top: -11px;
   margin: 5px;
   text-transform: none;
-}
+}*/
 
 @media only screen and (max-device-width: 320px) and (orientation: portrait) {
   .filter-by-status {

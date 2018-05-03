@@ -1,3 +1,10 @@
+<div class="left-side">
+  <p class="filter-by-title">Filter by experience</p>
+  <dx-select-box (onValueChanged)="selectVacancyExperience($event)"
+                 [items]="vacancyExperiences"
+                 placeholder="Select experience...">
+  </dx-select-box>
+</div>
 <dx-data-grid id="gridContainer" [dataSource]="vacancies" [columnMinWidth]="100">
   <dxo-paging [pageSize]="10"></dxo-paging>
   <dxo-pager [showPageSizeSelector]="true"
@@ -9,11 +16,4 @@
   <dxi-column dataField="experience"></dxi-column>
   <dxi-column dataField="salary"></dxi-column>
   <dxi-column dataField="date"></dxi-column>
-  <dxi-column dataField="view candidates" [allowFiltering]="false"
-              [allowSorting]="false" cellTemplate="cellTemplate"></dxi-column>
-  <div *dxTemplate="let data of 'cellTemplate'">
-    <div>
-      <a routerLink="/candidates" routerLinkActive="active" class="view-candidates-link">View candidates</a>
-    </div>
-  </div>
 </dx-data-grid>

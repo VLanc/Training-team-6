@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Vacancy} from '../shared/models/vacancy.model';
 import {VacanciesService} from '../shared/services/vacancies.service';
 import {PositionService} from '../shared/services/position.service';
 import {Position} from '../shared/models/position.model';
+import {DxDataGridComponent} from 'devextreme-angular';
 
 
 @Component({
@@ -11,11 +12,19 @@ import {Position} from '../shared/models/position.model';
   styleUrls: ['./vacancies.component.css']
 })
 export class VacanciesComponent implements OnInit {
+  @ViewChild(DxDataGridComponent) dataGrid: DxDataGridComponent;
   vacancies: Vacancy[];
   positions: Position[];
+  vacancyExperiences: string[];
 
   constructor(private vacanciesService: VacanciesService,
               private positionService: PositionService) {
+    this.vacancyExperiences = ['All', 'Junior', 'Middle', 'Senior'];
+  }
+
+  selectVacancyExperience(data) {
+    if (data.value === 'All') this.dataGrid.instance.clearFilter();
+    else this.dataGrid.instance.filter(['experience', '=', data.value]);
   }
 
   getWeek(num) {

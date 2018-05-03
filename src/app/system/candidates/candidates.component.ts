@@ -19,10 +19,8 @@ export class CandidatesComponent implements OnInit {
   }
 
   selectCandidateStatus(data) {
-    if (data.value == "All")
-      this.dataGrid.instance.clearFilter();
-    else
-      this.dataGrid.instance.filter(["status", "=", data.value]);
+    if (data.value == "All") this.dataGrid.instance.clearFilter();
+    else this.dataGrid.instance.filter(["status", "=", data.value]);
   }
 
   getWeek(num) {
