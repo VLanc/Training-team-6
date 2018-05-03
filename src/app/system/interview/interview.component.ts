@@ -359,24 +359,13 @@ export class InterviewComponent implements OnInit {
     this.selectedEndDate = new Date(this.selectedEndDate.setFullYear(this.selectedNewStartDate.getFullYear(), this.selectedNewStartDate.getMonth(), this.selectedNewStartDate.getDate()));
 
     if (!this.checkFieldsValidation()) return;
-
-
-
-
-
-
-    /*this.activeModal.close();*/
-
-
-
+    this.activeModal.close();
 
     let participantsStr = '';
     for (let i = 0; i < this.selectedParticipants.length; i ++) {
       if (i !== this.selectedParticipants.length - 1) {
         participantsStr += `${this.selectedParticipants[i].participant}, `;
       } else participantsStr += `${this.selectedParticipants[i].participant}`;
-
-
     }
 
     let event = {
@@ -391,29 +380,10 @@ export class InterviewComponent implements OnInit {
       location: this.selectedLocation,
       description: this.selectedDescription
     };
-    console.log(participantsStr);
     console.log(event);
     this.updateEventCalendar(event);
     this.clearModalWindow();
-
-
-
-
-
-
-
-
-
-/*    this.interviewService.saveEvents(event).subscribe();
-    this.router.navigate(['/interview']);*/
-
-
-
-
-
-
-
-
+    this.interviewService.saveEvents(event).subscribe();
+    this.router.navigate(['/interview']);
   }
-
 }
