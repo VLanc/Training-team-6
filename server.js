@@ -90,7 +90,7 @@ function register(req, res, next) {
   } else {
     let newUser = {};
     let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
-    newUser.id=users.length+1;
+    newUser.id = users.length + 1;
     newUser.email = user.email;
     newUser.password = user.password;
     newUser.role = "";
@@ -127,9 +127,21 @@ function respond_events(req, res, next) {
 
 function saveEvent(req, res, next) {
   let event = JSON.parse(JSON.stringify(req.body));
+  let newEvent = true;
   let events = JSON.parse(fs.readFileSync('event.json', 'utf8'));
-  events.push(event);
-  fs.writeFileSync('event.json', JSON.stringify(events));
+  //events.push(event);
+  let newEvents = events.map(function (val) {
+    if (val.id == event.id) {
+      val = event;
+      newEvent = false;
+      return val;
+    }
+    return val;
+  });
+  if (newEvent){
+    newEvents.push(event);
+  }
+  fs.writeFileSync('event.json', JSON.stringify(newEvents));
   next();
 }
 

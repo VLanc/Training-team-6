@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "title": "Alex Sakovsky, Vlad Vasilyev",
+    "title": "Alex Sakovsky, Vlad Vasilyev, Nikita Senko, Petya Petrov",
     "allDay": false,
-    "start": "2018-05-15T14:00:00.000+03",
-    "end": "2018-05-15T15:00:00.000+03",
+    "start": "2018-05-04T13:23:00.000Z",
+    "end": "2018-05-04T14:23:00.000Z",
     "color": "#e74c3c",
     "participants": [
       {
@@ -14,51 +14,7 @@
       {
         "id": 2,
         "participant": "Vlad Vasilyev"
-      }
-    ],
-    "interviewers": [
-      {
-        "id": 1,
-        "interviewer": "Volha Ivanova"
       },
-      {
-        "id": 2,
-        "interviewer": "Stacey Lubimova"
-      }
-    ],
-    "location": "Office #1",
-    "description": "Check English"
-  },
-  {
-    "id": 2,
-    "title": "Alex Sakovsky",
-    "allDay": false,
-    "start": "2018-05-06T15:00:00.000+03",
-    "end": "2018-05-06T16:59:00.000+03",
-    "color": "#3a87ad",
-    "participants": [
-      {
-        "id": 1,
-        "participant": "Alex Sakovsky"
-      }
-    ],
-    "interviewers": [
-      {
-        "id": 1,
-        "interviewer": "Volha Ivanova"
-      }
-    ],
-    "location": "Office #2",
-    "description": "Check technical skills"
-  },
-  {
-    "id": 3,
-    "title": "Nikita Senko, Petya Petrov",
-    "allDay": false,
-    "start": "2018-05-17T14:00:00.000+03",
-    "end": "2018-05-17T18:00:00.000+03",
-    "color": "#f39c12",
-    "participants": [
       {
         "id": 3,
         "participant": "Nikita Senko"
@@ -76,29 +32,7 @@
       {
         "id": 2,
         "interviewer": "Stacey Lubimova"
-      }
-    ],
-    "location": "Office #1",
-    "description": "Some description"
-  },
-  {
-    "id": 4,
-    "title": "Alex Sakovsky, Vlad Vasilyev",
-    "allDay": false,
-    "start": "2018-05-10T13:00:00.000+03",
-    "end": "2018-05-10T15:00:00.000+03",
-    "color": "#9b59b6",
-    "participants": [
-      {
-        "id": 1,
-        "participant": "Alex Sakovsky"
       },
-      {
-        "id": 2,
-        "participant": "Vlad Vasilyev"
-      }
-    ],
-    "interviewers": [
       {
         "id": 3,
         "interviewer": "Pavel Igantov"
@@ -108,76 +42,16 @@
         "interviewer": "Kate Abramova"
       }
     ],
-    "location": "Office #3",
-    "description": "Check soft skills"
-  },
-  {
-    "id": 5,
-    "title": "Vlad Vasilyev, Petya Petrov",
-    "allDay": false,
-    "start": "2018-05-03T14:30:00.000+03",
-    "end": "2018-05-03T16:30:00.000+03",
-    "color": "#e74c3c",
-    "participants": [
-      {
-        "id": 2,
-        "participant": "Vlad Vasilyev"
-      },
-      {
-        "id": 4,
-        "participant": "Petya Petrov"
-      }
-    ],
-    "interviewers": [
-      {
-        "id": 1,
-        "interviewer": "Volha Ivanova"
-      },
-      {
-        "id": 2,
-        "interviewer": "Stacey Lubimova"
-      }
-    ],
-    "location": "Office #3",
+    "location": "",
     "description": ""
   },
   {
-    "id": 6,
-    "title": "Alex Sakovsky, Vlad Vasilyev",
-    "allDay": false,
-    "start": "2018-05-04T16:30:00.000+03",
-    "end": "2018-05-04T19:40:00.000+03",
-    "color": "#3498db",
-    "participants": [
-      {
-        "id": 1,
-        "participant": "Alex Sakovsky"
-      },
-      {
-        "id": 2,
-        "participant": "Vlad Vasilyev"
-      }
-    ],
-    "interviewers": [
-      {
-        "id": 2,
-        "interviewer": "Stacey Lubimova"
-      },
-      {
-        "id": 4,
-        "interviewer": "Kate Abramova"
-      }
-    ],
-    "location": "Office #1",
-    "description": "Check education information!"
-  },
-  {
-    "id": 7,
+    "id": 2,
     "title": "Alex Sakovsky, Vlad Vasilyev, Nikita Senko, Petya Petrov",
     "allDay": false,
-    "start": "2018-05-26T15:10:00.000+03",
-    "end": "2018-05-26T16:00:00.000+03",
-    "color": "#3a87ad",
+    "start": "2018-05-05T13:23:00.000Z",
+    "end": "2018-05-05T16:23:00.000Z",
+    "color": "#e74c3c",
     "participants": [
       {
         "id": 1,
@@ -214,7 +88,87 @@
         "interviewer": "Kate Abramova"
       }
     ],
-    "location": "Office #2",
+    "location": "",
+    "description": ""
+  },
+  {
+    "id": 3,
+    "title": "Alex Sakovsky, Vlad Vasilyev, Nikita Senko, Petya Petrov",
+    "allDay": false,
+    "start": "2018-05-11T13:24:00.000Z",
+    "end": "2018-05-11T16:24:00.000Z",
+    "color": "#95a5a6",
+    "participants": [
+      {
+        "id": 1,
+        "participant": "Alex Sakovsky"
+      },
+      {
+        "id": 2,
+        "participant": "Vlad Vasilyev"
+      },
+      {
+        "id": 3,
+        "participant": "Nikita Senko"
+      },
+      {
+        "id": 4,
+        "participant": "Petya Petrov"
+      }
+    ],
+    "interviewers": [
+      {
+        "id": 1,
+        "interviewer": "Volha Ivanova"
+      },
+      {
+        "id": 2,
+        "interviewer": "Stacey Lubimova"
+      },
+      {
+        "id": 3,
+        "interviewer": "Pavel Igantov"
+      },
+      {
+        "id": 4,
+        "interviewer": "Kate Abramova"
+      }
+    ],
+    "location": "",
+    "description": ""
+  },
+  {
+    "id": 4,
+    "title": "Alex Sakovsky, Vlad Vasilyev, Nikita Senko, Petya Petrov",
+    "allDay": false,
+    "start": "2018-05-02T13:24:00.000Z",
+    "end": "2018-05-02T15:24:00.000Z",
+    "color": "#e74c3c",
+    "participants": [
+      {
+        "id": 1,
+        "participant": "Alex Sakovsky"
+      },
+      {
+        "id": 2,
+        "participant": "Vlad Vasilyev"
+      },
+      {
+        "id": 3,
+        "participant": "Nikita Senko"
+      },
+      {
+        "id": 4,
+        "participant": "Petya Petrov"
+      }
+    ],
+    "interviewers": [
+      {
+        "id": 1,
+        "interviewer": "Volha Ivanova"
+      }
+    ],
+    "location": "",
     "description": ""
   }
 ]

@@ -12,7 +12,7 @@ export class UsersServices extends BaseApi{
 
    url = 'http://localhost:8080/';
   constructor(public http: HttpClient) {
-    super(http)
+    super(http);
   }
 
   getUserByEmail(email: string): Observable<User> {
