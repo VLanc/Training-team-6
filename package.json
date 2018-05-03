@@ -31,6 +31,7 @@
     "devextreme-angular": "^17.2.7",
     "font-awesome": "^4.7.0",
     "fs": "0.0.1-security",
+    "fullcalendar": "^3.6.1",
     "jscs": "^3.0.7",
     "ng-fullcalendar": "^1.5.5",
     "ng-multiselect-dropdown": "^0.1.7",
