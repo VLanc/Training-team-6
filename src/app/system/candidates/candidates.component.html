@@ -9,21 +9,22 @@
   <dxo-paging [pageSize]="10"></dxo-paging>
   <dxo-pager [showPageSizeSelector]="true"
              [allowedPageSizes]="[10, 20, 50]"
-             [showNavigationButtons]="true">
+             [showNavigationButtons]="true"
+             resourceCellTemplate="candidatesSource">
   </dxo-pager>
   <dxo-filter-row [visible]="true"></dxo-filter-row>
   <dxi-column dataField="photo" [width]="100" [allowFiltering]="false"
-              [allowSorting]="false" cellTemplate="cellTemplate"></dxi-column>
+              [allowSorting]="false" cellTemplate="candidatesSource"></dxi-column>
   <dxi-column dataField="name"></dxi-column>
   <dxi-column dataField="position"></dxi-column>
   <dxi-column dataField="status"></dxi-column>
   <dxi-column dataField="salary"></dxi-column>
   <dxi-column dataField="date"></dxi-column>
-  <div *dxTemplate="let data of 'cellTemplate'">
+  <div *dxTemplate="let candidate of 'candidatesSource'">
     <div>
-      <a routerLink="/id-candidate" routerLinkActive="active" class="candidate-avatar-wrapper">
+      <a [routerLink]="['/id-candidate', candidate.data.id]" routerLinkActive="active" class="candidate-avatar-wrapper">
 
-        <img [src]="'../../../assets/images/' + data.value + '.png'" alt="" class="candidate-avatar">
+        <img [src]="'../../../assets/images/' + candidate.data.photo + '.png'" alt="" class="candidate-avatar">
       </a>
     </div>
   </div>
