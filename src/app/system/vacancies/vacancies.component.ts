@@ -57,4 +57,8 @@ export class VacanciesComponent implements OnInit {
 
   }
 
+  lol(){
+    this.vacancies.push({position:'pidor', experience:'dsafdsaf', salary: '9999999', date:'dsfgdsafdsa'});
+  }
+
 }

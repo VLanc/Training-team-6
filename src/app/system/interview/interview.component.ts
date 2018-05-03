@@ -5,6 +5,7 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Interview} from '../shared/models/interview.model';
 import {InterviewService} from '../shared/services/interview.service';
 import {Router} from '@angular/router';
+import {User} from "../../shared/models/user.model";
 
 @Component({
   selector: 'app-interview',
@@ -18,8 +19,8 @@ export class InterviewComponent implements OnInit {
   interviews: Interview[];
   interviewId: number;
   eventsLength: number;
+  users: User[];
 
-  /*participants = ['Alex Sakovsky', 'Vlad Vasilyev', 'Nikita Senko', 'Petya Petrov'];*/
   colors: [{ name: string, code: string }] = [
     {
       name: 'red',
@@ -67,8 +68,6 @@ export class InterviewComponent implements OnInit {
   interviewersDropdownSettings = {};
   selectedInterviewers = [];
 
-  /*selectedParticipant = '';*/
-  /*  selectedParticipantIndex: number;*/
   selectedLocation = '';
   selectedColor: { name: string, code: string } = this.colors[0];
   selectedDescription = '';
@@ -80,26 +79,6 @@ export class InterviewComponent implements OnInit {
   isEndTimeInvalid = false;
   isParticipantsInvalid = false;
   isInterviewersInvalid = false;
-
-  /*  isOtherOptionsVisible = false;*/
-
-
-  /*  onItemSelect(item: any) {
-      console.log(item);
-      console.log(this.selectedParticipants);
-    }
-    OnItemDeSelect(item: any) {
-      console.log(item);
-      console.log(this.selectedParticipants);
-    }
-    onSelectAll(items: any) {
-      console.log(items);
-    }
-    onDeSelectAll(items: any) {
-      console.log(items);
-    }*/
-
-
   calendarOptions: Options;
   @ViewChild(CalendarComponent) ucCalendar: CalendarComponent;
 
@@ -116,13 +95,6 @@ export class InterviewComponent implements OnInit {
 
 
   ngOnInit() {
-    this.participantsList = [
-      {id: 1, participant: 'Alex Sakovsky'},
-      {id: 2, participant: 'Vlad Vasilyev'},
-      {id: 3, participant: 'Nikita Senko'},
-      {id: 4, participant: 'Petya Petrov'}
-    ];
-
     this.participantsDropdownSettings = {
       singleSelection: false,
       idField: 'id',
@@ -133,13 +105,29 @@ export class InterviewComponent implements OnInit {
       allowSearchFilter: true
     };
 
-    this.interviewersList = [
-      {id: 1, interviewer: 'Volha Ivanova'},
-      {id: 2, interviewer: 'Stacey Lubimova'},
-      {id: 3, interviewer: 'Pavel Igantov'},
-      {id: 4, interviewer: 'Kate Abramova'}
-    ];
+    this.interviewService.getUsers()
+      .subscribe(users => {
+        for (let user of users) {
+          if(user.name.length>1)
+          {
+            this.interviewersList.push({id: user.id, interviewer: user.name + ' ' + user.surname});
+          }
 
+        }
+      });
+
+    // this.participantsList = [
+    //   {id: 1, participant: 'Alex Sakovsky'},
+    //
+    this.interviewService.getCandidates()
+      .subscribe(participants => {
+        for (let participant of participants) {
+          if (participant.name.length>1){
+            this.participantsList.push({id: participant.id, participant: participant.name});
+          }
+
+        }
+      });
     this.interviewersDropdownSettings = {
       singleSelection: false,
       idField: 'id',
@@ -215,11 +203,6 @@ export class InterviewComponent implements OnInit {
     this.activeModal.close();
   }
 
-  /*  updateTitle(event: Event) {
-      this.selectedTitle = (<HTMLInputElement>event.target).value;
-    }*/
-
-
   updateLocation(event: Event) {
     this.selectedLocation = (<HTMLInputElement>event.target).value;
   }
@@ -227,10 +210,6 @@ export class InterviewComponent implements OnInit {
   updateDescription(event: Event) {
     this.selectedDescription = (<HTMLTextAreaElement>event.target).value;
   }
-
-  /* showOtherOptions() {
-     this.isOtherOptionsVisible ? this.isOtherOptionsVisible = false : this.isOtherOptionsVisible = true;
-   }*/
 
   changeCurrentColor(event: Event) {
 
@@ -243,15 +222,6 @@ export class InterviewComponent implements OnInit {
     }
   }
 
-  /*  checkTitle() {
-      if (!this.selectedTitle) {
-        this.isTitleInvalid = true;
-        return false;
-      } else {
-        this.isTitleInvalid = false;
-        return true;
-      }
-    }*/
 
   checkStartDate() {
     if (!this.selectedNewStartDate) {
@@ -286,16 +256,6 @@ export class InterviewComponent implements OnInit {
     }
   }
 
-  /*  checkEndDate() {
-      if (!this.selectedEndDate) {
-        this.isEndTimeInvalid = true;
-        return false;
-      } else {
-        this.isEndTimeInvalid = false;
-        return true;
-      }
-    }*/
-
   checkParticipants() {
 
     if (!this.selectedParticipants.length) {
@@ -329,7 +289,9 @@ export class InterviewComponent implements OnInit {
     correctnessOfFields.push(this.checkInterviewers());
 
     for (let i = 0; i < correctnessOfFields.length; i++) {
-      if (!correctnessOfFields[i]) { return false; }
+      if (!correctnessOfFields[i]) {
+        return false;
+      }
     }
 
     return true;
