@@ -1,10 +1,11 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-
+import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-id-candidate',
   templateUrl: './id-candidate.component.html',
-  styleUrls: ['./id-candidate.component.css']
+  styleUrls: ['./id-candidate.component.css'],
+  providers: [NgbActiveModal]
 })
 
 export class IdCandidateComponent implements OnInit {
@@ -83,7 +84,8 @@ export class IdCandidateComponent implements OnInit {
   editing: boolean = false;
   candidateForm: FormGroup;
 
-  constructor() {
+  constructor(private modalService: NgbModal,
+              private activeModal: NgbActiveModal) {
   }
 
   saveRejected(): void {
@@ -145,6 +147,23 @@ export class IdCandidateComponent implements OnInit {
     }
     return date;
   }
+
+
+  modalReview(reviewModal):void {
+    console.log('opened review');
+    this.activeModal = this.modalService.open(reviewModal, {size: 'lg'});
+  }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
