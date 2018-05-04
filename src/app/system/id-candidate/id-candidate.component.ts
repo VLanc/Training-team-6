@@ -18,7 +18,7 @@ export class IdCandidateComponent implements OnInit {
       'name': 'Alex Korol',
       'address': 'Esenina',
       'city': 'Minsk',
-      'mobileNumber': '5447549706',
+      'mobileNumber': 5447549706,
       'homeNumber': '+375172245587',
       'email': 'Alex_Korolev@mail.ru',
       'salary': '2500$',
@@ -126,10 +126,10 @@ export class IdCandidateComponent implements OnInit {
 
 
   getDate(): string {
-    let date = this.candidate.date;
-    let now = new Date();
-    now = now.getTime() / 1000;
-    let dateOfAddUser = (now - date) / 86400;
+    let date: any = this.candidate.date;
+    let now: any = new Date();
+    now = now.getTime() as number / 1000;
+    let dateOfAddUser: number = (now - date) / 86400;
 
     if (dateOfAddUser < 1) date = 'today';
     else if (2 < dateOfAddUser && 7 > dateOfAddUser) date = Math.ceil(dateOfAddUser) + ' days later';
