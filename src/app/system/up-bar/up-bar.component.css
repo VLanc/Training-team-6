@@ -44,7 +44,7 @@ form button, form button:hover, input {
   margin: 13px 0 13px 10px;
   font-size: 17px;
   letter-spacing: 1px;
-  text-overflow: ellipsis
+  text-overflow: ellipsis;
 }
 
 .icon {
@@ -70,7 +70,7 @@ form button, form button:hover, input {
 
 @media only screen and (max-device-width: 767px) {
   .find-bar__string {
-    width: calc(82% - 180px);
+    width: calc(81% - 180px);
   }
 }
 

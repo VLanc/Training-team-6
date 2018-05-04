@@ -5,6 +5,7 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Interview} from '../shared/models/interview.model';
 import {InterviewService} from '../shared/services/interview.service';
 import {Router} from '@angular/router';
+import {User} from "../../shared/models/user.model";
 
 @Component({
   selector: 'app-interview',
@@ -16,9 +17,10 @@ import {Router} from '@angular/router';
 })
 export class InterviewComponent implements OnInit {
   interviews: Interview[];
+  interviewId: number;
   eventsLength: number;
+  users: User[];
 
-  participants = ['Alex Sakovsky', 'Vlad Vasilyev', 'Nikita Senko', 'Petya Petrov'];
   colors: [{ name: string, code: string }] = [
     {
       name: 'red',
@@ -53,23 +55,33 @@ export class InterviewComponent implements OnInit {
       code: '#9b59b6'
     }
   ];
-  selectedStartDate: Date;
+
+  selectedCurrentStartDate: Date;
+  selectedNewStartDate: Date;
   selectedEndDate: Date;
-  selectedTitle = '';
-  selectedParticipant = '';
-  selectedParticipantIndex: number;
+
+  participantsList = [];
+  participantsDropdownSettings = {};
+  selectedParticipants = [];
+
+  interviewersList = [];
+  interviewersDropdownSettings = {};
+  selectedInterviewers = [];
+
   selectedLocation = '';
-  selectedColor: any = {name: 'current', code: '#3a87ad'};
+  selectedColor: { name: string, code: string } = this.colors[0];
   selectedDescription = '';
-  isTitleInvalid = false;
-  isStartDateInvalid = false;
-  isEndDateInvalid = false;
-  isParticipantInvalid = false;
-
-  isOtherOptionsVisible = false;
-
+  isNewStartDateInvalid = false;
+  isStartDateHintVisible = false;
+  startDateHint = '';
+  isEndTimeHintVisible = false;
+  endTimeHint = '';
+  isEndTimeInvalid = false;
+  isParticipantsInvalid = false;
+  isInterviewersInvalid = false;
   calendarOptions: Options;
   @ViewChild(CalendarComponent) ucCalendar: CalendarComponent;
+
 
   constructor(private modalService: NgbModal,
               private activeModal: NgbActiveModal,
@@ -83,6 +95,49 @@ export class InterviewComponent implements OnInit {
 
 
   ngOnInit() {
+    this.participantsDropdownSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'participant',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
+
+    this.interviewService.getUsers()
+      .subscribe(users => {
+        for (let user of users) {
+          if(user.name.length>1)
+          {
+            this.interviewersList.push({id: user.id, interviewer: user.name + ' ' + user.surname});
+          }
+
+        }
+      });
+
+    // this.participantsList = [
+    //   {id: 1, participant: 'Alex Sakovsky'},
+    //
+    this.interviewService.getCandidates()
+      .subscribe(participants => {
+        for (let participant of participants) {
+          if (participant.name.length>1){
+            this.participantsList.push({id: participant.id, participant: participant.name});
+          }
+
+        }
+      });
+    this.interviewersDropdownSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'interviewer',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
+
     this.interviewService.getEvents()
       .subscribe(interviews => {
         this.interviews = interviews;
@@ -103,25 +158,49 @@ export class InterviewComponent implements OnInit {
       });
   }
 
-  openSm(content, eventDetail) {
-    if (eventDetail) {
-      this.selectedStartDate = new Date(eventDetail.date._d.setHours(0, 0));
-      this.selectedEndDate = new Date(eventDetail.date._d.setHours(23, 59));
+  openLg(content, eventDetail?) {
+    console.log(eventDetail);
+    this.clearModalWindow();
+    if (eventDetail && eventDetail.event) {
+      this.interviewId = eventDetail.event.id;
+      this.selectedCurrentStartDate = new Date(eventDetail.event.start);
+      this.selectedNewStartDate = this.selectedCurrentStartDate;
+      /*this.selectedNewStartDate.setHours(this.selectedNewStartDate.getUTCHours());*/ // convert the start hours to the UTC format
+      this.selectedEndDate = new Date(eventDetail.event.end);
+      /*this.selectedEndDate.setHours(this.selectedEndDate.getUTCHours());*/ // convert the end hours to the UTC format
+      this.selectedParticipants = eventDetail.event.participants || [];
+      this.selectedInterviewers = eventDetail.event.interviewers || [];
+      for (let i = 0; i < this.colors.length; i++) {
+        if (this.colors[i].code === eventDetail.event.color) {
+          this.selectedColor = {name: this.colors[i].name, code: this.colors[i].code};
+          break;
+        }
+        if (i === this.colors.length - 1) this.selectedColor = {name: 'default', code: '#3a87ad'};
+      }
+
+      this.selectedLocation = eventDetail.event.location || '';
+      this.selectedDescription = eventDetail.event.description || '';
+
+    } else if (eventDetail && eventDetail.date) {
+      this.interviewId = ++this.eventsLength;
+      this.selectedCurrentStartDate = new Date(eventDetail.date._d.setHours(new Date().getHours(), new Date().getMinutes()));
+      this.selectedNewStartDate = this.selectedCurrentStartDate;
+      this.selectedEndDate = new Date(eventDetail.date._d.setHours(new Date().getHours(), new Date().getMinutes()));
+      this.selectedColor = {name: 'default', code: '#3a87ad'};
     } else {
-      this.selectedStartDate = new Date();
+      this.selectedCurrentStartDate = new Date();
+      this.selectedNewStartDate = this.selectedCurrentStartDate;
       this.selectedEndDate = new Date();
+      this.selectedColor = {name: 'default', code: '#3a87ad'};
     }
 
-    this.activeModal = this.modalService.open(content, {size: 'sm'});
+    this.activeModal = this.modalService.open(content, {size: 'lg'});
   }
 
-  updateTitle(event: Event) {
-    this.selectedTitle = (<HTMLInputElement>event.target).value;
-  }
 
-  updateParticipant(event: Event) {
-    this.selectedParticipantIndex = +(<HTMLSelectElement>event.target).value;
-    this.selectedParticipant = this.participants[this.selectedParticipantIndex - 1];
+  closeModalWindow() {
+    this.clearModalWindow();
+    this.activeModal.close();
   }
 
   updateLocation(event: Event) {
@@ -130,10 +209,6 @@ export class InterviewComponent implements OnInit {
 
   updateDescription(event: Event) {
     this.selectedDescription = (<HTMLTextAreaElement>event.target).value;
-  }
-
-  showOtherOptions() {
-    this.isOtherOptionsVisible ? this.isOtherOptionsVisible = false : this.isOtherOptionsVisible = true;
   }
 
   changeCurrentColor(event: Event) {
@@ -147,96 +222,129 @@ export class InterviewComponent implements OnInit {
     }
   }
 
-  checkTitle() {
-    if (!this.selectedTitle) {
-      this.isTitleInvalid = true;
-      return false;
-    } else {
-      this.isTitleInvalid = false;
-      return true;
-    }
-  }
 
   checkStartDate() {
-    if (!this.selectedStartDate) {
-      this.isStartDateInvalid = true;
+    if (!this.selectedNewStartDate) {
+      this.isNewStartDateInvalid = true;
+      this.startDateHint = 'This field is required';
+      this.isStartDateHintVisible = true;
+      return false;
+    } else if (new Date(this.selectedCurrentStartDate).getTime() > new Date(this.selectedNewStartDate).getTime()) {
+      this.isNewStartDateInvalid = true;
+      this.startDateHint = "You can't set the date less than the current";
+      this.isStartDateHintVisible = true;
       return false;
     } else {
-      this.isStartDateInvalid = false;
+      this.isNewStartDateInvalid = false;
+      this.startDateHint = '';
+      this.isStartDateHintVisible = false;
       return true;
     }
   }
 
-  checkEndDate() {
-    if (!this.selectedEndDate) {
-      this.isEndDateInvalid = true;
+  checkEndTime() {
+    if (new Date(this.selectedNewStartDate).getTime() >= new Date(this.selectedEndDate).getTime()) {
+      this.isEndTimeInvalid = true;
+      this.endTimeHint = 'This time must be greater than the start time';
+      this.isEndTimeHintVisible = true;
       return false;
     } else {
-      this.isEndDateInvalid = false;
+      this.isEndTimeInvalid = false;
+      this.endTimeHint = '';
+      this.isEndTimeHintVisible = false;
       return true;
     }
   }
 
-  checkParticipant() {
-    if (!this.selectedParticipantIndex) {
-      this.isParticipantInvalid = true;
+  checkParticipants() {
+
+    if (!this.selectedParticipants.length) {
+      this.isParticipantsInvalid = true;
       return false;
     } else {
-      this.isParticipantInvalid = false;
+      this.isParticipantsInvalid = false;
+      return true;
+    }
+  }
+
+  checkInterviewers() {
+
+    if (!this.selectedInterviewers.length) {
+      this.isInterviewersInvalid = true;
+      return false;
+    } else {
+      this.isInterviewersInvalid = false;
       return true;
     }
   }
 
   checkFieldsValidation() {
-    let correctnessOfFields = [];
+    const correctnessOfFields = [];
 
-    correctnessOfFields.push(this.checkTitle());
+    /*   correctnessOfFields.push(this.checkTitle());*/
     correctnessOfFields.push(this.checkStartDate());
-    correctnessOfFields.push(this.checkEndDate());
-    correctnessOfFields.push(this.checkParticipant());
+    correctnessOfFields.push(this.checkEndTime());
+    /* correctnessOfFields.push(this.checkEndDate());*/
+    correctnessOfFields.push(this.checkParticipants());
+    correctnessOfFields.push(this.checkInterviewers());
 
     for (let i = 0; i < correctnessOfFields.length; i++) {
-      if (!correctnessOfFields[i]) return false;
+      if (!correctnessOfFields[i]) {
+        return false;
+      }
     }
 
     return true;
   }
 
   clearModalWindow() {
-    this.selectedStartDate = new Date();
+    this.selectedNewStartDate = new Date();
     this.selectedEndDate = new Date();
-    this.selectedTitle = '';
-    this.selectedParticipant = '';
-    this.selectedParticipantIndex = 0;
+    this.selectedParticipants = [];
+    this.selectedInterviewers = [];
     this.selectedLocation = '';
-    this.selectedColor = {name: 'current', code: '#3a87ad'};
+    this.selectedColor = {name: 'default', code: '#3a87ad'};
     this.selectedDescription = '';
-    this.isTitleInvalid = false;
-    this.isStartDateInvalid = false;
-    this.isEndDateInvalid = false;
-    this.isParticipantInvalid = false;
-    this.isOtherOptionsVisible = false;
+    this.isNewStartDateInvalid = false;
+    this.isStartDateHintVisible = false;
+    this.startDateHint = '';
+    this.isEndTimeInvalid = false;
+    this.isEndTimeHintVisible = false;
+    this.endTimeHint = '';
+    this.isParticipantsInvalid = false;
+    this.isInterviewersInvalid = false;
   }
 
   saveEvent() {
+    // set an end date equal to the start date
+    this.selectedEndDate = new Date(this.selectedEndDate.setFullYear(this.selectedNewStartDate.getFullYear(), this.selectedNewStartDate.getMonth(), this.selectedNewStartDate.getDate()));
+
     if (!this.checkFieldsValidation()) return;
     this.activeModal.close();
+
+    let participantsStr = '';
+    for (let i = 0; i < this.selectedParticipants.length; i++) {
+      if (i !== this.selectedParticipants.length - 1) {
+        participantsStr += `${this.selectedParticipants[i].participant}, `;
+      } else participantsStr += `${this.selectedParticipants[i].participant}`;
+    }
+
     let event = {
-      id: ++this.eventsLength,
-      title: `${this.selectedTitle} - ${this.selectedParticipant}`,
+      id: this.interviewId,
+      title: participantsStr,
       allDay: false,
-      start: this.selectedStartDate,
-      end: this.selectedEndDate,
+      start: new Date(this.selectedNewStartDate),
+      end: new Date(this.selectedEndDate),
       color: this.selectedColor.code,
-      participant: this.selectedParticipant,
-      participantIndex: this.selectedParticipantIndex,
+      participants: this.selectedParticipants,
+      interviewers: this.selectedInterviewers,
       location: this.selectedLocation,
       description: this.selectedDescription
     };
+    console.log(event);
     this.updateEventCalendar(event);
     this.clearModalWindow();
     this.interviewService.saveEvents(event).subscribe();
     this.router.navigate(['/interview']);
   }
-
 }

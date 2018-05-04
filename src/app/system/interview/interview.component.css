@@ -99,6 +99,39 @@
 
 /*Modal window*/
 
+.modal-body {
+  padding-top: 0;
+}
+
+.modal-body-form {
+  display: flex;
+}
+
+.interview-modal-subtitle {
+  font-size: 14px;
+  margin: 15px 0 8px 0;
+}
+
+.interview-location {
+  margin-top: 10px;
+}
+
+.date-time-hint {
+  color: #d81e0a;
+}
+
+/*.multiselect-dropdown {
+  margin-top: 15px;
+}*/
+
+.owl-dt-timer-box {
+  padding: 0 30px;
+}
+
+/*.interview-modal-timers-wrapper {
+  margin: auto 0;
+}*/
+
 #new-event-modal-title {
   margin: 0;
 }
@@ -109,9 +142,9 @@
   margin: 10px 0 0 0;
 }
 
-#other-options-button {
+/*#other-options-button {
   margin-bottom: 16px;
-}
+}*/
 
 .event-modal-footer {
   padding: 16px 0 0 0;
@@ -137,7 +170,7 @@
 }
 
 .current-event-color-text {
-  margin: 13px 0 8px 0;
+  margin: 16px 0 11px 0;
 }
 
 .event-color-wrapper {
@@ -157,7 +190,7 @@
   transform: none;
 }
 
-.event-color-wrapper.current {
+.event-color-wrapper.default {
   background-color: #3a87ad;
 }
 
@@ -216,5 +249,5 @@
 }
 
 .form-group span {
-  padding-top: 5px !important;
+  padding-top: 0;
 }

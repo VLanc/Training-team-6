@@ -14,7 +14,7 @@ transporter = nodemailer.createTransport({
 });
 let server = restify.createServer();
 const cors = corsMiddleware({
-  origins: ['http://localhost:4200'],
+  origins: ['*'],
   allowHeaders: ['*'],
   exposeHeaders: []
 });
@@ -37,7 +37,9 @@ server.get('/login', login);
 server.get('/reset', reset_password);
 server.get('/events', respond_events);
 server.get('/vacancies', vacancies);
-server.get('/candidates', candidates)
+server.get('/candidates', candidates);
+server.get('/positions', positions);
+server.get('/getUsers', getUsers);
 
 server.post('/saveUser', saveUser);
 server.post('/register', register);
@@ -88,6 +90,8 @@ function register(req, res, next) {
     next();
   } else {
     let newUser = {};
+    let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
+    newUser.id = users.length + 1;
     newUser.email = user.email;
     newUser.password = user.password;
     newUser.role = "";
@@ -95,7 +99,6 @@ function register(req, res, next) {
     newUser.name = "";
     newUser.surname = "";
     newUser.photo = "";
-    let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
     users.push(newUser);
     fs.writeFileSync('users.json', JSON.stringify(users));
     res.send(newUser);
@@ -125,9 +128,21 @@ function respond_events(req, res, next) {
 
 function saveEvent(req, res, next) {
   let event = JSON.parse(JSON.stringify(req.body));
+  let newEvent = true;
   let events = JSON.parse(fs.readFileSync('event.json', 'utf8'));
-  events.push(event);
-  fs.writeFileSync('event.json', JSON.stringify(events));
+  //events.push(event);
+  let newEvents = events.map(function (val) {
+    if (val.id == event.id) {
+      val = event;
+      newEvent = false;
+      return val;
+    }
+    return val;
+  });
+  if (newEvent){
+    newEvents.push(event);
+  }
+  fs.writeFileSync('event.json', JSON.stringify(newEvents));
   next();
 }
 
@@ -142,9 +157,8 @@ function saveUser(req, res, next) {
   let user = JSON.parse(JSON.stringify(req.body));
   let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
   let newUsers = users.map(function (val) {
-    if (val.email == user.email) {
+    if (val.id == user.id) {
       val = user;
-      flag = true;
       return val;
     }
     return val;
@@ -156,5 +170,17 @@ function saveUser(req, res, next) {
 function candidates(req, res, next) {
   let candidates = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
   res.send(candidates);
+  next();
+}
+
+function positions(req, res, next) {
+  let positions = JSON.parse(fs.readFileSync('positions.json', 'utf8'));
+  res.send(positions);
+  next();
+}
+
+function getUsers(req, res, next) {
+  let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
+  res.send(users);
   next();
 }

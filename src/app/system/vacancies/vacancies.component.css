@@ -1,0 +1,9 @@
+.left-side {
+  width: 200px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.filter-by-title {
+  margin: 3px 3px 7px 3px;
+}

@@ -103,9 +103,10 @@
               [(ngModel)] = "user.email"
             >
             <span
-              *ngIf="form.get('email').invalid && form.get('email').touched"
-              class="warning"
-            >{{textErrorForEmail}}</span>
+            *ngIf="form.get('email').invalid && form.get('email').touched"
+            class="warning"
+          >{{textErrorForEmail}}</span>
+            <span *ngIf="form.get('email')['errors']['forbiddenEmail']" class="warning">This user is register!</span>
           </ng-template>
         </div>
 
