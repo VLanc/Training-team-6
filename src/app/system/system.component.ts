@@ -19,8 +19,8 @@ import {Router} from '@angular/router';
   ]
 })
 export class SystemComponent  implements OnInit {
-  visible = false;
-  stateExpression = 'collapsed';
+  visible: boolean = false;
+  stateExpression: string = 'collapsed';
   constructor(private router: Router) {
   }
   ngOnInit() {

@@ -1,153 +1,141 @@
-<div class="timeLine">
-  <div *ngFor="let experienceUnit of experience">
-    <div class="timeLine__unit">
-      <div class="timeLine__unit__left-information">
-        <div class="timeLine__unit__left-information__date">
-          {{experienceUnit.timeEnd}} - {{experienceUnit.timeStart}}
-        </div>
-        <div class="timeLine__unit__left-information__position">
-          {{experienceUnit.position}}
-        </div>
-      </div>
+<div
+  *ngIf="!editingExperience; else editingForm"
+  class="timeLine__unit">
+  <div class="timeLine__unit__left-information">
+    <div class="timeLine__unit__left-information__date">
+      {{singleExperience.timeEnd}} - {{singleExperience.timeStart}}
+    </div>
+    <div class="timeLine__unit__left-information__position">
+      {{singleExperience.position}}
+    </div>
+  </div>
 
-      <div class="timeLine__unit__diagram">
-        <div class="timeLine__unit__diagram__dot"></div>
-        <div class="timeLine__unit__diagram__line__job"></div>
-      </div>
-
-      <div class="timeLine__unit__right-information">
-        <div class="timeLine__unit__right-information__company">
-          {{experienceUnit.company}}
-        </div>
-        <div class="timeLine__unit__right-information__responsibility">
-          {{experienceUnit.responsibility}}
-        </div>
-      </div>
-
-      <div class="timeLine__unit__buttons">
-        <div class="timeLine__unit__buttons__button">
-          <a class="icon" title="edit experience">
-            <i class="fa fa-edit"></i>
-          </a>
-        </div>
-        <div class="timeLine__unit__buttons__button">
-          <a class="icon" title="delete experience">
-            <i class="fa fa-trash"></i>
-          </a>
-        </div>
-      </div>
+  <div class="timeLine__unit__diagram">
+    <div class="timeLine__unit__diagram__dot"></div>
+    <div
+      *ngIf="quantityExperiences > singleExperience.id"
+      [ngClass]="{
+            'timeLine__unit__diagram__line__job': singleExperience.job === true,
+            'timeLine__unit__diagram__line__education': singleExperience.job === false
+          }">
 
     </div>
   </div>
 
-  <div *ngFor="let educationUnit of education">
-    <div class="timeLine__unit">
-      <div class="timeLine__unit__left-information">
-        <div class="timeLine__unit__left-information__date">
-          {{educationUnit.timeEnd}} - {{educationUnit.timeStart}}
-        </div>
-        <div class="timeLine__unit__left-information__position">
-          {{educationUnit.position}}
-        </div>
-      </div>
-
-      <div class="timeLine__unit__diagram">
-        <div class="timeLine__unit__diagram__dot"></div>
-        <div class="timeLine__unit__diagram__line__education"></div>
-      </div>
-
-      <div class="timeLine__unit__right-information">
-        <div class="timeLine__unit__right-information__company">
-          {{educationUnit.company}}
-        </div>
-        <div class="timeLine__unit__right-information__responsibility">
-          {{educationUnit.responsibility}}
-        </div>
-      </div>
-
-      <div class="timeLine__unit__buttons">
-        <div class="timeLine__unit__buttons__button">
-          <a class="icon" title="edit experience">
-            <i class="fa fa-edit"></i>
-          </a>
-        </div>
-        <div class="timeLine__unit__buttons__button">
-          <a class="icon" title="delete experience">
-            <i class="fa fa-trash"></i>
-          </a>
-        </div>
-      </div>
-
+  <div class="timeLine__unit__right-information">
+    <div class="timeLine__unit__right-information__company">
+      {{singleExperience.company}}
+    </div>
+    <div class="timeLine__unit__right-information__responsibility">
+      {{singleExperience.responsibility}}
     </div>
   </div>
 
+  <div *ngIf="editing" class="timeLine__unit__buttons">
+    <div class="timeLine__unit__buttons__button">
+      <a
+        class="icon"
+        title="edit experience"
+        (click)="editExperience(singleExperience.id)"
+      >
+        <i class="fa fa-edit"></i>
+      </a>
+    </div>
+    <div class="timeLine__unit__buttons__button">
+      <a
+        class="icon"
+        title="delete experience"
+        (click)="deleteExperience(singleExperience.id)"
+      >
+        <i class="fa fa-trash"></i>
+      </a>
+    </div>
+  </div>
 
 </div>
-<!--<div *ngFor="let experienceUnit of experience">-->
-<!--<form [formGroup]="experienceForm">-->
-<!--<div class="timeLine__unit">-->
-<!--<div class="form-group timeLine__unit__left-information">-->
-<!--<div class="timeLine__unit__left-information__date">-->
-<!--<input-->
-<!--type="text"-->
-<!--formControlName="timeEnd"-->
-<!--&gt;-->
-<!--<input-->
-<!--type="text"-->
-<!--formControlName="timeStart"-->
-<!--&gt;-->
-<!--</div>-->
-<!--<div class="timeLine__unit__left-information__position">-->
-<!--<textarea-->
-<!--formControlName="position">-->
-<!--</textarea>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<div class="timeLine__unit__diagram">-->
-<!--<div class="timeLine__unit__diagram__dot"></div>-->
-<!--<div class="timeLine__unit__diagram__line__job"></div>-->
-<!--</div>-->
-
-<!--<div class="timeLine__unit__right-information">-->
-<!--<div class="timeLine__unit__right-information__company">-->
-<!--<input-->
-<!--type="text"-->
-<!--formControlName="company"-->
-<!--&gt;-->
-<!--</div>-->
-<!--<div class="timeLine__unit__right-information__responsibility">-->
-<!--<textarea-->
-<!--type="text"-->
-<!--formControlName="responsibility">-->
-<!--</textarea>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</form>-->
-<!--</div>-->
 
 
-<!--<div *ngFor="let experienceUnit of experience" class="timeLine__unit">-->
-<!--<div class="timeLine__unit__left-information">-->
-<!--<div class="timeLine__unit__left-information__date">-->
-<!--{{experienceUnit.timeStart}} - {{experienceUnit.timeEnd}}-->
-<!--</div>-->
-<!--<div class="timeLine__unit__left-information__position">-->
-<!--{{experienceUnit.position}}-->
-<!--</div>-->
-<!--</div>-->
 
-<!--<div class="timeLine__unit__diagram">-->
-<!--<div class="timeLine__unit__diagram__dot"></div>-->
-<!--<div class="timeLine__unit__diagram__line__job"></div>-->
-<!--</div>-->
 
-<!--<div class="timeLine__unit__right-information">-->
-<!--<div class="timeLine__unit__right-information__name-of-place">-->
-<!--{{experienceUnit.company}}-->
-<!--</div>-->
-<!--<div class="timeLine__unit__right-information__responsibility">-->
-<!--{{experienceUnit.responsibility}}</div>-->
-<!--</div>-->
-<!--</div>-->
+
+
+<ng-template #editingForm>
+  <form [formGroup]="experienceForm">
+
+  <div class="timeLine__unit">
+    <div class="timeLine__unit__left-information">
+      <div class="timeLine__unit__left-information__date">
+        <input
+          type="text"
+          formControlName="timeEnd"
+          [(ngModel)] = "singleExperience.timeEnd"
+        >
+        <input
+          type="text"
+          formControlName="timeStart"
+          [(ngModel)] = "singleExperience.timeStart"
+        >
+      </div>
+      <div class="timeLine__unit__left-information__position">
+        <input
+          type="text"
+          formControlName="position"
+          [(ngModel)] = "singleExperience.position"
+        >
+      </div>
+    </div>
+
+    <div class="timeLine__unit__diagram">
+      <div class="timeLine__unit__diagram__dot"></div>
+      <div
+        *ngIf="quantityExperiences > singleExperience.id"
+        [ngClass]="{
+            'timeLine__unit__diagram__line__job': singleExperience.job === true,
+            'timeLine__unit__diagram__line__education': singleExperience.job === false
+          }">
+      </div>
+    </div>
+
+    <div class="timeLine__unit__right-information">
+      <div class="timeLine__unit__right-information__company">
+        <input
+          type="text"
+          formControlName="company"
+          [(ngModel)] = "singleExperience.company"
+        >
+      </div>
+      <div class="timeLine__unit__right-information__responsibility">
+        <textarea
+          rows="4"
+          type="text"
+          formControlName="responsibility"
+          [(ngModel)] = "singleExperience.responsibility"
+        >
+        </textarea>
+      </div>
+    </div>
+
+    <div class="timeLine__unit__buttons">
+      <div class="timeLine__unit__buttons__button">
+        <a
+          class="icon"
+          title="save experience"
+          (click)="saveExperience(singleExperience.id)"
+        >
+          <i class="fa fa-save"></i>
+        </a>
+      </div>
+      <div class="timeLine__unit__buttons__button">
+        <a
+          class="icon"
+          title="delete experience"
+          (click)="deleteExperience(singleExperience.id)"
+        >
+          <i class="fa fa-trash"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  </form>
+</ng-template>

@@ -24,6 +24,7 @@ import {VacanciesService} from './shared/services/vacancies.service';
 import { CandidatesComponent} from './candidates/candidates.component';
 import {CandidatesService} from './shared/services/candidates.service';
 import { ExperienceComponent } from './id-candidate/experience/experience.component';
+import { SkillComponent } from './id-candidate/skill/skill.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ExperienceComponent } from './id-candidate/experience/experience.compon
     IdCandidateComponent,
     UserCabinetComponent,
     CandidatesComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    SkillComponent
   ],
   imports: [
     CommonModule,

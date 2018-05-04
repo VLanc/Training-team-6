@@ -16,7 +16,7 @@ export class UserCabinetComponent implements OnInit {
   private textErrorForNames = 'field is empty or less than two characters';
   private textErrorForRole = 'field is empty or less than two characters';
   private textErrorForEmail = 'field is empty or is not email';
-  private editing = true;
+  private editing: boolean = true;
 
 
   constructor(private userService: UsersServices) {

@@ -3,6 +3,7 @@ export class Experience {
         public id: number,
         public timeStart: string,
         public timeEnd: string,
+        public job: boolean,
         public position: string,
         public place: string,
         public company: string,

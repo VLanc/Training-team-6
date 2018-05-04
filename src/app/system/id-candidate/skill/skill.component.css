@@ -1,0 +1,22 @@
+.skills {
+  display: flex;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.skills__skill {
+  font-size: 12px;
+  border: 2px solid #c8c8c8;
+  border-radius: 5px;
+  padding: 5px 5px;
+  margin: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+.skills__skill:hover {
+  transition: 0.4s;
+  background-color: #8b0000;
+  box-shadow: 3px 2px 4px rgba(221, 221, 221, 1);
+}

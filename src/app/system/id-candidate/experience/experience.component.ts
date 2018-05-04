@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 
-import {Experience} from '../../../shared/models/experience.model';
 
 @Component({
   selector: 'app-experience',
@@ -10,59 +9,61 @@ import {Experience} from '../../../shared/models/experience.model';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent {
-  // experience: Experience;
-  public experience = [
-    {
-      'id': 1,
-      'timeStart': 'Apr 2015',
-      'timeEnd': 'Now',
-      'position': 'Learn Java Developer',
-      'place': "Минск",
-      'company': 'Itransition Group Ltd.',
-      'responsibility': 'WEB Development, wвпавпвшрь шкьрешгерьиншг кернрш гернкшгрешн ркшерншкреш кшреншкрешнрк шрнкренршкренк ршншгкренркшнр шкреншркшеншкр ешнркшеншкрешork with server side logic, take part in search engine development and optimization'
-    },
-    {
-      'id': 2,
-      'timeStart': 'Oct 2012',
-      'timeEnd': 'Mar 2015',
-      'position': 'Senior Java Developer',
-      'place': "Минск",
-      'company': 'Belhard',
-      'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
-    }
-  ];
+  @Output('saveRejected') saveRejected = new EventEmitter<boolean>();
+  @Output('saveAccepted') saveAccepted = new EventEmitter<boolean>();
+  @Input() editing: boolean;
+  @Input() candidate: any;
+  @Input() quantityExperiences: any;
+  @Input() singleExperience: {
+    id: number,
+    timeStart: string,
+    timeEnd: string,
+    job: boolean,
+    position: string,
+    place: string,
+    company: string,
+    responsibility: string
+  };
 
-  education: object = [
-    {
-      'id': 1,
-      'timeStart': 'Oct 2012',
-      'timeEnd': 'Mar 2015',
-      'position': 'STUDENT',
-      'place': "Минск",
-      'company': 'BSUIR',
-      'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
-    },
-    {
-      'id': 2,
-      'timeStart': 'Oct 2012',
-      'timeEnd': 'Mar 2015',
-      'position': 'STUDENT',
-      'place': "Минск",
-      'company': 'BSUIR',
-      'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
-    }
-  ];
-
-  experienceForms: any = [];
-  // educationForms : FormGroup;
+  editingExperience: boolean = false;
+  experienceForm: FormGroup;
 
 
 
   constructor() {
-    console.log('component CANDIDATE');
+    // console.log('component CANDIDATE');
   }
 
-  ngOnInit() {
+  editExperience(id: number) {
+    this.editingExperience = true;
+    this.saveRejected.emit(!this.editingExperience);
+    this.experienceForm = new FormGroup({
+          'timeStart': new FormControl(this.singleExperience.timeStart, [Validators.required]),
+          'timeEnd': new FormControl(this.singleExperience.timeEnd, [Validators.required]),
+          'position': new FormControl(this.singleExperience.position, [Validators.required]),
+          'place': new FormControl(this.singleExperience.place, [Validators.required]),
+          'company': new FormControl(this.singleExperience.company, [Validators.required]),
+          'responsibility': new FormControl(this.singleExperience.responsibility, [Validators.required])
+        });
+
+    // console.log('edit' + id);
+    // console.log(this.experienceForm);
+
+  }
+
+  saveExperience(id: number) {
+    this.editingExperience = false;
+    this.saveAccepted.emit(!this.editingExperience);
+    // console.log('save' + id)
+  }
+
+  deleteExperience(id: number) {
+    this.editingExperience = false;
+    this.saveAccepted.emit(!this.editingExperience);
+    // console.log('delete' + id)
+  }
+
+  // ngOnInit() {
    //  this.experience.map(() => {
    //   this.experienceForms[this.experience.id] = new FormGroup({
    //     'time': new FormControl(this.experience.time, [Validators.required])
@@ -91,20 +92,12 @@ export class ExperienceComponent {
 
 
 
-        }
+        // }
 
 
 
 
 
 }
-
-      //   "userName": new FormControl("Tom", Validators.required),
-      //   "userEmail": new FormControl("", [
-      //     Validators.required,
-      //     Validators.pattern("[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}")
-      //   ]),
-      //   "userPhone": new FormControl()
-      // });
 
 
