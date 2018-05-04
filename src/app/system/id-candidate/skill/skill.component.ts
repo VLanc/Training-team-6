@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-skill',
@@ -6,14 +6,23 @@ import {Component, OnInit, Input} from '@angular/core';
   styleUrls: ['./skill.component.css']
 })
 export class SkillComponent implements OnInit {
+  @Output('saveSkills') saveSkills = new EventEmitter<string>();
   @Input() skills: string;
-  skillsArray: object;
+  @Input() candidate: string;
+  @Input() editing: boolean;
 
+  skillsArray: object;
   constructor() { }
 
   ngOnInit() {
-    console.log(this.skills);
     this.skillsArray = this.skills.split(";");
+  }
+
+  deleteSkill(singleSkill: string) {
+    this.skills = this.skills.replace(singleSkill + ';', '');
+    this.saveSkills.emit(this.skills);
+    this.skillsArray = this.skills.split(";");
+    console.log(this.skills);
   }
 
 }

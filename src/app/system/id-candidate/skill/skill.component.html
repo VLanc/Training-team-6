@@ -1,3 +1,8 @@
-<div class="skills">
-<div *ngFor="let singleSkill of skillsArray" class="skills__skill ">{{singleSkill}}</div>
+<div *ngIf="!editing; else editingSkills" class="skills">
+  <div *ngFor="let singleSkill of skillsArray" class="skills__skill">{{singleSkill}}</div>
 </div>
+
+<ng-template #editingSkills class="skills">
+  <!--<div *ngFor="let singleSkill of skillsArray" class="skills__skill editing" (click)="deleteSkill(singleSkill)">{{singleSkill}}</div>-->
+  <div *ngFor="let singleSkill of skillsArray" class="skills__skill editing" (click)="deleteSkill(singleSkill)">{{singleSkill}}</div>
+</ng-template>

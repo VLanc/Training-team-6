@@ -85,7 +85,11 @@
       <div class="skills-delimiter">
         <h6>Skills</h6>
 
-        <app-skill [skills]="candidate.skills"></app-skill>
+        <app-skill
+          [skills]="candidate.skills"
+          [editing]="editing"
+          (saveSkills)="saveSkills($skills)"
+        ></app-skill>
         <div id="skills" class="skills"></div>
       </div>
 

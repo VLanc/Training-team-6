@@ -15,7 +15,7 @@
   font-weight: bold;
 }
 
-.skills__skill:hover {
+.editing:hover {
   transition: 0.4s;
   background-color: #8b0000;
   box-shadow: 3px 2px 4px rgba(221, 221, 221, 1);

@@ -24,7 +24,7 @@ export class IdCandidateComponent implements OnInit {
       'email': 'Alex_Korolev@mail.ru',
       'salary': '2500$',
       'photo': '05',
-      'skills': 'JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel;node;TEST',
+      'skills': 'JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel;node;TEST;',
       'reviews': [
         {
           'name': 'Аляксандр Грыгорьевич',
@@ -87,7 +87,9 @@ export class IdCandidateComponent implements OnInit {
   constructor(private modalService: NgbModal,
               private activeModal: NgbActiveModal) {
   }
-
+  saveSkills(skills: string): void {
+    this.candidate.skills = skills;
+  }
   saveRejected(): void {
     this.disabledSave = true;
     console.log('сохранение запрещено');
