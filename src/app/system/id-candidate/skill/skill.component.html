@@ -20,7 +20,7 @@
       <form
         [formGroup]="skillForm"
         (ngSubmit)="saveSkill()"
-        >
+      >
         <input
           [ngClass]="{'warning': skillForm.get('name').invalid && skillForm.get('name').touched}"
           type="text"
@@ -29,13 +29,12 @@
           placeholder="enter skill"
           formControlName="name"
         >
-
-
         <button
           class="skills__skill saving"
           type="submit"
           [disabled]="skillForm.invalid"
-        ><i class="fa fa-check"></i>
+        >
+          <i class="fa fa-check"></i>
         </button>
       </form>
 

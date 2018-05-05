@@ -35,15 +35,12 @@ export class SkillComponent implements OnInit {
     console.log('нажато добавление навыка');
     this.saveRejected.emit();
     this.editingSkill = true;
-
     this.skillForm = new FormGroup({
       'name': new FormControl(null, [Validators.required, Validators.minLength(1)])
       });
     console.log(this.skillForm);
-
-
   }
-
+/* TODO не помешает кнопка удаления незаполненного нового навыка*/
   saveSkill() {
     console.log('нажато сохранение навыка');
     const skill = this.skillForm.value.name;

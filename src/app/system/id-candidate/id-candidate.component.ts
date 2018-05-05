@@ -163,9 +163,9 @@ export class IdCandidateComponent implements OnInit {
   }
 
 
-  modalReview(reviewModal): void {
-    console.log('opened review');
-    this.activeModal = this.modalService.open(reviewModal, {size: 'lg'});
+  modalOpen(modalWindow): void {
+    console.log('opened modal window');
+    this.activeModal = this.modalService.open(modalWindow, {size: 'lg'});
   }
 
 

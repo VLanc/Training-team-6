@@ -160,22 +160,22 @@ h6 {
 #saveData {
 }
 
-.buttons{
+.button{
+
+
+}
+
+.button__add-experiences{
   position: fixed;
   bottom: 45px;
   left: 18%;
   display: flex;
-  padding: 10px;
+  padding: 6px;
   flex-wrap: wrap;
   font-size: 13px;
   text-transform: lowercase;
   font-weight: bold;
   z-index: 10;
-
-}
-
-.buttons__add-experiences-and-skills{
-  padding: 6px;
   margin: 5px;
   box-shadow: 4px 2px 2px 0 rgb(66, 66, 66);
   background-color: #a9a9a9;
@@ -184,7 +184,7 @@ h6 {
   user-select: none;
 }
 
-.buttons__add-experiences-and-skills:hover {
+.button__add-experiences:hover {
   transition: 0.3s;
   opacity: 1;
   color: red;
@@ -192,7 +192,7 @@ h6 {
 
 }
 
-.buttons__add-experiences-and-skills:active {
+.button__add-experiences:active {
   box-shadow: none;
 }
 

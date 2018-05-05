@@ -9,7 +9,7 @@
 
 
       <div class="review-button-block">
-        <button class="btn btn-secondary review-button-block__button" (click)="modalReview(reviewModal)">
+        <button class="btn btn-secondary review-button-block__button" (click)="modalOpen(modalWindowReview)">
           Review
         </button>
       </div>
@@ -59,9 +59,15 @@
         </div>
       </form>
     </div>
-    <div *ngIf="editing" class="buttons">
-      <a class="buttons__add-experiences-and-skills">Add experience</a>
-    </div>
+
+    <a
+      *ngIf="editing"
+      class="button__add-experiences"
+      (click)="modalOpen(modalWindowExperience)"
+    >
+      Add experience
+    </a>
+
     <!-- left data END --------------------------------->
 
     <!-- right data ----------------------------------->
@@ -80,6 +86,7 @@
         >
         </app-experience>
       </div>
+
       <div class="skills-delimiter">
         <h6>Skills</h6>
 
@@ -90,92 +97,87 @@
           (onSaveAccepted)="saveAccepted()"
           (onSaveSkills)="saveSkills($event)"
         ></app-skill>
+
         <div id="skills" class="skills"></div>
       </div>
 
 
-      <a *ngIf="!editing; else saveButton" (click)="editingData()" class="button-new">
+      <a
+        class="button-new"
+        *ngIf="!editing; else saveButton"
+        (click)="editingData()"
+      >
         <i class="fa fa-pencil"></i>
       </a>
+
       <ng-template #saveButton>
-        <a (click)="editingData()" class="button-new" [hidden]="editorCount ==! 0"><i
-          class="fa fa-save"></i></a>
+        <a
+          class="button-new"
+          (click)="editingData()"
+          [hidden]="editorCount ==! 0"
+        >
+          <i class="fa fa-save"></i>
+        </a>
       </ng-template>
 
-
     </div>
   </div>
 </div>
-
-
-<!-- modal window ADD SKILL -->
-
-<div *ngIf="modalWindowSkill" class="modal">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-window__title">Add Skill</div>
-        <a href="#" onclick="return closeModalWindow();" class="modal-close"><i
-          class="fa fa-window-close-o"></i></a>
-      </div>
-      <div class="modal-body">
-        <input id="addWindowSkill" autofocus type="text">
-        <button onclick="return saveSkill();" type="button" id="addSkillButton" class="btn btn-secondary">add</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <!-- modal window ADD EXPERIENCE -->
-<div id="modalWindowExperience" class="modal fade">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-window__title">Add Experience</div>
-        <a href="#" onclick="return closeModalWindow();" class="modal-close"><i
-          class="fa fa-window-close-o"></i></a>
-      </div>
-      <div class="modal-body">
-        <input id="addDateExperience" type="text" autofocus value="" placeholder="Enter date...">
-        <input id="addPlaceExperience" type="text" value="" placeholder="Enter position...">
-        <input id="addPositionExperience" type="text" value="" placeholder="Enter company...">
-        <div class="modalWindowExperience__textarea">
-          <textarea id="addBodyExperience" rows="4" placeholder="Write..."></textarea>
-        </div>
-        <button onclick="return saveExperience()" type="button" id="modal-button2" class="btn btn-secondary">add
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- modal window REVIEW -->
-<ng-template #reviewModal let-c="close" let-d="dismiss">
-  <div class="modal-content modal-window-description">
+<ng-template #modalWindowExperience let-c="close" let-d="dismiss">
+  <div class="modalWindowExperience">
     <div class="modal-header">
-      <div class="modal-window__title">{{candidate.name}}</div>
-        <!--<div class="modal-window__title" id="descriptionName"></div>-->
+      <div class="modal-window__title">Add Experience</div>
       <a (click)="closeModalWindow()" class="modal-close">
         <i class="fa fa-window-close-o"></i>
       </a>
-        <div class="modal-window-description__date-off-add-candidate">{{getDate()}}</div>
+    </div>
+    <div class="modal-body">
+      <input id="addDateExperience" type="text" autofocus value="" placeholder="Enter date...">
+      <input id="addPlaceExperience" type="text" value="" placeholder="Enter position...">
+      <input id="addPositionExperience" type="text" value="" placeholder="Enter company...">
+      <div class="modalWindowExperience__textarea">
+        <textarea id="addBodyExperience" rows="4" placeholder="Write..."></textarea>
       </div>
-      <div class="modal-body">
-        <ul class="nav nav-tabs" id="TabDescription" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="toForm1" data-toggle="tab" href="#form1" role="tab"
-               aria-controls="Form1" aria-selected="true">Add review</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="form1" aria-labelledby="Form1">
+
+      <button
+        (click)="saveExperience()"
+        type="button"
+        class="btn btn-secondary"
+      >
+        add
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+
+<!-- modal window REVIEW -->
+<ng-template #modalWindowReview let-c="close" let-d="dismiss">
+  <div class="modal-content modal-window-description">
+    <div class="modal-header">
+      <div class="modal-window__title">{{candidate.name}}</div>
+      <!--<div class="modal-window__title" id="descriptionName"></div>-->
+      <a (click)="closeModalWindow()" class="modal-close">
+        <i class="fa fa-window-close-o"></i>
+      </a>
+      <div class="modal-window-description__date-off-add-candidate">{{getDate()}}</div>
+    </div>
+    <div class="modal-body">
+      <ul class="nav nav-tabs" id="TabDescription" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="toForm1" data-toggle="tab" href="#form1" role="tab"
+             aria-controls="Form1" aria-selected="true">Add review</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="form1" aria-labelledby="Form1">
   <textarea class="form-control" id="area1" rows="7" name="desc1"
             placeholder="Write..."></textarea>
-          </div>
         </div>
-        <button (click)="saveDescription()" class="btn btn-secondary">Send</button>
       </div>
+      <button (click)="saveDescription()" class="btn btn-secondary">Send</button>
     </div>
+  </div>
 </ng-template>
