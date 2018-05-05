@@ -41,6 +41,7 @@ server.get('/candidates', candidates);
 server.get('/positions', positions);
 server.get('/getUsers', getUsers);
 
+server.post('/saveVacancy', saveVacancy);
 server.post('/saveUser', saveUser);
 server.post('/register', register);
 server.post('/saveEvent', saveEvent);
@@ -150,6 +151,14 @@ function saveEvent(req, res, next) {
 function vacancies(req, res, next) {
   let obj = JSON.parse(fs.readFileSync('vacancies.json', 'utf8'));
   res.send(obj);
+  next();
+}
+
+function saveVacancy(req, res, next) {
+  let vacancy = JSON.parse(JSON.stringify(req.body));
+  let vacancies = JSON.parse(fs.readFileSync('vacancies.json', 'utf8'));
+  vacancies.push(vacancy);
+  fs.writeFileSync('vacancies.json', JSON.stringify(vacancies));
   next();
 }
 

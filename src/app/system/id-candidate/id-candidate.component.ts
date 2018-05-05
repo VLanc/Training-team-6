@@ -1,6 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-id-candidate',
@@ -86,7 +87,8 @@ export class IdCandidateComponent implements OnInit {
   candidateForm: FormGroup;
 
   constructor(private modalService: NgbModal,
-              private activeModal: NgbActiveModal) {
+              private activeModal: NgbActiveModal,
+              private router: Router) {
   }
 
   saveSkills(skills: string): void {
@@ -106,7 +108,7 @@ export class IdCandidateComponent implements OnInit {
 
   ngOnInit() {
 
-
+    console.log(this.router.url);
     this.candidateForm = new FormGroup({
       'position': new FormControl(this.candidate.position, [Validators.required]),
       'status': new FormControl(this.candidate.status, [Validators.required]),
@@ -140,7 +142,6 @@ export class IdCandidateComponent implements OnInit {
     function getEnding(number) {
       return number > 1 ? 's' : '';
     }
-
     return date;
   }
 

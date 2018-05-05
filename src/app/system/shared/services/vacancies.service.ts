@@ -15,4 +15,9 @@ export class VacanciesService {
       })
   }
 
+  saveVacancy(vacancy: Vacancy): Observable<Vacancy>{
+    return this.http.post<Vacancy>(this.url+'saveVacancy', vacancy);
+  }
+
+
 }
