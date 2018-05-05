@@ -4,7 +4,7 @@ import {Options} from 'fullcalendar';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Interview} from '../shared/models/interview.model';
 import {InterviewService} from '../shared/services/interview.service';
-import {Router} from '@angular/router';
+/*import {Router} from '@angular/router';*/
 import {User} from "../../shared/models/user.model";
 
 @Component({
@@ -85,12 +85,20 @@ export class InterviewComponent implements OnInit {
 
   constructor(private modalService: NgbModal,
               private activeModal: NgbActiveModal,
-              private interviewService: InterviewService,
-              private router: Router) {
+              private interviewService: InterviewService/*,
+              private router: Router*/) {
   }
 
   updateEventCalendar(event: Interview) {
-    this.ucCalendar.fullCalendar('renderEvent', event);
+    console.log(this.interviews);
+    /*this.ucCalendar.fullCalendar('removeEvents');*/
+    /*this.ucCalendar.fullCalendar('refetchEventSources', this.interviews);*/
+    /*this.ucCalendar.fullCalendar('addEventSource', this.interviews);*/
+    /*this.ucCalendar.fullCalendar('renderEvent', event);*/
+    /*this.ucCalendar.fullCalendar('refetchEvents');*/
+    /*this.ucCalendar.fullCalendar('renderEvent', event);*/
+    /*this.ucCalendar.fullCalendar('renderEvent', event);*/
+    this.ucCalendar.fullCalendar('rerenderEvents');
   }
 
 
@@ -158,13 +166,13 @@ export class InterviewComponent implements OnInit {
       });
   }
 
-  openLg(content, eventDetail?) {
+  openCreateInterviewWindow(content, eventDetail?) {
     console.log(eventDetail);
     this.clearModalWindow();
     if (eventDetail && eventDetail.event) {
       this.interviewId = eventDetail.event.id;
       this.selectedCurrentStartDate = new Date(eventDetail.event.start);
-      this.selectedNewStartDate = this.selectedCurrentStartDate;
+      this.selectedNewStartDate = new Date(this.selectedCurrentStartDate);
       /*this.selectedNewStartDate.setHours(this.selectedNewStartDate.getUTCHours());*/ // convert the start hours to the UTC format
       this.selectedEndDate = new Date(eventDetail.event.end);
       /*this.selectedEndDate.setHours(this.selectedEndDate.getUTCHours());*/ // convert the end hours to the UTC format
@@ -184,17 +192,18 @@ export class InterviewComponent implements OnInit {
     } else if (eventDetail && eventDetail.date) {
       this.interviewId = ++this.eventsLength;
       this.selectedCurrentStartDate = new Date(eventDetail.date._d.setHours(new Date().getHours(), new Date().getMinutes()));
-      this.selectedNewStartDate = this.selectedCurrentStartDate;
+      this.selectedNewStartDate = new Date(this.selectedCurrentStartDate);
       this.selectedEndDate = new Date(eventDetail.date._d.setHours(new Date().getHours(), new Date().getMinutes()));
       this.selectedColor = {name: 'default', code: '#3a87ad'};
     } else {
+      this.interviewId = ++this.eventsLength;
       this.selectedCurrentStartDate = new Date();
-      this.selectedNewStartDate = this.selectedCurrentStartDate;
-      this.selectedEndDate = new Date();
+      this.selectedNewStartDate = new Date(this.selectedCurrentStartDate);
+      this.selectedEndDate = new Date(this.selectedCurrentStartDate);
       this.selectedColor = {name: 'default', code: '#3a87ad'};
     }
 
-    this.activeModal = this.modalService.open(content, {size: 'lg'});
+    this.activeModal = this.modalService.open(content, {size: 'lg', centered: true});
   }
 
 
@@ -243,7 +252,10 @@ export class InterviewComponent implements OnInit {
   }
 
   checkEndTime() {
-    if (new Date(this.selectedNewStartDate).getTime() >= new Date(this.selectedEndDate).getTime()) {
+    this.selectedEndDate.setSeconds(this.selectedNewStartDate.getSeconds(), this.selectedNewStartDate.getMilliseconds());
+    console.log(this.selectedNewStartDate.getTime());
+    console.log(this.selectedEndDate.getTime());
+    if (this.selectedNewStartDate.getTime() >= this.selectedEndDate.getTime()) {
       this.isEndTimeInvalid = true;
       this.endTimeHint = 'This time must be greater than the start time';
       this.isEndTimeHintVisible = true;
@@ -342,9 +354,15 @@ export class InterviewComponent implements OnInit {
       description: this.selectedDescription
     };
     console.log(event);
-    this.updateEventCalendar(event);
     this.clearModalWindow();
     this.interviewService.saveEvents(event).subscribe();
-    this.router.navigate(['/interview']);
+
+    this.interviewService.getEvents()
+      .subscribe(interviews => {
+        this.interviews = interviews;
+      });
+
+    this.updateEventCalendar(event);
+    /*this.router.navigate(['/interview']);*/
   }
 }
