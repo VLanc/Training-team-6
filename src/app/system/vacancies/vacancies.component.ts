@@ -179,6 +179,7 @@ export class VacanciesComponent implements OnInit {
           this.changeDateFormat(this.vacancies[i]);
         }
       });
+    //вот тут берем список позиций!
     this.positionService.getPositions()
       .subscribe(positions => {
         this.positions = positions;
@@ -186,6 +187,7 @@ export class VacanciesComponent implements OnInit {
           this.positionsStr.push(this.positions[i].name);
         }
       });
+
 
   }
 }
