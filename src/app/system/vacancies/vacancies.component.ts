@@ -49,6 +49,7 @@ export class VacanciesComponent implements OnInit {
           else if (27 < dateOfAddVacancy) this.vacancies[i].date = 'a month ago';
         }
       });
+    //вот тут берем список позиций!
     this.positionService.getPositions()
       .subscribe(positions => {
         this.positions = positions;
@@ -57,7 +58,7 @@ export class VacanciesComponent implements OnInit {
 
   }
 
-  lol(){
+  addVacancy(){
     this.vacancies.push({position:'pidor', experience:'dsafdsaf', salary: '9999999', date:'dsfgdsafdsa'});
   }
 
