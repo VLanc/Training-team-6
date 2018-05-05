@@ -1,0 +1,141 @@
+<div
+  *ngIf="!editingExperience; else editingForm"
+  class="timeLine__unit">
+  <div class="timeLine__unit__left-information">
+    <div class="timeLine__unit__left-information__date">
+      {{singleExperience.timeEnd}} - {{singleExperience.timeStart}}
+    </div>
+    <div class="timeLine__unit__left-information__position">
+      {{singleExperience.position}}
+    </div>
+  </div>
+
+  <div class="timeLine__unit__diagram">
+    <div class="timeLine__unit__diagram__dot"></div>
+    <div
+      *ngIf="quantityExperiences > singleExperience.id"
+      [ngClass]="{
+            'timeLine__unit__diagram__line__job': singleExperience.job === true,
+            'timeLine__unit__diagram__line__education': singleExperience.job === false
+          }">
+
+    </div>
+  </div>
+
+  <div class="timeLine__unit__right-information">
+    <div class="timeLine__unit__right-information__company">
+      {{singleExperience.company}}
+    </div>
+    <div class="timeLine__unit__right-information__responsibility">
+      {{singleExperience.responsibility}}
+    </div>
+  </div>
+
+  <div *ngIf="editing" class="timeLine__unit__buttons">
+    <div class="timeLine__unit__buttons__button">
+      <a
+        class="icon"
+        title="edit experience"
+        (click)="editExperience(singleExperience.id)"
+      >
+        <i class="fa fa-edit"></i>
+      </a>
+    </div>
+    <div class="timeLine__unit__buttons__button">
+      <a
+        class="icon"
+        title="delete experience"
+        (click)="deleteExperience(singleExperience.id)"
+      >
+        <i class="fa fa-trash"></i>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+<ng-template #editingForm>
+  <form [formGroup]="experienceForm">
+
+  <div class="timeLine__unit">
+    <div class="timeLine__unit__left-information">
+      <div class="timeLine__unit__left-information__date">
+        <input
+          type="text"
+          formControlName="timeEnd"
+          [(ngModel)] = "singleExperience.timeEnd"
+        >
+        <input
+          type="text"
+          formControlName="timeStart"
+          [(ngModel)] = "singleExperience.timeStart"
+        >
+      </div>
+      <div class="timeLine__unit__left-information__position">
+        <input
+          type="text"
+          formControlName="position"
+          [(ngModel)] = "singleExperience.position"
+        >
+      </div>
+    </div>
+
+    <div class="timeLine__unit__diagram">
+      <div class="timeLine__unit__diagram__dot"></div>
+      <div
+        *ngIf="quantityExperiences > singleExperience.id"
+        [ngClass]="{
+            'timeLine__unit__diagram__line__job': singleExperience.job === true,
+            'timeLine__unit__diagram__line__education': singleExperience.job === false
+          }">
+      </div>
+    </div>
+
+    <div class="timeLine__unit__right-information">
+      <div class="timeLine__unit__right-information__company">
+        <input
+          type="text"
+          formControlName="company"
+          [(ngModel)] = "singleExperience.company"
+        >
+      </div>
+      <div class="timeLine__unit__right-information__responsibility">
+        <textarea
+          rows="4"
+          type="text"
+          formControlName="responsibility"
+          [(ngModel)] = "singleExperience.responsibility"
+        >
+        </textarea>
+      </div>
+    </div>
+
+    <div class="timeLine__unit__buttons">
+      <div class="timeLine__unit__buttons__button">
+        <a
+          class="icon"
+          title="save experience"
+          (click)="saveExperience(singleExperience.id)"
+        >
+          <i class="fa fa-save"></i>
+        </a>
+      </div>
+      <div class="timeLine__unit__buttons__button">
+        <a
+          class="icon"
+          title="delete experience"
+          (click)="deleteExperience(singleExperience.id)"
+        >
+          <i class="fa fa-trash"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  </form>
+</ng-template>

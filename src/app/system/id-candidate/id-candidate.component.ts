@@ -1,64 +1,173 @@
-import {Component, OnInit} from '@angular/core';
-
+import {Component, OnInit, Input} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-id-candidate',
   templateUrl: './id-candidate.component.html',
-  styleUrls: ['./id-candidate.component.css']
+  styleUrls: ['./id-candidate.component.css'],
+  providers: [NgbActiveModal]
 })
+
 export class IdCandidateComponent implements OnInit {
-
-  public user = {
-    'id': '4',
-    'date': '1520336364',
-    'position': 'Java Developer',
-    'status': 'CV-Rejected',
-    'name': 'Дядя Федор',
-    'address': 'Простоквашино',
-    'city': 'from Moscow',
-    'mobileNumber': '+375447549706',
-    'homeNumber': '+375172245587',
-    'email': 'Ivan_ivanov@mail.ru',
-    'salary': '250000$',
-    'photo': '../../../assets/10.png',
-    'skills': 'JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel',
-    'description': [
-      {
-        'name': 'Мама',
-        'review': 'тагяется с блохастыми животными, социопат'
-      },
-      {
-        'name': 'Печкин',
-        'review': 'они бы еще с чемоданом за грибами пошли'
-      }
-    ],
-    'info': [
-      {
-        'time': 'Apr 2015 – Now',
-        'pos': 'Learn Java Developer',
-        'header': 'Itransition Group Ltd.',
-        'body': 'WEB Development, work with server side logic, take part in search engine development and optimization'
-      },
-      {
-        'time': 'Oct 2012 – Mar 2015<br>(2 year 7 month)',
-        'pos': 'Senior Java Developer<br>London UK',
-        'header': 'Belhard',
-        'body': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
+  disabledSave: boolean = false;
+  candidate =
+    {
+      'id': '1',
+      'date': '1521042620',
+      'position': 'Java Developer',
+      'status': 'Accepted for interview',
+      'name': 'Alex Korol',
+      'address': 'Esenina',
+      'city': 'Minsk',
+      'mobileNumber': 5447549706,
+      'homeNumber': '+375172245587',
+      'email': 'Alex_Korolev@mail.ru',
+      'salary': '2500$',
+      'photo': '05',
+      'skills': 'JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel;node;TEST;',
+      'reviews': [
+        {
+          'name': 'Аляксандр Грыгорьевич',
+          'review': 'Хороший кандидат'
+        },
+        {
+          'name': 'Якубович',
+          'review': 'берем'
         }
-    ],
-    'education': [
-      {
-        'time': 'Oct 2012 – Mar 2015<br>(2 year 7 month)',
-        'pos': 'STUDENT',
-        'header': 'BSUIR',
-        'body': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
-      }
-    ]
-  };
+      ],
+      'experiences':
+        [
+          {
+            'id': 1,
+            'timeStart': 'Apr 2015',
+            'timeEnd': 'Now',
+            'job': true,
+            'position': 'Learn Java Developer',
+            'place': "Минск",
+            'company': 'Itransition Group Ltd.',
+            'responsibility': 'WEB Development, wвпавпвшрь шкьрешгерьиншг кернрш гернкшгрешн ркшерншкреш кшреншкрешнрк шрнкренршкренк ршншгкренркшнр шкреншркшеншкр ешнркшеншкрешork with server side logic, take part in search engine development and optimization'
+          },
+          {
+            'id': 2,
+            'timeStart': 'Oct 2012',
+            'timeEnd': 'Mar 2015',
+            'job': true,
+            'position': 'Senior Java Developer',
+            'place': "Минск",
+            'company': 'Belhard',
+            'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
+          },
+          {
+            'id': 3,
+            'timeStart': 'Oct 2012',
+            'timeEnd': 'Mar 2015',
+            'job': false,
+            'position': 'STUDENT',
+            'place': "Минск",
+            'company': 'BSUIR',
+            'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
+          },
+          {
+            'id': 4,
+            'timeStart': 'Oct 2012',
+            'timeEnd': 'Mar 2015',
+            'job': false,
+            'position': 'STUDENT',
+            'place': "Минск",
+            'company': 'BSUIR',
+            'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
+          }
+        ]
+    };
 
-  constructor() {
+  quantityExperiences = this.candidate.experiences.length;
+  editing: boolean = false;
+  candidateForm: FormGroup;
+
+  constructor(private modalService: NgbModal,
+              private activeModal: NgbActiveModal) {
   }
+  saveSkills(skills: string): void {
+    this.candidate.skills = skills;
+  }
+  saveRejected(): void {
+    this.disabledSave = true;
+    console.log('сохранение запрещено');
+
+  }
+
+  saveAccepted(): void {
+    this.disabledSave = false;
+    console.log('сохранение разрешено');
+  }
+
+  public getImagePath(): string {
+    return this.candidate.photo ? '../../../assets/images/' + this.candidate.photo + '.png' : '../../../../assets/images/anounymus.png';
+
+  }
+
+  editingData(): void {
+    this.editing = !this.editing;
+  }
+
 
   ngOnInit() {
+
+
+    this.candidateForm = new FormGroup({
+      'position': new FormControl(this.candidate.position, [Validators.required]),
+      'status': new FormControl(this.candidate.status, [Validators.required]),
+      'name': new FormControl(this.candidate.name, [Validators.required]),
+      'address': new FormControl(this.candidate.address, [Validators.required]),
+      'city': new FormControl(this.candidate.city, [Validators.required]),
+      'mobileNumber': new FormControl(this.candidate.mobileNumber, [Validators.required]),
+      'email': new FormControl(this.candidate.email, [Validators.email]),
+      'salary': new FormControl(this.candidate.salary, [Validators.required])
+    });
+
+
   }
+
+
+  getDate(): string {
+    let date: any = this.candidate.date;
+    let now: any = new Date();
+    now = now.getTime() as number / 1000;
+    let dateOfAddUser: number = (now - date) / 86400;
+
+    if (dateOfAddUser < 1) date = 'today';
+    else if (2 < dateOfAddUser && 7 > dateOfAddUser) date = Math.ceil(dateOfAddUser) + ' days later';
+    else if (7 < dateOfAddUser && 27 > dateOfAddUser) date = 'about ' + getWeek(dateOfAddUser) + ' week' + getEnding(getWeek(dateOfAddUser)) + ' later';
+    else if (27 < dateOfAddUser) date = 'a month ago';
+
+    function getWeek(num) {
+      return Math.ceil(num / 7);
+    }
+
+    function getEnding(number) {
+      return number > 1 ? 's' : '';
+    }
+    return date;
+  }
+
+
+  modalReview(reviewModal):void {
+    console.log('opened review');
+    this.activeModal = this.modalService.open(reviewModal, {size: 'lg'});
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

@@ -13,9 +13,9 @@ import {InterviewComponent} from './interview/interview.component';
 import {FullCalendarModule} from 'ng-fullcalendar';
 import {AuthServeces} from '../shared/services/auth.serveces';
 import {SharedModule} from '../shared/shared.module';
-import { IdCandidateComponent } from './id-candidate/id-candidate.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {IdCandidateComponent } from './id-candidate/id-candidate.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {FormsModule} from '@angular/forms';
 import {
   DxButtonModule, DxDataGridModule, DxTemplateModule, DxSelectBoxModule,
@@ -25,9 +25,11 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
 import {InterviewService} from './shared/services/interview.service';
 import {VacanciesService} from './shared/services/vacancies.service';
-import { CandidatesComponent } from './candidates/candidates.component';
+import { CandidatesComponent} from './candidates/candidates.component';
 import {CandidatesService} from './shared/services/candidates.service';
 import {PositionService} from './shared/services/position.service';
+import { ExperienceComponent } from './id-candidate/experience/experience.component';
+import { SkillComponent } from './id-candidate/skill/skill.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {PositionService} from './shared/services/position.service';
     InterviewComponent,
     IdCandidateComponent,
     UserCabinetComponent,
-    CandidatesComponent
+    CandidatesComponent,
+    ExperienceComponent,
+    SkillComponent
   ],
   imports: [
     CommonModule,

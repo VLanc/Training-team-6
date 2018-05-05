@@ -1,11 +1,3 @@
-.hidden {
-  display: none !important;
-}
-
-.visible {
-  display: block !important;
-}
-
 .active {
   background-color: #c6c8ca;
 }
@@ -36,10 +28,7 @@ h6 {
 }
 
 .bread-crumbs {
-  margin: 13px 0 13px 15px;
-}
-
-#breadCrumbs {
+  margin: 13px 0;
   display: inline;
 }
 
@@ -66,14 +55,15 @@ h6 {
 
 /******* big block header END *******/
 
-/******* left block  *******/
+/******* left block *******/
 .header-info {
   text-transform: none;
   border-bottom: 2px solid #e9e9e9;
   text-align: center;
 }
 
-.header-info #status, option {
+
+#status, option {
   margin: 5px 0 0 0;
   padding: 0;
   width: 60%;
@@ -83,7 +73,7 @@ h6 {
   outline: none;
 }
 
-#avatar {
+.avatar {
   display: block;
   height: 100%;
   width: 100%;
@@ -121,8 +111,8 @@ h6 {
   margin-bottom: 2px;
 }
 
-#positionEdit, #nameEdit, #salaryEdit,
-#phoneEdit, #emailEdit, #addressEdit {
+.positionEdit, .nameEdit, .salaryEdit,
+.phoneEdit, .emailEdit, .addressEdit {
   margin: 3px;
   max-width: 80%;
   border: 1px solid #454545;
@@ -132,9 +122,6 @@ h6 {
   text-align: center;
 }
 
-.footer-info{
-  color: #0b2e13;
-}
 
 .profile-text {
   font-size: 13px;
@@ -154,122 +141,19 @@ h6 {
 /******* left block END *******/
 
 /******* right block *******/
-.experience {
-  position: relative;
-  border-left: 2px solid #e9e9e9;
-}
-
-.timeline {
+.timeLine {
   word-wrap: break-word;
   text-transform: none;
   margin-bottom: 38px;
 }
 
-.timeline__unit {
-  margin-top: 6px;
-  display: flex;
-}
-
-.timeline__unit__left-information{
-  margin-right: 10px;
-  float: left;
-  width: 26%;
-  display:inline;
-  font-size: 13px;
-  font-weight: bold;
-
-}
-.timeline__unit__left-information__date{
-  float: right;
-  min-width: 63%;
-  max-width: 90%;
-  border: 2px solid #c8c8c8;
-  border-radius: 15px;
-  padding: 3px;
-  text-align: center;
-
-}
-.timeline__unit__left-information__position {
-  max-width: 100%;
-  float: right;
-  color: #828282;
-  padding: 6px;
-  text-align: right;
-}
-.timeline__unit__diagram{
-  float: left;
-  width: 24px;
-  display:inline;
-
-}
-.timeline__unit__diagram__dot{
-  margin: 0 auto;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid #c8c8c8;
-}
-
-.timeline__unit__diagram__line__job{
-  width: 2px;
-  border: 1px solid #c8c8c8;
-  height: calc(100% - 12px);
-  margin: 0 auto;
-}
-
-.timeline__unit__diagram__line__study{
-  width: 2px;
-  border: 1px dotted #c8c8c8;
-  height: calc(100% - 12px);
-  margin: 0 auto;
-}
-
-.timeline__unit__right-information{
-  margin-left: 10px;
-  float: left;
-  max-width: calc(74% - 34px);
-  min-width: calc(74% - 34px);
-  display:inline;
-  border: 2px solid #c8c8c8;
-  border-radius: 15px;
-  padding: 13px;
-}
-
-.timeline__unit__right-information__name-of-place{
-  font-size: 15px;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.timeline__unit__right-information__responsibility{
-  font-size: 14px;
+.experience {
+  position: relative;
+  border-left: 2px solid #e9e9e9;
 }
 
 .skills-delimiter {
   border-top: 2px solid #e9e9e9;
-}
-
-.skills {
-  display: flex;
-  padding: 10px;
-  flex-wrap: wrap;
-}
-
-.skills__skill {
-  font-size: 12px;
-  border: 2px solid #c8c8c8;
-  border-radius: 5px;
-  padding: 5px 5px;
-  margin: 5px;
-  text-align: center;
-  box-sizing: border-box;
-  font-weight: bold;
-}
-
-.skills__skill:hover {
-  transition: 0.4s;
-  background-color: #c8c8c8;
-  box-shadow: 3px 2px 4px rgba(221, 221, 221, 1);
 }
 
 /******* buttons *******/
@@ -279,13 +163,15 @@ h6 {
 .buttons{
   position: fixed;
   bottom: 45px;
-  right: 60px;
+  left: 18%;
   display: flex;
   padding: 10px;
   flex-wrap: wrap;
   font-size: 13px;
   text-transform: lowercase;
   font-weight: bold;
+  z-index: 10;
+
 }
 
 .buttons__add-experiences-and-skills{
@@ -294,25 +180,20 @@ h6 {
   box-shadow: 4px 2px 2px 0 rgb(66, 66, 66);
   background-color: #a9a9a9;
   border-radius: 20px;
+  opacity: 0.4;
+  user-select: none;
 }
 
 .buttons__add-experiences-and-skills:hover {
   transition: 0.3s;
+  opacity: 1;
+  color: red;
   background-color: #6e6e6e;
+
 }
 
 .buttons__add-experiences-and-skills:active {
   box-shadow: none;
-}
-
-@media screen and (max-device-width: 991px) {
-  .delimiter {
-    border-top: 2px solid #e9e9e9;
-  }
-
-  .experience {
-    border: none;
-  }
 }
 
 /******* ONLY modal windows ******/
@@ -403,4 +284,15 @@ h6 {
 .modalWindowExperience__textarea textarea {
   width: 100%;
 }
-/****** ONLY modal wondows END ******/
+/****** ONLY modal windows END ******/
+
+
+@media screen and (max-device-width: 991px) {
+  .delimiter {
+    border-top: 2px solid #e9e9e9;
+  }
+
+  .experience {
+    border: none;
+  }
+}
