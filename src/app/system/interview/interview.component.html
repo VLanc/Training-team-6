@@ -1,12 +1,12 @@
 <div class="interview-header">Interview
 <!--  <app-interview-modal #com1 (onAddEvent)="updateEventCalendar($event)"
                        [eventsLength]="eventsLength"></app-interview-modal>-->
-  <button class="btn btn-secondary add-event-button" (click)="openLg(content)">Add new interview</button>
+  <button class="btn btn-secondary add-event-button" (click)="openCreateInterviewWindow(content)">Add new interview</button>
 
   <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="new-event-modal-title">Create new interview</h5>
+        <h5 class="modal-title" id="new-event-modal-title">Create/edit interview</h5>
         <button type="button" class="close" id="close-event-modal-button-top" aria-label="Close"
                 (click)="closeModalWindow()">
           <span aria-hidden="true">&times;</span>
@@ -23,16 +23,16 @@
               <div class="form-group interview-modal-date-wrapper">
                 <h4 class="interview-modal-subtitle">Date and start time*</h4>
                 <input type="text" value="{{selectedNewStartDate | date: 'MMMM d, HH:mm'}}" [ngClass]="{'invalid': isNewStartDateInvalid}"
-                       class="form-control" placeholder="Choose date*"
+                       class="form-control" placeholder="Choose date"
                        disabled>
-                <p class="date-time-hint" *ngIf="isStartDateHintVisible">{{startDateHint}}</p>
+                <p class="hint" *ngIf="isStartDateHintVisible">{{startDateHint}}</p>
                 <owl-date-time-inline [(ngModel)]="selectedNewStartDate"></owl-date-time-inline>
                 <h4 class="interview-modal-subtitle">End time*</h4>
                 <div class="end-timer-wrapper">
                   <input type="text" value="{{selectedEndDate  | date: 'H:mm'}}" [ngClass]="{'invalid': isEndTimeInvalid}"
-                         class="form-control" placeholder="Choose end time*"
+                         class="form-control" placeholder="Choose end time"
                          disabled>
-                  <p class="date-time-hint" *ngIf="isEndTimeHintVisible">{{endTimeHint}}</p>
+                  <p class="hint" *ngIf="isEndTimeHintVisible">{{endTimeHint}}</p>
                   <owl-date-time-inline [pickerType]="'timer'" [(ngModel)]="selectedEndDate"></owl-date-time-inline>
                 </div>
               </div>
@@ -49,7 +49,7 @@
               <h4 class="interview-modal-subtitle">Participants*</h4>
               <div [ngClass]="{'invalid': isParticipantsInvalid}">
                 <ng-multiselect-dropdown
-                  [placeholder]="'Select participants*'"
+                  [placeholder]="'Select participants'"
                   [data]="participantsList"
                   [(ngModel)]="selectedParticipants"
                   [settings]="participantsDropdownSettings"
@@ -59,7 +59,7 @@
               <h4 class="interview-modal-subtitle">Interviewers*</h4>
               <div [ngClass]="{'invalid': isInterviewersInvalid}">
                 <ng-multiselect-dropdown
-                  [placeholder]="'Select interviewers*'"
+                  [placeholder]="'Select interviewers'"
                   [data]="interviewersList"
                   [(ngModel)]="selectedInterviewers"
                   [settings]="interviewersDropdownSettings"
@@ -123,7 +123,7 @@
 
 </div>
 <div *ngIf="calendarOptions">
-  <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="openLg(content, $event.detail)"
-                   (dayClick)="openLg(content, $event.detail)"></ng-fullcalendar>
+  <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="openCreateInterviewWindow(content, $event.detail)"
+                   (dayClick)="openCreateInterviewWindow(content, $event.detail)" [(eventsModel)]="interviews"></ng-fullcalendar>
 </div>
 

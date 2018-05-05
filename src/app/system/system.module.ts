@@ -17,7 +17,10 @@ import { IdCandidateComponent } from './id-candidate/id-candidate.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {FormsModule} from '@angular/forms';
-import {DxButtonModule, DxDataGridModule, DxTemplateModule, DxSelectBoxModule} from 'devextreme-angular';
+import {
+  DxButtonModule, DxDataGridModule, DxTemplateModule, DxSelectBoxModule,
+  DxAutocompleteModule
+} from 'devextreme-angular';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
 import {InterviewService} from './shared/services/interview.service';
@@ -50,6 +53,7 @@ import {PositionService} from './shared/services/position.service';
     DxButtonModule,
     DxDataGridModule,
     DxTemplateModule,
+    DxAutocompleteModule,
     DxSelectBoxModule,
     NgMultiSelectDropDownModule.forRoot()
   ],

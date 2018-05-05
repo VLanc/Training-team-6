@@ -1,12 +1,11 @@
 <div class="left-side">
-  <p class="filter-by-title">Filter by experience</p>
+  <p class="filter-by">Filter by experience</p>
   <dx-select-box (onValueChanged)="selectVacancyExperience($event)"
                  [items]="vacancyExperiences"
                  placeholder="Select experience...">
   </dx-select-box>
 </div>
 
-<button (click)="lol()"></button>
 <dx-data-grid id="gridContainer" [dataSource]="vacancies" [columnMinWidth]="100">
   <dxo-paging [pageSize]="10"></dxo-paging>
   <dxo-pager [showPageSizeSelector]="true"
@@ -19,3 +18,58 @@
   <dxi-column dataField="salary"></dxi-column>
   <dxi-column dataField="date"></dxi-column>
 </dx-data-grid>
+
+<i class="fa fa-plus-circle add-vacancy-button" aria-hidden="true" (click)="openCreateVacancyWindow(content)"></i>
+
+<ng-template #content>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Create new vacancy</h5>
+      <button type="button" class="close" aria-label="Close"
+              (click)="closeModalWindow()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <div class="dx-field">
+            <div class="dx-field-label modal-position-title">Position*</div>
+            <div class="dx-field-value" [ngClass]="{'invalid': isPositionInvalid}">
+              <dx-autocomplete
+                placeholder="Type position..."
+                [(value)]="selectedPosition"
+                [dataSource]="positionsStr">
+              </dx-autocomplete>
+            </div>
+            <p class="hint" *ngIf="isPositionHintVisible">{{positionHint}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="vacancy-experience">Experience*</label>
+          <select (change)="updateExperience($event)" [ngClass]="{'invalid': isExperienceInvalid}"
+                  class="custom-select" id="vacancy-experience">
+            <option value="0" disabled>Choose an experience</option>
+            <option *ngFor="let experience of experiences; let idx = index" value="{{idx + 1}}">{{experience}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="vacancy-salary">Salary*</label>
+          <input (change)="updateSalary($event)" [ngClass]="{'invalid': isSalaryInvalid}" type="text"
+                 id="vacancy-salary" class="form-control" placeholder="Enter vacancy salary">
+          <p class="hint" *ngIf="isSalaryHintVisible">{{salaryHint}}</p>
+        </div>
+
+      </form>
+      </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="closeModalWindow()">Close
+      </button>
+      <button type="button" class="btn btn-primary" (click)="saveVacancy()">Save</button>
+    </div>
+  </div>
+</ng-template>
