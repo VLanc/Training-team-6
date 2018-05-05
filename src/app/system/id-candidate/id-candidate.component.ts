@@ -1,6 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-id-candidate',
   templateUrl: './id-candidate.component.html',
@@ -9,17 +10,17 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class IdCandidateComponent implements OnInit {
-  disabledSave: boolean = false;
+  editorCount: number = 0;
   candidate =
     {
       'id': '1',
-      'date': '1521042620',
+      'date': 1521042620,
       'position': 'Java Developer',
       'status': 'Accepted for interview',
       'name': 'Alex Korol',
       'address': 'Esenina',
       'city': 'Minsk',
-      'mobileNumber': 5447549706,
+      'mobileNumber': '+3755447549706',
       'homeNumber': '+375172245587',
       'email': 'Alex_Korolev@mail.ru',
       'salary': '2500$',
@@ -87,18 +88,10 @@ export class IdCandidateComponent implements OnInit {
   constructor(private modalService: NgbModal,
               private activeModal: NgbActiveModal) {
   }
+
   saveSkills(skills: string): void {
     this.candidate.skills = skills;
-  }
-  saveRejected(): void {
-    this.disabledSave = true;
-    console.log('сохранение запрещено');
-
-  }
-
-  saveAccepted(): void {
-    this.disabledSave = false;
-    console.log('сохранение разрешено');
+    console.log(this.candidate.skills);
   }
 
   public getImagePath(): string {
@@ -147,27 +140,32 @@ export class IdCandidateComponent implements OnInit {
     function getEnding(number) {
       return number > 1 ? 's' : '';
     }
+
     return date;
   }
 
+  saveRejected(): void {
+    this.editorCount++;
 
-  modalReview(reviewModal):void {
-    console.log('opened review');
-    this.activeModal = this.modalService.open(reviewModal, {size: 'lg'});
+    console.log('сохранение' +
+    this.editorCount == 0 ? 'разрешено' : 'запрещено' +
+      'запрещено, открыто - ' + this.editorCount + 'редакторов');
+
+  }
+
+  saveAccepted(): void {
+    this.editorCount--;
+    console.log('сохранение' +
+    this.editorCount == 0 ? 'разрешено' : 'запрещено' +
+      'запрещено, открыто - ' + this.editorCount + 'редакторов');
+
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
+  modalReview(reviewModal): void {
+    console.log('opened review');
+    this.activeModal = this.modalService.open(reviewModal, {size: 'lg'});
+  }
 
 
 }

@@ -12,7 +12,7 @@ export class ExperienceComponent {
   @Output('saveRejected') saveRejected = new EventEmitter<boolean>();
   @Output('saveAccepted') saveAccepted = new EventEmitter<boolean>();
   @Input() editing: boolean;
-  @Input() candidate: any;
+  // @Input() candidate: any;
   @Input() quantityExperiences: any;
   @Input() singleExperience: {
     id: number,
@@ -57,7 +57,7 @@ export class ExperienceComponent {
     // console.log('save' + id)
   }
 
-  deleteExperience(id: number) {
+  saveExperience(id: number) {
     this.editingExperience = false;
     this.saveAccepted.emit(!this.editingExperience);
     // console.log('delete' + id)

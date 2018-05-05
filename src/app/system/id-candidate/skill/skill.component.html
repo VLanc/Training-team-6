@@ -2,7 +2,43 @@
   <div *ngFor="let singleSkill of skillsArray" class="skills__skill">{{singleSkill}}</div>
 </div>
 
-<ng-template #editingSkills class="skills">
-  <!--<div *ngFor="let singleSkill of skillsArray" class="skills__skill editing" (click)="deleteSkill(singleSkill)">{{singleSkill}}</div>-->
-  <div *ngFor="let singleSkill of skillsArray" class="skills__skill editing" (click)="deleteSkill(singleSkill)">{{singleSkill}}</div>
+<ng-template #editingSkills>
+  <div class="skills">
+    <div
+      *ngFor="let singleSkill of skillsArray"
+      class="skills__skill editing"
+      (click)="deleteSkill(singleSkill)"
+    >{{singleSkill}}
+    </div>
+    <div
+      *ngIf="!editingSkill; else editingForm"
+      class="skills__skill adding"
+      (click)="addSkill()"
+    ><i class="fa fa-plus"></i>
+    </div>
+    <ng-template #editingForm>
+      <form
+        [formGroup]="skillForm"
+        (ngSubmit)="saveSkill()"
+        >
+        <input
+          [ngClass]="{'warning': skillForm.get('name').invalid && skillForm.get('name').touched}"
+          type="text"
+          class="skills__skill"
+          aria-describedby="name of skill"
+          placeholder="enter skill"
+          formControlName="name"
+        >
+
+
+        <button
+          class="skills__skill saving"
+          type="submit"
+          [disabled]="skillForm.invalid"
+        ><i class="fa fa-check"></i>
+        </button>
+      </form>
+
+    </ng-template>
+  </div>
 </ng-template>

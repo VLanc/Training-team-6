@@ -60,7 +60,6 @@
       </form>
     </div>
     <div *ngIf="editing" class="buttons">
-      <a class="buttons__add-experiences-and-skills">Add skills</a>
       <a class="buttons__add-experiences-and-skills">Add experience</a>
     </div>
     <!-- left data END --------------------------------->
@@ -76,9 +75,8 @@
                         [singleExperience]="singleExperience"
                         [quantityExperiences]="quantityExperiences"
                         [editing]="editing"
-                        [candidate]="candidate"
-                        (saveRejected)="saveRejected($permission)"
-                        (saveAccepted)="saveAccepted($permission)"
+                        (saveRejected)="saveRejected($event)"
+                        (saveAccepted)="saveAccepted($event)"
         >
         </app-experience>
       </div>
@@ -88,17 +86,19 @@
         <app-skill
           [skills]="candidate.skills"
           [editing]="editing"
-          (saveSkills)="saveSkills($skills)"
+          (onSaveRejected)="saveRejected()"
+          (onSaveAccepted)="saveAccepted()"
+          (onSaveSkills)="saveSkills($event)"
         ></app-skill>
         <div id="skills" class="skills"></div>
       </div>
 
 
-      <a *ngIf="!editing; else editButton" (click)="editingData()" class="button-new">
+      <a *ngIf="!editing; else saveButton" (click)="editingData()" class="button-new">
         <i class="fa fa-pencil"></i>
       </a>
-      <ng-template #editButton>
-        <a (click)="editingData()" class="button-new" [hidden]="disabledSave"><i
+      <ng-template #saveButton>
+        <a (click)="editingData()" class="button-new" [hidden]="editorCount ==! 0"><i
           class="fa fa-save"></i></a>
       </ng-template>
 
