@@ -61,5 +61,19 @@
     "experience": "Senior",
     "salary": "3000$",
     "date": "1520336364"
+  },
+  {
+    "position": ".NET DEVELOPER",
+    "experience": "Senior",
+    "salary": "3000$",
+    "date": "1525538758495",
+    "id": 10
+  },
+  {
+    "position": "JAVA DEVELOPER",
+    "experience": "Middle",
+    "salary": "2000$",
+    "date": "1525538767111",
+    "id": 11
   }
 ]

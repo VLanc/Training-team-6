@@ -140,8 +140,9 @@ export class VacanciesComponent implements OnInit {
       id: ++this.vacanciesLength
     };
 
-    console.log(newVacancy);
-    /*Пушь на сервер newVacancy именно тут, потому что ниже я меняю формат даты*/
+
+    this.vacanciesService.saveVacancy(newVacancy)
+      .subscribe();
 
     this.vacancies.push(newVacancy);
     this.changeDateFormat(this.vacancies[this.vacanciesLength - 1]);
