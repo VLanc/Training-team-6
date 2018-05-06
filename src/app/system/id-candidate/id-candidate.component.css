@@ -62,7 +62,6 @@ h6 {
   text-align: center;
 }
 
-
 select, option {
   margin: 5px 0 0 0;
   padding: 0;
@@ -80,7 +79,8 @@ select, option {
   margin: 5px auto;
 }
 
-.profile-job {
+.profile-position,
+label {
   text-align: left;
   font-size: 15px;
   letter-spacing: 3px;
@@ -107,21 +107,22 @@ select, option {
   z-index: 10000;
 }
 .profile-name, .profile-salary,
-.profile-time, .profile-job {
+.profile-time, .profile-position,
+label {
   margin-bottom: 2px;
 }
 
 .positionEdit, .nameEdit, .salaryEdit,
 .phoneEdit, .emailEdit, .addressEdit {
+  float: right;
   margin: 3px;
-  max-width: 80%;
+  max-width: 60%;
   border: 1px solid #454545;
   border-radius: 10px;
   outline: none;
   font-size: 90%;
   text-align: center;
 }
-
 
 .profile-text {
   font-size: 13px;
@@ -157,13 +158,6 @@ select, option {
 }
 
 /******* buttons *******/
-#saveData {
-}
-
-.button{
-
-
-}
 
 .button__add-experiences{
   position: fixed;
@@ -177,6 +171,7 @@ select, option {
   font-weight: bold;
   z-index: 10;
   margin: 5px;
+  color: #000000;
   box-shadow: 4px 2px 2px 0 rgb(66, 66, 66);
   background-color: #a9a9a9;
   border-radius: 20px;
@@ -187,9 +182,7 @@ select, option {
 .button__add-experiences:hover {
   transition: 0.3s;
   opacity: 1;
-  color: red;
-  background-color: #6e6e6e;
-
+  color: #ffffff;
 }
 
 .button__add-experiences:active {

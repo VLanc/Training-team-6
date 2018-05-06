@@ -14,10 +14,10 @@ export class IdCandidateComponent implements OnInit {
   editorCount: number = 0;
   candidate =
     {
-      'id': '1',
+      'id': 1,
       'date': 1521042620,
       'position': 'Java Developer',
-      'status': 'Accepted for interview',
+      'status': 1,
       'name': 'Alex Korol',
       'address': 'Esenina',
       'city': 'Minsk',
@@ -101,8 +101,14 @@ export class IdCandidateComponent implements OnInit {
 
   }
 
-  editingData(): void {
+  saveCandidate(): void {
     this.editing = !this.editing;
+    console.log(this.editing);
+  }
+
+  editCandidate(): void {
+    this.editing = !this.editing;
+    console.log(this.editing);
   }
 
 
@@ -168,5 +174,7 @@ export class IdCandidateComponent implements OnInit {
     this.activeModal = this.modalService.open(modalWindow, {size: 'lg'});
   }
 
-
+  saveExperience(experience: object): void {
+    console.log (experience.position + ' saved');
+  }
 }

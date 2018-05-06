@@ -11,8 +11,8 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 export class ExperienceComponent {
   @Output('onSaveRejected') saveRejected = new EventEmitter<>();
   @Output('onSaveAccepted') saveAccepted = new EventEmitter<>();
+  @Output('onSaveExperience') saveExperienceEmitter = new EventEmitter<object>();
   @Input() editing: boolean;
-  // @Input() candidate: any;
   @Input() quantityExperiences: any;
   @Input() singleExperience: {
     id: number,

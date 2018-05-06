@@ -16,47 +16,103 @@
     </div>
     <!-- left data --------------------------------->
     <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
-      <form [formGroup]="candidateForm">
+      <form
+        [formGroup]="candidateForm"
+        (ngSubmit)="saveCandidate()"
+      >
         <div class="header-info">
+          <div *ngIf="!editing; else editStatus">
+            <select [disabled]="true">
+              <option value=1>Accepted for interview</option>
+              <option value=2>All</option>
+              <option value=3>New</option>
+              <option value=4>CV-Accepted</option>
+              <option value=5>CV-Rejected</option>
+            </select>
+          </div>
 
-          <select name="status" id="status" [disabled]="!editing">
-            <option value="active">Accepted for interview</option>
-            <option value="">All</option>
-            <option value="">New</option>
-            <option value="">CV-Accepted</option>
-            <option value="">CV-Rejected</option>
-          </select>
+          <ng-template #editStatus>
+            <select
+              formControlName="status"
+            >
+              <option disabled>Choose kind of status:</option>
+              <option value=1>Accepted for interview</option>
+              <option value=2>All</option>
+              <option value=3>New</option>
+              <option value=4>CV-Accepted</option>
+              <option value=5>CV-Rejected</option>
+            </select>
+          </ng-template>
           <img src="{{getImagePath()}}" alt="profile" class="avatar">
           <div *ngIf="!editing; else editInfo">
-            <p id="position" class="profile-job">{{candidate.position}}</p>
+            <p class="profile-position">{{candidate.position}}</p>
 
-            <p id="name" class="profile-name">{{candidate.name}}</p>
+            <p class="profile-name">{{candidate.name}}</p>
 
-            <p id="salary" class="profile-salary">{{candidate.salary}}</p>
+            <p class="profile-salary">{{candidate.salary}}</p>
 
-            <div id="date" class="profile-time">{{getDate()}}</div>
-
-
+            <div class="profile-time">{{getDate()}}</div>
+            <hr>
             <h6>Contact information:</h6>
             <p class="profile-text">phone number:</p>
-            <p id="phone" class="profile-data">{{candidate.mobileNumber}}</p>
+            <p class="profile-data">{{candidate.mobileNumber}}</p>
 
             <p class="profile-text">E-mail:</p>
-            <p id="email" class="profile-data">{{candidate.email}}</p>
+            <p class="profile-data">{{candidate.email}}</p>
 
             <p class="profile-text">Address:</p>
-            <p id="address" class="profile-data">{{candidate.address}}</p>
+            <p class="profile-data">{{candidate.address}}</p>
 
           </div>
           <ng-template #editInfo>
-            <input type="text" class="positionEdit" formControlName="position" [(ngModel)]="candidate.position">
-            <input type="text" class="nameEdit" formControlName="name" [(ngModel)]="candidate.position">
-            <input type="text" class="salaryEdit" formControlName="salary" [(ngModel)]="candidate.salary">
-            <input type="text" class="phoneEdit" formControlName="mobileNumber" [(ngModel)]="candidate.mobileNumber">
-            <input type="text" class="emailEdit" formControlName="email" [(ngModel)]="candidate.email">
-            <input type="text" class="addressEdit" formControlName="address" [(ngModel)]="candidate.address">
+            <label>Position:
+              <input type="text" class="positionEdit" formControlName="position">
+            </label>
+
+            <label>Name:
+              <input type="text" class="nameEdit" formControlName="name">
+            </label>
+
+            <label>Salary:
+              <input type="text" class="salaryEdit" formControlName="salary">
+            </label>
+
+            <label>Phone:
+              <input type="text" class="phoneEdit" formControlName="mobileNumber">
+            </label>
+
+            <label>E-mail:
+              <input type="text" class="emailEdit" formControlName="email">
+            </label>
+
+            <label>Address:
+              <input type="text" class="addressEdit" formControlName="address" [(ngModel)]="candidate.address">
+            </label>
           </ng-template>
         </div>
+
+
+        <a
+          class="button-new"
+          *ngIf="!editing; else saveButton"
+          (click)="editCandidate()"
+          title="edit candidate {{candidate.name}}"
+        >
+          <i class="fa fa-pencil"></i>
+        </a>
+
+        <ng-template #saveButton>
+          <button
+            class="button-new"
+            type="submit"
+            [hidden]="!(editorCount == 0)"
+            title="save data"
+          >
+            <i class="fa fa-save"></i>
+          </button>
+        </ng-template>
+
+
       </form>
     </div>
 
@@ -64,6 +120,7 @@
       *ngIf="editing"
       class="button__add-experiences"
       (click)="modalOpen(modalWindowExperience)"
+      [hidden]="!(editorCount == 0)"
     >
       Add experience
     </a>
@@ -83,6 +140,7 @@
                         [editing]="editing"
                         (onSaveRejected)="saveRejected()"
                         (onSaveAccepted)="saveAccepted()"
+                        (onSaveExperience)="saveExperience($event)"
         >
         </app-experience>
       </div>
@@ -101,30 +159,10 @@
         <div id="skills" class="skills"></div>
       </div>
 
-
-      <a
-        class="button-new"
-        *ngIf="!editing; else saveButton"
-        (click)="editingData()"
-        title="edit candidate {{candidate.name}}"
-      >
-        <i class="fa fa-pencil"></i>
-      </a>
-
-      <ng-template #saveButton>
-        <a
-          class="button-new"
-          (click)="editingData()"
-          [hidden]="!(editorCount == 0)"
-          title="save data"
-        >
-          <i class="fa fa-save"></i>
-        </a>
-      </ng-template>
-
     </div>
   </div>
 </div>
+
 
 <!-- modal window ADD EXPERIENCE -->
 <ng-template #modalWindowExperience let-c="close" let-d="dismiss">
