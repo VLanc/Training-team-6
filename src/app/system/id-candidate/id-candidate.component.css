@@ -12,6 +12,34 @@ h6 {
   font-weight: bold;
 }
 
+.button-new  {
+  background: none;
+  position: fixed;
+  bottom: 7%;
+  right: 3%;
+  font-size: 50px;
+  color: #6e6e6e;
+  text-shadow: 3px 5px 2px rgba(203, 203, 203, 1);
+  z-index: 20;
+  border: none;
+}
+
+.button-new:hover {
+  transition: 0.1s;
+  font-size: 54px;
+  color: #6e6e9e;
+}
+
+.button-new:active {
+  transition: 0.1s;
+  font-size: 50px;
+  text-shadow: none;
+  outline: none;
+}
+
+
+
+
 /******* big block header *******/
 .header-data {
   text-decoration: none;
@@ -50,6 +78,7 @@ h6 {
   border: none;
   text-transform: uppercase;
   font-size: 110%;
+  display: flex;
   float: right;
 }
 

@@ -103,12 +103,16 @@ export class IdCandidateComponent implements OnInit {
 
   saveCandidate(): void {
     this.editing = !this.editing;
-    console.log(this.editing);
+    console.log(this.candidate);
+    console.log('saveCandidate');
   }
 
   editCandidate(): void {
     this.editing = !this.editing;
     console.log(this.editing);
+    console.log(this.candidateForm);
+
+
   }
 
 
@@ -153,19 +157,10 @@ export class IdCandidateComponent implements OnInit {
 
   saveRejected(): void {
     this.editorCount++;
-
-    console.log('сохранение' +
-    this.editorCount == 0 ? 'разрешено' : 'запрещено' +
-      'запрещено, открыто - ' + this.editorCount + 'редакторов');
-
   }
 
   saveAccepted(): void {
     this.editorCount--;
-    console.log('сохранение' +
-    this.editorCount == 0 ? 'разрешено' : 'запрещено' +
-      'запрещено, открыто - ' + this.editorCount + 'редакторов');
-
   }
 
 
@@ -174,7 +169,43 @@ export class IdCandidateComponent implements OnInit {
     this.activeModal = this.modalService.open(modalWindow, {size: 'lg'});
   }
 
-  saveExperience(experience: object): void {
-    console.log (experience.position + ' saved');
+  closeModalWindow() {
+    this.clearModalWindow();
+    this.activeModal.close();
+  }
+
+  clearModalWindow() {
+    // this.selectedNewStartDate = new Date();
+    // this.selectedEndDate = new Date();
+    // this.selectedParticipants = [];
+    // this.selectedInterviewers = [];
+    // this.selectedLocation = '';
+    // this.selectedColor = {name: 'default', code: '#3a87ad'};
+    // this.selectedDescription = '';
+    // this.isNewStartDateInvalid = false;
+    // this.isStartDateHintVisible = false;
+    // this.startDateHint = '';
+    // this.isEndTimeInvalid = false;
+    // this.isEndTimeHintVisible = false;
+    // this.endTimeHint = '';
+    // this.isParticipantsInvalid = false;
+    // this.isInterviewersInvalid = false;
+  }
+
+  saveModalWindowDataExperience() {
+    /*TODO save data method*/
+    this.closeModalWindow();
+  }
+
+  saveModalWindowDataReview() {
+    /*TODO save data method*/
+    this.closeModalWindow();
+  }
+
+
+  deleteExperience(id: number): void {
+    // delete.this.candidate.experience[id];
+    console.log(id);
+
   }
 }

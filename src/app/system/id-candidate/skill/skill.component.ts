@@ -42,7 +42,6 @@ export class SkillComponent implements OnInit {
   }
 /* TODO не помешает кнопка удаления незаполненного нового навыка*/
   saveSkill() {
-    console.log('нажато сохранение навыка');
     const skill = this.skillForm.value.name;
     this.editingSkill = false;
     this.saveAccepted.emit();

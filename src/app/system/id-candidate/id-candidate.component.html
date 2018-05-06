@@ -9,7 +9,7 @@
 
 
       <div class="review-button-block">
-        <button class="btn btn-secondary review-button-block__button" (click)="modalOpen(modalWindowReview)">
+          <button class="btn btn-secondary review-button-block__button" (click)="modalOpen(modalWindowReview)">
           Review
         </button>
       </div>
@@ -17,6 +17,7 @@
     <!-- left data --------------------------------->
     <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
       <form
+        id="candidateForm"
         [formGroup]="candidateForm"
         (ngSubmit)="saveCandidate()"
       >
@@ -92,23 +93,19 @@
         </div>
 
 
-        <a
-          class="button-new"
+        <button
+          class="button-new fa fa-pencil"
           *ngIf="!editing; else saveButton"
           (click)="editCandidate()"
           title="edit candidate {{candidate.name}}"
         >
-          <i class="fa fa-pencil"></i>
-        </a>
+        </button>
 
         <ng-template #saveButton>
           <button
-            class="button-new"
             type="submit"
-            [hidden]="!(editorCount == 0)"
-            title="save data"
-          >
-            <i class="fa fa-save"></i>
+            class="button-new fa fa-save"
+            [hidden]="!(editorCount == 0)">
           </button>
         </ng-template>
 
@@ -140,7 +137,7 @@
                         [editing]="editing"
                         (onSaveRejected)="saveRejected()"
                         (onSaveAccepted)="saveAccepted()"
-                        (onSaveExperience)="saveExperience($event)"
+                        (onDeleteExperience)="deleteExperience($event)"
         >
         </app-experience>
       </div>
@@ -182,7 +179,7 @@
       </div>
 
       <button
-        (click)="saveExperience()"
+        (click)="saveModalWindowDataExperience()"
         type="button"
         class="btn btn-secondary"
       >
@@ -217,7 +214,7 @@
             placeholder="Write..."></textarea>
         </div>
       </div>
-      <button (click)="saveDescription()" class="btn btn-secondary">Send</button>
+      <button (click)="saveModalWindowDataReview()" class="btn btn-secondary">Send</button>
     </div>
   </div>
 </ng-template>

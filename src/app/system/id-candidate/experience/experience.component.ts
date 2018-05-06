@@ -11,7 +11,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 export class ExperienceComponent {
   @Output('onSaveRejected') saveRejected = new EventEmitter<>();
   @Output('onSaveAccepted') saveAccepted = new EventEmitter<>();
-  @Output('onSaveExperience') saveExperienceEmitter = new EventEmitter<object>();
+  @Output('onDeleteExperience') deleteExperienceEmitter = new EventEmitter<number>();
   @Input() editing: boolean;
   @Input() quantityExperiences: any;
   @Input() singleExperience: {
@@ -38,32 +38,26 @@ export class ExperienceComponent {
     this.editingExperience = true;
     this.saveRejected.emit();
     this.experienceForm = new FormGroup({
-          'timeStart': new FormControl(this.singleExperience.timeStart, [Validators.required]),
-          'timeEnd': new FormControl(this.singleExperience.timeEnd, [Validators.required]),
-          'job': new FormControl(this.singleExperience.job, [Validators.required]),
-          'position': new FormControl(this.singleExperience.position, [Validators.required]),
-          'place': new FormControl(this.singleExperience.place, [Validators.required]),
-          'company': new FormControl(this.singleExperience.company, [Validators.required]),
-          'responsibility': new FormControl(this.singleExperience.responsibility, [Validators.required])
+          'timeStart': new FormControl(this.singleExperience.timeStart, [Validators.required, Validators.minLength(3)]),
+          'timeEnd': new FormControl(this.singleExperience.timeEnd, [Validators.required, Validators.minLength(3)]),
+          'job': new FormControl(this.singleExperience.job, [Validators.required, Validators.min(1), Validators.max(2)]),
+          'position': new FormControl(this.singleExperience.position, [Validators.required, Validators.minLength(5)]),
+          'place': new FormControl(this.singleExperience.place, [Validators.required, Validators.minLength(2)]),
+          'company': new FormControl(this.singleExperience.company, [Validators.required, Validators.minLength(2)]),
+          'responsibility': new FormControl(this.singleExperience.responsibility, [Validators.required, Validators.minLength(2)])
         });
-
-    // console.log('edit' + id);
-    // console.log(this.experienceForm);
-
   }
 
   saveExperience(id: number) {
     this.editingExperience = false;
     this.saveAccepted.emit();
-    // console.log('save' + id)
   }
 
   deleteExperience(id: number) {
     if (this.editingExperience === true) {
       this.saveAccepted.emit();
-      // this.editingExperience = false;
     }
-    // console.log('delete' + id)
+      this.deleteExperienceEmitter.emit(id);
   }
 
   // ngOnInit() {
