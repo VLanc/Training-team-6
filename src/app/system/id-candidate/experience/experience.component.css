@@ -1,4 +1,19 @@
 /******* right block *******/
+
+#type-of-experience-select, option {
+  padding: 3px;
+  float: right;
+  width: 60%;
+  font-size: 12px;
+  border: 2px solid #c8c8c8;
+  border-radius: 10px;
+  outline: none;
+}
+
+label {
+  float: right;
+}
+
 input, textarea {
   display: block;
   border: none;

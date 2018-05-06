@@ -81,8 +81,8 @@
                         [singleExperience]="singleExperience"
                         [quantityExperiences]="quantityExperiences"
                         [editing]="editing"
-                        (saveRejected)="saveRejected($event)"
-                        (saveAccepted)="saveAccepted($event)"
+                        (onSaveRejected)="saveRejected()"
+                        (onSaveAccepted)="saveAccepted()"
         >
         </app-experience>
       </div>
@@ -106,6 +106,7 @@
         class="button-new"
         *ngIf="!editing; else saveButton"
         (click)="editingData()"
+        title="edit candidate {{candidate.name}}"
       >
         <i class="fa fa-pencil"></i>
       </a>
@@ -114,7 +115,8 @@
         <a
           class="button-new"
           (click)="editingData()"
-          [hidden]="editorCount ==! 0"
+          [hidden]="!(editorCount == 0)"
+          title="save data"
         >
           <i class="fa fa-save"></i>
         </a>

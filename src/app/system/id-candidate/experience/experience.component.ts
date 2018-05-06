@@ -9,8 +9,8 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent {
-  @Output('saveRejected') saveRejected = new EventEmitter<boolean>();
-  @Output('saveAccepted') saveAccepted = new EventEmitter<boolean>();
+  @Output('onSaveRejected') saveRejected = new EventEmitter<>();
+  @Output('onSaveAccepted') saveAccepted = new EventEmitter<>();
   @Input() editing: boolean;
   // @Input() candidate: any;
   @Input() quantityExperiences: any;
@@ -18,14 +18,14 @@ export class ExperienceComponent {
     id: number,
     timeStart: string,
     timeEnd: string,
-    job: boolean,
+    job: number,
     position: string,
     place: string,
     company: string,
     responsibility: string
   };
 
-  editingExperience: boolean = false;
+  private editingExperience: boolean = false;
   experienceForm: FormGroup;
 
 
@@ -36,10 +36,11 @@ export class ExperienceComponent {
 
   editExperience(id: number) {
     this.editingExperience = true;
-    this.saveRejected.emit(!this.editingExperience);
+    this.saveRejected.emit();
     this.experienceForm = new FormGroup({
           'timeStart': new FormControl(this.singleExperience.timeStart, [Validators.required]),
           'timeEnd': new FormControl(this.singleExperience.timeEnd, [Validators.required]),
+          'job': new FormControl(this.singleExperience.job, [Validators.required]),
           'position': new FormControl(this.singleExperience.position, [Validators.required]),
           'place': new FormControl(this.singleExperience.place, [Validators.required]),
           'company': new FormControl(this.singleExperience.company, [Validators.required]),
@@ -53,13 +54,15 @@ export class ExperienceComponent {
 
   saveExperience(id: number) {
     this.editingExperience = false;
-    this.saveAccepted.emit(!this.editingExperience);
+    this.saveAccepted.emit();
     // console.log('save' + id)
   }
 
-  saveExperience(id: number) {
-    this.editingExperience = false;
-    this.saveAccepted.emit(!this.editingExperience);
+  deleteExperience(id: number) {
+    if (this.editingExperience === true) {
+      this.saveAccepted.emit();
+      // this.editingExperience = false;
+    }
     // console.log('delete' + id)
   }
 

@@ -43,7 +43,7 @@ export class IdCandidateComponent implements OnInit {
             'id': 1,
             'timeStart': 'Apr 2015',
             'timeEnd': 'Now',
-            'job': true,
+            'job': 1,
             'position': 'Learn Java Developer',
             'place': "Минск",
             'company': 'Itransition Group Ltd.',
@@ -53,7 +53,7 @@ export class IdCandidateComponent implements OnInit {
             'id': 2,
             'timeStart': 'Oct 2012',
             'timeEnd': 'Mar 2015',
-            'job': true,
+            'job': 1,
             'position': 'Senior Java Developer',
             'place': "Минск",
             'company': 'Belhard',
@@ -63,7 +63,7 @@ export class IdCandidateComponent implements OnInit {
             'id': 3,
             'timeStart': 'Oct 2012',
             'timeEnd': 'Mar 2015',
-            'job': false,
+            'job': 2,
             'position': 'STUDENT',
             'place': "Минск",
             'company': 'BSUIR',
@@ -73,7 +73,7 @@ export class IdCandidateComponent implements OnInit {
             'id': 4,
             'timeStart': 'Oct 2012',
             'timeEnd': 'Mar 2015',
-            'job': false,
+            'job': 2,
             'position': 'STUDENT',
             'place': "Минск",
             'company': 'BSUIR',
@@ -164,7 +164,7 @@ export class IdCandidateComponent implements OnInit {
 
 
   modalOpen(modalWindow): void {
-    console.log('opened modal window');
+    console.log('opened modal window' + modalWindow);
     this.activeModal = this.modalService.open(modalWindow, {size: 'lg'});
   }
 

@@ -14,8 +14,8 @@
     <div
       *ngIf="quantityExperiences > singleExperience.id"
       [ngClass]="{
-            'timeLine__unit__diagram__line__job': singleExperience.job === true,
-            'timeLine__unit__diagram__line__education': singleExperience.job === false
+            'timeLine__unit__diagram__line__job': singleExperience.job == 1,
+            'timeLine__unit__diagram__line__education': singleExperience.job == 2
           }">
 
     </div>
@@ -82,6 +82,25 @@
           [(ngModel)] = "singleExperience.position"
         >
       </div>
+
+
+
+
+        <label for="type-of-experience-select">change type of experience:</label>
+        <select
+          id="type-of-experience-select"
+          formControlName="job"
+          [(ngModel)] = "singleExperience.job"
+        >
+          <option disabled>Choose kind of experience</option>
+          <option value="1">worker</option>
+          <option value="2">student</option>
+        </select>
+
+
+
+
+
     </div>
 
     <div class="timeLine__unit__diagram">
@@ -89,8 +108,8 @@
       <div
         *ngIf="quantityExperiences > singleExperience.id"
         [ngClass]="{
-            'timeLine__unit__diagram__line__job': singleExperience.job === true,
-            'timeLine__unit__diagram__line__education': singleExperience.job === false
+            'timeLine__unit__diagram__line__job': singleExperience.job == 1,
+            'timeLine__unit__diagram__line__education': singleExperience.job == 2
           }">
       </div>
     </div>
