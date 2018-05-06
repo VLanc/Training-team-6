@@ -12,7 +12,7 @@
   <div class="timeLine__unit__diagram">
     <div class="timeLine__unit__diagram__dot"></div>
     <div
-      *ngIf="quantityExperiences > singleExperience.id"
+      *ngIf="quantityExperiences > indexExperience+1"
       [ngClass]="{
             'timeLine__unit__diagram__line__job': singleExperience.job == 1,
             'timeLine__unit__diagram__line__education': singleExperience.job == 2
@@ -35,7 +35,7 @@
       <button
         class="icon fa fa-edit"
         title="edit experience"
-        (click)="editExperience(singleExperience.id)"
+        (click)="editExperience()"
       >
       </button>
     </div>
@@ -43,7 +43,7 @@
       <button
         class="icon fa fa-trash"
         title="delete experience"
-        (click)="deleteExperience(singleExperience.id)"
+        (click)="deleteExperience(indexExperience)"
       >
       </button>
     </div>
@@ -57,7 +57,7 @@
 
 
 <ng-template #editingForm>
-  <form [formGroup]="experienceForm" (ngSubmit)="saveExperience(singleExperience.id)">
+  <form [formGroup]="experienceForm" (ngSubmit)="saveExperience()">
 
   <div class="timeLine__unit">
     <div class="timeLine__unit__left-information">
@@ -100,7 +100,7 @@
     <div class="timeLine__unit__diagram">
       <div class="timeLine__unit__diagram__dot"></div>
       <div
-        *ngIf="quantityExperiences > singleExperience.id"
+        *ngIf="quantityExperiences > indexExperience+1"
         [ngClass]="{
             'timeLine__unit__diagram__line__job': singleExperience.job == 1,
             'timeLine__unit__diagram__line__education': singleExperience.job == 2
@@ -143,7 +143,7 @@
         <button
           class="icon fa fa-trash"
           title="delete experience"
-          (click)="deleteExperience(singleExperience.id)"
+          (click)="deleteExperience(indexExperience)"
         >
         </button>
       </div>

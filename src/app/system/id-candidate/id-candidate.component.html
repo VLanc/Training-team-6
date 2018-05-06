@@ -131,9 +131,10 @@
         <h6>Experience</h6>
       </div>
       <div class="timeLine">
-        <app-experience *ngFor="let singleExperience of candidate.experiences"
+        <app-experience *ngFor="let singleExperience of candidate.experiences; let idx = index"
                         [singleExperience]="singleExperience"
                         [quantityExperiences]="quantityExperiences"
+                        [indexExperience]="idx"
                         [editing]="editing"
                         (onSaveRejected)="saveRejected()"
                         (onSaveAccepted)="saveAccepted()"

@@ -40,7 +40,6 @@ export class IdCandidateComponent implements OnInit {
       'experiences':
         [
           {
-            'id': 1,
             'timeStart': 'Apr 2015',
             'timeEnd': 'Now',
             'job': 1,
@@ -50,7 +49,6 @@ export class IdCandidateComponent implements OnInit {
             'responsibility': 'WEB Development, wвпавпвшрь шкьрешгерьиншг кернрш гернкшгрешн ркшерншкреш кшреншкрешнрк шрнкренршкренк ршншгкренркшнр шкреншркшеншкр ешнркшеншкрешork with server side logic, take part in search engine development and optimization'
           },
           {
-            'id': 2,
             'timeStart': 'Oct 2012',
             'timeEnd': 'Mar 2015',
             'job': 1,
@@ -60,7 +58,6 @@ export class IdCandidateComponent implements OnInit {
             'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
           },
           {
-            'id': 3,
             'timeStart': 'Oct 2012',
             'timeEnd': 'Mar 2015',
             'job': 2,
@@ -70,7 +67,6 @@ export class IdCandidateComponent implements OnInit {
             'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
           },
           {
-            'id': 4,
             'timeStart': 'Oct 2012',
             'timeEnd': 'Mar 2015',
             'job': 2,
@@ -91,50 +87,12 @@ export class IdCandidateComponent implements OnInit {
               private router: Router) {
   }
 
-  saveSkills(skills: string): void {
-    this.candidate.skills = skills;
-    console.log(this.candidate.skills);
-  }
-
   public getImagePath(): string {
     return this.candidate.photo ? '../../../assets/images/' + this.candidate.photo + '.png' : '../../../../assets/images/anounymus.png';
 
   }
 
-  saveCandidate(): void {
-    this.editing = !this.editing;
-    console.log(this.candidate);
-    console.log('saveCandidate');
-  }
-
-  editCandidate(): void {
-    this.editing = !this.editing;
-    console.log(this.editing);
-    console.log(this.candidateForm);
-
-
-  }
-
-
-  ngOnInit() {
-
-    console.log(this.router.url);
-    this.candidateForm = new FormGroup({
-      'position': new FormControl(this.candidate.position, [Validators.required]),
-      'status': new FormControl(this.candidate.status, [Validators.required]),
-      'name': new FormControl(this.candidate.name, [Validators.required]),
-      'address': new FormControl(this.candidate.address, [Validators.required]),
-      'city': new FormControl(this.candidate.city, [Validators.required]),
-      'mobileNumber': new FormControl(this.candidate.mobileNumber, [Validators.required]),
-      'email': new FormControl(this.candidate.email, [Validators.email]),
-      'salary': new FormControl(this.candidate.salary, [Validators.required])
-    });
-
-
-  }
-
-
-  getDate(): string {
+  public getDate(): string {
     let date: any = this.candidate.date;
     let now: any = new Date();
     now = now.getTime() as number / 1000;
@@ -155,6 +113,23 @@ export class IdCandidateComponent implements OnInit {
     return date;
   }
 
+  saveSkills(skills: string): void {
+    this.candidate.skills = skills;
+  }
+
+  saveCandidate(): void {
+    this.editing = !this.editing;
+  }
+
+  editCandidate(): void {
+    this.editing = !this.editing;
+  }
+
+  deleteExperience(id: number): void {
+    delete this.candidate.experiences.splice(id, 1);
+    this.quantityExperiences = this.candidate.experiences.length;
+  }
+
   saveRejected(): void {
     this.editorCount++;
   }
@@ -163,6 +138,19 @@ export class IdCandidateComponent implements OnInit {
     this.editorCount--;
   }
 
+  ngOnInit() {
+    console.log(this.router.url);
+    this.candidateForm = new FormGroup({
+      'position': new FormControl(this.candidate.position, [Validators.required]),
+      'status': new FormControl(this.candidate.status, [Validators.required]),
+      'name': new FormControl(this.candidate.name, [Validators.required]),
+      'address': new FormControl(this.candidate.address, [Validators.required]),
+      'city': new FormControl(this.candidate.city, [Validators.required]),
+      'mobileNumber': new FormControl(this.candidate.mobileNumber, [Validators.required]),
+      'email': new FormControl(this.candidate.email, [Validators.email]),
+      'salary': new FormControl(this.candidate.salary, [Validators.required])
+    });
+  }
 
   modalOpen(modalWindow): void {
     console.log('opened modal window' + modalWindow);
@@ -203,9 +191,5 @@ export class IdCandidateComponent implements OnInit {
   }
 
 
-  deleteExperience(id: number): void {
-    // delete.this.candidate.experience[id];
-    console.log(id);
 
-  }
 }
