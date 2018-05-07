@@ -1,7 +1,7 @@
 export class Candidate {
   constructor(
     public id: number,
-    public date: string,
+    public date: Date,
     public position: string,
     public status: string,
     public name: string,
@@ -9,7 +9,7 @@ export class Candidate {
     public city: string,
     public email: string,
     public skills: string,
-    public salary?: string,
+    public salary?: number,
     public photo?: string,
     public description?: [{
       name: string,

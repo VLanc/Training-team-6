@@ -8,6 +8,10 @@
   display: inline-block;
 }
 
+.filter-title {
+  margin: 3px 3px 7px 3px;
+}
+
 /*.filter-by-status {
   display: inline-block;
   position: relative;

@@ -1,10 +1,35 @@
 <div class="left-side">
-  <p class="filter-by">Filter by experience</p>
+  <p class="filter-title">Filter by experience</p>
   <dx-select-box (onValueChanged)="selectVacancyExperience($event)"
                  [items]="vacancyExperiences"
                  placeholder="Select experience...">
   </dx-select-box>
+<!--  <p class="filter-by">Filter by date</p>
+  <dx-select-box (onValueChanged)="selectVacancyDate($event)"
+                 [items]="vacancyDates"
+                 placeholder="Select date...">
+  </dx-select-box>-->
 </div>
+
+
+<!--<dxi-column
+  dataField="SaleAmount"
+  alignment="right"
+  format="currency">
+
+</dxi-column>-->
+<!--<div class="dx-field custom-height-slider">
+  <div class="dx-field-label">Filter by salary</div>
+  <div class="dx-field-value">
+    <dx-range-slider
+      [min]="0"
+      [max]="100"
+      [start]="15"
+      [end]="65">
+      &lt;!&ndash;[tooltip]="tooltip"&ndash;&gt;
+    </dx-range-slider>
+  </div>
+</div>-->
 
 
 
@@ -17,8 +42,9 @@
   <dxo-filter-row [visible]="true"></dxo-filter-row>
   <dxi-column dataField="position"></dxi-column>
   <dxi-column dataField="experience"></dxi-column>
-  <dxi-column dataField="salary"></dxi-column>
-  <dxi-column dataField="date"></dxi-column>
+  <dxi-column dataField="salary" alignment="left" format="currency">
+  </dxi-column>
+  <dxi-column dataField="date" dataType="date" format="MMMM d, yyyy" caption="Date of addition"></dxi-column>
 </dx-data-grid>
 
 <i class="fa fa-plus-circle add-vacancy-button" aria-hidden="true" (click)="openCreateVacancyWindow(content)"></i>
