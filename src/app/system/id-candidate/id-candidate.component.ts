@@ -127,16 +127,16 @@ export class IdCandidateComponent implements OnInit {
   }
 
   deleteExperience(id: number): void {
-    delete this.candidate.experiences.splice(id, 1);
+    this.candidate.experiences.splice(id, 1);
     this.quantityExperiences = this.candidate.experiences.length;
   }
 
-  saveRejected(): void {
-    this.editorCount++;
+  saveRejected(event): void {
+    if (event) {this.editorCount++};
   }
 
-  saveAccepted(): void {
-    this.editorCount--;
+  saveAccepted(event): void {
+    if (event) {this.editorCount--};
   }
 
   ngOnInit() {

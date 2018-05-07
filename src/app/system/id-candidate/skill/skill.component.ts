@@ -7,13 +7,13 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./skill.component.css']
 })
 export class SkillComponent implements OnInit {
-  @Output('onSaveRejected') saveRejected = new EventEmitter<>();
-  @Output('onSaveAccepted') saveAccepted = new EventEmitter<>();
+  @Output('onSaveRejected') saveRejected = new EventEmitter<boolean>();
+  @Output('onSaveAccepted') saveAccepted = new EventEmitter<boolean>();
   @Output('onSaveSkills') saveSkillsEmitter = new EventEmitter<string>();
   @Input() skills: string;
   @Input() editing: boolean;
 
-  skillsArray: object;
+  skillsArray: any;
   editingSkill: boolean = false;
   skillForm: FormGroup;
 
@@ -32,8 +32,7 @@ export class SkillComponent implements OnInit {
   }
 
   addSkill() {
-    console.log('нажато добавление навыка');
-    this.saveRejected.emit();
+    this.saveRejected.emit(true);
     this.editingSkill = true;
     this.skillForm = new FormGroup({
       'name': new FormControl(null, [Validators.required, Validators.minLength(1)])
@@ -44,10 +43,10 @@ export class SkillComponent implements OnInit {
   saveSkill() {
     const skill = this.skillForm.value.name;
     this.editingSkill = false;
-    this.saveAccepted.emit();
+    this.saveRejected.emit(true);
     this.skills = this.skills + skill + ';';
     this.saveSkillsEmitter.emit(this.skills);
     this.skillsArray = this.skills.split(';');
-    this.skillsArray.splice(this.skillsArray.length-1, 1);
+    // this.skillsArray.splice(this.skillsArray.length-1, 1);
   }
 }

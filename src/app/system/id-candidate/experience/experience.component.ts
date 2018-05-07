@@ -8,8 +8,8 @@ import {Experience} from '../../shared/models/experience.model';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent {
-  @Output('onSaveRejected') saveRejected = new EventEmitter<>();
-  @Output('onSaveAccepted') saveAccepted = new EventEmitter<>();
+  @Output('onSaveRejected') saveRejected = new EventEmitter<boolean>();
+  @Output('onSaveAccepted') saveAccepted = new EventEmitter<boolean>();
   @Output('onDeleteExperience') deleteExperienceEmitter = new EventEmitter<number>();
   @Input() editing: boolean;
   @Input() quantityExperiences: any;
@@ -25,7 +25,7 @@ export class ExperienceComponent {
 
   editExperience() {
     this.editingExperience = true;
-    this.saveRejected.emit();
+    this.saveRejected.emit(true);
     this.experienceForm = new FormGroup({
       'timeStart': new FormControl(this.singleExperience.timeStart, [Validators.required, Validators.minLength(3)]),
       'timeEnd': new FormControl(this.singleExperience.timeEnd, [Validators.required, Validators.minLength(3)]),
@@ -38,12 +38,12 @@ export class ExperienceComponent {
 
   saveExperience() {
     this.editingExperience = false;
-    this.saveAccepted.emit();
+    this.saveAccepted.emit(true);
   }
 
   deleteExperience(id: number) {
     if (this.editingExperience === true) {
-      this.saveAccepted.emit();
+      this.saveAccepted.emit(true);
     }
     this.deleteExperienceEmitter.emit(id);
   }

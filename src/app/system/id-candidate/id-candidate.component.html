@@ -175,8 +175,8 @@
                         [quantityExperiences]="quantityExperiences"
                         [indexExperience]="idx"
                         [editing]="editing"
-                        (onSaveRejected)="saveRejected()"
-                        (onSaveAccepted)="saveAccepted()"
+                        (onSaveRejected)="saveRejected($event)"
+                        (onSaveAccepted)="saveAccepted($event)"
                         (onDeleteExperience)="deleteExperience($event)"
         >
         </app-experience>
@@ -188,8 +188,8 @@
         <app-skill
           [skills]="candidate.skills"
           [editing]="editing"
-          (onSaveRejected)="saveRejected()"
-          (onSaveAccepted)="saveAccepted()"
+          (onSaveRejected)="saveRejected($event)"
+          (onSaveAccepted)="saveAccepted($event)"
           (onSaveSkills)="saveSkills($event)"
         ></app-skill>
 
