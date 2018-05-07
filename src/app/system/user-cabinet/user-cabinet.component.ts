@@ -67,7 +67,11 @@ export class UserCabinetComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = JSON.parse(window.localStorage.getItem('user'));
+    let email = window.localStorage.getItem('userEmail');
+    this.userService.getUserByEmail(email)
+      .subscribe(user => {
+        this.user = user;
+      });
     this.email = this.user.email;
     this.processingRole();
     this.form = new FormGroup({

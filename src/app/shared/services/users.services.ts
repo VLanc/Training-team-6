@@ -1,18 +1,16 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpResponse } from '@angular/common/http';
-import {Response} from '@angular/http';
+import {HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../models/user.model';
+import {BASEURL} from "../core/url.constants";
 import 'rxjs/add/operator/map';
-import {BaseApi} from '../core/base-api';
 
 
 @Injectable()
-export class UsersServices extends BaseApi{
+export class UsersServices{
 
-   url = 'http://localhost:8080/';
-  constructor(public http: HttpClient) {
-    super(http);
+   url = BASEURL;
+  constructor(private http: HttpClient) {
   }
 
   getUserByEmail(email: string): Observable<User> {
