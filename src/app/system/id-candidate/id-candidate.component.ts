@@ -1,6 +1,7 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {User} from '../../shared/models/user.model';
 import {Route, Router} from "@angular/router";
 
 @Component({
@@ -30,11 +31,11 @@ export class IdCandidateComponent implements OnInit {
       'reviews': [
         {
           'name': 'Аляксандр Грыгорьевич',
-          'review': 'Хороший кандидат'
+          'content': 'Хороший кандидат'
         },
         {
           'name': 'Якубович',
-          'review': 'берем'
+          'content': 'берем'
         }
       ],
       'experiences':
@@ -44,7 +45,6 @@ export class IdCandidateComponent implements OnInit {
             'timeEnd': 'Now',
             'job': 1,
             'position': 'Learn Java Developer',
-            'place': "Минск",
             'company': 'Itransition Group Ltd.',
             'responsibility': 'WEB Development, wвпавпвшрь шкьрешгерьиншг кернрш гернкшгрешн ркшерншкреш кшреншкрешнрк шрнкренршкренк ршншгкренркшнр шкреншркшеншкр ешнркшеншкрешork with server side logic, take part in search engine development and optimization'
           },
@@ -53,7 +53,6 @@ export class IdCandidateComponent implements OnInit {
             'timeEnd': 'Mar 2015',
             'job': 1,
             'position': 'Senior Java Developer',
-            'place': "Минск",
             'company': 'Belhard',
             'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
           },
@@ -62,7 +61,6 @@ export class IdCandidateComponent implements OnInit {
             'timeEnd': 'Mar 2015',
             'job': 2,
             'position': 'STUDENT',
-            'place': "Минск",
             'company': 'BSUIR',
             'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
           },
@@ -71,7 +69,6 @@ export class IdCandidateComponent implements OnInit {
             'timeEnd': 'Mar 2015',
             'job': 2,
             'position': 'STUDENT',
-            'place': "Минск",
             'company': 'BSUIR',
             'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
           }
@@ -81,6 +78,10 @@ export class IdCandidateComponent implements OnInit {
   quantityExperiences = this.candidate.experiences.length;
   editing: boolean = false;
   candidateForm: FormGroup;
+  newExperienceForm: FormGroup;
+  newReviewForm: FormGroup;
+  user: User = JSON.parse(window.localStorage.getItem('user'));
+  tabReviews: string = 'tab';
 
   constructor(private modalService: NgbModal,
               private activeModal: NgbActiveModal,
@@ -110,6 +111,7 @@ export class IdCandidateComponent implements OnInit {
     function getEnding(number) {
       return number > 1 ? 's' : '';
     }
+
     return date;
   }
 
@@ -152,44 +154,49 @@ export class IdCandidateComponent implements OnInit {
     });
   }
 
-  modalOpen(modalWindow): void {
-    console.log('opened modal window' + modalWindow);
+  openModalWindowExperience(modalWindow) {
+    this.newExperienceForm = new FormGroup({
+      'timeStart': new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      'timeEnd': new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      'job': new FormControl(null, [Validators.required, Validators.min(1), Validators.max(2)]),
+      'position': new FormControl(null, [Validators.required, Validators.minLength(5)]),
+      'company': new FormControl(null, [Validators.required, Validators.minLength(2)]),
+      'responsibility': new FormControl(null, [Validators.required, Validators.minLength(2)])
+    });
+    this.activeModal = this.modalService.open(modalWindow, {size: 'lg'});
+  }
+
+  openModalWindowReview(modalWindow) {
+    this.newReviewForm = new FormGroup({
+      'name': new FormControl(this.user.name), /*TODO HARDCORE, need id from db*/
+      'content': new FormControl(null, [Validators.required, Validators.minLength(10)])
+      });
     this.activeModal = this.modalService.open(modalWindow, {size: 'lg'});
   }
 
   closeModalWindow() {
-    this.clearModalWindow();
     this.activeModal.close();
   }
 
-  clearModalWindow() {
-    // this.selectedNewStartDate = new Date();
-    // this.selectedEndDate = new Date();
-    // this.selectedParticipants = [];
-    // this.selectedInterviewers = [];
-    // this.selectedLocation = '';
-    // this.selectedColor = {name: 'default', code: '#3a87ad'};
-    // this.selectedDescription = '';
-    // this.isNewStartDateInvalid = false;
-    // this.isStartDateHintVisible = false;
-    // this.startDateHint = '';
-    // this.isEndTimeInvalid = false;
-    // this.isEndTimeHintVisible = false;
-    // this.endTimeHint = '';
-    // this.isParticipantsInvalid = false;
-    // this.isInterviewersInvalid = false;
-  }
-
   saveModalWindowDataExperience() {
-    /*TODO save data method*/
+    this.candidate.experiences.unshift({
+      'timeStart': this.newExperienceForm.value.timeStart,
+      'timeEnd': this.newExperienceForm.value.timeEnd,
+      'job': this.newExperienceForm.value.job,
+      'position': this.newExperienceForm.value.position,
+      'company': this.newExperienceForm.value.company,
+      'responsibility': this.newExperienceForm.value.responsibility
+    });
+    this.quantityExperiences = this.candidate.experiences.length;
     this.closeModalWindow();
   }
 
   saveModalWindowDataReview() {
-    /*TODO save data method*/
+    this.candidate.reviews.unshift({
+      'name': this.newReviewForm.value.name,
+      'content': this.newReviewForm.value.content
+    });
     this.closeModalWindow();
   }
-
-
 
 }

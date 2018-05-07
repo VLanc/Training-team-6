@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-
+import {Experience} from '../../shared/models/experience.model';
 
 @Component({
   selector: 'app-experience',
@@ -14,23 +14,13 @@ export class ExperienceComponent {
   @Input() editing: boolean;
   @Input() quantityExperiences: any;
   @Input() indexExperience: number;
-  @Input() singleExperience: {
-    id: number,
-    timeStart: string,
-    timeEnd: string,
-    job: number,
-    position: string,
-    place: string,
-    company: string,
-    responsibility: string
-  };
+  @Input() singleExperience: Experience;
 
   private editingExperience: boolean = false;
   experienceForm: FormGroup;
 
 
   constructor() {
-    console.log(this.quantityExperiences);
   }
 
   editExperience() {
@@ -41,7 +31,6 @@ export class ExperienceComponent {
       'timeEnd': new FormControl(this.singleExperience.timeEnd, [Validators.required, Validators.minLength(3)]),
       'job': new FormControl(this.singleExperience.job, [Validators.required, Validators.min(1), Validators.max(2)]),
       'position': new FormControl(this.singleExperience.position, [Validators.required, Validators.minLength(5)]),
-      'place': new FormControl(this.singleExperience.place, [Validators.required, Validators.minLength(2)]),
       'company': new FormControl(this.singleExperience.company, [Validators.required, Validators.minLength(2)]),
       'responsibility': new FormControl(this.singleExperience.responsibility, [Validators.required, Validators.minLength(2)])
     });
@@ -56,9 +45,6 @@ export class ExperienceComponent {
     if (this.editingExperience === true) {
       this.saveAccepted.emit();
     }
-    // this.quantityExperiences--;
-    console.log('quantityExperiences ' + this.quantityExperiences);
-    console.log('indexExperience ' + this.indexExperience);
     this.deleteExperienceEmitter.emit(id);
   }
 }

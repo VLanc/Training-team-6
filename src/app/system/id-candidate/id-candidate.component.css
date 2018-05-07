@@ -2,6 +2,14 @@
   background-color: #c6c8ca;
 }
 
+.warning-select {
+  border: 2px solid #8b0000!important;
+}
+
+.warning {
+  border-bottom: 2px solid #8b0000!important;
+}
+
 h6 {
   margin: 10px;
   text-align: left;
@@ -188,7 +196,7 @@ label {
 
 /******* buttons *******/
 
-.button__add-experiences{
+.button__add-experience{
   position: fixed;
   bottom: 45px;
   left: 18%;
@@ -208,13 +216,13 @@ label {
   user-select: none;
 }
 
-.button__add-experiences:hover {
+.button__add-experience:hover {
   transition: 0.3s;
   opacity: 1;
   color: #ffffff;
 }
 
-.button__add-experiences:active {
+.button__add-experience:active {
   box-shadow: none;
 }
 
@@ -275,26 +283,15 @@ label {
   text-shadow: none;
 }
 
-#modalWindowSkill input {
-  margin-top: -20px;
-  display: flex;
-}
 
-#modalWindowSkill input {
-  margin-top: -20px;
-  display: flex;
-  text-align: center;
-}
 
-#modalWindowExperience input,
-#modalWindowSkill input {
+#modalWindowExperience input {
   margin-right: 20px;
   margin-bottom: 20px;
   display: inline;
   text-align: center;
 }
-#modalWindowExperience input, textarea,
-#modalWindowSkill input {
+#modalWindowExperience input, textarea {
   border: 2px solid #c8c8c8;
   border-radius: 10px;
   outline:none;
