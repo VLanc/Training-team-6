@@ -27,24 +27,25 @@
             <select [disabled]="true">
               <option value=1>Accepted for interview</option>
               <option value=2>All</option>
-              <option value=3>New</option>
-              <option value=4>CV-Accepted</option>
-              <option value=5>CV-Rejected</option>
+              <option value=3>CV-Accepted</option>
+              <option value=4>CV-Rejected</option>
             </select>
           </div>
 
           <ng-template #editStatus>
             <select
+              [ngClass]="{'warning': candidateForm.get('status').invalid && candidateForm.get('status').touched}"
               formControlName="status"
+              [(ngModel)]="candidate.status"
             >
               <option disabled>Choose kind of status:</option>
               <option value=1>Accepted for interview</option>
-              <option value=2>All</option>
-              <option value=3>New</option>
-              <option value=4>CV-Accepted</option>
-              <option value=5>CV-Rejected</option>
+              <option value=2>New</option>
+              <option value=3>CV-Accepted</option>
+              <option value=4>CV-Rejected</option>
             </select>
           </ng-template>
+
           <img src="{{getImagePath()}}" alt="profile" class="avatar">
           <div *ngIf="!editing; else editInfo">
             <p class="profile-position">{{candidate.position}}</p>
@@ -57,7 +58,7 @@
             <hr>
             <h6>Contact information:</h6>
             <p class="profile-text">phone number:</p>
-            <p class="profile-data">{{candidate.mobileNumber}}</p>
+            <p class="profile-data">{{candidate.phone}}</p>
 
             <p class="profile-text">E-mail:</p>
             <p class="profile-data">{{candidate.email}}</p>
@@ -68,27 +69,63 @@
           </div>
           <ng-template #editInfo>
             <label>Position:
-              <input type="text" class="positionEdit" formControlName="position">
+              <input
+                [ngClass]="{'warning': candidateForm.get('position').invalid && candidateForm.get('position').touched}"
+                type="text"
+                class="positionEdit"
+                formControlName="position"
+                [(ngModel)]="candidate.position"
+              >
             </label>
 
             <label>Name:
-              <input type="text" class="nameEdit" formControlName="name">
+              <input
+                [ngClass]="{'warning': candidateForm.get('name').invalid && candidateForm.get('name').touched}"
+                type="text"
+                class="nameEdit"
+                formControlName="name"
+                [(ngModel)]="candidate.name"
+              >
             </label>
 
             <label>Salary:
-              <input type="text" class="salaryEdit" formControlName="salary">
+              <input
+                [ngClass]="{'warning': candidateForm.get('salary').invalid && candidateForm.get('salary').touched}"
+                type="text"
+                class="salaryEdit"
+                formControlName="salary"
+                [(ngModel)]="candidate.salary"
+              >
             </label>
 
             <label>Phone:
-              <input type="text" class="phoneEdit" formControlName="mobileNumber">
+              <input
+                [ngClass]="{'warning': candidateForm.get('phone').invalid && candidateForm.get('phone').touched}"
+                type="text"
+                class="phoneEdit"
+                formControlName="phone"
+                [(ngModel)]="candidate.phone"
+              >
             </label>
 
             <label>E-mail:
-              <input type="text" class="emailEdit" formControlName="email">
+              <input
+                [ngClass]="{'warning': candidateForm.get('email').invalid && candidateForm.get('email').touched}"
+                type="text"
+                class="emailEdit"
+                formControlName="email"
+                [(ngModel)]="candidate.email"
+              >
             </label>
 
             <label>Address:
-              <input type="text" class="addressEdit" formControlName="address" [(ngModel)]="candidate.address">
+              <input
+                [ngClass]="{'warning': candidateForm.get('address').invalid && candidateForm.get('address').touched}"
+                type="text"
+                class="addressEdit"
+                formControlName="address"
+                [(ngModel)]="candidate.address"
+              >
             </label>
           </ng-template>
         </div>
@@ -106,6 +143,7 @@
           <button
             type="submit"
             class="button-new fa fa-save"
+            [disabled]="candidateForm.invalid"
             [hidden]="!(editorCount == 0)">
           </button>
         </ng-template>
@@ -183,7 +221,6 @@
             formControlName="timeStart"
           >
         </label>
-        <div class="form-group">
           <label>End date:
             <input
               [ngClass]="{'warning': newExperienceForm.get('timeEnd').invalid && newExperienceForm.get('timeEnd').touched}"
@@ -191,7 +228,7 @@
               placeholder="Enter End date..."
               formControlName="timeEnd"
             >
-          </label></div>
+          </label>
         <label>Enter position:
           <input
             [ngClass]="{'warning': newExperienceForm.get('position').invalid && newExperienceForm.get('position').touched}"
@@ -202,6 +239,7 @@
         </label>
         <label for="type-of-experience-select">change type of experience:</label>
         <select
+          [ngClass]="{'warning-select': newExperienceForm.get('job').invalid && newExperienceForm.get('job').touched}"
           id="type-of-experience-select"
           formControlName="job"
         >

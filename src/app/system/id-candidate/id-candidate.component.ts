@@ -22,8 +22,7 @@ export class IdCandidateComponent implements OnInit {
       'name': 'Alex Korol',
       'address': 'Esenina',
       'city': 'Minsk',
-      'mobileNumber': '+3755447549706',
-      'homeNumber': '+375172245587',
+      'phone': '+3755447549706',
       'email': 'Alex_Korolev@mail.ru',
       'salary': '2500$',
       'photo': '05',
@@ -148,7 +147,7 @@ export class IdCandidateComponent implements OnInit {
       'name': new FormControl(this.candidate.name, [Validators.required]),
       'address': new FormControl(this.candidate.address, [Validators.required]),
       'city': new FormControl(this.candidate.city, [Validators.required]),
-      'mobileNumber': new FormControl(this.candidate.mobileNumber, [Validators.required]),
+      'phone': new FormControl(this.candidate.phone, [Validators.required, Validators.minLength(13)]),
       'email': new FormControl(this.candidate.email, [Validators.email]),
       'salary': new FormControl(this.candidate.salary, [Validators.required])
     });
