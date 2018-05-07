@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {AuthServeces} from '../../shared/services/auth.serveces';
 import {Router} from '@angular/router';
 
@@ -10,16 +10,25 @@ import {Router} from '@angular/router';
 })
 export class UpBarComponent implements OnInit {
   @Input() public toggle: () => void;
+  isNotificationBarVisible: boolean = false;
+
+
   constructor(private authService: AuthServeces,
               private router: Router
               ) { }
 
   ngOnInit() {
+
   }
 
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  changeNotificationBarState() {
+    if (this.isNotificationBarVisible) this.isNotificationBarVisible = false;
+    else this.isNotificationBarVisible = true;
   }
 
 }

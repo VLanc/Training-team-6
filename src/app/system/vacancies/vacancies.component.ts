@@ -14,11 +14,13 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class VacanciesComponent implements OnInit {
   @ViewChild(DxDataGridComponent) dataGrid: DxDataGridComponent;
+  /*  saleAmountHeaderFilter: any;*/
   vacancies: Vacancy[];
   vacanciesLength: number;
   positions: Position[];
   positionsStr: string[] = [];
   vacancyExperiences: string[];
+  vacancyDates: string[];
   experiences: string[] = ['Junior', 'Middle', 'Senior'];
   selectedPosition: string = '';
   isPositionInvalid: boolean = false;
@@ -36,6 +38,7 @@ export class VacanciesComponent implements OnInit {
               private modalService: NgbModal,
               private activeModal: NgbActiveModal) {
     this.vacancyExperiences = ['All', 'Junior', 'Middle', 'Senior'];
+    this.vacancyDates = ['All', 'Less than a week ago', 'Less than a month ago', 'Over a month ago'];
   }
 
   selectVacancyExperience(data) {
@@ -43,22 +46,27 @@ export class VacanciesComponent implements OnInit {
     else this.dataGrid.instance.filter(['experience', '=', data.value]);
   }
 
-  changeDateFormat(vacancy: Vacancy) {
-    let now: number = new Date().getTime() / 1000;
-    let dateOfAddVacancy: number = (now - +vacancy.date) / 86400;
-    if (dateOfAddVacancy < 1) vacancy.date = 'today';
-    else if (2 < dateOfAddVacancy && 7 > dateOfAddVacancy) vacancy.date = Math.ceil(dateOfAddVacancy) + ' days later';
-    else if (7 < dateOfAddVacancy && 27 > dateOfAddVacancy) vacancy.date = 'about ' + this.getWeek(dateOfAddVacancy) + ' week' + this.getEnding(this.getWeek(dateOfAddVacancy)) + ' later';
-    else if (27 < dateOfAddVacancy) vacancy.date = 'a month ago';
-  }
+  /*  selectVacancyDate(data) {
+      if (data.value === 'All') this.dataGrid.instance.clearFilter();
+      else this.dataGrid.instance.filter(['date', '=', data.value]);
+    }*/
 
-  getWeek(num) {
-    return Math.ceil(num / 7);
-  }
+  /*  changeDateFormat(vacancy: Vacancy) {
+      let now: number = new Date().getTime() / 1000;
+      let dateOfAddVacancy: number = (now - +vacancy.date) / 86400;
+      if (dateOfAddVacancy < 1) vacancy.date = 'today';
+      else if (2 < dateOfAddVacancy && 7 > dateOfAddVacancy) vacancy.date = Math.ceil(dateOfAddVacancy) + ' days later';
+      else if (7 < dateOfAddVacancy && 27 > dateOfAddVacancy) vacancy.date = 'about ' + this.getWeek(dateOfAddVacancy) + ' week' + this.getEnding(this.getWeek(dateOfAddVacancy)) + ' later';
+      else if (27 < dateOfAddVacancy) vacancy.date = 'a month ago';
+    }
 
-  getEnding(number) {
-    return number > 1 ? 's' : '';
-  }
+    getWeek(num) {
+      return Math.ceil(num / 7);
+    }
+
+    getEnding(number) {
+      return number > 1 ? 's' : '';
+    }*/
 
   openCreateVacancyWindow(content) {
     this.clearModalWindow();
@@ -135,24 +143,24 @@ export class VacanciesComponent implements OnInit {
     let newVacancy: Vacancy = {
       position: this.selectedPosition.toUpperCase(),
       experience: this.selectedExperience,
-      salary: `${+this.selectedSalary.toString()}$`, // delete redundant zeros in front
-      date: `${new Date().getTime()}`,
+      salary: +this.selectedSalary,
+      date: new Date(),
       id: ++this.vacanciesLength
     };
 
+    this.vacancies.push(newVacancy);
 
     this.vacanciesService.saveVacancy(newVacancy)
       .subscribe();
 
-    this.vacancies.push(newVacancy);
-    this.changeDateFormat(this.vacancies[this.vacanciesLength - 1]);
+    /*this.changeDateFormat(this.vacancies[this.vacanciesLength - 1]);*/
 
     this.closeModalWindow();
     this.clearModalWindow();
   }
 
   closeModalWindow() {
-    /*this.clearModalWindow();*/
+    this.clearModalWindow();
     this.activeModal.close();
   }
 
@@ -176,11 +184,11 @@ export class VacanciesComponent implements OnInit {
       .subscribe(vacancies => {
         this.vacancies = vacancies;
         this.vacanciesLength = vacancies.length;
-        for (let i = 0; i < this.vacancies.length; i++) {
-          this.changeDateFormat(this.vacancies[i]);
-        }
+        /*  for (let i = 0; i < this.vacancies.length; i++) {
+            this.changeDateFormat(this.vacancies[i]);
+          }*/
       });
-    //вот тут берем список позиций!
+
     this.positionService.getPositions()
       .subscribe(positions => {
         this.positions = positions;

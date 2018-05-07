@@ -30,6 +30,7 @@ import {CandidatesService} from './shared/services/candidates.service';
 import {PositionService} from './shared/services/position.service';
 import { ExperienceComponent } from './id-candidate/experience/experience.component';
 import { SkillComponent } from './id-candidate/skill/skill.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SkillComponent } from './id-candidate/skill/skill.component';
     UserCabinetComponent,
     CandidatesComponent,
     ExperienceComponent,
-    SkillComponent
+    SkillComponent,
+    NotificationsComponent
   ],
   imports: [
     CommonModule,

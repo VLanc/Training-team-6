@@ -1,11 +1,11 @@
-<!--<p class="filter-by-status">Filter by status</p>-->
 <div class="left-side">
+  <p class="filter-title">Filter by status</p>
   <dx-select-box (onValueChanged)="selectCandidateStatus($event)"
-                 [items]="candidatesStatuses"
+                 [items]="candidateStatuses"
                  placeholder="Select status...">
   </dx-select-box>
 </div>
-<dx-data-grid id="gridContainer" [dataSource]="candidates" [columnMinWidth]="100">
+<dx-data-grid id="gridContainer" [dataSource]="candidates" [columnMinWidth]="100" [height]="'90%'">
   <dxo-paging [pageSize]="10"></dxo-paging>
   <dxo-pager [showPageSizeSelector]="true"
              [allowedPageSizes]="[10, 20, 50]"
@@ -15,11 +15,11 @@
   <dxo-filter-row [visible]="true"></dxo-filter-row>
   <dxi-column dataField="photo" [width]="100" [allowFiltering]="false"
               [allowSorting]="false" cellTemplate="candidatesSource"></dxi-column>
-  <dxi-column dataField="name"></dxi-column>
+  <dxi-column dataField="name" caption="Fullname"></dxi-column>
   <dxi-column dataField="position"></dxi-column>
   <dxi-column dataField="status"></dxi-column>
-  <dxi-column dataField="salary"></dxi-column>
-  <dxi-column dataField="date"></dxi-column>
+  <dxi-column dataField="salary" alignment="left" format="currency"></dxi-column>
+  <dxi-column dataField="date" dataType="date" format="MMMM d, yyyy" caption="Date of addition"></dxi-column>
   <div *dxTemplate="let candidate of 'candidatesSource'">
     <div>
       <a [routerLink]="['/id-candidate', candidate.data.id]" routerLinkActive="active" class="candidate-avatar-wrapper">

@@ -3,77 +3,77 @@
     "id": 1,
     "position": "Java Developer",
     "experience": "Junior",
-    "salary": "1000$",
-    "date": "1521042620"
+    "salary": 1000,
+    "date": "2018-05-01"
   },
   {
     "id": 2,
     "position": "JavaScript Developer",
     "experience": "Middle",
-    "salary": "1500$",
-    "date": "1522884974"
+    "salary": 1500,
+    "date": "2018-04-08"
   },
   {
     "id": 3,
     "position": "HR",
     "experience": "Junior",
-    "salary": "800$",
-    "date": "1520509164"
+    "salary": 800,
+    "date": "2018-04-10"
   },
   {
     "id": 4,
     "position": "Ruby Developer",
     "experience": "Senior",
-    "salary": "3000$",
-    "date": "1519990764"
+    "salary": 3000,
+    "date": "2018-05-03"
   },
   {
     "id": 5,
     "position": "DevOps",
     "experience": "Middle",
-    "salary": "2000$",
-    "date": "1522884974"
+    "salary": 2000,
+    "date": "2018-03-18"
   },
   {
     "id": 6,
     "position": "C++ Developer",
     "experience": "Junior",
-    "salary": "800$",
-    "date": "1519990764"
+    "salary": 800,
+    "date": "2018-02-15"
   },
   {
     "id": 7,
     "position": "PHP Developer",
     "experience": "Junior",
-    "salary": "700$",
-    "date": "1522884974"
+    "salary": 700,
+    "date": "2018-02-25"
   },
   {
     "id": 8,
     "position": "Project Manager",
     "experience": "Middle",
-    "salary": "1500$",
-    "date": "1520336364"
+    "salary": 1500,
+    "date": "2018-05-06"
   },
   {
     "id": 9,
     "position": "Python Developer",
     "experience": "Senior",
-    "salary": "3000$",
-    "date": "1520336364"
+    "salary": 3000,
+    "date": "2018-04-02"
   },
   {
     "position": ".NET DEVELOPER",
     "experience": "Senior",
-    "salary": "3000$",
-    "date": "1525538758495",
+    "salary": 3000,
+    "date": "2018-01-26",
     "id": 10
   },
   {
     "position": "JAVA DEVELOPER",
     "experience": "Middle",
-    "salary": "2000$",
-    "date": "1525538767111",
+    "salary": 2000,
+    "date": "2018-01-11",
     "id": 11
   }
 ]

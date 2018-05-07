@@ -8,7 +8,7 @@
 }
 
 .class-menu {
-  z-index: 6;
+  z-index: 11;
 }
 
 .row-data {
@@ -28,7 +28,7 @@
 
   .class-menu {
     position: fixed;
-    z-index: 2;
+    z-index: 11;
     top: 53px;
     left: -174px;
     box-shadow: inset 3px 2px 4px rgba(221, 221, 221, 1);

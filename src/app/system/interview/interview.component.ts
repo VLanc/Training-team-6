@@ -328,7 +328,7 @@ export class InterviewComponent implements OnInit {
   }
 
   saveEvent() {
-    // set an end date equal to the start date
+    // set the end date equal to the start date
     this.selectedEndDate = new Date(this.selectedEndDate.setFullYear(this.selectedNewStartDate.getFullYear(), this.selectedNewStartDate.getMonth(), this.selectedNewStartDate.getDate()));
 
     if (!this.checkFieldsValidation()) return;
