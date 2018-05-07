@@ -42,7 +42,7 @@ export class SkillComponent implements OnInit {
   saveSkill() {
     const skill = this.skillForm.value.name;
     this.editingSkill = false;
-    this.saveRejected.emit(true);
+    this.saveAccepted.emit(true);
     this.skills = this.skills + skill + ';';
     this.saveSkillsEmitter.emit(this.skills);
     this.skillsArray = this.skills.split(';');
