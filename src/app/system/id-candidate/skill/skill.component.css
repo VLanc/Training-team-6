@@ -13,10 +13,44 @@
   text-align: center;
   box-sizing: border-box;
   font-weight: bold;
+  user-select: none;
 }
 
 .editing:hover {
   transition: 0.4s;
   background-color: #8b0000;
   box-shadow: 3px 2px 4px rgba(221, 221, 221, 1);
+
+}
+
+.adding:hover {
+  transition: 0.4s;
+  background-color: #0000ff;
+  box-shadow: 3px 2px 4px rgba(221, 221, 221, 1);
+}
+
+form {
+  display: inline;
+}
+
+input {
+  display: inline;
+}
+
+.saving {
+  display: inline-block;
+  transition: 0.4s;
+  background-color: #0000ff;
+  box-shadow: 3px 2px 4px rgba(221, 221, 221, 1);
+  color: #ffffff;
+}
+
+.saving:active {
+  transition: 0.4s;
+  background-color: #0000ff;
+  box-shadow: none;
+}
+
+.warning {
+  border: 2px solid #8b0000;
 }

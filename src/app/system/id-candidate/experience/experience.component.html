@@ -9,14 +9,13 @@
       {{singleExperience.position}}
     </div>
   </div>
-
   <div class="timeLine__unit__diagram">
     <div class="timeLine__unit__diagram__dot"></div>
     <div
-      *ngIf="quantityExperiences > singleExperience.id"
+      *ngIf="quantityExperiences > indexExperience+1"
       [ngClass]="{
-            'timeLine__unit__diagram__line__job': singleExperience.job === true,
-            'timeLine__unit__diagram__line__education': singleExperience.job === false
+            'timeLine__unit__diagram__line__job': singleExperience.job == 1,
+            'timeLine__unit__diagram__line__education': singleExperience.job == 2
           }">
 
     </div>
@@ -33,22 +32,20 @@
 
   <div *ngIf="editing" class="timeLine__unit__buttons">
     <div class="timeLine__unit__buttons__button">
-      <a
-        class="icon"
+      <button
+        class="icon fa fa-edit"
         title="edit experience"
-        (click)="editExperience(singleExperience.id)"
+        (click)="editExperience()"
       >
-        <i class="fa fa-edit"></i>
-      </a>
+      </button>
     </div>
     <div class="timeLine__unit__buttons__button">
-      <a
-        class="icon"
+      <button
+        class="icon fa fa-trash"
         title="delete experience"
-        (click)="deleteExperience(singleExperience.id)"
+        (click)="deleteExperience(indexExperience)"
       >
-        <i class="fa fa-trash"></i>
-      </a>
+      </button>
     </div>
   </div>
 
@@ -60,38 +57,53 @@
 
 
 <ng-template #editingForm>
-  <form [formGroup]="experienceForm">
+  <form [formGroup]="experienceForm" (ngSubmit)="saveExperience()">
 
   <div class="timeLine__unit">
     <div class="timeLine__unit__left-information">
       <div class="timeLine__unit__left-information__date">
         <input
+          [ngClass]="{'warning': experienceForm.get('timeEnd').invalid && experienceForm.get('timeEnd').touched}"
           type="text"
           formControlName="timeEnd"
-          [(ngModel)] = "singleExperience.timeEnd"
+          [(ngModel)]="singleExperience.timeEnd"
         >
         <input
+          [ngClass]="{'warning': experienceForm.get('timeStart').invalid && experienceForm.get('timeStart').touched}"
           type="text"
           formControlName="timeStart"
-          [(ngModel)] = "singleExperience.timeStart"
+          [(ngModel)]="singleExperience.timeStart"
         >
       </div>
       <div class="timeLine__unit__left-information__position">
         <input
+          [ngClass]="{'warning': experienceForm.get('position').invalid && experienceForm.get('position').touched}"
           type="text"
           formControlName="position"
-          [(ngModel)] = "singleExperience.position"
+          [(ngModel)]="singleExperience.position"
         >
       </div>
+
+        <label for="type-of-experience-select">change type of experience:</label>
+        <select
+          [ngClass]="{'warning-select': experienceForm.get('job').invalid && experienceForm.get('job').touched}"
+          id="type-of-experience-select"
+          formControlName="job"
+          [(ngModel)] = "singleExperience.job"
+        >
+          <option disabled>Choose kind of experience</option>
+          <option value=1>worker</option>
+          <option value=2>student</option>
+        </select>
     </div>
 
     <div class="timeLine__unit__diagram">
       <div class="timeLine__unit__diagram__dot"></div>
       <div
-        *ngIf="quantityExperiences > singleExperience.id"
+        *ngIf="quantityExperiences > indexExperience+1"
         [ngClass]="{
-            'timeLine__unit__diagram__line__job': singleExperience.job === true,
-            'timeLine__unit__diagram__line__education': singleExperience.job === false
+            'timeLine__unit__diagram__line__job': singleExperience.job == 1,
+            'timeLine__unit__diagram__line__education': singleExperience.job == 2
           }">
       </div>
     </div>
@@ -99,17 +111,19 @@
     <div class="timeLine__unit__right-information">
       <div class="timeLine__unit__right-information__company">
         <input
+          [ngClass]="{'warning': experienceForm.get('company').invalid && experienceForm.get('company').touched}"
           type="text"
           formControlName="company"
-          [(ngModel)] = "singleExperience.company"
+          [(ngModel)]="singleExperience.company"
         >
       </div>
       <div class="timeLine__unit__right-information__responsibility">
         <textarea
-          rows="4"
+          [ngClass]="{'warning': experienceForm.get('responsibility').invalid && experienceForm.get('responsibility').touched}"
+          rows="6"
           type="text"
           formControlName="responsibility"
-          [(ngModel)] = "singleExperience.responsibility"
+          [(ngModel)]="singleExperience.responsibility"
         >
         </textarea>
       </div>
@@ -117,22 +131,21 @@
 
     <div class="timeLine__unit__buttons">
       <div class="timeLine__unit__buttons__button">
-        <a
-          class="icon"
+        <button
+          class="icon fa fa-save"
           title="save experience"
-          (click)="saveExperience(singleExperience.id)"
+          type="submit"
+          [disabled]="experienceForm.invalid"
         >
-          <i class="fa fa-save"></i>
-        </a>
+        </button>
       </div>
       <div class="timeLine__unit__buttons__button">
-        <a
-          class="icon"
+        <button
+          class="icon fa fa-trash"
           title="delete experience"
-          (click)="deleteExperience(singleExperience.id)"
+          (click)="deleteExperience(indexExperience)"
         >
-          <i class="fa fa-trash"></i>
-        </a>
+        </button>
       </div>
     </div>
 

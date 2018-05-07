@@ -20,7 +20,20 @@ export class CandidatesService extends BaseApi {
       });
   }
 
-  // getCandidates():Observable<Candidate[]>{
-  //   return this.get('candidates');
-  // }
+  getCandidateFromId(id: string): Observable<Candidate>{
+    return this.http.get<Candidate>(this.url + 'id-candidates?id='+id)
+      .map(data => {
+        return data;
+      });
+  }
+
+  saveCandidate(candidate: Candidate):  Observable<Candidate>{
+    return this.http.post<Candidate>(this.url + 'saveCandidate', candidate)
+      .map( data => {
+        return data;
+      });
+  }
+
+
+
 }

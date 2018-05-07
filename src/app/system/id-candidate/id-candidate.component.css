@@ -2,6 +2,11 @@
   background-color: #c6c8ca;
 }
 
+.warning {
+  border: 2px solid #8b0000!important;
+}
+
+
 h6 {
   margin: 10px;
   text-align: left;
@@ -11,6 +16,34 @@ h6 {
   color: #454545;
   font-weight: bold;
 }
+
+.button-new  {
+  background: none;
+  position: fixed;
+  bottom: 7%;
+  right: 3%;
+  font-size: 50px;
+  color: #6e6e6e;
+  text-shadow: 3px 5px 2px rgba(203, 203, 203, 1);
+  z-index: 20;
+  border: none;
+}
+
+.button-new:hover {
+  transition: 0.1s;
+  font-size: 54px;
+  color: #6e6e9e;
+}
+
+.button-new:active {
+  transition: 0.1s;
+  font-size: 50px;
+  text-shadow: none;
+  outline: none;
+}
+
+
+
 
 /******* big block header *******/
 .header-data {
@@ -50,6 +83,7 @@ h6 {
   border: none;
   text-transform: uppercase;
   font-size: 110%;
+  display: flex;
   float: right;
 }
 
@@ -62,8 +96,7 @@ h6 {
   text-align: center;
 }
 
-
-#status, option {
+select, option {
   margin: 5px 0 0 0;
   padding: 0;
   width: 60%;
@@ -80,7 +113,8 @@ h6 {
   margin: 5px auto;
 }
 
-.profile-job {
+.profile-position,
+label {
   text-align: left;
   font-size: 15px;
   letter-spacing: 3px;
@@ -104,24 +138,25 @@ h6 {
   text-align: right;
   font-size: 15px;
   color: #686868;
-  z-index: 10000;
+  margin-bottom: -10px;
 }
 .profile-name, .profile-salary,
-.profile-time, .profile-job {
+.profile-position,
+label {
   margin-bottom: 2px;
 }
 
 .positionEdit, .nameEdit, .salaryEdit,
 .phoneEdit, .emailEdit, .addressEdit {
+  float: right;
   margin: 3px;
-  max-width: 80%;
+  max-width: 60%;
   border: 1px solid #454545;
   border-radius: 10px;
   outline: none;
   font-size: 90%;
   text-align: center;
 }
-
 
 .profile-text {
   font-size: 13px;
@@ -157,26 +192,20 @@ h6 {
 }
 
 /******* buttons *******/
-#saveData {
-}
 
-.buttons{
+.button__add-experience{
   position: fixed;
   bottom: 45px;
   left: 18%;
   display: flex;
-  padding: 10px;
+  padding: 6px;
   flex-wrap: wrap;
   font-size: 13px;
   text-transform: lowercase;
   font-weight: bold;
   z-index: 10;
-
-}
-
-.buttons__add-experiences-and-skills{
-  padding: 6px;
   margin: 5px;
+  color: #000000;
   box-shadow: 4px 2px 2px 0 rgb(66, 66, 66);
   background-color: #a9a9a9;
   border-radius: 20px;
@@ -184,15 +213,13 @@ h6 {
   user-select: none;
 }
 
-.buttons__add-experiences-and-skills:hover {
+.button__add-experience:hover {
   transition: 0.3s;
   opacity: 1;
-  color: red;
-  background-color: #6e6e6e;
-
+  color: #ffffff;
 }
 
-.buttons__add-experiences-and-skills:active {
+.button__add-experience:active {
   box-shadow: none;
 }
 
@@ -253,26 +280,15 @@ h6 {
   text-shadow: none;
 }
 
-#modalWindowSkill input {
-  margin-top: -20px;
-  display: flex;
-}
 
-#modalWindowSkill input {
-  margin-top: -20px;
-  display: flex;
-  text-align: center;
-}
 
-#modalWindowExperience input,
-#modalWindowSkill input {
+#modalWindowExperience input {
   margin-right: 20px;
   margin-bottom: 20px;
   display: inline;
   text-align: center;
 }
-#modalWindowExperience input, textarea,
-#modalWindowSkill input {
+#modalWindowExperience input, textarea {
   border: 2px solid #c8c8c8;
   border-radius: 10px;
   outline:none;

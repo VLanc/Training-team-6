@@ -1,4 +1,26 @@
 /******* right block *******/
+.warning-select {
+  border: 2px solid #8b0000!important;
+}
+
+.warning {
+  border-bottom: 2px solid #8b0000!important;
+}
+
+#type-of-experience-select, option {
+  padding: 3px;
+  float: right;
+  width: 60%;
+  font-size: 12px;
+  border: 2px solid #c8c8c8;
+  border-radius: 10px;
+  outline: none;
+}
+
+label {
+  float: right;
+}
+
 input, textarea {
   display: block;
   border: none;
@@ -11,6 +33,11 @@ input, textarea {
   resize: none;
   overflow: auto;
 }
+
+textarea {
+  margin-top: 10px;
+}
+
 .timeLine__unit__left-information__date input {
   width: 70%;
 }
@@ -144,27 +171,27 @@ input:focus, textarea:focus {
   margin-right: -30px;
 }
 
-a[title="edit experience"] {
+button[title="edit experience"] {
   color: #00008b;
 }
 
-a[title="edit experience"].icon:active {
+button[title="edit experience"].icon:active {
   color: #00008b;
 }
 
-a[title="edit experience"]:hover {
+button[title="edit experience"]:hover {
   color: #0000ff;
 }
 
-a[title="delete experience"] {
+button[title="delete experience"] {
   color: #8b0000;
 }
 
-a[title="delete experience"].icon:active {
+button[title="delete experience"].icon:active {
   color: #8b0000;
 }
 
-a[title="delete experience"]:hover {
+button[title="delete experience"]:hover {
   color: #ff0000;
 }
 
@@ -172,6 +199,9 @@ a[title="delete experience"]:hover {
   font-size: 22px;
   margin-left: 2px;
   cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
 }
 
 .icon:hover {

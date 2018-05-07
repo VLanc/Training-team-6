@@ -181,6 +181,7 @@ button[type=submit] {
   font-size: 50px;
   color: #6e6e6e;
   text-shadow: 3px 5px 2px rgba(203, 203, 203, 1);
+  z-index: 20;
 }
 
 .button-new i:hover {

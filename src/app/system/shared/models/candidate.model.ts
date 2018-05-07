@@ -11,24 +11,18 @@ export class Candidate {
     public skills: string,
     public salary?: number,
     public photo?: string,
-    public description?: [{
+    public reviews?: [{
       name: string,
-      review: string
+      content: string
     }],
-    public info?: [{
-      time: string,
-      pos: string,
-      header: string,
-      body: string
+    public experiences?: [{
+      timeStart: string,
+      timeEnd: string,
+      job: number,
+      position: string,
+      company: string,
+      responsibility: string
     }],
-    public education?: [{
-      time: string,
-      pos: string,
-      header: string,
-      body: string
-    }],
-    public mobileNumber?: string,
-    public homeNumber?: string
-
+    public phone?: string
   ){}
 }
