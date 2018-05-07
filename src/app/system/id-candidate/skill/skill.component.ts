@@ -37,7 +37,6 @@ export class SkillComponent implements OnInit {
     this.skillForm = new FormGroup({
       'name': new FormControl(null, [Validators.required, Validators.minLength(1)])
       });
-    console.log(this.skillForm);
   }
 /* TODO не помешает кнопка удаления незаполненного нового навыка*/
   saveSkill() {
@@ -47,6 +46,6 @@ export class SkillComponent implements OnInit {
     this.skills = this.skills + skill + ';';
     this.saveSkillsEmitter.emit(this.skills);
     this.skillsArray = this.skills.split(';');
-    // this.skillsArray.splice(this.skillsArray.length-1, 1);
+    this.skillsArray.splice(this.skillsArray.length-1, 1);
   }
 }
