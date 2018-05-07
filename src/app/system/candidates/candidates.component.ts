@@ -14,7 +14,7 @@ export class CandidatesComponent implements OnInit {
 
   candidates: Candidate[];
 
-  constructor(private candidateservice: CandidatesService) {
+  constructor(private candidatesService: CandidatesService) {
     this.candidatesStatuses = ["All", "New", "CV-Accepted", "CV-Rejected", "Accepted for interview"];
   }
 
@@ -32,7 +32,7 @@ export class CandidatesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.candidateservice.getCandidates()
+    this.candidatesService.getCandidates()
       .subscribe(candidates => {
         this.candidates = candidates;
         for (let i = 0; i < this.candidates.length; i++) {

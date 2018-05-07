@@ -47,6 +47,10 @@ form button, form button:hover, input {
   text-overflow: ellipsis;
 }
 
+.active {
+  color: #5d75ff;
+}
+
 .icon {
   font-size: 22px;
   margin-left: 10px;

@@ -1,0 +1,67 @@
+<div class="notification-bar">
+  <div class="row no-gutters">
+    <div class="col">
+      <h4 class="notification-bar-header">New candidates</h4>
+    </div>
+  </div>
+
+  <div #candidatesField class="notification-candidates-field" [ngClass]="{'scrollable': areCandidatesScrollable}">
+    <div *ngFor="let candidate of candidates" class="row no-gutters">
+      <div class="col">
+        <a [routerLink]="['/id-candidate', candidate.id]" routerLinkActive="active" class="d-flex notification-candidate-wrapper">
+          <img [src]="'../../../assets/images/' + candidate.photo + '.png'" alt="" class="avatar-small">
+          <div class="notification-candidate-information-wrapper">
+            <div class="notification-candidate-name">{{candidate.name}}
+            </div>
+            <div class="notification-candidate-email">{{candidate.email}}
+            </div>
+            <div class="notification-candidate-position">{{candidate.position}}
+            </div>
+          </div>
+     <!--     <button type=button class="close delete-notification" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>-->
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row no-gutters">
+    <div class="col">
+      <h4 class="notification-bar-view-all" (click)="showAllCandidates(candidatesField)">View all</h4>
+    </div>
+  </div>
+
+  <div class="row no-gutters">
+    <div class="col">
+      <h4 class="notification-bar-header">Next interviews</h4>
+    </div>
+  </div>
+
+  <div #interviewsField class="notification-events-field" [ngClass]="{'scrollable': areInterviewsScrollable}">
+    <div *ngFor="let interview of customInterviews" class="row no-gutters">
+      <div class="col">
+        <div class="d-flex notification-interview-wrapper">
+          <div class="notification-interview-information-wrapper">
+            <div class="notification-interview-participants">{{interview.participants}}</div>
+            <div class="notification-interview-date">{{interview.start | date: 'MMM d'}}</div>
+            <div class="notification-interview-time">{{interview.start | date: 'H:mm'}} - {{interview.end | date: 'H:mm'}}</div>
+          </div>
+     <!--     <button type=button class="close delete-notification" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>-->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row no-gutters">
+    <div class="col">
+      <h4 class="notification-bar-view-all" (click)="showAllInterviews(interviewsField)">View all</h4>
+    </div>
+  </div>
+
+</div>

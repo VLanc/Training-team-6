@@ -152,7 +152,7 @@ export class VacanciesComponent implements OnInit {
   }
 
   closeModalWindow() {
-    /*this.clearModalWindow();*/
+    this.clearModalWindow();
     this.activeModal.close();
   }
 
@@ -180,7 +180,7 @@ export class VacanciesComponent implements OnInit {
           this.changeDateFormat(this.vacancies[i]);
         }
       });
-    //вот тут берем список позиций!
+
     this.positionService.getPositions()
       .subscribe(positions => {
         this.positions = positions;
