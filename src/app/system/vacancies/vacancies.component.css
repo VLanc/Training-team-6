@@ -1,19 +1,23 @@
-.left-side {
-  width: 200px;
-  margin-top: 10px;
-  display: inline-block;
+.filters-wrapper {
+  position: relative;
+  display: block;
+  padding-top: 8px;
 }
 
 .filter-title {
   margin: 3px 3px 7px 3px;
 }
 
+.filter-wrapper {
+  width: 200px;
+}
+
 .add-vacancy-button {
+  position: absolute;
   cursor: pointer;
   background: none;
-  position: fixed;
-  bottom: 15%;
-  right: 3%;
+  top: 15%;
+  right: 2%;
   font-size: 50px;
   color: #6e6e6e;
   text-shadow: 3px 5px 2px rgba(203, 203, 203, 1);

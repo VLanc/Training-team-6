@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "date": "1525713854",
+    "date": "2018-02-15",
     "position": "Java Developer",
     "status": "Accepted for interview",
     "name": "Alex Korol",
@@ -9,7 +9,7 @@
     "city": "Minsk",
     "phone": "+3755447549706",
     "email": "Alex_Korolev@mail.ru",
-    "salary": "2500$",
+    "salary": 2500,
     "photo": "05",
     "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel;node;TEST;",
     "reviews": [
@@ -59,7 +59,7 @@
   },
   {
     "id": 2,
-    "date": "1525713854",
+    "date": "2018-03-16",
     "position": ".JAVA DEVELOPER",
     "status": "New",
     "name": "Alexei Sakovski",
@@ -67,7 +67,7 @@
     "city": "Minsk",
     "phone": "55666667549706",
     "email": "Sakovski@mail.ru",
-    "salary": "500$",
+    "salary": 500,
     "photo": "01",
     "skills": "NODE;test;",
     "reviews": [
