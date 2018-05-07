@@ -1,1 +1,42 @@
-[{"id":1,"email":"test@mail.ru","password":"123","role":"Developer","roleIndex":"2","name":"test","surname":"test555555","photo":""},{"id":2,"email":"asdfg.ru@gmail.com","password":"qwerty","role":"Manager","roleIndex":"1","name":"Nikita","surname":"Senko","photo":""},{"id":3,"email":"hui@mail.ru","password":"111","role":"Manager","roleIndex":"1","name":"Hui","surname":"Huilo","photo":""},{"id":4,"email":"test4@mail.ru","password":"111","role":"Manager","roleIndex":"","name":"ALEKSEIIIIII","surname":"SOSOVSKI","photo":""}]
+[
+  {
+    "id": 1,
+    "email": "test@mail.ru",
+    "password": "123",
+    "role": "Developer",
+    "roleIndex": "2",
+    "name": "test",
+    "surname": "test555555",
+    "photo": ""
+  },
+  {
+    "id": 2,
+    "email": "asdfg.ru@gmail.com",
+    "password": "qwerty",
+    "role": "Manager",
+    "roleIndex": "1",
+    "name": "Nikita",
+    "surname": "Senko",
+    "photo": ""
+  },
+  {
+    "id": 3,
+    "email": "hui@mail.ru",
+    "password": "111",
+    "role": "Manager",
+    "roleIndex": "1",
+    "name": "Hui",
+    "surname": "Huilo",
+    "photo": ""
+  },
+  {
+    "id": 4,
+    "email": "test4@mail.ru",
+    "password": "111",
+    "role": "Manager",
+    "roleIndex": "",
+    "name": "ALEKSEIIIIII",
+    "surname": "SOSOVSKI",
+    "photo": ""
+  }
+]
