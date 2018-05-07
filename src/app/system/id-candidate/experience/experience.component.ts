@@ -12,7 +12,7 @@ export class ExperienceComponent {
   @Output('onSaveAccepted') saveAccepted = new EventEmitter<boolean>();
   @Output('onDeleteExperience') deleteExperienceEmitter = new EventEmitter<number>();
   @Input() editing: boolean;
-  @Input() quantityExperiences: any;
+  @Input() quantityExperiences: number;
   @Input() indexExperience: number;
   @Input() singleExperience: Experience;
 

@@ -15,8 +15,13 @@
   
   * **editing**: boolean - всегда `false`, когда из родительского компонента `id-candidate` приходит `true`, 
                      меняется шаблон просмотра добавляются: кнопки редактирования и удаления опыта.
-  * **quantityExperiences**: any - родительский компонент `id-candidate` присылает количество элементов
+  * **quantityExperiences**: number - родительский компонент `id-candidate` присылает количество элементов
                                массива experience для правильного отобраления графика таймлайна.
+  * **indexExperience**: number - родительский компонент `id-candidate` присылает номер элемента
+                                 в массиве experience для правильного отобраления графика таймлайна и 
+                                 удаления элемента.
+    
+  
   * **singleExperience**: {
     id: number,
     timeStart: string,
@@ -33,12 +38,10 @@
   
   будет изменено
   
-  * @Output('saveRejected') - deprecated
-  * @Output('saveAccepted') - deprecated
+  * @Output('onSaveRejected') saveRejected = new EventEmitter<boolean>();  - ивент, отправляется в родителя на счетчик открытых редакторов
+  * @Output('onSaveAccepted') saveAccepted = new EventEmitter<boolean>(); - ивент, отправляется в родителя на счетчик открытых редакторов
 
-  * @Output('`onSaveRejected`') **saveRejected** - EventEmitter<number>: 
-  
-  к переменной **editingCandidate** родительского компонента `id-candidate` данным ивентом прибавляется 1,
+  к переменной **editingCandidate** родительского компонента `id-candidate` данными ивентом прибавляется/отнимается 1,
   таким образом, сколько бы ни было открыто компонентов для редактирования, пока `**editingCandidate** ==! 0`, кнопка сохранения
   не появится, т.к. сохранение запрещено.
   
@@ -49,7 +52,6 @@
   
   ####Методы:
   
-  * `editExperience()`
   * `saveExperience()`
   * `saveExperience()`
   
@@ -65,11 +67,12 @@
     
   #####Выходные переменные:
   
-  * @Output('`onSaveRejected`') **saveRejected** EventEmitter<`number`>:
+   * @Output('onSaveRejected') saveRejected = new EventEmitter<boolean>();  - ивент, отправляется в родителя на счетчик открытых редакторов
+   * @Output('onSaveAccepted') saveAccepted = new EventEmitter<boolean>(); - ивент, отправляется в родителя на счетчик открытых редакторов
   
-  к переменной  **editingCandidate** родительского компонента `id-candidate` данным ивентом прибавляется 1,
-  таким образом, сколько бы ни было открыто компонентов для редактирования, пока `**editingCandidate** ==! 0`, кнопка сохранения
-  не появится, т.к. сохранение запрещено.
+   к переменной **editingCandidate** родительского компонента `id-candidate` данными ивентом прибавляется/отнимается 1,
+   таким образом, сколько бы ни было открыто компонентов для редактирования, пока `**editingCandidate** ==! 0`, кнопка сохранения
+   не появится, т.к. сохранение запрещено.
     
   * @Output('`onSaveSkills`') **saveSkillsEmitter** EventEmitter<`string`>
   
@@ -77,8 +80,9 @@
 
   #####Внутренние переменные:
   
-  * **skillsArray**: object - для дальнейшего взаимодействия с навыками кандидата, они режутся и кладутся в массив.
-  * **editingSkill**: boolean = false;
+  * **skillsArray**: any - для дальнейшего взаимодействия с навыками кандидата, они режутся и кладутся в массив.
+  * **editingSkill**: boolean = false; - флаг, показывающий процесс редактирования.
+  skillForm: FormGroup;
   
   #####Переменные шаблона:
   
@@ -88,6 +92,7 @@
   
   * `deleteSkill()`
   * `addSkill()`
+  * `saveSkill()`
 
 
   
