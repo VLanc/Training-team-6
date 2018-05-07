@@ -40,7 +40,9 @@ server.get('/vacancies', vacancies);
 server.get('/candidates', candidates);
 server.get('/positions', positions);
 server.get('/getUsers', getUsers);
+server.get('/id-candidates', idCandidates);
 
+server.post('/saveCandidate', saveCandidate);
 server.post('/saveVacancy', saveVacancy);
 server.post('/saveUser', saveUser);
 server.post('/register', register);
@@ -162,6 +164,20 @@ function saveVacancy(req, res, next) {
   next();
 }
 
+function saveCandidate(req, res, next){
+  let candidate = JSON.parse(JSON.stringify(req.body));
+  let candidates = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
+  let newCandidates = candidates.map(function (val) {
+    if (val.id == candidate.id) {
+      val = candidate;
+      return val;
+    }
+    return val;
+  });
+  fs.writeFileSync('profile.json', JSON.stringify(newCandidates));
+  next();
+}
+
 function saveUser(req, res, next) {
   let user = JSON.parse(JSON.stringify(req.body));
   let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
@@ -191,5 +207,19 @@ function positions(req, res, next) {
 function getUsers(req, res, next) {
   let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
   res.send(users);
+  next();
+}
+
+function idCandidates(req, res, next) {
+  let candidate = {};
+  let id = +req.query.id;
+  let profiles = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
+  profiles.forEach(function (val) {
+    if (val.id === id) {
+
+      candidate = val;
+    }
+  });
+  res.send(candidate);
   next();
 }

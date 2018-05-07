@@ -3,6 +3,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../shared/models/user.model';
 import {Route, Router} from "@angular/router";
+import {Candidate} from "../shared/models/candidate.model";
+import {CandidatesService} from "../shared/services/candidates.service";
 
 @Component({
   selector: 'app-id-candidate',
@@ -13,68 +15,9 @@ import {Route, Router} from "@angular/router";
 
 export class IdCandidateComponent implements OnInit {
   editorCount: number = 0;
-  candidate =
-    {
-      'id': 1,
-      'date': 1521042620,
-      'position': 'Java Developer',
-      'status': 1,
-      'name': 'Alex Korol',
-      'address': 'Esenina',
-      'city': 'Minsk',
-      'phone': '+3755447549706',
-      'email': 'Alex_Korolev@mail.ru',
-      'salary': '2500$',
-      'photo': '05',
-      'skills': 'JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel;node;TEST;',
-      'reviews': [
-        {
-          'name': 'Аляксандр Грыгорьевич',
-          'content': 'Хороший кандидат'
-        },
-        {
-          'name': 'Якубович',
-          'content': 'берем'
-        }
-      ],
-      'experiences':
-        [
-          {
-            'timeStart': 'Apr 2015',
-            'timeEnd': 'Now',
-            'job': 1,
-            'position': 'Learn Java Developer',
-            'company': 'Itransition Group Ltd.',
-            'responsibility': 'WEB Development, wвпавпвшрь шкьрешгерьиншг кернрш гернкшгрешн ркшерншкреш кшреншкрешнрк шрнкренршкренк ршншгкренркшнр шкреншркшеншкр ешнркшеншкрешork with server side logic, take part in search engine development and optimization'
-          },
-          {
-            'timeStart': 'Oct 2012',
-            'timeEnd': 'Mar 2015',
-            'job': 1,
-            'position': 'Senior Java Developer',
-            'company': 'Belhard',
-            'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
-          },
-          {
-            'timeStart': 'Oct 2012',
-            'timeEnd': 'Mar 2015',
-            'job': 2,
-            'position': 'STUDENT',
-            'company': 'BSUIR',
-            'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
-          },
-          {
-            'timeStart': 'Oct 2012',
-            'timeEnd': 'Mar 2015',
-            'job': 2,
-            'position': 'STUDENT',
-            'company': 'BSUIR',
-            'responsibility': 'Design, build, and maintain efficient, reusable, and reliable Java code.'
-          }
-        ]
-    };
+  candidate: Candidate;
 
-  quantityExperiences = this.candidate.experiences.length;
+  quantityExperiences: number;
   editing: boolean = false;
   candidateForm: FormGroup;
   newExperienceForm: FormGroup;
@@ -84,7 +27,8 @@ export class IdCandidateComponent implements OnInit {
 
   constructor(private modalService: NgbModal,
               private activeModal: NgbActiveModal,
-              private router: Router) {
+              private router: Router,
+              private candidateService: CandidatesService) {
   }
 
   public getImagePath(): string {
@@ -120,6 +64,7 @@ export class IdCandidateComponent implements OnInit {
 
   saveCandidate(): void {
     this.editing = !this.editing;
+    this.candidateService.saveCandidate(this.candidate).subscribe();
   }
 
   editCandidate(): void {
@@ -132,25 +77,35 @@ export class IdCandidateComponent implements OnInit {
   }
 
   saveRejected(event): void {
-    if (event) {this.editorCount++};
+    if (event) {
+      this.editorCount++
+    }
+
   }
 
   saveAccepted(event): void {
-    if (event) {this.editorCount--};
+    if (event) {
+      this.editorCount--
+    }
+
   }
 
   ngOnInit() {
-    console.log(this.router.url);
-    this.candidateForm = new FormGroup({
-      'position': new FormControl(this.candidate.position, [Validators.required]),
-      'status': new FormControl(this.candidate.status, [Validators.required]),
-      'name': new FormControl(this.candidate.name, [Validators.required]),
-      'address': new FormControl(this.candidate.address, [Validators.required]),
-      'city': new FormControl(this.candidate.city, [Validators.required]),
-      'phone': new FormControl(this.candidate.phone, [Validators.required, Validators.minLength(13)]),
-      'email': new FormControl(this.candidate.email, [Validators.email]),
-      'salary': new FormControl(this.candidate.salary, [Validators.required])
-    });
+    this.candidateService.getCandidateFromId(this.router.url.split('/')[2])
+      .subscribe(candidate => {
+        this.candidate = candidate;
+        this.quantityExperiences = this.candidate.experiences.length;
+        this.candidateForm = new FormGroup({
+          'position': new FormControl(this.candidate.position, [Validators.required]),
+          'status': new FormControl(this.candidate.status, [Validators.required]),
+          'name': new FormControl(this.candidate.name, [Validators.required]),
+          'address': new FormControl(this.candidate.address, [Validators.required]),
+          'city': new FormControl(this.candidate.city, [Validators.required]),
+          'phone': new FormControl(this.candidate.phone, [Validators.required, Validators.minLength(13)]),
+          'email': new FormControl(this.candidate.email, [Validators.email]),
+          'salary': new FormControl(this.candidate.salary, [Validators.required])
+        });
+      });
   }
 
   openModalWindowExperience(modalWindow) {
@@ -169,7 +124,7 @@ export class IdCandidateComponent implements OnInit {
     this.newReviewForm = new FormGroup({
       'name': new FormControl(this.user.name), /*TODO HARDCORE, need id from db*/
       'content': new FormControl(null, [Validators.required, Validators.minLength(10)])
-      });
+    });
     this.activeModal = this.modalService.open(modalWindow, {size: 'lg'});
   }
 
