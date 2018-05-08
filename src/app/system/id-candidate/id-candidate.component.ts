@@ -7,6 +7,7 @@ import {Candidate} from "../shared/models/candidate.model";
 import {CandidatesService} from "../shared/services/candidates.service";
 import {UsersServices} from "../../shared/services/users.services";
 
+
 @Component({
   selector: 'app-id-candidate',
   templateUrl: './id-candidate.component.html',
@@ -113,6 +114,7 @@ export class IdCandidateComponent implements OnInit {
       .subscribe(user => {
         this.user = user;
       });
+
   }
 
   openModalWindowExperience(modalWindow) {
