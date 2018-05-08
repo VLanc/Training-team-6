@@ -1,4 +1,6 @@
 let fs = require('fs');
+const bcrypt = require('bcrypt');
+const salt = bcrypt.genSaltSync(10);
 const clientSession = require("client-sessions");
 const corsMiddleware = require('restify-cors-middleware');
 let restify = require('restify');
@@ -33,6 +35,7 @@ server.use(clientSession({
 server.use(restify.plugins.bodyParser());
 server.use(restify.plugins.gzipResponse());
 server.use(restify.plugins.requestLogger());
+server.get('/getUserByEmail', getUserByEmail);
 server.get('/login', login);
 server.get('/reset', reset_password);
 server.get('/events', respond_events);
@@ -42,6 +45,7 @@ server.get('/positions', positions);
 server.get('/getUsers', getUsers);
 server.get('/id-candidates', idCandidates);
 
+server.post('/uploadUserAvatar', uploadUserAvatar);
 server.post('/saveCandidate', saveCandidate);
 server.post('/saveVacancy', saveVacancy);
 server.post('/saveUser', saveUser);
@@ -52,16 +56,25 @@ let port = process.env.PORT || 8080;
 server.listen(port);
 console.log("Server running at http://localhost:%d", port);
 
-function login(req, res, next) {
+function getUserByEmail(req, res, next) {
   let email = req.query.email;
   let user = foundUser(email);
   res.send(user);
-  // console.log(res.send(user));
-  // res.send(JSON.stringify(user));
   next();
+}
+function login(req, res, next) {
+  let email = req.query.email;
+  let password = req.query.password;
+  let user = foundUser(email);
+  if (bcrypt.compareSync(password, user.password)){
+    res.send(user);
+    next();
+  } else {
+    res.send();
+    next();
+  }
 
 }
-
 function reset_password(req, res, next) {
   let email = req.query.email;
   let user = foundUser(email);
@@ -96,7 +109,7 @@ function register(req, res, next) {
     let users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
     newUser.id = users.length + 1;
     newUser.email = user.email;
-    newUser.password = user.password;
+    newUser.password = bcrypt.hashSync(user.password, salt);
     newUser.role = "";
     newUser.roleIndex = "";
     newUser.name = "";
@@ -161,6 +174,16 @@ function saveVacancy(req, res, next) {
   let vacancies = JSON.parse(fs.readFileSync('vacancies.json', 'utf8'));
   vacancies.push(vacancy);
   fs.writeFileSync('vacancies.json', JSON.stringify(vacancies));
+  next();
+}
+
+function uploadUserAvatar(req, res, next) {
+  let file = req.files.uploadFile;
+  console.log(file);
+  fs.writeFile('2pac.txt', file, (err) => {
+    if (err) throw err;
+    console.log('Lyric saved!');
+  });
   next();
 }
 

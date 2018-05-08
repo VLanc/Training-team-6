@@ -51,21 +51,32 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     const formData = this.form.value;
-    this.userService.getUserByEmail(formData.email)
-      .subscribe((user: User) => {
-        if (user) {
-          if (user.password === formData.password) {
-            this.message.text = '';
-            window.localStorage.setItem('userEmail',user.email);
-            this.authService.login();
-            this.router.navigate(['/vacancies']);
-
-          } else {
-            this.showMessage('incorrect password');
-          }
-
+    // this.userService.getUserByEmail(formData.email)
+    //   .subscribe((user: User) => {
+    //     if (user) {
+    //       if (user.password === formData.password) {
+    //         this.message.text = '';
+    //         window.localStorage.setItem('userEmail',user.email);
+    //         this.authService.login();
+    //         this.router.navigate(['/vacancies']);
+    //
+    //       } else {
+    //         this.showMessage('incorrect password');
+    //       }
+    //
+    //     } else {
+    //       this.showMessage('user not found');
+    //     }
+    //   });
+    this.userService.loginUser(formData.email, formData.password)
+      .subscribe((user: User)=>{
+        if (user){
+          this.message.text = '';
+          window.localStorage.setItem('userEmail',user.email);
+          this.authService.login();
+          this.router.navigate(['/vacancies']);
         } else {
-          this.showMessage('user not found');
+          this.showMessage('email or password incorrect');
         }
       });
   }

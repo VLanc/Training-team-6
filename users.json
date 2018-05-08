@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "email": "test@mail.ru",
-    "password": "123",
-    "role": "Developer",
-    "roleIndex": "2",
-    "name": "test",
-    "surname": "test555555",
+    "email": "asdfg.ru@gmail.com",
+    "password": "$2b$10$qLOo.3xKeOt6/rzaI189B.M2HIy1eAIm.YMmtvCdyf5ev8w7APYO.",
+    "role": "Manager",
+    "roleIndex": "1",
+    "name": "Nikita",
+    "surname": "Senko",
     "photo": ""
   }
 ]

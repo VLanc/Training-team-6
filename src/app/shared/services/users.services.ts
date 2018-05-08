@@ -14,25 +14,26 @@ export class UsersServices{
   }
 
   getUserByEmail(email: string): Observable<User> {
-    return this.http.get<User>(this.url + `login?email=` + email)
+    return this.http.get<User>(this.url + `getUserByEmail?email=` + email)
       .map((data) => {
         return data;
       });
   }
 
-  // getUserByEmail(email: string): Observable<User> {
-  //   return this.get(`login?email=${email}`);
-  // }
+  loginUser(email: string, password: string): Observable<User> {
+    return this.http.get<User>(this.url + `login?email=` + email+`&password=`+password)
+      .map((data) => {
+        return data;
+      });
+  }
+
+
 
   resetUserPassword(email: string): Observable<string> {
      return this.http.get<string>(this.url + `reset?email=` + email);
 
   }
 
-  // resetUserPassword(email: string): Observable<string> {
-  //   return this.get(`reset?email=${email}`);
-  //
-  // }
 
   createNewUser(user: User): Observable<User> {
     return this.http.post<User>(this.url + 'register', user)
@@ -41,16 +42,13 @@ export class UsersServices{
       });
   }
 
-  // createNewUser(user: User): Observable<User> {
-  //   return this.post('register', user);
-  // }
 
   saveUserChanges(user: User): Observable<User> {
     return this.http.post<User>(this.url + 'saveUser', user);
   }
 
-  // saveUserChanges(user: User): Observable<User> {
-  //   return this.post('saveUser', user);
-  // }
+  uploadUserAvatar(formdata: FormData): Observable<any> {
+    return this.http.post<any>(this.url + 'uploadUserAvatar', formdata);
+  }
 
 }
