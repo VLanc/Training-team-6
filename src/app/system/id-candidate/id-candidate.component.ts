@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../shared/models/user.model';
-import {Route, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {Candidate} from "../shared/models/candidate.model";
 import {CandidatesService} from "../shared/services/candidates.service";
 import {UsersServices} from "../../shared/services/users.services";
@@ -114,6 +114,14 @@ export class IdCandidateComponent implements OnInit {
         this.user = user;
       });
 
+  }
+
+  getPrepareDataStatus(): boolean {
+    let flag: boolean = true;
+    if (this.candidate === undefined) {
+      flag = false;
+    }
+    return flag;
   }
 
   openModalWindowExperience(modalWindow) {

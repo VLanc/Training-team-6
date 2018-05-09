@@ -234,19 +234,18 @@ label {
   resize: none;
   width: 100%;
 }
-
-.nav-tabs .nav-link.active {
-  background-color: #ebebeb;
-  text-transform: none;
-  color: #000000;
-  font-weight: bold
+/*.modal-window-review */
+.active {
+  background-color: #ebebeb!important;
+  text-transform: none!important;
+  color: #000000!important;
+  font-weight: bold!important;
 }
 
-.nav-tabs .nav-link {
-  color: #000000;
-  font-weight: bold;
-  text-transform: none;
-  border-radius: 0;
+
+.modal-window-review .nav-link {
+  color: #000000!important;
+  text-transform: none!important;
 }
 
 .modal-close {

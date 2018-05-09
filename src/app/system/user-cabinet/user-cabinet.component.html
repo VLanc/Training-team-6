@@ -1,20 +1,8 @@
-<div class="container user-cabinet-content-wrapper">
+<div  *ngIf="getPrepareDataStatus(); else showLoadingData" class="container user-cabinet-content-wrapper">
   <div class="row">
     <div class="col">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <h2 class="user-cabinet-title">Your cabinet</h2>
-
-        <!--<div class="alert alert-success successful-saving hidden" role="alert"> &lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-        <!--Your changes were successfully saved-->
-        <!--</div>&lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-
-        <div class="form-group">
-          <div class="user-avatar"></div>
-          <label for="avatar" class="custom-file-upload">
-            <input id="avatar" type="file" class="avatar-input" (change)="fileChange($event)" placeholder="Upload file">
-            Change photo
-          </label>
-        </div>
 
         <div class="form-group" id="user-name-field">
           <label for="user-name" class="user-field-title">Name</label>
@@ -121,14 +109,16 @@
           <button
             type="submit"
             class="btn btn-primary save-user-info-button"
-            [disabled]="form.invalid"
+
           >Save
           </button>
         </ng-template>
 
       </form>
 
-
+      <!--[disabled]="form.invalid"-->
     </div>
   </div>
 </div>
+
+<ng-template #showLoadingData>loading...</ng-template>

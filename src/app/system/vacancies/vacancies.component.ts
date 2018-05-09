@@ -40,7 +40,7 @@ export class VacanciesComponent implements OnInit {
   }
 
   removeVacancy(removedVacancy) {
-    console.log(removedVacancy);
+    this.vacanciesService.removeVacancy(removedVacancy.id).subscribe();
   }
 
   selectVacancyExperience(data) {
