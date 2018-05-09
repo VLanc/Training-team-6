@@ -20,5 +20,9 @@ export class VacanciesService {
     return this.http.post<Vacancy>(this.url+'saveVacancy', vacancy);
   }
 
+  removeVacancy(id: string): Observable<any>{
+    return this.http.get<any>(this.url+'removeVacancy?id='+id);
+  }
+
 
 }
