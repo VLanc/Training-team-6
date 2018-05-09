@@ -25,7 +25,6 @@ export class IdCandidateComponent implements OnInit {
   newExperienceForm: FormGroup;
   newReviewForm: FormGroup;
   user: User;
-  tabReviews: string = 'tab';
 
   constructor(private modalService: NgbModal,
               private activeModal: NgbActiveModal,

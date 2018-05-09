@@ -1,4 +1,4 @@
-<div class="container-fluid"> <!-- контейнер есть в верхнем компоненте-->
+<div class="container-fluid">
 
   <div class="row">
     <!-- DATA ------------------------------>
@@ -32,7 +32,6 @@
     <!-- left data --------------------------------->
     <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
       <form
-        id="candidateForm"
         [formGroup]="candidateForm"
         (ngSubmit)="saveCandidate()"
       >
@@ -282,8 +281,8 @@
 
 
 <!-- modal window REVIEW -->
-<ng-template #modalWindowReview let-c="close" let-d="dismiss">
-  <div class="modal-content modal-window-description">
+<ng-template #modalWindowReview>
+  <div class="modal-content modal-window-review">
     <div class="modal-header">
       <div class="modal-window__title">{{candidate.name}}</div>
       <a (click)="closeModalWindow()" class="modal-close">
@@ -293,29 +292,10 @@
     </div>
     <div class="modal-body">
 
-
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="toForm1" data-toggle="tab" (click)="form1" role="tab"
-             aria-controls="Form1" aria-selected="true">Add review</a>
-        </li>
-
-
-        <li class="nav-item">
-          <a class="nav-link" id="toForm2" data-toggle="tab" (click)="form2" role="tab"
-             aria-controls="Form1" aria-selected="true">Add review</a>
-        </li>
-
-
-        <li *ngFor="let review of candidate.reviews; let idx = index" class="nav-item">
-          <a class="nav-link" id="tabs+index" data-toggle="tab" [href]="'#form' + idx" role="tab" aria-controls="Form2"
-             aria-selected="false">{{review.name}}</a>
-        </li>
-      </ul>
-
-      <div class="tab-content">
-        <ng-container #form1 >
-          <div  class="tab-pane fade show active" id="form1" aria-labelledby="form1">
+      <ngb-tabset>
+        <ngb-tab>
+          <ng-template ngbTabTitle>Add Review</ng-template>
+          <ng-template ngbTabContent>
             <form [formGroup]="newReviewForm" (ngSubmit)="saveModalWindowDataReview()">
               <textarea
                 [ngClass]="{'warning': newReviewForm.get('content').invalid && newReviewForm.get('content').touched}"
@@ -334,26 +314,17 @@
                 Send
               </button>
             </form>
-          </div>
-        </ng-container>
-<ng-container #form2 >
-        <div class="tab-pane fade show" id="form2"  aria-labelledby="Form2">
-          Form2
-        </div>
-</ng-container>
+          </ng-template>
+        </ngb-tab>
 
-
-
-        <div *ngFor="let review of candidate.reviews; let idx = index" class="tab-pane fade" [id]="'form' + idx"
-             aria-labelledby="Form2">
-          <textarea readonly class="form-control" rows="7" name="desc2">{{review.content}}</textarea>
-        </div>
-      </div>
+        <ngb-tab *ngFor="let review of candidate.reviews">
+          <ng-template ngbTabTitle>{{review.name}}</ng-template>
+          <ng-template ngbTabContent>
+            <textarea disabled rows="7" type="text">{{review.content}}</textarea>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
 
     </div>
-
-
   </div>
-
-
 </ng-template>
