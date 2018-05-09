@@ -22,6 +22,7 @@ import {
   DxAutocompleteModule
 } from 'devextreme-angular';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ClickOutsideModule } from 'ng4-click-outside';
 import {UserCabinetComponent} from './user-cabinet/user-cabinet.component';
 import {InterviewService} from './shared/services/interview.service';
 import {VacanciesService} from './shared/services/vacancies.service';
@@ -61,7 +62,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     DxTemplateModule,
     DxAutocompleteModule,
     DxSelectBoxModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    ClickOutsideModule
   ],
   providers: [
     InterviewService,

@@ -11,50 +11,38 @@
     "email": "Alex_Korolev@mail.ru",
     "salary": 2500,
     "photo": "05",
-    "skills": "JavaScript;Java;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel;node;TEST;",
+    "skills": "JavaScript;C++;C#;Node.JS;Maven;JSF;JPA;SEE;5+;Lel;node;TEST;",
     "reviews": [
       {
-        "name": "test",
-        "content": "fdgfdgfdgdfgfdgdfgfdgfdgfdg"
+        "id": 1,
+        "candidate_id": 1,
+        "name": "Nikita",
+        "content": "Ну такое..."
       },
       {
+        "id": 2,
+        "candidate_id": 1,
         "name": "Аляксандр Грыгорьевич",
         "content": "Хороший кандидат"
-      },
-      {
-        "name": "Якубович",
-        "content": "берем"
       }
     ],
     "experiences": [
       {
-        "timeStart": "Apr 2015",
-        "timeEnd": "Now",
-        "job": "1",
-        "position": "Learn Java Developer",
-        "company": "Itransition Group Ltd.",
-        "responsibility": "WEB Development, wвпавпвшрь шкьрешгерьиншг кернрш гернкшгрешн ркшерншкреш кшреншкрешнрк шрнкренршкренк ршншгкренркшнр шкреншркшеншкр ешнркшеншкрешork with server side logic, take part in search engine development and optimization"
-      },
-      {
+        "id": 1,
+        "candidate_id": 1,
         "timeStart": "Oct 2012",
         "timeEnd": "Mar 2015",
-        "job": 1,
+        "job": "1",
         "position": "Senior Java Developer",
         "company": "Belhard",
         "responsibility": "Design, build, and maintain efficient, reusable, and reliable Java code."
       },
       {
+        "id": 2,
+        "candidate_id": 1,
         "timeStart": "Oct 2012",
         "timeEnd": "Mar 2015",
-        "job": 2,
-        "position": "STUDENT",
-        "company": "BSUIR",
-        "responsibility": "Design, build, and maintain efficient, reusable, and reliable Java code."
-      },
-      {
-        "timeStart": "Oct 2012",
-        "timeEnd": "Mar 2015",
-        "job": 2,
+        "job": "2",
         "position": "STUDENT",
         "company": "BSUIR",
         "responsibility": "Design, build, and maintain efficient, reusable, and reliable Java code."
@@ -64,8 +52,8 @@
   {
     "id": 2,
     "date": 1522884974,
-    "position": "JS DEVELOPER",
-    "status": "CV-Accepted",
+    "position": "JAVA DEVELOPER",
+    "status": "New",
     "name": "Alexei Sakovski",
     "address": "Esenina",
     "city": "Minsk",

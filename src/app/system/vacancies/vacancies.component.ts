@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {Vacancy} from '../shared/models/vacancy.model';
 import {VacanciesService} from '../shared/services/vacancies.service';
 import {PositionService} from '../shared/services/position.service';
@@ -10,17 +10,16 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
   selector: 'app-vacancies',
   templateUrl: './vacancies.component.html',
   styleUrls: ['./vacancies.component.css'],
+  encapsulation: ViewEncapsulation.None,
   providers: [NgbActiveModal]
 })
 export class VacanciesComponent implements OnInit {
   @ViewChild(DxDataGridComponent) dataGrid: DxDataGridComponent;
-  /*  saleAmountHeaderFilter: any;*/
   vacancies: Vacancy[];
   vacanciesLength: number;
   positions: Position[];
   positionsStr: string[] = [];
   vacancyExperiences: string[];
-  vacancyDates: string[];
   experiences: string[] = ['Junior', 'Middle', 'Senior'];
   selectedPosition: string = '';
   isPositionInvalid: boolean = false;
@@ -38,35 +37,16 @@ export class VacanciesComponent implements OnInit {
               private modalService: NgbModal,
               private activeModal: NgbActiveModal) {
     this.vacancyExperiences = ['All', 'Junior', 'Middle', 'Senior'];
-    this.vacancyDates = ['All', 'Less than a week ago', 'Less than a month ago', 'Over a month ago'];
+  }
+
+  removeVacancy(removedVacancy) {
+    this.vacanciesService.removeVacancy(removedVacancy.id).subscribe();
   }
 
   selectVacancyExperience(data) {
     if (data.value === 'All') this.dataGrid.instance.clearFilter();
     else this.dataGrid.instance.filter(['experience', '=', data.value]);
   }
-
-  /*  selectVacancyDate(data) {
-      if (data.value === 'All') this.dataGrid.instance.clearFilter();
-      else this.dataGrid.instance.filter(['date', '=', data.value]);
-    }*/
-
-  /*  changeDateFormat(vacancy: Vacancy) {
-      let now: number = new Date().getTime() / 1000;
-      let dateOfAddVacancy: number = (now - +vacancy.date) / 86400;
-      if (dateOfAddVacancy < 1) vacancy.date = 'today';
-      else if (2 < dateOfAddVacancy && 7 > dateOfAddVacancy) vacancy.date = Math.ceil(dateOfAddVacancy) + ' days later';
-      else if (7 < dateOfAddVacancy && 27 > dateOfAddVacancy) vacancy.date = 'about ' + this.getWeek(dateOfAddVacancy) + ' week' + this.getEnding(this.getWeek(dateOfAddVacancy)) + ' later';
-      else if (27 < dateOfAddVacancy) vacancy.date = 'a month ago';
-    }
-
-    getWeek(num) {
-      return Math.ceil(num / 7);
-    }
-
-    getEnding(number) {
-      return number > 1 ? 's' : '';
-    }*/
 
   openCreateVacancyWindow(content) {
     this.clearModalWindow();
@@ -144,7 +124,7 @@ export class VacanciesComponent implements OnInit {
       position: this.selectedPosition.toUpperCase(),
       experience: this.selectedExperience,
       salary: +this.selectedSalary,
-      date: new Date(),
+      date: new Date().getTime() / 1000,
       id: ++this.vacanciesLength
     };
 
@@ -152,8 +132,6 @@ export class VacanciesComponent implements OnInit {
 
     this.vacanciesService.saveVacancy(newVacancy)
       .subscribe();
-
-    /*this.changeDateFormat(this.vacancies[this.vacanciesLength - 1]);*/
 
     this.closeModalWindow();
     this.clearModalWindow();
@@ -184,9 +162,10 @@ export class VacanciesComponent implements OnInit {
       .subscribe(vacancies => {
         this.vacancies = vacancies;
         this.vacanciesLength = vacancies.length;
-        /*  for (let i = 0; i < this.vacancies.length; i++) {
-            this.changeDateFormat(this.vacancies[i]);
-          }*/
+        for (let i = 0; i < this.vacancies.length; i++) {
+          /*convert unix timestamp*/
+          this.vacancies[i].date *= 1000;
+        }
       });
 
     this.positionService.getPositions()
@@ -196,7 +175,5 @@ export class VacanciesComponent implements OnInit {
           this.positionsStr.push(this.positions[i].name);
         }
       });
-
-
   }
 }

@@ -8,7 +8,7 @@
   <div #candidatesField class="notification-candidates-field" [ngClass]="{'scrollable': areCandidatesScrollable}">
     <div *ngFor="let candidate of candidates" class="row no-gutters">
       <div class="col">
-        <a [routerLink]="['/id-candidate', candidate.id]" routerLinkActive="active" class="d-flex notification-candidate-wrapper">
+        <a [routerLink]="['/id-candidate', candidate.id]" routerLinkActive="active" class="d-flex notification-candidate-wrapper" (click)="hideNotifications()">
           <img [src]="'../../../assets/images/' + candidate.photo + '.png'" alt="" class="avatar-small">
           <div class="notification-candidate-information-wrapper">
             <div class="notification-candidate-name">{{candidate.name}}
@@ -18,14 +18,16 @@
             <div class="notification-candidate-position">{{candidate.position}}
             </div>
           </div>
-     <!--     <button type=button class="close delete-notification" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>-->
         </a>
-
       </div>
-
     </div>
+
+    <div *ngIf="!areThereNewCandidates" class="row no-gutters">
+      <div class="col">
+        <p class="no-data-hint">No new candidates</p>
+      </div>
+    </div>
+
   </div>
 
   <div class="row no-gutters">
@@ -43,17 +45,20 @@
   <div #interviewsField class="notification-events-field" [ngClass]="{'scrollable': areInterviewsScrollable}">
     <div *ngFor="let interview of customInterviews" class="row no-gutters">
       <div class="col">
-        <div class="d-flex notification-interview-wrapper">
+        <a [routerLink]="['/interview']" routerLinkActive="active" class="d-flex notification-interview-wrapper" (click)="hideNotifications()">
           <div class="notification-interview-information-wrapper">
             <div class="notification-interview-participants">{{interview.participants}}</div>
             <div class="notification-interview-date">{{interview.start | date: 'MMM d'}}</div>
             <div class="notification-interview-time">{{interview.start | date: 'H:mm'}} - {{interview.end | date: 'H:mm'}}</div>
           </div>
-     <!--     <button type=button class="close delete-notification" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>-->
-        </div>
+        </a>
 
+      </div>
+    </div>
+
+    <div *ngIf="!areThereNextInterviews" class="row no-gutters">
+      <div class="col">
+        <p class="no-data-hint">No next interviews</p>
       </div>
     </div>
   </div>

@@ -1,11 +1,11 @@
-import {Component, OnInit, ViewChild, ViewEncapsulation, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {CalendarComponent} from 'ng-fullcalendar';
 import {Options} from 'fullcalendar';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Interview} from '../shared/models/interview.model';
 import {InterviewService} from '../shared/services/interview.service';
 /*import {Router} from '@angular/router';*/
-import {User} from "../../shared/models/user.model";
+import {User} from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-interview',
@@ -98,7 +98,9 @@ export class InterviewComponent implements OnInit {
     /*this.ucCalendar.fullCalendar('refetchEvents');*/
     /*this.ucCalendar.fullCalendar('renderEvent', event);*/
     /*this.ucCalendar.fullCalendar('renderEvent', event);*/
-    this.ucCalendar.fullCalendar('rerenderEvents');
+    /*this.ucCalendar.fullCalendar('rerenderEvents');*/
+  /*  this.ucCalendar.fullCalendar('renderEvent', event);
+    this.ucCalendar.fullCalendar('rerenderEvents');*/
   }
 
 
@@ -116,7 +118,7 @@ export class InterviewComponent implements OnInit {
     this.interviewService.getUsers()
       .subscribe(users => {
         for (let user of users) {
-          if(user.name.length>1)
+          if (user.name.length > 1)
           {
             this.interviewersList.push({id: user.id, interviewer: user.name + ' ' + user.surname});
           }
@@ -130,7 +132,7 @@ export class InterviewComponent implements OnInit {
     this.interviewService.getCandidates()
       .subscribe(participants => {
         for (let participant of participants) {
-          if (participant.name.length>1){
+          if (participant.name.length > 1){
             this.participantsList.push({id: participant.id, participant: participant.name});
           }
 
@@ -150,6 +152,9 @@ export class InterviewComponent implements OnInit {
       .subscribe(interviews => {
         this.interviews = interviews;
         this.eventsLength = this.interviews.length;
+    /*    for (let i = 0; i < this.interviews.length; i++) {
+          this.interviews[i].start = new Date(this.interviews[i].start).setHours()
+        }*/
         this.calendarOptions = {
           /*      editable: true,*/
           eventLimit: true,
@@ -356,13 +361,16 @@ export class InterviewComponent implements OnInit {
     console.log(event);
     this.clearModalWindow();
     this.interviewService.saveEvents(event).subscribe();
+    /*this.updateEventCalendar(event);*/
 
     this.interviewService.getEvents()
       .subscribe(interviews => {
         this.interviews = interviews;
       });
 
-    this.updateEventCalendar(event);
+    setTimeout(() => {
+      this.ucCalendar.fullCalendar('refetchEvents');
+    }, 100);
     /*this.router.navigate(['/interview']);*/
   }
 }
