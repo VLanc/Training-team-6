@@ -28,6 +28,16 @@ export class UserCabinetComponent implements OnInit {
     this.editing = false;
   }
 
+  fileChange(event) {
+    // let fileList: FileList = event.target.files;
+    // if(fileList.length > 0) {
+    //   let file: File = fileList[0];
+    //   let formData:FormData = new FormData();
+    //   formData.append('uploadFile', file, file.name);
+    //   // this.userService.uploadUserAvatar(formData).subscribe();
+    //
+    // }
+  }
 
   saveProfile(): void {
     this.processingRole();
@@ -71,15 +81,16 @@ export class UserCabinetComponent implements OnInit {
     this.userService.getUserByEmail(email)
       .subscribe(user => {
         this.user = user;
+        this.email = this.user.email;
+        this.processingRole();
+        this.form = new FormGroup({
+          'name': new FormControl(null, [Validators.required, Validators.minLength(2)], ),
+          'surname': new FormControl(null, [Validators.required, Validators.minLength(2)]),
+          'roleIndex': new FormControl(null, [Validators.required, Validators.minLength(1)]),
+          'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails.bind(this))
+        });
       });
-    this.email = this.user.email;
-    this.processingRole();
-    this.form = new FormGroup({
-      'name': new FormControl(null, [Validators.required, Validators.minLength(2)], ),
-      'surname': new FormControl(null, [Validators.required, Validators.minLength(2)]),
-      'roleIndex': new FormControl(null, [Validators.required, Validators.minLength(1)]),
-      'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails.bind(this))
-    });
+
   }
 
   forbiddenEmails(control: FormControl): Promise<any> {

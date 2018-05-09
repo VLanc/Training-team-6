@@ -158,6 +158,7 @@ export class IdCandidateComponent implements OnInit {
       'name': this.newReviewForm.value.name,
       'content': this.newReviewForm.value.content
     });
+    this.candidateService.saveCandidate(this.candidate).subscribe();
     this.closeModalWindow();
   }
 
