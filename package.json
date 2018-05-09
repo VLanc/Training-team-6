@@ -36,6 +36,7 @@
     "ng-fullcalendar": "^1.5.5",
     "ng-multiselect-dropdown": "^0.1.7",
     "ng-pick-datetime": "^5.2.6",
+    "ng4-click-outside": "^1.0.1",
     "nodemailer": "^4.6.4",
     "restify": "^7.1.1",
     "restify-cors-middleware": "^1.1.0",

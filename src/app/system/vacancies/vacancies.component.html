@@ -9,12 +9,21 @@
   <i class="fa fa-plus-circle add-vacancy-button" aria-hidden="true" (click)="openCreateVacancyWindow(content)"></i>
 </div>
 
-<dx-data-grid id="gridContainer" [dataSource]="vacancies" [columnMinWidth]="100" [height]="'90%'">
+<dx-data-grid
+  id="gridContainer"
+  [dataSource]="vacancies"
+  [columnMinWidth]="100"
+  [height]="'90%'"
+  (onRowRemoved)="removeVacancy($event.data)">
   <dxo-paging [pageSize]="10"></dxo-paging>
   <dxo-pager [showPageSizeSelector]="true"
              [allowedPageSizes]="[10, 20, 50]"
              [showNavigationButtons]="true">
   </dxo-pager>
+  <dxo-editing
+    mode="row"
+    [allowDeleting]="true">
+  </dxo-editing>
   <dxo-filter-row [visible]="true"></dxo-filter-row>
   <dxi-column dataField="position"></dxi-column>
   <dxi-column dataField="experience"></dxi-column>

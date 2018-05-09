@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "date": "2018-02-15",
+    "date": 1521042620,
     "position": "Java Developer",
     "status": "Accepted for interview",
     "name": "Alex Korol",
@@ -59,8 +59,8 @@
   },
   {
     "id": 2,
-    "date": "2018-03-16",
-    "position": ".JAVA DEVELOPER",
+    "date": 1522884974,
+    "position": "JAVA DEVELOPER",
     "status": "New",
     "name": "Alexei Sakovski",
     "address": "Esenina",

@@ -35,6 +35,11 @@
   text-shadow: none;
 }
 
+.dx-link.dx-link-delete {
+  color: #337ab7 !important;
+  text-decoration: underline !important;
+}
+
 /*Modal window*/
 
 .modal-title {

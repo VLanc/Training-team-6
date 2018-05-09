@@ -3,7 +3,7 @@ export class Vacancy {
     public position: string,
     public experience: string,
     public salary: number,
-    public date: Date,
+    public date: number,
     public id?: number
   ) {}
 }
