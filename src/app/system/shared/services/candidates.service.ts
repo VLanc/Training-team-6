@@ -34,6 +34,13 @@ export class CandidatesService{
       });
   }
 
+  addNewCandidate(): Observable<any>{
+    return this.http.get(this.url + 'addNewCandidate')
+      .map(data => {
+        return data;
+      })
+  }
+
 
 
 }

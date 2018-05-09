@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Candidate} from '../shared/models/candidate.model';
 import {CandidatesService} from '../shared/services/candidates.service';
 import {DxDataGridComponent} from "devextreme-angular";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-candidates',
@@ -14,7 +15,8 @@ export class CandidatesComponent implements OnInit {
 
   candidates: Candidate[];
 
-  constructor(private candidatesService: CandidatesService) {
+  constructor(private candidatesService: CandidatesService,
+              private router: Router) {
     this.candidateStatuses = ['All', 'New', 'CV-Accepted', 'CV-Rejected', 'Accepted for interview'];
   }
 
@@ -49,6 +51,13 @@ export class CandidatesComponent implements OnInit {
 
 
   }
-
+  addNewCand(){
+    this.candidatesService.addNewCandidate().subscribe(
+      data => {
+        let url = "/id-candidate/"+data.id;
+        this.router.navigate([url]);
+      }
+    );
+  }
 
 }
