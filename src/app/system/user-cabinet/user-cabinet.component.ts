@@ -98,7 +98,6 @@ export class UserCabinetComponent implements OnInit {
     if (this.user === undefined) {
       flag = false;
     }
-
     return flag;
   }
 
