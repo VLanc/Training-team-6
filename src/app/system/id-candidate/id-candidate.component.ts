@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../shared/models/user.model';
@@ -16,6 +16,7 @@ import {UsersServices} from "../../shared/services/users.services";
 })
 
 export class IdCandidateComponent implements OnInit {
+  // @Output('onPrepareDataStatus') PrepareDataStatus = new EventEmitter<boolean>();
   editorCount: number = 0;
   candidate: Candidate;
 
@@ -113,6 +114,15 @@ export class IdCandidateComponent implements OnInit {
       .subscribe(user => {
         this.user = user;
       });
+
+  }
+
+  getPrepareDataStatus(): boolean {
+    let flag: boolean = true;
+    if (this.candidate === undefined) {
+      flag = false;
+    }
+    return flag;
 
   }
 
