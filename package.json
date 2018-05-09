@@ -34,6 +34,7 @@
     "fs": "0.0.1-security",
     "fullcalendar": "^3.6.1",
     "jscs": "^3.0.7",
+    "mysql": "^2.15.0",
     "ng-fullcalendar": "^1.5.5",
     "ng-multiselect-dropdown": "^0.1.7",
     "ng-pick-datetime": "^5.2.6",
