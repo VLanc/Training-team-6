@@ -124,14 +124,17 @@ export class VacanciesComponent implements OnInit {
       position: this.selectedPosition.toUpperCase(),
       experience: this.selectedExperience,
       salary: +this.selectedSalary,
+      /*convert to unix timestamp*/
       date: new Date().getTime() / 1000,
       id: ++this.vacanciesLength
     };
 
-    this.vacancies.push(newVacancy);
-
     this.vacanciesService.saveVacancy(newVacancy)
       .subscribe();
+
+    /*convert from unix timestamp*/
+    newVacancy.date *= 1000;
+    this.vacancies.push(newVacancy);
 
     this.closeModalWindow();
     this.clearModalWindow();

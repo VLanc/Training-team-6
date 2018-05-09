@@ -1,13 +1,14 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {Candidate} from '../shared/models/candidate.model';
 import {CandidatesService} from '../shared/services/candidates.service';
-import {DxDataGridComponent} from "devextreme-angular";
-import {Router} from "@angular/router";
+import {DxDataGridComponent} from 'devextreme-angular';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-candidates',
   templateUrl: './candidates.component.html',
-  styleUrls: ['./candidates.component.css']
+  styleUrls: ['./candidates.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CandidatesComponent implements OnInit {
   @ViewChild(DxDataGridComponent) dataGrid: DxDataGridComponent;
@@ -18,6 +19,10 @@ export class CandidatesComponent implements OnInit {
   constructor(private candidatesService: CandidatesService,
               private router: Router) {
     this.candidateStatuses = ['All', 'New', 'CV-Accepted', 'CV-Rejected', 'Accepted for interview'];
+  }
+
+  removeCandidate(removedCandidate) {
+    console.log(removedCandidate);
   }
 
   selectCandidateStatus(data) {
@@ -31,7 +36,7 @@ export class CandidatesComponent implements OnInit {
         this.candidates = candidates;
         for (let i = 0; i < this.candidates.length; i++) {
           if (!this.candidates[i].photo) this.candidates[i].photo = 'anounymus';
-          /*convert unix timestamp*/
+          /*convert from unix timestamp*/
           this.candidates[i].date *= 1000;
         }
       });
@@ -39,7 +44,7 @@ export class CandidatesComponent implements OnInit {
   addNewCand(){
     this.candidatesService.addNewCandidate().subscribe(
       data => {
-        let url = "/id-candidate/"+data.id;
+        let url = '/id-candidate/' + data.id;
         this.router.navigate([url]);
       }
     );
