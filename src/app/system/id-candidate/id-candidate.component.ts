@@ -1,8 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../shared/models/user.model';
-import {Route, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {Candidate} from "../shared/models/candidate.model";
 import {CandidatesService} from "../shared/services/candidates.service";
 import {UsersServices} from "../../shared/services/users.services";
@@ -16,7 +16,6 @@ import {UsersServices} from "../../shared/services/users.services";
 })
 
 export class IdCandidateComponent implements OnInit {
-  // @Output('onPrepareDataStatus') PrepareDataStatus = new EventEmitter<boolean>();
   editorCount: number = 0;
   candidate: Candidate;
 
@@ -123,7 +122,6 @@ export class IdCandidateComponent implements OnInit {
       flag = false;
     }
     return flag;
-
   }
 
   openModalWindowExperience(modalWindow) {
