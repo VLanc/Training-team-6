@@ -22,7 +22,7 @@ export class CandidatesComponent implements OnInit {
   }
 
   removeCandidate(removedCandidate) {
-    console.log(removedCandidate);
+    this.candidatesService.removeCandidate(removedCandidate.id).subscribe();
   }
 
   selectCandidateStatus(data) {
