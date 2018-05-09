@@ -12,7 +12,7 @@ form button, form button:hover, input {
 }
 
 .find-bar-element {
-  margin-left: 14px;
+
   background-color: #e9e9e9;
   outline: none;
   text-decoration: none;
@@ -39,36 +39,30 @@ form button, form button:hover, input {
   color: #767676;
 }
 
-.find-bar__string {
-  width: calc(90% - 180px);
-  margin: 13px 0 13px 10px;
-  font-size: 17px;
-  letter-spacing: 1px;
-  text-overflow: ellipsis;
-}
 
 .active {
   color: #5d75ff;
 }
 
 .icon {
+  float: right;
+  margin: 16px 20px;
   font-size: 22px;
-  margin-left: 10px;
   display: inline;
   cursor: pointer;
 }
 
 .icon:hover {
   transition: 0.1s;
+  margin-right: 19px;
   font-size: 23px;
-  margin-right: -1px;
   text-decoration: none;
   text-shadow: 1px 1px 2px rgba(203, 203, 203, 1);
 }
 
 .icon:active {
   font-size: 22px;
-  margin-right: 0;
+  margin-right: 20px;
   text-shadow: none;
 }
 

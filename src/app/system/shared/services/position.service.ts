@@ -3,10 +3,11 @@ import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
 import {Position} from '../models/position.model';
 import data from 'devextreme/bundles/dx.all';
+import {BASEURL} from "../../../shared/core/url.constants";
 
 @Injectable()
 export class PositionService{
-  url = 'http://localhost:8080/';
+  url = BASEURL;
   constructor(private http: HttpClient) {}
 
   // getEvents(): Observable<Interview[]> {

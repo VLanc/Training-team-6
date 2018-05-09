@@ -1,16 +1,16 @@
 export class AuthServeces {
-  private isAuthentificated = false;
+  // private isAuthentificated = false;
 
    login() {
-     this.isAuthentificated = true;
+     window.localStorage.setItem('login', 'true');
    }
 
    logout() {
-     this.isAuthentificated = false;
+     // this.isAuthentificated = false;
      window.localStorage.clear();
    }
 
    isLoggedIn(): boolean {
-     return this.isAuthentificated;
+     return window.localStorage.getItem('login') == 'true';
    }
 }

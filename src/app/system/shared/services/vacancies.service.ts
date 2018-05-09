@@ -2,10 +2,11 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Vacancy} from '../models/vacancy.model';
+import {BASEURL} from "../../../shared/core/url.constants";
 
 @Injectable()
 export class VacanciesService {
-  url = 'http://localhost:8080/';
+  url = BASEURL;
   constructor(private http: HttpClient) {}
 
   getVacancies(): Observable<Vacancy[]>{

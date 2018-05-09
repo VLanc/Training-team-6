@@ -1,4 +1,4 @@
-<div class="container-fluid"> <!-- контейнер есть в верхнем компоненте-->
+<div class="container-fluid">
 
   <div class="row">
     <!-- DATA ------------------------------>
@@ -8,28 +8,36 @@
       </div>
 
 
-      <div class="review-button-block">
-        <button class="btn btn-secondary review-button-block__button"
-                (click)="openModalWindowReview(modalWindowReview)">
+      <div class="button-blocks">
+        <button
+          *ngIf="!editing; else buttonAddExperience"
+          class="btn btn-secondary review-button-blocks__button"
+          (click)="openModalWindowReview(modalWindowReview)"
+        >
           Review
         </button>
+
+        <ng-template #buttonAddExperience>
+          <button
+            *ngIf="editing"
+            class="btn btn-secondary review-button-blocks__button"
+            (click)="openModalWindowExperience(modalWindowExperience)"
+            [hidden]="!(editorCount == 0)"
+          >
+            Add experience
+          </button>
+        </ng-template>
       </div>
     </div>
     <!-- left data --------------------------------->
     <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
       <form
-        id="candidateForm"
         [formGroup]="candidateForm"
         (ngSubmit)="saveCandidate()"
       >
         <div class="header-info">
           <div *ngIf="!editing; else editStatus">
-            <select [disabled]="true">
-              <option value=1>Accepted for interview</option>
-              <option value=2>All</option>
-              <option value=3>CV-Accepted</option>
-              <option value=4>CV-Rejected</option>
-            </select>
+            <div class="select">{{candidate.status}}</div>
           </div>
 
           <ng-template #editStatus>
@@ -39,10 +47,10 @@
               [(ngModel)]="candidate.status"
             >
               <option disabled>Choose kind of status:</option>
-              <option value=1>Accepted for interview</option>
-              <option value=2>New</option>
-              <option value=3>CV-Accepted</option>
-              <option value=4>CV-Rejected</option>
+              <option value="New">New</option>
+              <option value="Accepted for interview">Accepted for interview</option>
+              <option value="CV-Accepted">CV-Accepted</option>
+              <option value="CV-Rejected">CV-Rejected</option>
             </select>
           </ng-template>
 
@@ -151,16 +159,6 @@
 
       </form>
     </div>
-
-    <a
-      *ngIf="editing"
-      class="button__add-experience"
-      (click)="openModalWindowExperience(modalWindowExperience)"
-      [hidden]="!(editorCount == 0)"
-    >
-      Add experience
-    </a>
-
     <!-- left data END --------------------------------->
 
     <!-- right data ----------------------------------->
@@ -212,66 +210,67 @@
     </div>
     <div class="modal-body">
       <form [formGroup]="newExperienceForm" (ngSubmit)="saveModalWindowDataExperience()">
-        <label>Start date:
+        <label for="beginDate">Begin date:
           <input
+            id="beginDate"
             [ngClass]="{'warning': newExperienceForm.get('timeStart').invalid && newExperienceForm.get('timeStart').touched}"
             type="text"
             autofocus
-            placeholder="Enter Start date..."
+            placeholder="Enter begin date..."
             formControlName="timeStart"
           >
         </label>
-          <label>End date:
-            <input
-              [ngClass]="{'warning': newExperienceForm.get('timeEnd').invalid && newExperienceForm.get('timeEnd').touched}"
-              type="text"
-              placeholder="Enter End date..."
-              formControlName="timeEnd"
-            >
-          </label>
-        <label>Enter position:
+        <label for="endDate">End date:
           <input
-            [ngClass]="{'warning': newExperienceForm.get('position').invalid && newExperienceForm.get('position').touched}"
+            id="endDate"
+            [ngClass]="{'warning': newExperienceForm.get('timeEnd').invalid && newExperienceForm.get('timeEnd').touched}"
             type="text"
-            placeholder="Enter position..."
-            formControlName="position"
+            placeholder="Enter End date..."
+            formControlName="timeEnd"
           >
         </label>
-        <label for="type-of-experience-select">change type of experience:</label>
-        <select
-          [ngClass]="{'warning-select': newExperienceForm.get('job').invalid && newExperienceForm.get('job').touched}"
-          id="type-of-experience-select"
-          formControlName="job"
-        >
-          <option disabled>Choose kind of experience</option>
-          <option value=1>worker</option>
-          <option value=2>student</option>
-        </select>
-        <label>Enter company:
+        <label for="company">Сompany:
           <input
+            id="company"
             [ngClass]="{'warning': newExperienceForm.get('company').invalid && newExperienceForm.get('company').touched}"
             type="text"
             placeholder="Enter company..."
             formControlName="company"
           >
         </label>
-        <label>Enter responsibility:
-          <textarea
-            [ngClass]="{'warning': newExperienceForm.get('responsibility').invalid && newExperienceForm.get('responsibility').touched}"
-            class="modalWindowExperience__textarea"
-            rows="4"
+        <label for="position">Position:
+          <input
+            id="position"
+            [ngClass]="{'warning': newExperienceForm.get('position').invalid && newExperienceForm.get('position').touched}"
             type="text"
-            placeholder="Write..."
-            formControlName="responsibility"
+            placeholder="Enter position..."
+            formControlName="position"
           >
-        </textarea>
         </label>
-
+        <label for="type-of-experience-select">Change type of experience:</label>
+        <select
+          id="type-of-experience-select"
+          formControlName="job"
+        >
+          <option disabled>Choose kind of experience</option>
+          <option value=1>job</option>
+          <option value=2>education</option>
+        </select>
+        <label>Enter responsibility:</label>
+        <br>
+        <textarea
+          [ngClass]="{'warning': newExperienceForm.get('responsibility').invalid && newExperienceForm.get('responsibility').touched}"
+          class="modalWindowExperience__textarea"
+          rows="4"
+          type="text"
+          placeholder="Write..."
+          formControlName="responsibility"
+        >
+        </textarea>
         <button
           class="btn btn-secondary"
           type="submit"
           [disabled]="newExperienceForm.invalid"
-
         >
           add
         </button>
@@ -282,8 +281,8 @@
 
 
 <!-- modal window REVIEW -->
-<ng-template #modalWindowReview let-c="close" let-d="dismiss">
-  <div class="modal-content modal-window-description">
+<ng-template #modalWindowReview>
+  <div class="modal-content modal-window-review">
     <div class="modal-header">
       <div class="modal-window__title">{{candidate.name}}</div>
       <a (click)="closeModalWindow()" class="modal-close">
@@ -293,24 +292,11 @@
     </div>
     <div class="modal-body">
 
-
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="toForm1" data-toggle="tab" href="#form1" role="tab"
-             aria-controls="Form1" aria-selected="true">Add review</a>
-        </li>
-
-
-
-        <li *ngFor="let review of candidate.reviews; let idx = index" class="nav-item">
-          <a class="nav-link" id="tabs+index" data-toggle="tab" [href]="'#form' + idx" role="tab" aria-controls="Form2"
-             aria-selected="false">{{review.name}}</a>
-        </li>
-      </ul>
-
-      <div class="tab-content">
-        <form [formGroup]="newReviewForm" (ngSubmit)="saveModalWindowDataReview()">
-          <div class="tab-pane fade show active" id="form1" aria-labelledby="Form1">
+      <ngb-tabset>
+        <ngb-tab>
+          <ng-template ngbTabTitle>Add Review</ng-template>
+          <ng-template ngbTabContent>
+            <form [formGroup]="newReviewForm" (ngSubmit)="saveModalWindowDataReview()">
               <textarea
                 [ngClass]="{'warning': newReviewForm.get('content').invalid && newReviewForm.get('content').touched}"
                 id="area1"
@@ -320,28 +306,25 @@
                 placeholder="Write..."
                 formControlName="content"
               ></textarea>
-          </div>
+              <button
+                class="btn btn-secondary"
+                type="submit"
+                [disabled]="newReviewForm.invalid"
+              >
+                Send
+              </button>
+            </form>
+          </ng-template>
+        </ngb-tab>
 
-          <button
-            class="btn btn-secondary"
-            type="submit"
-            [disabled]="newReviewForm.invalid"
-          >
-            Send
-          </button>
-        </form>
-
-
-        <div *ngFor="let review of candidate.reviews; let idx = index" class="tab-pane fade" [id]="'form' + idx"
-             aria-labelledby="Form2">
-          <textarea readonly class="form-control" rows="7" name="desc2">{{review.content}}</textarea>
-        </div>
-      </div>
+        <ngb-tab *ngFor="let review of candidate.reviews">
+          <ng-template ngbTabTitle>{{review.name}}</ng-template>
+          <ng-template ngbTabContent>
+            <textarea disabled rows="7" type="text">{{review.content}}</textarea>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
 
     </div>
-
-
   </div>
-
-
 </ng-template>

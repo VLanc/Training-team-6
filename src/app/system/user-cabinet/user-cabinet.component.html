@@ -11,7 +11,7 @@
         <div class="form-group">
           <div class="user-avatar"></div>
           <label for="avatar" class="custom-file-upload">
-            <input id="avatar" type="file" class="avatar-input">
+            <input id="avatar" type="file" class="avatar-input" (change)="fileChange($event)" placeholder="Upload file">
             Change photo
           </label>
         </div>

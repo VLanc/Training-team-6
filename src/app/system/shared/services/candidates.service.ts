@@ -2,14 +2,14 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Candidate} from '../models/candidate.model';
-import {BaseApi} from '../../../shared/core/base-api';
+import {BASEURL} from '../../../shared/core/url.constants';
+
 
 @Injectable()
-export class CandidatesService extends BaseApi {
-  url = 'http://localhost:8080/';
+export class CandidatesService{
+  url = BASEURL;
 
-  constructor(public http: HttpClient) {
-    super(http);
+  constructor(private http: HttpClient) {
   }
 
 
@@ -32,6 +32,13 @@ export class CandidatesService extends BaseApi {
       .map( data => {
         return data;
       });
+  }
+
+  addNewCandidate(): Observable<any>{
+    return this.http.get(this.url + 'addNewCandidate')
+      .map(data => {
+        return data;
+      })
   }
 
 

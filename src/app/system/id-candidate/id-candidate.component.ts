@@ -5,6 +5,8 @@ import {User} from '../../shared/models/user.model';
 import {Route, Router} from "@angular/router";
 import {Candidate} from "../shared/models/candidate.model";
 import {CandidatesService} from "../shared/services/candidates.service";
+import {UsersServices} from "../../shared/services/users.services";
+
 
 @Component({
   selector: 'app-id-candidate',
@@ -22,13 +24,13 @@ export class IdCandidateComponent implements OnInit {
   candidateForm: FormGroup;
   newExperienceForm: FormGroup;
   newReviewForm: FormGroup;
-  user: User = JSON.parse(window.localStorage.getItem('user'));
-  tabReviews: string = 'tab';
+  user: User;
 
   constructor(private modalService: NgbModal,
               private activeModal: NgbActiveModal,
               private router: Router,
-              private candidateService: CandidatesService) {
+              private candidateService: CandidatesService,
+              private userService: UsersServices) {
   }
 
   public getImagePath(): string {
@@ -106,6 +108,12 @@ export class IdCandidateComponent implements OnInit {
           'salary': new FormControl(this.candidate.salary, [Validators.required])
         });
       });
+    let email = window.localStorage.getItem('userEmail');
+    this.userService.getUserByEmail(email)
+      .subscribe(user => {
+        this.user = user;
+      });
+
   }
 
   openModalWindowExperience(modalWindow) {
@@ -150,6 +158,7 @@ export class IdCandidateComponent implements OnInit {
       'name': this.newReviewForm.value.name,
       'content': this.newReviewForm.value.content
     });
+    this.candidateService.saveCandidate(this.candidate).subscribe();
     this.closeModalWindow();
   }
 

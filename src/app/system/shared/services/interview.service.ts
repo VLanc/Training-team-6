@@ -4,12 +4,13 @@ import {Observable} from 'rxjs/Observable';
 import {Interview} from '../models/interview.model';
 import {User} from '../../../shared/models/user.model';
 import {Candidate} from "../models/candidate.model";
+import {BASEURL} from "../../../shared/core/url.constants";
 
 
 @Injectable()
 export class InterviewService {
 
-  url = 'http://localhost:8080/';
+  url = BASEURL;
 
   constructor(private http: HttpClient) {
   }

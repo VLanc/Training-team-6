@@ -1,19 +1,16 @@
 <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10  find-bar beauty">
   <div class="find-bar__navicon" (click)="toggle()"><i class="fa fa-bars black"></i></div>
-  <form action="#" class="find-bar-element">
-    <button type="submit" class="icon find-bar-element">
-      <i class="fa fa-search"></i>
-    </button>
-    <input class="find-bar-element find-bar__string">
-  </form>
-  <a id="user-cabinet-button" class="icon" title="cabinet" routerLink="/user-cabinet">
-    <i class="fa fa-user find-bar-element" aria-hidden="true"></i>
+
+  <a id="exit" class="icon" title="exit" (click)="logout()">
+    <i class="fa fa-sign-out find-bar-element"></i>
   </a>
   <a id="notification-button" class="icon" title="notifications">
     <i #notificationButton class="fa fa-bell find-bar-element" [ngClass]="{'active': isNotificationBarVisible}" (click)="changeNotificationBarState()"></i>
   </a>
-  <a id="exit" class="icon" title="exit" (click)="logout()">
-    <i class="fa fa-sign-out find-bar-element"></i>
+  <a id="user-cabinet-button" class="icon" title="cabinet" routerLink="/user-cabinet">
+    <i class="fa fa-user find-bar-element" aria-hidden="true"></i>
   </a>
+
+
 </div>
 <app-notifications *ngIf="isNotificationBarVisible" (clickOutside)="closeNotificationBar($event, notificationButton)" (changeNotificationBarState)="changeNotificationBarState()" [areThereNewCandidates]="areThereNewCandidates" [areThereNextInterviews]="areThereNextInterviews"></app-notifications>
