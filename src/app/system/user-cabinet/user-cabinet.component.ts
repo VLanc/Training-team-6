@@ -93,6 +93,15 @@ export class UserCabinetComponent implements OnInit {
 
   }
 
+  getPrepareDataStatus(): boolean {
+    let flag: boolean = true;
+    if (this.user === undefined) {
+      flag = false;
+    }
+
+    return flag;
+  }
+
   forbiddenEmails(control: FormControl): Promise<any> {
     return new Promise((resolve => {
       this.userService.getUserByEmail(control.value)
@@ -109,6 +118,3 @@ export class UserCabinetComponent implements OnInit {
     }));
   }
 }
-
-
-
