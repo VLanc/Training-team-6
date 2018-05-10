@@ -41,7 +41,8 @@ export class CandidatesComponent implements OnInit {
         }
       });
   }
-  addNewCand(){
+
+  addNewCand() {
     this.candidatesService.addNewCandidate().subscribe(
       data => {
         let url = '/id-candidate/' + data.id;

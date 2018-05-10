@@ -120,17 +120,9 @@
   color: #d81e0a;
 }
 
-/*.multiselect-dropdown {
-  margin-top: 15px;
-}*/
-
 .owl-dt-timer-box {
   padding: 0 30px;
 }
-
-/*.interview-modal-timers-wrapper {
-  margin: auto 0;
-}*/
 
 #new-event-modal-title {
   margin: 0;
@@ -141,10 +133,6 @@
   font-size: 15px;
   margin: 10px 0 0 0;
 }
-
-/*#other-options-button {
-  margin-bottom: 16px;
-}*/
 
 .event-modal-footer {
   padding: 16px 0 0 0;

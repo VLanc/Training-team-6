@@ -1,8 +1,6 @@
 <div class="interview-header">Interview
-<!--  <app-interview-modal #com1 (onAddEvent)="updateEventCalendar($event)"
-                       [eventsLength]="eventsLength"></app-interview-modal>-->
-  <button class="btn btn-secondary add-event-button" (click)="openCreateInterviewWindow(content)">Add new interview</button>
-
+  <button class="btn btn-secondary add-event-button" (click)="openCreateInterviewWindow(content)">Add new interview
+  </button>
   <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-content">
       <div class="modal-header">
@@ -13,117 +11,80 @@
         </button>
       </div>
       <div class="modal-body">
-       <!-- <form name="modal-body-form">-->
-          <div class="row">
-            <div class="col">
-              <!--    <div class="form-group">
-  <input type="text" (change)="updateTitle($event)" [ngClass]="{'invalid': isTitleInvalid}"
-         name="modal-body-form" class="form-control" id="event-title" placeholder="Enter event name*">
-</div>-->
-              <div class="form-group interview-modal-date-wrapper">
-                <h4 class="interview-modal-subtitle">Date and start time*</h4>
-                <input type="text" value="{{selectedNewStartDate | date: 'MMMM d, HH:mm'}}" [ngClass]="{'invalid': isNewStartDateInvalid}"
-                       class="form-control" placeholder="Choose date"
+        <div class="row">
+          <div class="col">
+            <div class="form-group interview-modal-date-wrapper">
+              <h4 class="interview-modal-subtitle">Date and start time*</h4>
+              <input type="text" value="{{selectedNewStartDate | date: 'MMMM d, HH:mm'}}"
+                     [ngClass]="{'invalid': isNewStartDateInvalid}"
+                     class="form-control" placeholder="Choose date"
+                     disabled>
+              <p class="hint" *ngIf="isStartDateHintVisible">{{startDateHint}}</p>
+              <owl-date-time-inline [(ngModel)]="selectedNewStartDate"></owl-date-time-inline>
+              <h4 class="interview-modal-subtitle">End time*</h4>
+              <div class="end-timer-wrapper">
+                <input type="text" value="{{selectedEndDate  | date: 'H:mm'}}" [ngClass]="{'invalid': isEndTimeInvalid}"
+                       class="form-control" placeholder="Choose end time"
                        disabled>
-                <p class="hint" *ngIf="isStartDateHintVisible">{{startDateHint}}</p>
-                <owl-date-time-inline [(ngModel)]="selectedNewStartDate"></owl-date-time-inline>
-                <h4 class="interview-modal-subtitle">End time*</h4>
-                <div class="end-timer-wrapper">
-                  <input type="text" value="{{selectedEndDate  | date: 'H:mm'}}" [ngClass]="{'invalid': isEndTimeInvalid}"
-                         class="form-control" placeholder="Choose end time"
-                         disabled>
-                  <p class="hint" *ngIf="isEndTimeHintVisible">{{endTimeHint}}</p>
-                  <owl-date-time-inline [pickerType]="'timer'" [(ngModel)]="selectedEndDate"></owl-date-time-inline>
-                </div>
-              </div>
-            </div>
-            <div class="col form-group">
-              <!--<div class="form-group  d-flex align-items-center flex-column">-->
-              <!--<h4 class="interview-modal-subtitle">Start time*</h4>-->
-       <!--       <div class="start-timer-wrapper">
-                  <input type="text" value="{{selectedNewStartDate | date: 'H:mm'}}" [ngClass]="{'invalid': isNewStartDateInvalid}"
-                         class="form-control" placeholder="Choose start time*"
-                         disabled>
-                  <owl-date-time-inline [pickerType]="'timer'" [(ngModel)]="selectedNewStartDate"></owl-date-time-inline>
-                </div>-->
-              <h4 class="interview-modal-subtitle">Participants*</h4>
-              <div [ngClass]="{'invalid': isParticipantsInvalid}">
-                <ng-multiselect-dropdown
-                  [placeholder]="'Select participants'"
-                  [data]="participantsList"
-                  [(ngModel)]="selectedParticipants"
-                  [settings]="participantsDropdownSettings"
-                ></ng-multiselect-dropdown>
-              </div>
-
-              <h4 class="interview-modal-subtitle">Interviewers*</h4>
-              <div [ngClass]="{'invalid': isInterviewersInvalid}">
-                <ng-multiselect-dropdown
-                  [placeholder]="'Select interviewers'"
-                  [data]="interviewersList"
-                  [(ngModel)]="selectedInterviewers"
-                  [settings]="interviewersDropdownSettings"
-                ></ng-multiselect-dropdown>
-              </div>
-
-
-              <p class="current-event-color-text">Current interview color</p>
-              <div class="event-color-wrapper {{selectedColor.name}}" id="current-event-color"></div>
-              <p class="current-event-color-text">Change interview color</p>
-              <div class="d-flex flex-wrap" id="event-color-pickers">
-                <div *ngFor="let color of colors" class="event-color-wrapper {{color.name}}"
-                     (click)="changeCurrentColor($event)"></div>
-              </div>
-              <!--</div>-->
-              <div class="form-group interview-location">
-                <label for="interview-location">Location</label>
-                <input (change)="updateLocation($event)" value="{{selectedLocation}}" type="text" class="form-control"
-                       id="interview-location" placeholder="Enter interview location">
-              </div>
-              <div class="form-group">
-                <label for="event-description">Description</label>
-                <textarea (change)="updateDescription($event)" class="form-control"
-                          id="event-description" placeholder="Enter interview description">{{selectedDescription}}</textarea>
+                <p class="hint" *ngIf="isEndTimeHintVisible">{{endTimeHint}}</p>
+                <owl-date-time-inline [pickerType]="'timer'" [(ngModel)]="selectedEndDate"></owl-date-time-inline>
               </div>
             </div>
           </div>
+          <div class="col form-group">
+            <h4 class="interview-modal-subtitle">Participants*</h4>
+            <div [ngClass]="{'invalid': isParticipantsInvalid}">
+              <ng-multiselect-dropdown
+                [placeholder]="'Select participants'"
+                [data]="participantsList"
+                [(ngModel)]="selectedParticipants"
+                [settings]="participantsDropdownSettings"
+              ></ng-multiselect-dropdown>
+            </div>
 
-          <div class="input-group">
-
-
-
-
-        <!--    <select (change)="updateParticipant($event)" [ngClass]="{'invalid': isParticipantInvalid}"
-                    name="modal-body-form" class="custom-select" id="select-participant">
-              <option value="0" disabled>Choose a participant*</option>
-              <option *ngFor="let participant of participants; let idx = index" value="{{idx + 1}}">{{participant}}
-              </option>
-            </select>-->
+            <h4 class="interview-modal-subtitle">Interviewers*</h4>
+            <div [ngClass]="{'invalid': isInterviewersInvalid}">
+              <ng-multiselect-dropdown
+                [placeholder]="'Select interviewers'"
+                [data]="interviewersList"
+                [(ngModel)]="selectedInterviewers"
+                [settings]="interviewersDropdownSettings"
+              ></ng-multiselect-dropdown>
+            </div>
+            <p class="current-event-color-text">Current interview color</p>
+            <div class="event-color-wrapper {{selectedColor.name}}" id="current-event-color"></div>
+            <p class="current-event-color-text">Change interview color</p>
+            <div class="d-flex flex-wrap" id="event-color-pickers">
+              <div *ngFor="let color of colors" class="event-color-wrapper {{color.name}}"
+                   (click)="changeCurrentColor($event)"></div>
+            </div>
+            <div class="form-group interview-location">
+              <label for="interview-location">Location</label>
+              <input (change)="updateLocation($event)" value="{{selectedLocation}}" type="text" class="form-control"
+                     id="interview-location" placeholder="Enter interview location">
+            </div>
+            <div class="form-group">
+              <label for="event-description">Description</label>
+              <textarea (change)="updateDescription($event)" class="form-control"
+                        id="event-description"
+                        placeholder="Enter interview description">{{selectedDescription}}</textarea>
+            </div>
           </div>
-         <!-- <button type="button" class="btn btn-primary btn-block" id="other-options-button" (click)="showOtherOptions()">
-            Show other options
-          </button>-->
-          <!--<div class="other-options-wrapper" id="other-options-wrapper">-->
-
-            <!--<div class="form-group">-->
-
-          <!--  </div>-->
-
-          <!--</div>-->
-          <div class="modal-footer justify-content-end event-modal-footer">
-            <button type="button" class="btn btn-secondary" id="close-event-modal-button-bottom"
-                    (click)="closeModalWindow()">Close
-            </button>
-            <button type="button" class="btn btn-primary" id="save-event-button" (click)="saveEvent()">Save</button>
-          </div>
-       <!-- </form>-->
+        </div>
+        <div class="modal-footer justify-content-end event-modal-footer">
+          <button type="button" class="btn btn-secondary" id="close-event-modal-button-bottom"
+                  (click)="closeModalWindow()">Close
+          </button>
+          <button type="button" class="btn btn-primary" id="save-event-button" (click)="saveEvent()">Save</button>
+        </div>
       </div>
     </div>
   </ng-template>
 
 </div>
 <div *ngIf="calendarOptions">
-  <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="openCreateInterviewWindow(content, $event.detail)"
-                   (dayClick)="openCreateInterviewWindow(content, $event.detail)" [(eventsModel)]="interviews"></ng-fullcalendar>
+  <ng-fullcalendar #ucCalendar [options]="calendarOptions"
+                   (eventClick)="openCreateInterviewWindow(content, $event.detail)"
+                   (dayClick)="openCreateInterviewWindow(content, $event.detail)"
+                   [(eventsModel)]="interviews"></ng-fullcalendar>
 </div>
-

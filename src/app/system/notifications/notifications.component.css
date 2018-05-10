@@ -36,16 +36,6 @@
   overflow: hidden;
 }
 
-/*.delete-notification {
-  position: absolute;
-  top: 7px;
-  right: 15px;
-}
-
-.delete-notification:hover {
-  color: #d81e0a;
-}*/
-
 .notification-interview-wrapper {
   padding-top: 0;
   padding-bottom: 3px;
@@ -115,19 +105,19 @@
 }
 
 /*mobile view*/
-@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
   .notification-bar {
     top: 10%;
   }
 }
 
-@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
   .notification-bar {
     top: 8%;
   }
 }
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1366px) and (orientation : portrait) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait) {
   .notification-bar {
     top: 5%;
   }

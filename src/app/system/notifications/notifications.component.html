@@ -8,7 +8,8 @@
   <div #candidatesField class="notification-candidates-field" [ngClass]="{'scrollable': areCandidatesScrollable}">
     <div *ngFor="let candidate of candidates" class="row no-gutters">
       <div class="col">
-        <a [routerLink]="['/id-candidate', candidate.id]" routerLinkActive="active" class="d-flex notification-candidate-wrapper" (click)="hideNotifications()">
+        <a [routerLink]="['/id-candidate', candidate.id]" routerLinkActive="active"
+           class="d-flex notification-candidate-wrapper" (click)="hideNotifications()">
           <img [src]="'../../../assets/images/' + candidate.photo + '.png'" alt="" class="avatar-small">
           <div class="notification-candidate-information-wrapper">
             <div class="notification-candidate-name">{{candidate.name}}
@@ -45,14 +46,16 @@
   <div #interviewsField class="notification-events-field" [ngClass]="{'scrollable': areInterviewsScrollable}">
     <div *ngFor="let interview of customInterviews" class="row no-gutters">
       <div class="col">
-        <a [routerLink]="['/interview']" routerLinkActive="active" class="d-flex notification-interview-wrapper" (click)="hideNotifications()">
+        <a [routerLink]="['/interview']" routerLinkActive="active" class="d-flex notification-interview-wrapper"
+           (click)="hideNotifications()">
           <div class="notification-interview-information-wrapper">
             <div class="notification-interview-participants">{{interview.participants}}</div>
             <div class="notification-interview-date">{{interview.start | date: 'MMM d'}}</div>
-            <div class="notification-interview-time">{{interview.start | date: 'H:mm'}} - {{interview.end | date: 'H:mm'}}</div>
+            <div class="notification-interview-time">{{interview.start | date: 'H:mm'}} - {{interview.end | date:
+              'H:mm'}}
+            </div>
           </div>
         </a>
-
       </div>
     </div>
 

@@ -66,18 +66,27 @@ export class NotificationsComponent implements OnInit {
 
           /*fill start date and time and end time field of the first interview or the rest in the interviews list*/
           if (i === 0) {
-            this.customInterviews[i].start = this.interviews[i].start;
-            this.customInterviews[i].end = this.interviews[i].end;
-          } else this.customInterviews.push({
-            start: this.interviews[i].start,
-            end: this.interviews[i].end,
-            participants: ''
-          });
+            this.customInterviews[i].start = new Date(this.interviews[i].start);
+            this.customInterviews[i].start.setHours(this.customInterviews[i].start.getHours() - 3);
+            this.customInterviews[i].end = new Date(this.interviews[i].end);
+            this.customInterviews[i].end.setHours(this.customInterviews[i].end.getHours() - 3);
+          } else {
+            let startDate = new Date(this.interviews[i].start);
+            startDate.setHours(startDate.getHours() - 3);
+            let endDate = new Date(this.interviews[i].end);
+            endDate.setHours(endDate.getHours() - 3);
+            this.customInterviews.push({
+              start: startDate,
+              end: endDate,
+              participants: ''
+            });
+          }
 
           /*fill participants list*/
           for (let j = 0; j < participantsLength; j++) {
             if (j === participantsLength - 1) {
-              if (residualParticipants) this.customInterviews[i].participants += `${this.interviews[i].participants[j]['participant']} +${residualParticipants}`;  /*if participantsLength > 3*/
+              /*if participantsLength > 3*/
+              if (residualParticipants) this.customInterviews[i].participants += `${this.interviews[i].participants[j]['participant']} +${residualParticipants}`;
               else this.customInterviews[i].participants += `${this.interviews[i].participants[j]['participant']}`;
               /*remove comma at the end*/
               break;

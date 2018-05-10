@@ -4,14 +4,12 @@ import {Options} from 'fullcalendar';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Interview} from '../shared/models/interview.model';
 import {InterviewService} from '../shared/services/interview.service';
-/*import {Router} from '@angular/router';*/
 import {User} from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-interview',
   templateUrl: './interview.component.html',
   styleUrls: ['./interview.component.css'],
-  /*styleUrls: ['./interview-modal.component.css'],*/
   encapsulation: ViewEncapsulation.None,
   providers: [NgbActiveModal]
 })
@@ -85,24 +83,8 @@ export class InterviewComponent implements OnInit {
 
   constructor(private modalService: NgbModal,
               private activeModal: NgbActiveModal,
-              private interviewService: InterviewService/*,
-              private router: Router*/) {
+              private interviewService: InterviewService) {
   }
-
-  updateEventCalendar(event: Interview) {
-    console.log(this.interviews);
-    /*this.ucCalendar.fullCalendar('removeEvents');*/
-    /*this.ucCalendar.fullCalendar('refetchEventSources', this.interviews);*/
-    /*this.ucCalendar.fullCalendar('addEventSource', this.interviews);*/
-    /*this.ucCalendar.fullCalendar('renderEvent', event);*/
-    /*this.ucCalendar.fullCalendar('refetchEvents');*/
-    /*this.ucCalendar.fullCalendar('renderEvent', event);*/
-    /*this.ucCalendar.fullCalendar('renderEvent', event);*/
-    /*this.ucCalendar.fullCalendar('rerenderEvents');*/
-  /*  this.ucCalendar.fullCalendar('renderEvent', event);
-    this.ucCalendar.fullCalendar('rerenderEvents');*/
-  }
-
 
   ngOnInit() {
     this.participantsDropdownSettings = {
@@ -118,26 +100,21 @@ export class InterviewComponent implements OnInit {
     this.interviewService.getUsers()
       .subscribe(users => {
         for (let user of users) {
-          if (user.name.length > 1)
-          {
+          if (user.name.length > 1) {
             this.interviewersList.push({id: user.id, interviewer: user.name + ' ' + user.surname});
           }
-
         }
       });
 
-    // this.participantsList = [
-    //   {id: 1, participant: 'Alex Sakovsky'},
-    //
     this.interviewService.getCandidates()
       .subscribe(participants => {
         for (let participant of participants) {
-          if (participant.name.length > 1){
+          if (participant.name.length > 1) {
             this.participantsList.push({id: participant.id, participant: participant.name});
           }
-
         }
       });
+
     this.interviewersDropdownSettings = {
       singleSelection: false,
       idField: 'id',
@@ -152,11 +129,13 @@ export class InterviewComponent implements OnInit {
       .subscribe(interviews => {
         this.interviews = interviews;
         this.eventsLength = this.interviews.length;
-    /*    for (let i = 0; i < this.interviews.length; i++) {
-          this.interviews[i].start = new Date(this.interviews[i].start).setHours()
-        }*/
+        for (let i = 0; i < this.interviews.length; i++) {
+          this.interviews[i].start = new Date(this.interviews[i].start);
+          this.interviews[i].start.setHours(this.interviews[i].start.getHours() - 3);
+          this.interviews[i].end = new Date(this.interviews[i].end);
+          this.interviews[i].end.setHours(this.interviews[i].end.getHours() - 3);
+        }
         this.calendarOptions = {
-          /*      editable: true,*/
           eventLimit: true,
           weekNumberCalculation: 'ISO',
           selectable: true,
@@ -172,15 +151,12 @@ export class InterviewComponent implements OnInit {
   }
 
   openCreateInterviewWindow(content, eventDetail?) {
-    console.log(eventDetail);
     this.clearModalWindow();
     if (eventDetail && eventDetail.event) {
       this.interviewId = eventDetail.event.id;
       this.selectedCurrentStartDate = new Date(eventDetail.event.start);
       this.selectedNewStartDate = new Date(this.selectedCurrentStartDate);
-      /*this.selectedNewStartDate.setHours(this.selectedNewStartDate.getUTCHours());*/ // convert the start hours to the UTC format
       this.selectedEndDate = new Date(eventDetail.event.end);
-      /*this.selectedEndDate.setHours(this.selectedEndDate.getUTCHours());*/ // convert the end hours to the UTC format
       this.selectedParticipants = eventDetail.event.participants || [];
       this.selectedInterviewers = eventDetail.event.interviewers || [];
       for (let i = 0; i < this.colors.length; i++) {
@@ -211,7 +187,6 @@ export class InterviewComponent implements OnInit {
     this.activeModal = this.modalService.open(content, {size: 'lg', centered: true});
   }
 
-
   closeModalWindow() {
     this.clearModalWindow();
     this.activeModal.close();
@@ -226,7 +201,6 @@ export class InterviewComponent implements OnInit {
   }
 
   changeCurrentColor(event: Event) {
-
     this.selectedColor.name = `${(<HTMLDivElement>event.target).classList[1]}`;
     for (let color of this.colors) {
       if (color.name === this.selectedColor.name) {
@@ -258,8 +232,6 @@ export class InterviewComponent implements OnInit {
 
   checkEndTime() {
     this.selectedEndDate.setSeconds(this.selectedNewStartDate.getSeconds(), this.selectedNewStartDate.getMilliseconds());
-    console.log(this.selectedNewStartDate.getTime());
-    console.log(this.selectedEndDate.getTime());
     if (this.selectedNewStartDate.getTime() >= this.selectedEndDate.getTime()) {
       this.isEndTimeInvalid = true;
       this.endTimeHint = 'This time must be greater than the start time';
@@ -274,7 +246,6 @@ export class InterviewComponent implements OnInit {
   }
 
   checkParticipants() {
-
     if (!this.selectedParticipants.length) {
       this.isParticipantsInvalid = true;
       return false;
@@ -285,7 +256,6 @@ export class InterviewComponent implements OnInit {
   }
 
   checkInterviewers() {
-
     if (!this.selectedInterviewers.length) {
       this.isInterviewersInvalid = true;
       return false;
@@ -298,10 +268,8 @@ export class InterviewComponent implements OnInit {
   checkFieldsValidation() {
     const correctnessOfFields = [];
 
-    /*   correctnessOfFields.push(this.checkTitle());*/
     correctnessOfFields.push(this.checkStartDate());
     correctnessOfFields.push(this.checkEndTime());
-    /* correctnessOfFields.push(this.checkEndDate());*/
     correctnessOfFields.push(this.checkParticipants());
     correctnessOfFields.push(this.checkInterviewers());
 
@@ -358,19 +326,26 @@ export class InterviewComponent implements OnInit {
       location: this.selectedLocation,
       description: this.selectedDescription
     };
-    console.log(event);
-    this.clearModalWindow();
-    this.interviewService.saveEvents(event).subscribe();
-    /*this.updateEventCalendar(event);*/
+    event.start.setHours(event.start.getHours() + 3);
+    event.end.setHours(event.end.getHours() + 3);
 
-    this.interviewService.getEvents()
-      .subscribe(interviews => {
-        this.interviews = interviews;
-      });
+    this.interviewService.saveEvents(event).subscribe();
+    this.clearModalWindow();
 
     setTimeout(() => {
-      this.ucCalendar.fullCalendar('refetchEvents');
+      this.interviewService.getEvents()
+        .subscribe(interviews => {
+          this.interviews = interviews;
+          this.eventsLength = this.interviews.length;
+          for (let i = 0; i < this.interviews.length; i++) {
+            this.interviews[i].start = new Date(this.interviews[i].start);
+            this.interviews[i].start.setHours(this.interviews[i].start.getHours() - 3);
+            this.interviews[i].end = new Date(this.interviews[i].end);
+            this.interviews[i].end.setHours(this.interviews[i].end.getHours() - 3);
+          }
+        });
     }, 100);
-    /*this.router.navigate(['/interview']);*/
+
+    this.ucCalendar.fullCalendar('refetchEvents');
   }
 }
