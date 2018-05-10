@@ -138,7 +138,7 @@ export class IdCandidateComponent implements OnInit {
 
   openModalWindowReview(modalWindow) {
     this.newReviewForm = new FormGroup({
-      'name': new FormControl(this.user.name), /*TODO HARDCORE, need id from db*/
+      'name': new FormControl(this.user.name),
       'content': new FormControl(null, [Validators.required, Validators.minLength(10)])
     });
     this.activeModal = this.modalService.open(modalWindow, {size: 'lg'});

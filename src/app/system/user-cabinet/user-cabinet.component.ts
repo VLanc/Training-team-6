@@ -67,7 +67,6 @@ export class UserCabinetComponent implements OnInit {
   }
 
   processingRole() {
-    /*TODO this is a hardcode*/
     if (this.user.roleIndex == 1) {
       return 'Developer';
     } else {

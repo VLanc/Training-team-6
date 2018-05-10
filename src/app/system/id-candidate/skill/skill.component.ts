@@ -38,7 +38,6 @@ export class SkillComponent implements OnInit {
       'name': new FormControl(null, [Validators.required, Validators.minLength(1)])
       });
   }
-/* TODO не помешает кнопка удаления незаполненного нового навыка*/
   saveSkill() {
     const skill = this.skillForm.value.name;
     this.editingSkill = false;

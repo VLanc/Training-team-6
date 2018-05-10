@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
-import {HttpClientModule, HttpClient } from '@angular/common/http'; /*TODO я ХЗ, нужен тут HttpClient*/
+import {HttpClientModule } from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthServeces} from './shared/services/auth.serveces';
