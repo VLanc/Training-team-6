@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
   
-  // TODO user toastr module to show messages.
+  // TODO use toastr module to show messages.
   message: Message;
 
   constructor(private userService: UsersServices,
