@@ -17,6 +17,8 @@ import {AuthServeces} from '../../shared/services/auth.serveces';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
+  
+  // TODO user toastr module to show messages.
   message: Message;
 
   constructor(private userService: UsersServices,
@@ -45,6 +47,8 @@ export class LoginComponent implements OnInit {
   }
   private showMessage(text: string, type: string = 'danger') {
       this.message = new Message(type, text);
+      
+      // TODO: use RxJs
       window.setTimeout(() => {
         this.message.text = '';
       }, 5000);
